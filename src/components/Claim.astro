@@ -1,0 +1,10 @@
+---
+const keywords = await Astro.glob('../content/keywords/*.md');
+---
+<ul>
+  {keywords.map(kw => <li>
+		<h2 class="text-mega">{kw.frontmatter.word}</h2>
+		<div set:html={kw.compiledContent()} class="bg-{kw.frontmatter.color}"/>
+		<slot/>
+		</li>)}
+</ul>
