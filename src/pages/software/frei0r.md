@@ -10,7 +10,7 @@ description: "Frei0r is free and open source plugin collection for video effects
 
 # What Frei0r is
 
-Frei0r is a minimalistic plugin API for video effects. The main emphasis is on simplicity for an API that will round up the most common video effects into simple **filters, sources and mixers **that can be controlled by parameters. It’s our hope that this way these simple effects can be shared between many applications, avoiding their reimplementation by different projects.
+Frei0r is a minimalistic plugin API for video effects. The main emphasis is on simplicity for an API that will round up the most common video effects into simple **filters, sources and mixers** that can be controlled by parameters. It’s our hope that this way these simple effects can be shared between many applications, avoiding their reimplementation by different projects.
 
 ## Video effects for whom?
 
