@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
 title: "Tomb :: File Encryption on GNU/Linux"
-# description: "Tomb is an 100% free and open source system for file encryption on GNU/Linux. It simply makes gpg dm-crypt and cryptsetup usable in a variety of situations."
+description: "Tomb is an 100% free and open source system for file encryption on GNU/Linux. It simply makes gpg dm-crypt and cryptsetup usable in a variety of situations."
 ---
 
 # Tomb :: File Encryption on GNU/Linux
