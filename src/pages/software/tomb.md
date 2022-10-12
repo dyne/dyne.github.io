@@ -70,56 +70,57 @@ Tomb can do much more, like execution hooks, steganography of keys and fast sear
 There are also some graphical user interfaces, mime-type registrations and things to make it easier to use on the desktop, look in **extras/**.
 
 Here below a snapshot of the commandline help (tomb -h):
+
 ```
-  Tomb 2.10.0 - a strong and gentle undertaker for your secrets
+Tomb 2.10.0 - a strong and gentle undertaker for your secrets
 
-   Copyright (C) 2007-2021 Dyne.org Foundation, License GNU GPL v3+
-   This is free software: you are free to change and redistribute it
-   For the latest sourcecode go to <http://dyne.org/software/tomb>
+Copyright (C) 2007-2021 Dyne.org Foundation, License GNU GPL v3+
+This is free software: you are free to change and redistribute it
+For the latest sourcecode go to <http://dyne.org/software/tomb>
 
-  Syntax: tomb [options] command [arguments]
+Syntax: tomb [options] command [arguments]
 
-  Commands:
+Commands:
 
-   // Creation:
-   dig          create a new empty TOMB file of size -s in MiB
-   forge        create a new KEY file and set its password
-   lock         installs a lock on a TOMB to use it with KEY
+// Creation:
+dig          create a new empty TOMB file of size -s in MiB
+forge        create a new KEY file and set its password
+lock         installs a lock on a TOMB to use it with KEY
 
    // Operations on tombs:
-   open         open an existing TOMB (-k KEY file or - for stdin)
-   index        update the search indexes of tombs
-   search       looks for filenames matching text patterns
-   list         list of open TOMBs and information on them
-   ps           list of running processes inside open TOMBs
-   close        close a specific TOMB (or 'all')
-   slam         slam a TOMB killing all programs using it
-   resize       resize a TOMB to a new size -s (can only grow)
+	open         open an existing TOMB (-k KEY file or - for stdin)
+index        update the search indexes of tombs
+search       looks for filenames matching text patterns
+list         list of open TOMBs and information on them
+ps           list of running processes inside open TOMBs
+close        close a specific TOMB (or 'all')
+slam         slam a TOMB killing all programs using it
+resize       resize a TOMB to a new size -s (can only grow)
 
-   // Operations on keys:
-   passwd       change the password of a KEY (needs old pass)
-   setkey       change the KEY locking a TOMB (needs old key and pass)
+// Operations on keys:
+passwd       change the password of a KEY (needs old pass)
+setkey       change the KEY locking a TOMB (needs old key and pass)
 
   Options:
 
-   -s           size of the tomb file when creating/resizing one (in MiB)
-   -k           path to the key to be used ('-k -' to read from stdin)
-   -n           don't launch the execution hooks found in tomb
-   -p           preserve the ownership of all files in tomb
-   -o           options passed to commands: open, lock, forge (see man)
-   -f           force operation (i.e. even if swap is active)
-   -g           use a GnuPG key to encrypt a tomb key
-   -r           provide GnuPG recipients (separated by comma)
-   -R           provide GnuPG hidden recipients (separated by comma)
-   --sudo       super user exec alternative to sudo (doas or none)
+-s           size of the tomb file when creating/resizing one (in MiB)
+-k           path to the key to be used ('-k -' to read from stdin)
+-n           don't launch the execution hooks found in tomb
+-p           preserve the ownership of all files in tomb
+-o           options passed to commands: open, lock, forge (see man)
+-f           force operation (i.e. even if swap is active)
+-g           use a GnuPG key to encrypt a tomb key
+-r           provide GnuPG recipients (separated by comma)
+-R           provide GnuPG hidden recipients (separated by comma)
+--sudo       super user exec alternative to sudo (doas or none)
 
-   -h           print this help
-   -v           print version, license and list of available ciphers
-   -q           run quietly without printing informations
-   -D           print debugging information at runtime
+-h           print this help
+-v           print version, license and list of available ciphers
+-q           run quietly without printing informations
+-D           print debugging information at runtime
 
-  For more information on Tomb read the manual: man tomb
-  Please report bugs on <http://github.com/dyne/tomb/issues>.
+For more information on Tomb read the manual: man tomb
+Please report bugs on <http://github.com/dyne/tomb/issues>.
 ```
 
 ## [![foster\_privacy](https://www.dyne.org/wp-content/uploads/2012/06/foster_privacy.png)](https://www.dyne.org/wp-content/uploads/2012/06/foster_privacy.png)Why should one trust this script?
@@ -142,8 +143,7 @@ If you can’t own a laptop then it’s possible to go around with a USB stick a
 
 The internet offers plenty of free services, on the wave of the Web2.0 fuzz and the community boom, while all private informations are hosted on servers owned by global corporations and monopolies.
 
-> “The distinction between what is public and what is private is becoming more and more blurred with the increasing intrusiveness of the media and advances in electronic technology. While this distinction is always the outcome of continuous cultural negotiation, it continues to be critical, for where nothing is private, democracy becomes impossible.”\
-> (from [Privacy Conference, Social Research, New School University](http://www.newschool.edu/centers/socres/privacy/Home.html))
+> The distinction between what is public and what is private is becoming more and more blurred with the increasing intrusiveness of the media and advances in electronic technology. While this distinction is always the outcome of continuous cultural negotiation, it continues to be critical, for where nothing is private, democracy becomes impossible.
 
 It is important to keep in mind that no-one else better than *you* can ensure the privacy of your personal data. Server hosted services and web integrated technologies gather all data into huge information pools that are made available to established economical and cultural regimes.
 
@@ -155,9 +155,9 @@ We’ve felt the urgency of publishing Tomb for other operating systems than dyn
 
 [TrueCrypt](http://en.wikipedia.org/wiki/TrueCrypt) makes use of statically linked libraries so that its code is hard to audit, plus is [not considered free](http://lists.freedesktop.org/archives/distributions/2008-October/000276.html) by operating system distributors because of liability reasons, see [Debian](http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=364034), [Ubuntu](https://bugs.edge.launchpad.net/ubuntu/+bug/109701), [Suse](http://lists.opensuse.org/opensuse-buildservice/2008-10/msg00055.html), [Gentoo](http://bugs.gentoo.org/show_bug.cgi?id=241650) and [Fedora](https://fedoraproject.org/wiki/ForbiddenItems#TrueCrypt).
 
-[Cryptkeeper](http://tom.noflag.org.uk/cryptkeeper.html) is the best alternative to Tomb out there and its main advantage consists in not needing root access on the machine it’s being used. But Cryptkeeper still has drawbacks: it uses [EncFS](http://www.arg0.net/encfs) which implements weaker encryption than dm-crypt and it doesn’t promotes the separated storage of keys.
+[EncFS](http://www.arg0.net/encfs) is the best alternative to Tomb out there and its main advantage consists in not needing root access on the machine it’s being used. But still has drawbacks: it implements weaker encryption than dm-crypt and it doesn’t promotes the separated storage of keys.
 
-At last, the [Encrypted home](https://we.riseup.net/debian/automatically-mount-encrypted-home) mechanisms on operating systems as Debian and Ubuntu adopt encryption algorithms as strong as Tomb does, but they need to be configured when the machine is installed, they cannot be easily transported and again they don’t promote separated storage of keys.
+At last, encrypted home mechanisms on operating systems as Debian and Ubuntu adopt encryption algorithms as strong as Tomb does, but they need to be configured when the machine is installed, they cannot be easily transported and again they don’t promote separated storage of keys.
 
 ##### Where do we learn from
 
