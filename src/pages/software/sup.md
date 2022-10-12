@@ -1,4 +1,4 @@
 ---
 layout: ../../layouts/redirect.astro
-url: "https://sup.dyne.org"
+destination: "https://sup.dyne.org"
 ---
