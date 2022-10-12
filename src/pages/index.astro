@@ -2,11 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
 import WhoWeAre from '~/components/WhoWeAre.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<Section title="Who we are" description="Our mission is to create a more open world where all non-personal information is open, free for everyone to use.Our mission is to create a more open world where all non-personal  is open, free for everyone to use.">
+        <Hero />
+		<Section title="Who we are" description="Our mission is to create a more open world where all non-personal information is free for everyone to use. Our success is measured by the social, economical and environmental impact of our work. Learn more about what makes our approach so special: ">
 			<WhoWeAre/>
 		</Section>
 	</main>

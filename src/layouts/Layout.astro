@@ -4,20 +4,19 @@ export interface Props {
 }
 
 // import "@fontsource/syne-tactile"
-import "@fontsource/syne-tactile/400.css"
-import "@fontsource/syne/400.css"
-import "@fontsource/syne/700.css"
-import "@fontsource/syne/800.css"
-import Header from "~/components/Header.astro";
+import '@fontsource/syne-tactile/400.css';
+import '@fontsource/syne/400.css';
+import '@fontsource/syne/700.css';
+import '@fontsource/syne/800.css';
+import Header from '~/components/Header.astro';
 
 const choose = (choices) => {
-  const index = Math.floor(Math.random() * choices.length);
-  return choices[index];
-}
+	const index = Math.floor(Math.random() * choices.length);
+	return choices[index];
+};
 
-
-const { title } = Astro.props;
-const accent = choose(["#F4CC9C", "#154B45", "#4843EB"])
+const { title, description } = Astro.props;
+const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 ---
 
 <!DOCTYPE html>
@@ -28,25 +27,23 @@ const accent = choose(["#F4CC9C", "#154B45", "#4843EB"])
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="description" content={description} />
 	</head>
 	<body class="bg-[#FFEEDD] p-20">
 		<!-- <Header /> -->
 		<slot />
-	</body>
-</html>
-<style is:global define:vars={{accent}}>
-	strong {
-		font-weight: 700;
-	}
-	em {
-		font-family: 'Syne Tactile';
-	}
-	:root {
-		--accent-color: var(--accent);
-	}
-
-</style>
-<!-- <style is:global>
+		<style is:global define:vars={{ accent }}>
+			strong {
+				font-weight: 700;
+			}
+			em {
+				font-family: 'Syne Tactile';
+			}
+			:root {
+				--accent-color: var(--accent);
+			}
+		</style>
+		<!-- <style is:global>
 	:root {
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
@@ -55,3 +52,5 @@ const accent = choose(["#F4CC9C", "#154B45", "#4843EB"])
 		background-color: #F6F6F6;
 	}
 </style> -->
+	</body>
+</html>
