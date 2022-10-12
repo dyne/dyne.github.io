@@ -1,21 +1,16 @@
 ---
-export interface Props {
-	title: string;
-}
-
-// import "@fontsource/syne-tactile"
 import '@fontsource/syne-tactile/400.css';
 import '@fontsource/syne/400.css';
 import '@fontsource/syne/700.css';
 import '@fontsource/syne/800.css';
-import Header from '~/components/Header.astro';
+// import Header from '~/components/Header.astro';
 
 const choose = (choices) => {
 	const index = Math.floor(Math.random() * choices.length);
 	return choices[index];
 };
 
-const { title, description } = Astro.props;
+const { content } = Astro.props;
 const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 ---
 
@@ -26,8 +21,8 @@ const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="description" content={description} />
+		<title>{content.title}</title>
+		<meta name="description" content={content.description} />
 	</head>
 	<body class="bg-[#FFEEDD] md:p-20 prose">
 		<!-- <Header /> -->
