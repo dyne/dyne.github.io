@@ -68,7 +68,10 @@ module.exports = {
 					letterSpacing: '-0.02rem',
 					fontWeight: '600',
 				}],
-			}
+			}, 
+            letterSpacing: {
+                normal: '-0.2rem',
+            }
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],
