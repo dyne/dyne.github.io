@@ -323,7 +323,8 @@ Testing, reviews and documentation are contributed by Dreamer, Shining the Trans
 
 Most research we refer to is documented by Clemens Fruhwirth who also developed Cryptsetup together with Christophe Saout.
 
-> “*All I know is what the words know, and dead things, and that makes a handsome little sum, with a beginning and a middle and an end, as in the well-built phrase and the long sonata of the dead.*” Samuel Beckett
+> All I know is what the words know, and dead things, and that makes a handsome little sum, with a beginning and a middle and an end, as in the well-built phrase and the long sonata of the dead.”
+&mdash; <cite>Samuel Beckett</cite>
 
 <!-- .entry-content -->
 

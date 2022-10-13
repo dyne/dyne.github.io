@@ -24,9 +24,11 @@ const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 		<title>{content?.title || "Dyne.org"}</title>
 		<meta name="description" content={content?.description || ""} />
 	</head>
-	<body class="bg-[#FFEEDD] md:p-20 prose">
+	<body class="bg-[#FFEEDD] md:p-20">
 		<!-- <Header /> -->
+    <div class="w-full mx-auto prose prose-2xl prose-blockquote:font-thin prose-blockquote:font-sans mx-auto prose-headings:text-accent">
 		<slot />
+    </div>
 		<style is:global define:vars={{ accent }}>
 			strong {
 				font-weight: 700;

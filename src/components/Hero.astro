@@ -6,6 +6,6 @@ import * as copy from '../content/hero/index.md';
     <div class="flex flex-col text-center items-center md:text-right md:items-end space-y-12 md:space-y-8 tracking-tight">
         <div class="text-6xl" set:html={copy.compiledContent()} />
         <p class="max-w-2 text-3xl">{copy.frontmatter.welcome}</p>
-        <button class="bg-tertiary-40 py-2 px-4 rounded-full w-fit text-white text-3xl">{copy.frontmatter.CTA}</button>
+        <button class="bg-accent py-2 px-4 rounded-full w-fit text-white text-3xl">{copy.frontmatter.CTA}</button>
     </div>
 </div>
