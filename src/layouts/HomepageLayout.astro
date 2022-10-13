@@ -3,14 +3,14 @@ import '@fontsource/syne-tactile/400.css';
 import '@fontsource/syne/400.css';
 import '@fontsource/syne/700.css';
 import '@fontsource/syne/800.css';
-import Footer from '~/components/Footer.astro';
+import Header from '~/components/Header.astro';
 
 const choose = (choices) => {
 	const index = Math.floor(Math.random() * choices.length);
 	return choices[index];
 };
 
-const { content } = Astro.props;
+const { title, description } = Astro.props;
 const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 ---
 
@@ -21,23 +21,18 @@ const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{content?.title || "Dyne.org"}</title>
-		<meta name="description" content={content?.description || ""} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
 	</head>
-	<body class="bg-[#FFEEDD] md:p-20 prose">
-		<!-- <Header /> -->
+	<body class="bg-[#FFEEDD] md:p-20">
+		<Header />
 		<slot />
 		<style is:global define:vars={{ accent }}>
-			strong {
-				font-weight: 700;
-			}
-			em {
-				font-family: 'Syne Tactile';
-			}
+			strong { font-weight: 700; }
+			em { font-family: 'Syne Tactile'; }
 			:root {
 				--accent-color: var(--accent);
 			}
 		</style>
-		<Footer />
 	</body>
 </html>

@@ -1,5 +1,5 @@
 ---
-const keywords = await Astro.glob('../content/who-we-are/*.md');
+const keywords = await Astro.glob('~/content/who-we-are/*.md');
 ---
 <ul>
   {keywords.map(kw => <li>

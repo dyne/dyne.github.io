@@ -1,0 +1,15 @@
+---
+import Layout from "~/layouts/Layout.astro";
+const softwares = await Astro.glob('~/pages/software/*.md');
+---
+
+<Layout title="" description="">
+    <h1>Software</h1>
+    <ul>
+        {softwares.map((software) => (
+        <li>
+            <a href={software.url}>{software.frontmatter.title}</a>
+        </li>
+        ))}
+    </ul>
+</Layout>

@@ -1,16 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '~/layouts/HomepageLayout.astro';
 import Section from '../components/Section.astro';
 import WhoWeAre from '~/components/WhoWeAre.astro';
 import Hero from '../components/Hero.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Dyne.org" description="Mimmolo">
 	<main>
 		<Hero />
 
-		<!-- <Section title="Who we are" description="Our mission is to create a more open world where all non-personal information is free for everyone to use. Our success is measured by the social, economical and environmental impact of our work. Learn more about what makes our approach so special: ">
+		<Section title="Who we are" description="Our mission is to create a more open world where all non-personal information is free for everyone to use. Our success is measured by the social, economical and environmental impact of our work. Learn more about what makes our approach so special: ">
 			<WhoWeAre/>
-		</Section> -->
+		</Section>
 	</main>
 </Layout>
