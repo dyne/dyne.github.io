@@ -71,7 +71,7 @@ There are also some graphical user interfaces, mime-type registrations and thing
 
 Here below a snapshot of the commandline help (tomb -h):
 
-```
+```man
 Tomb 2.10.0 - a strong and gentle undertaker for your secrets
 
 Copyright (C) 2007-2021 Dyne.org Foundation, License GNU GPL v3+
@@ -261,7 +261,7 @@ Ssh is used for the key transport, which can happen also without passwords by us
 ## Keys on your mobile phone
 
 A neat setup is that of keeping the tomb on your laptop and the key on your mobile phone, being fairly sure that they are never kept in the same place, pocket or bag. Every time a tomb is open, the mobile activates an “obex ftp daemon” that serves the key over bluetooth to authorized paired devices. A simple script to make that happen follows, substitute the ESSID 11:22:33:44:55:66 with that of your device:
-```
+```bash
  mkdir -p /dev/shm/secrets      # prepare to store temporarily the key
  chmod go-rwx /dev/shm/secrets  # in volatile ram
  cd /dev/shm/secrets
@@ -323,7 +323,8 @@ Testing, reviews and documentation are contributed by Dreamer, Shining the Trans
 
 Most research we refer to is documented by Clemens Fruhwirth who also developed Cryptsetup together with Christophe Saout.
 
-> All I know is what the words know, and dead things, and that makes a handsome little sum, with a beginning and a middle and an end, as in the well-built phrase and the long sonata of the dead.”
+> All I know is what the words know, and dead things, and that makes a handsome little sum, with a beginning and a middle and an end, as in the well-built phrase and the long sonata of the dead.
+
 &mdash; <cite>Samuel Beckett</cite>
 
 <!-- .entry-content -->

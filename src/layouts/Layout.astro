@@ -21,14 +21,16 @@ const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{content?.title || "Dyne.org"}</title>
-		<meta name="description" content={content?.description || ""} />
+		<title>{content?.title || 'Dyne.org'}</title>
+		<meta name="description" content={content?.description || ''} />
 	</head>
-	<body class="bg-[#FFEEDD] md:p-20">
+	<body class="bg-[#FFEEDD] p-2 md:p-20">
 		<!-- <Header /> -->
-    <div class="w-full mx-auto prose prose-2xl prose-blockquote:font-thin prose-blockquote:font-sans mx-auto prose-headings:text-accent">
-		<slot />
-    </div>
+		<div
+			class="pb-24 prose-img:mx-auto w-full prose md:prose-2xl prose-blockquote:font-thin prose-blockquote:font-sans mx-auto prose-headings:text-accent">
+			<slot />
+		</div>
+		<Footer />
 		<style is:global define:vars={{ accent }}>
 			strong {
 				font-weight: 700;
@@ -40,6 +42,5 @@ const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 				--accent-color: var(--accent);
 			}
 		</style>
-		<Footer />
 	</body>
 </html>

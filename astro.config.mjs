@@ -16,6 +16,9 @@ export default defineConfig({
 	base: SITE.basePathname,
 
 	output: 'static',
+  markdown: {
+    drafts: true,
+  },
 	integrations: [
 		tailwind(),
 		partytown(),
