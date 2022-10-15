@@ -28,10 +28,14 @@ const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 	<body class="bg-[#FFEEDD] md:px-20">
 		<Header />
 		<slot />
-        <Footer />
+		<Footer />
 		<style is:global define:vars={{ accent }}>
-			strong { font-weight: 700; }
-			em { font-family: 'Syne Tactile'; }
+			strong {
+				font-weight: 700;
+			}
+			em {
+				font-family: 'Syne Tactile';
+			}
 			:root {
 				--accent-color: var(--accent);
 			}

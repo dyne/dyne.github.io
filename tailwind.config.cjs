@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-		mode: 'jit',
+		// mode: 'jit',
 	content: ['./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
@@ -63,7 +63,7 @@ module.exports = {
 				serif: ["Syne Tactile", "cursive"],
 			},
 			fontSize: {
-				'mega': ['5.75rem', {
+				'mega': ['7.65rem', {
 					lineHeight: '13.625rem',
 					letterSpacing: '-0.02rem',
 					fontWeight: '600',

@@ -1,0 +1,4 @@
+---
+const {href, text, color="accent"} = Astro.props;
+---
+<a href={href} class={`bg-accent bg-${color} py-2 px-4 rounded-full w-fit text-white text-3xl`}>{text}</a>

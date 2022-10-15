@@ -1,10 +1,19 @@
 ---
 const keywords = await Astro.glob('~/content/who-we-are/*.md');
 ---
-<ul>
-  {keywords.map(kw => <li>
-		<h2 class="text-mega">{kw.frontmatter.word}</h2>
-		<div set:html={kw.compiledContent()} class="bg-{kw.frontmatter.color}"/>
-		<slot/>
-		</li>)}
+
+<ul class="relative px-12">
+	{
+		keywords.map((kw) => (
+			<li class={`flex overflow-hidden text-black bg-${kw.frontmatter.color} ${kw.frontmatter.rotation} rounded-[40px] px-12`}>
+                <div class="hover:-translate-x-3/4 transition hover:transform ease-in-out delay-150 duration-300 flex flex-row">
+                    <h2 class={`text-mega w-full whitespace-nowrap`}>{kw.frontmatter.word}</h2>
+                    <div set:html={kw.compiledContent()}/>
+                </div>
+			</li>
+		))
+	}
 </ul>
+<style>
+    color: red !important;
+</style>

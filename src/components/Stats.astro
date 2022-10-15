@@ -1,0 +1,12 @@
+---
+import * as copy from '~/content/stats/index.md';
+import Button from '~/components/Button.astro';
+const { description, CTA, href } = copy.frontmatter;
+---
+<div class="flex flex-col md:flex-row items-center space-y-8">
+    <div class="flex flex-col text-center items-center md:text-right md:items-end space-y-12 md:space-y-8 tracking-tight">
+        <div class="text-6xl" set:html={copy.compiledContent()} />
+        <p class="max-w-2 text-3xl">{description}</p>
+        <Button href={href} text={CTA}/>
+    </div>
+</div>
