@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
-title: 
-description: "ZShaolin :: GNU/Linux Android terminal"
+title: "ZShaolin :: GNU/Linux Android terminal"
+description: ""
 ---
 
 # ZShaolin :: GNU/Linux Android terminal
