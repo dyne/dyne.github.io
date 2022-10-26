@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-		// mode: 'jit',
+	// mode: 'jit',
 	content: ['./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
@@ -56,22 +56,25 @@ module.exports = {
 					20: '#D6D6D6',
 					10: '#F0F0F0',
 					5: '#FCFCFC',
-				}
+				},
 			},
 			fontFamily: {
-				sans: ["Syne", "sans"],
-				serif: ["Syne Tactile", "cursive"],
+				sans: ['Syne', 'sans'],
+				serif: ['Syne Tactile', 'cursive'],
 			},
 			fontSize: {
-				'mega': ['7.65rem', {
-					lineHeight: '13.625rem',
-					letterSpacing: '-0.02rem',
-					fontWeight: '600',
-				}],
-			}, 
-            letterSpacing: {
-                normal: '-0.2rem',
-            }
+				mega: [
+					'7.65rem',
+					{
+						lineHeight: '13.625rem',
+						letterSpacing: '-0.02rem',
+						fontWeight: '600',
+					},
+				],
+			},
+			letterSpacing: {
+				normal: '-0.2rem',
+			},
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

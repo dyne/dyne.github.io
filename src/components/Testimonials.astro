@@ -1,0 +1,21 @@
+---
+import Swiper from './Swiper.astro';
+
+const testimonials = await Astro.glob('~/content/testimonial/*.md');
+---
+
+<div class="bg-accent rounded-full p-28 my-24">
+	<Swiper id="testimonials-slider flex align-middle">
+		{
+			testimonials.map((t) => {
+				const { pic } = t.frontmatter;
+				return (
+					<div class="flex gap-20 align-middle swiper-slide">
+						<img src={pic} />
+						<div set:html={t.compiledContent()} class="text-primary-light text-3xl" />
+					</div>
+				);
+			})
+		}
+	</Swiper>
+</div>
