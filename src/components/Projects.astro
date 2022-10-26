@@ -1,0 +1,26 @@
+---
+import Button from '~/components/Button.astro';
+import Swiper from './Swiper.astro';
+
+const projects = await Astro.glob('~/content/what-we-do/*.md');
+---
+
+<div class="m-20">
+	<Swiper slidesPerView={3} id="projects-slider">
+		{
+			projects.map((p) => {
+				const { logo, name, link } = p.frontmatter;
+				return (
+					<div class="swiper-slide bg-[#FAE0C6] flex flex-col rounded-[40px] p-7">
+						<div class="flex justify-end">
+							<img class="h-28 w-28" src={logo} />
+						</div>
+						<h1 class="text-4xl text-black font-sans py-8">{name}</h1>
+						<div set:html={p.compiledContent()} class="text-black pb-10" />
+						<Button href={link} text="View Project" />
+					</div>
+				);
+			})
+		}
+	</Swiper>
+</div>

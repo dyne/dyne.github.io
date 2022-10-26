@@ -1,19 +1,29 @@
 ---
 import Layout from '~/layouts/HomepageLayout.astro';
-import Section from '../components/Section.astro';
+import Section from '~/components/Section.astro';
 import WhoWeAre from '~/components/WhoWeAre.astro';
-import Hero from '../components/Hero.astro';
-import Stats from '../components/Stats.astro';
+import Hero from '~/components/Hero.astro';
+import Stats from '~/components/Stats.astro';
+import Projects from '~/components/Projects.astro';
 ---
 
 <Layout title="Dyne.org" description="Mimmolo">
 	<main>
 		<Hero />
 
-		<Section title="Who we are" description="Our mission is to create a more open world where all non-personal information is free for everyone to use. Our success is measured by the social, economical and environmental impact of our work. Learn more about what makes our approach so special: ">
+		<Section
+			title="Who we are"
+			description="Our mission is to create a more open world where all non-personal information is free for everyone to use. Our success is measured by the social, economical and environmental impact of our work. Learn more about what makes our approach so special: "
+		>
 			<WhoWeAre />
 		</Section>
 
-        <Stats />
+		<Stats />
+		<Section
+			title="What we do"
+			description="Since the year 2000 a large amount of people and organisations in all fields employed and redistributed our creations. Our software gives everybody the right to use, study, share and improve its code, supporting fundamental freedoms. Discover more by scrolling through some of our projects: "
+		>
+			<Projects />
+		</Section>
 	</main>
 </Layout>

@@ -1,10 +1,12 @@
 ---
+import Layout from '~/layouts/Layout.astro';
+import { marked } from 'marked';
+
 const {content} = Astro.props;
+const response = await fetch(content.destination);
+const html = marked.parse(await response.text());
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="refresh" content=`0;url=${content.destination}`>
-	</head>
-</html>
+<Layout>
+    <div set:html={html} />
+</Layout>

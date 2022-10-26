@@ -1,12 +1,29 @@
 ---
 import * as copy from '~/content/stats/index.md';
 import Button from '~/components/Button.astro';
+import Swiper from '~/components/Swiper.astro';
 const { description, CTA, href } = copy.frontmatter;
+const stats = await Astro.glob('~/content/stats/stat_*.md');
 ---
-<div class="flex flex-col md:flex-row items-center space-y-8">
-    <div class="flex flex-col text-center items-center md:text-right md:items-end space-y-12 md:space-y-8 tracking-tight">
-        <div class="text-6xl" set:html={copy.compiledContent()} />
-        <p class="max-w-2 text-3xl">{description}</p>
-        <Button href={href} text={CTA}/>
-    </div>
+
+<div class="flex flex-col md:flex-row items-center space-y-8 md:px-64">
+	<div class="bg-[url('/images/illustrations/stats.svg')] w-96 h-auto bg-bottom bg-contain bg-no-repeat">
+		<Swiper id="stats-slider">
+			{
+				stats.map((stat, i) => (
+					<div class="flex flex-col text-center swiper-slide">
+						<h3 class="text-[12rem]">{stat.frontmatter.datum}</h3>
+						<p>{stat.frontmatter.title}</p>
+					</div>
+				))
+			}
+		</Swiper>
+	</div>
+	<div
+		class="flex flex-col text-center items-center md:text-right md:pl-24 md:items-end space-y-12 md:space-y-8 tracking-tight"
+	>
+		<p class="max-w-2 text-2xl">{description}</p>
+		<div class="text-6xl" set:html={copy.compiledContent()}></div>
+		<Button href={href} text={CTA} />
+	</div>
 </div>

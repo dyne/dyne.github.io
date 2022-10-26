@@ -1,6 +1,6 @@
 ---
 name: Zenroom
-logo: http://placehold.it/100x100
+logo: https://zenroom.org/wp-content/uploads/2020/09/zenroom_only-logo_padding.png
 link: http://dev.zenroom.org
 ---
 
