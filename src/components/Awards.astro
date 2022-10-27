@@ -1,0 +1,9 @@
+---
+import * as copy from '../content/awards/index.md';
+import Button from './Button.astro';
+---
+
+<div class="bg-accent">
+	<div set:html={copy.compiledContent()}></div>
+	<Button href={copy.frontmatter.link}>{copy.frontmatter.cta}</Button>
+</div>

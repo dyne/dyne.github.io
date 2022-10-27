@@ -1,11 +1,12 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
+import tailwind from '@astrojs/tailwind';
+import { defineConfig } from 'astro/config';
 
-import sitemap from '@astrojs/sitemap';
-import { SITE } from './src/config.mjs';
 import image from '@astrojs/image';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 import path from 'path';
+import { SITE } from './src/config.mjs';
 
 import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -18,7 +19,7 @@ export default defineConfig({
 	markdown: {
 		drafts: true,
 	},
-	integrations: [tailwind(), partytown(), sitemap(), image()],
+	integrations: [tailwind(), partytown(), sitemap(), image(), mdx()],
 	vite: {
 		resolve: {
 			alias: {

@@ -7,10 +7,12 @@ export interface Props {
 const { title, description } = Astro.props;
 ---
 
-<section class="bg-black rounded-[60px] text-white m-2 p-2 pt-14">
-	<div class="flex justify-between items-stretch pl-28 pr-10 space-x-16 text-[#FFEEDD]">
-		<div class="font-semibold text-5xl whitespace-nowrap">{title}</div>
-		<div class="pr-10 text-lg pl-20">{description}</div>
+<section class="bg-black rounded-[60px] text-white m-2 lg:p-2 lg:pt-14 p-10">
+	<div
+		class="flex flex-col lg:flex-row lg:justify-between items-center lg:items-stretch lg:pl-28 lg:pr-10 lg:space-x-16 text-[#FFEEDD]"
+	>
+		<div class="font-semibold text-3xl lg:text-5xl whitespace-nowrap">{title}</div>
+		<div class="text-center lg:text-start py-10 lg:pr-10 text-lg lg:pl-20">{description}</div>
 	</div>
 	<slot />
 </section>

@@ -15,7 +15,7 @@ const { slidesPerView = 1, id } = Astro.props;
 	new Swiper(`#${id}`, {
 		loop: true,
 		autoplay: { delay: 2000 },
-		slidesPerView: slidesPerView,
+		slidesPerView: window.innerWidth < 1024 ? 1 : slidesPerView,
 		spaceBetween: 30,
 		pagination: { el: '.swiper-pagination', clickable: true },
 	});
