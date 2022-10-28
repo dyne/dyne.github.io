@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/Layout.astro
-title: MuSE - Stream Internet Radio
+title: MuSE :: Stream Internet Radio
 description: "MuSE is an application for the mixing, encoding, and network streaming of sound: it can mix a microphone and multiple channels and transmit to the Internet."
 ---
 
