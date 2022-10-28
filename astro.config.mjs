@@ -3,7 +3,6 @@ import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 
 import image from '@astrojs/image';
-import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import path from 'path';
 import { SITE } from './src/config.mjs';
@@ -19,7 +18,7 @@ export default defineConfig({
 	markdown: {
 		drafts: true,
 	},
-	integrations: [tailwind(), partytown(), sitemap(), image(), mdx()],
+	integrations: [tailwind(), partytown(), sitemap(), image()],
 	vite: {
 		resolve: {
 			alias: {

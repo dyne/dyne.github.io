@@ -4,11 +4,10 @@ export const SITE = {
 	origin: 'https://dyne.org',
 	basePathname: '/',
 
-	title: 'Dyne.org - Free Software and Open Source',
-	description: '🚀 Dyne.org is a free and ready to start template to make your website using Astro and Tailwind CSS.',
-
-	// googleAnalyticsId: false, // or "G-XXXXXXXXXX",
-	// googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
+	title: 'Dyne.org digital community and free software foundry',
+	description:
+		'🚀 A non-profit foundation and free software foundry with more than 10 years of expertise in developing tools and narratives for community empowerment.',
+	// '🚀 Dyne.org is a software foundry and research organization dedicated to share the benefits of freedom in the digital world. We share our ideas and inventions to promote horizontal access to technology, education and art.'
 };
 
 export const BLOG = {

@@ -5,14 +5,8 @@ import '@fontsource/syne/700.css';
 import '@fontsource/syne/800.css';
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
-
-const choose = (choices) => {
-	const index = Math.floor(Math.random() * choices.length);
-	return choices[index];
-};
-
+import BaseLayout from './BaseLayout.astro';
 const { title, description } = Astro.props;
-const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 ---
 
 <!DOCTYPE html>
@@ -20,25 +14,13 @@ const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 	</head>
-	<body class="bg-[#FFEEDD] md:px-20">
+	<BaseLayout>
 		<Header />
 		<slot />
 		<Footer />
-		<style is:global define:vars={{ accent }}>
-			strong {
-				font-weight: 700;
-			}
-			em {
-				font-family: 'Syne Tactile';
-			}
-			:root {
-				--accent-color: var(--accent);
-			}
-		</style>
-	</body>
+	</BaseLayout>
 </html>

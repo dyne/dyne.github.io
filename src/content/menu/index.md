@@ -1,3 +1,0 @@
-- [Who we are](#who-we-are)
-- [What we do](#who-we-do)
-- [What we did](#who-we-did)

@@ -1,21 +1,28 @@
 ---
-import MetaTags from '~/components/core/MetaTags.astro';
+import GlobalAssets from '~/components/GlobalAssets.astro';
+import MetaTags from '~/components/MetaTags.astro';
 
 const { meta = {} } = Astro.props;
+const choose = (choices) => {
+	const index = Math.floor(Math.random() * choices.length);
+	return choices[index];
+};
+const accent = choose(['#F4CC9C', '#154B45', '#4843EB']);
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="motion-safe:scroll-smooth 2xl:text-[20px]">
+<html lang="en">
 	<head>
 		<MetaTags {...meta} />
 	</head>
 
-	<body class="antialiased text-gray-900 dark:text-slate-300 tracking-tight bg-white dark:bg-slate-900">
+	<body class="bg-[#FFEEDD] p-2 lg:p-20">
 		<slot />
-		<style is:global>
-			img {
-				content-visibility: auto;
+		<style is:global define:vars={{ accent }}>
+			:root {
+				--accent-color: var(--accent);
 			}
 		</style>
+		<GlobalAssets />
 	</body>
 </html>
