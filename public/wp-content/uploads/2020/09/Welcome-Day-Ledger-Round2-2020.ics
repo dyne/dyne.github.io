@@ -1,0 +1,61 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:PUBLISH
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:W. Europe Standard Time
+BEGIN:STANDARD
+DTSTART:16011028T030000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=10
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010325T020000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20200908T110356Z
+DESCRIPTION:Dear all\, \n  \ncongratulations for having been selected for t
+	he 2nd round of the Ledger Venture Builder programme. \n  \nWe invite you 
+	to the Welcome day event on 14th of September. From 10.00 to 14.00 we will
+	 present the technical mentorship along with its calendars and the technic
+	al mentors team. Join us on Zoom: https://zoom.us/j/3144293455 \n\n  \nThe
+	 Dyne.org team \n\n
+DTEND;TZID="W. Europe Standard Time":20200914T140000
+DTSTAMP:20200908T110356Z
+DTSTART;TZID="W. Europe Standard Time":20200914T100000
+LAST-MODIFIED:20200908T110356Z
+LOCATION:https://zoom.us/j/3144293455
+PRIORITY:5
+SEQUENCE:0
+SUMMARY;LANGUAGE=it:{APPOINTMENT} - Welcome day - Ledger Round 2 
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000B034F2A0DE85D601000000000000000
+	01000000057BDF3459480754BBC5E19BE9121439B
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
+	N">\n<HTML>\n<HEAD>\n\n<META NAME="Generator" CONTENT="MS Exchange Server 
+	version 16.0.13029.20342">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Convert
+	ed from text/rtf format -->\n\n<P><FONT FACE="Calibri">Dear all\,</FONT>\n
+	\n<BR><FONT FACE="Calibri">&nbsp\;</FONT>\n\n<BR><FONT FACE="Calibri">cong
+	ratulations for having been selected for the 2nd round of the Ledger Ventu
+	re Builder programme.</FONT>\n\n<BR><FONT FACE="Calibri">&nbsp\;</FONT>\n\
+	n<BR><FONT FACE="Calibri">We invite you to the Welcome day event on 14th o
+	f September. From 10.00 to 14.00 we will present the technical mentorship 
+	along with its calendars and the technical mentors team. Join us on Zoom: 
+	<A HREF="https://zoom.us/j/3144293455">https://zoom.us/j/3144293455</A> </
+	FONT></P>\n\n<P><FONT FACE="Calibri">&nbsp\;</FONT>\n\n<BR><FONT FACE="Cal
+	ibri">The Dyne.org team</FONT>\n</P>\n\n</BODY>\n</HTML>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-AUTOFILLLOCATION:FALSE
+X-MS-OLK-AUTOSTARTCHECK:FALSE
+X-MS-OLK-CONFTYPE:0
+END:VEVENT
+END:VCALENDAR
