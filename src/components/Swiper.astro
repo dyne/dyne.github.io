@@ -1,20 +1,20 @@
 ---
-const { slidesPerView = 1, id } = Astro.props;
+const { slidesPerView = 1, id, delay = 2000, paginationClass="mt-10" } = Astro.props;
 ---
 
 <div class="swiper" id={id}>
-	<div class="swiper-wrapper mb-10">
+	<div class="swiper-wrapper">
 		<slot />
 	</div>
-	<div class="swiper-pagination"></div>
+	<div class={`swiper-pagination ${paginationClass}`}></div>
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script is:inline define:vars={{ slidesPerView, id }}>
+<script is:inline define:vars={{ slidesPerView, id, delay }}>
 	new Swiper(`#${id}`, {
 		loop: true,
-		autoplay: { delay: 2000 },
+		autoplay: { delay: delay },
 		slidesPerView: window.innerWidth < 1024 ? 1 : slidesPerView,
 		spaceBetween: 30,
 		pagination: { el: '.swiper-pagination', clickable: true },

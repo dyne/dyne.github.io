@@ -1,18 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-	// mode: 'jit',
 	content: ['./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}'],
-	safelist: ['bg-white'],
+	safelist: [
+		'bg-white',
+		'bg-sustainability',
+		'bg-open_source',
+		'bg-crypto',
+		'bg-interdisciplinarity',
+		'bg-cybersecurity',
+		'rotate-2',
+		'-rotate-1',
+	],
 	theme: {
 		extend: {
 			colors: {
 				accent: 'var(--accent-color)',
-        sustainability: "#21897E",
-        open_source: "#FCEFE0",
-        interdisciplinarity: "#EFEFEF",
-        crypto: "#000000",
-        cybersecurity: "#8980f5",
+				sustainability: '#21897E',
+				open_source: '#FCEFE0',
+				interdisciplinarity: '#EFEFEF',
+				crypto: '#000000',
+				cybersecurity: '#8980f5',
 				primary: {
 					DEFAULT: '#F4CC9C',
 					light: '#FEFBF6',
@@ -73,8 +81,6 @@ module.exports = {
 					'7.65rem',
 					{
 						lineHeight: '13.625rem',
-						letterSpacing: '-0.02rem',
-						fontWeight: '600',
 					},
 				],
 			},

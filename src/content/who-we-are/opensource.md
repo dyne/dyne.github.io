@@ -1,6 +1,6 @@
 ---
 word: Open-source
-color: "[#FFEEDD]"
+color: "open_source"
 rotation: -rotate-1
 ---
 

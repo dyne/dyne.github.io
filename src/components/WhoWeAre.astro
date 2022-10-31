@@ -2,18 +2,38 @@
 const keywords = await Astro.glob('~/content/who-we-are/*.md');
 ---
 
-<ul class="relative px-12">
+<ul class="px-12">
 	{
 		keywords.map((kw) => (
-			<li class={`flex overflow-hidden text-black bg-${kw.frontmatter.color} ${kw.frontmatter.rotation} rounded-[40px] px-12`}>
-                <div class="hover:-translate-x-3/4 transition hover:transform ease-in-out delay-150 duration-300 flex flex-row">
-                    <h2 class={`text-mega w-full whitespace-nowrap`}>{kw.frontmatter.word}</h2>
-                    <div set:html={kw.compiledContent()}/>
-                </div>
+			<li class={`flipper text-black bg-${kw.frontmatter.color} ${kw.frontmatter.rotation} rounded-[40px] px-12`}>
+				<h2 class={`tracking-tighter top-0 left-0 font-semibold text-[4.2rem] lg:text-mega w-full whitespace-nowrap front`}>{kw.frontmatter.word}</h2>
+				<div set:html={kw.compiledContent()} class="back absolute top-0 left-0 p-6 lg:p-16 text-lg lg:text-2xl" />
 			</li>
 		))
 	}
 </ul>
 <style>
-    color: red !important;
+	.flipper {
+		overflow: hidden;
+		transform-style: preserve-3d;
+		transition: 0.5s;
+	}
+	.flipper:hover .front {
+		transform: rotateX(-180deg);
+	}
+	.flipper:hover .back {
+		transform: rotateX(0deg);
+	}
+
+	.front {
+		backface-visibility: hidden;
+		transform: rotateX(0deg);
+		transition: 0.5s;
+	}
+
+	.back {
+		backface-visibility: hidden;
+		transform: rotateX(180deg);
+		transition: 0.5s;
+	}
 </style>

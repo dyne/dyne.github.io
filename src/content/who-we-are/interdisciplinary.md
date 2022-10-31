@@ -1,6 +1,6 @@
 ---
 word: Interdisciplinarity
-color: white
+color: "interdisciplinarity"
 rotation: rotate-2
 ---
 

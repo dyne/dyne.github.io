@@ -1,6 +1,6 @@
 ---
 word: Sustainable
-color: accent
+color: sustainability
 rotation: 
 ---
 
