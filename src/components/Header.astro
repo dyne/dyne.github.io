@@ -3,18 +3,16 @@ import Menu from '~/components/Menu.astro';
 import Logo from './Logo.astro';
 ---
 
-<header class="flex-none mx-auto w-full">
-	<div class="py-3 px-3 mx-auto w-full md:flex md:justify-between max-w-6xl md:px-4">
-		<div class="flex justify-between">
-			<a class="flex items-center" href="/">
-				<Logo />
-			</a>
-			<div class="flex items-center md:hidden">
-				<!-- <ToggleTheme />
-				<ToggleMenu /> -->
+<header class="mx-auto w-full">
+	<div class="mx-auto w-full lg:flex lg:justify-between max-w-6xl lg:px-4">
+		<div class="flex flex-row items-start justify-between">
+			<div>
+				<a href="/"> <Logo /></a>
+			</div>
+			<div class="flex items-center lg:hidden pt-16">
 				<button
 					type="button"
-					class="ml-1.5 text-gray-500 dark:text-gray-400 hover:bg-primary-60 focus:outline-none focus:ring-4 focus:ring-primary rounded-lg text-sm p-2.5 inline-flex items-center transition"
+					class="ml-1.5 text-gray-500 dark:text-gray-400 rounded-lg text-sm p-2.5 inline-flex items-center transition"
 					aria-label="Toggle menu"
 					data-aw-toggle-menu
 				>
@@ -27,11 +25,11 @@ import Logo from './Logo.astro';
 			</div>
 		</div>
 		<nav
-			class="items-center w-full md:w-auto hidden md:flex text-gray-600 dark:text-slate-200 h-screen md:h-auto"
+			class="items-center w-full lg:w-auto hidden lg:flex text-gray-600 dark:text-slate-200 h-screen lg:h-auto"
 			aria-label="Main navigation"
 			id="menu"
 		>
-			<ul class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center w-full md:w-auto text-xl md:text-base">
+			<ul class="flex flex-col pt-8 lg:pt-0 lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-base">
 				<li>
 					<a
 						class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
@@ -51,7 +49,7 @@ import Logo from './Logo.astro';
 						href={'/blog'}>Blog</a
 					>
 				</li>
-				<li class="md:hidden">
+				<li class="lg:hidden">
 					<a
 						class="font-bold hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
 						href="https://github.com/onwidget/astrowind"
@@ -59,8 +57,8 @@ import Logo from './Logo.astro';
 					</a>
 				</li>
 			</ul>
-			<div class="md:self-center flex items-center mb-4 md:mb-0 ml-2">
-				<div class="hidden items-center md:flex">
+			<div class="lg:self-center flex items-center mb-4 lg:mb-0 ml-2">
+				<div class="hidden items-center lg:flex">
 					<!-- <ToggleTheme iconClass="w-5 h-5" /> -->
 					H2
 					<a
@@ -82,67 +80,3 @@ import Logo from './Logo.astro';
 		</nav>
 	</div>
 </header>
-
-<!-- <header class="sticky top-0 z-40 flex-none mx-auto w-full"> -->
-<!-- <Menu /> -->
-<!-- <div class="py-3 px-3 mx-auto w-full md:flex md:justify-between max-w-6xl md:px-4">
-		<div class="flex justify-between">
-			<a class="flex items-center" href="/"> logo</a>
-			<div class="flex items-center md:hidden">menu</div>
-		</div>
-		<nav
-			class="items-center w-full md:w-auto hidden md:flex text-gray-600 dark:text-slate-200 h-screen md:h-auto"
-			aria-label="Main navigation"
-			id="menu"
-		>
-			<ul
-				class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center collapse w-full md:w-auto collapsed text-xl md:text-base"
-			>
-				<li>
-					<a
-						class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href="#">Pages</a
-					>
-				</li>
-				<li>
-					<a
-						class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						>Resources
-					</a>
-				</li>
-				<li>
-					<a
-						class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						>Blog</a
-					>
-				</li>
-				<li class="md:hidden">
-					<a
-						class="font-bold hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href="https://github.com/onwidget/astrowind"
-						>Github
-					</a>
-				</li>
-			</ul>
-			<div class="md:self-center flex items-center mb-4 md:mb-0 ml-2">
-				<div class="hidden items-center md:flex">
-					tema
-					<a
-						class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-						aria-label="RSS Feed"
-						href="/rss.xml"
-					>
-						iconcina
-					</a>
-					<a
-						href="https://github.com/onwidget/astrowind"
-						class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
-						aria-label="Astrowind Github"
-					>
-						iconcina
-					</a>
-				</div>
-			</div>
-		</nav>
-	</div> -->
-<!-- </header> -->

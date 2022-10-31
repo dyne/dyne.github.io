@@ -3,10 +3,16 @@
 module.exports = {
 	// mode: 'jit',
 	content: ['./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}'],
+	safelist: ['bg-white'],
 	theme: {
 		extend: {
 			colors: {
 				accent: 'var(--accent-color)',
+        sustainability: "#21897E",
+        open_source: "#FCEFE0",
+        interdisciplinarity: "#EFEFEF",
+        crypto: "#000000",
+        cybersecurity: "#8980f5",
 				primary: {
 					DEFAULT: '#F4CC9C',
 					light: '#FEFBF6',

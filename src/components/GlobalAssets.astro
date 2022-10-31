@@ -30,16 +30,16 @@
 
 	window.onload = function () {
 		attachEvent('[data-aw-toggle-menu]', 'click', function (elem) {
-			console.log('<3');
 			elem.classList.toggle('expanded');
 			document.body.classList.toggle('overflow-hidden');
 			document.getElementById('menu')?.classList.toggle('hidden');
+			document.querySelector('header')?.classList.toggle('bg-black');
 		});
 
-		attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
-			document.documentElement.classList.toggle('dark');
-			localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-		});
+		// attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
+		// 	document.documentElement.classList.toggle('dark');
+		// 	localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+		// });
 	};
 	window.onpageshow = function () {
 		const elem = document.querySelector('[data-aw-toggle-menu]');
