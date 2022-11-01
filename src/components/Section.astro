@@ -2,15 +2,14 @@
 export interface Props {
 	title: string;
 	description: string;
+    id?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, id="" } = Astro.props;
 ---
 
-<section class="bg-black rounded-[60px] text-white m-2 lg:p-2 lg:pt-14 p-10">
-	<div
-		class="flex flex-col lg:flex-row lg:justify-between items-center lg:items-stretch lg:pl-28 lg:pr-10 lg:space-x-16 text-[#FFEEDD]"
-	>
+<section class="bg-black rounded-[60px] text-white m-2 lg:p-2 lg:pt-14 p-10" id={id}>
+	<div class="flex flex-col lg:flex-row lg:justify-between items-center lg:items-stretch lg:pl-28 lg:pr-10 lg:space-x-16 text-[#FFEEDD]" >
 		<div class="font-semibold text-3xl lg:text-5xl whitespace-nowrap">{title}</div>
 		<div class="text-center lg:text-start py-10 lg:pr-10 text-lg lg:pl-20">{description}</div>
 	</div>

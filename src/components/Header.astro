@@ -1,10 +1,23 @@
 ---
 import Menu from '~/components/Menu.astro';
 import Logo from './Logo.astro';
+const primaryLinks = [
+	{
+		name: 'Who we are',
+		href: '#who-we-are',
+	},
+	{ name: 'What we do', href: '#what-we-do' },
+	{ name: 'What we did', href: '#what-we-did' },
+];
+const secondaryLinks = [
+	{ name: 'Contact', href: '/contact' },
+	{ name: 'Careers', href: '/careers' },
+	{ name: 'Donate', href: '/donate' },
+];
 ---
 
 <header class="mx-auto w-full">
-	<div class="mx-auto w-full lg:flex lg:justify-between max-w-6xl lg:px-4">
+	<div class="mx-auto w-full lg:flex lg:justify-between max-w-6xl lg:px-4 items-center">
 		<div class="flex flex-row items-start justify-between">
 			<div>
 				<a href="/"> <Logo /></a>
@@ -29,52 +42,31 @@ import Logo from './Logo.astro';
 			aria-label="Main navigation"
 			id="menu"
 		>
-			<ul class="flex flex-col pt-8 lg:pt-0 lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-base">
-				<li>
-					<a
-						class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href="#">Pages</a
-					>
-				</li>
-				<li>
-					<a
-						class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href={'/dd'}
-						>Resources
-					</a>
-				</li>
-				<li>
-					<a
-						class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href={'/blog'}>Blog</a
-					>
-				</li>
-				<li class="lg:hidden">
-					<a
-						class="font-bold hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href="https://github.com/onwidget/astrowind"
-						>Github
-					</a>
-				</li>
+			<ul class="lg:hidden text-2xl text-[#FFEEDD] w-full text-right pr-4">
+				{
+					primaryLinks.map((pl) => (
+						<li class="pb-6">
+							<a href={pl.href} class="block py-4 px-2 lg:px-4">
+								{pl.name}
+							</a>
+						</li>
+					))
+				}
 			</ul>
-			<div class="lg:self-center flex items-center mb-4 lg:mb-0 ml-2">
-				<div class="hidden items-center lg:flex">
-					<!-- <ToggleTheme iconClass="w-5 h-5" /> -->
-					H2
-					<a
-						class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-						aria-label="RSS Feed"
-						href="/rss.xml"
-					>
-						I1
-					</a>
-					<a
-						href="https://github.com/onwidget/astrowind"
-						class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
-						aria-label="Astrowind Github"
-					>
-						I2
-					</a>
+
+			<div class="flex-col lg:items-end mb-4 lg:mb-0">
+				<div class="text-accent space-x-10 justify-end flex-col lg:flex">
+					{secondaryLinks.map((sl) => <a href={sl.href}> {sl.name} </a>)}
+				</div>
+				<div class="hidden items-center lg:flex space-x-10 font-medium text-2xl">
+
+					{
+						primaryLinks.map((pl) => (
+							<a href={pl.href} class="text-black block inline-flex items-center whitespace-nowrap">
+								{pl.name}
+							</a>
+						))
+					}
 				</div>
 			</div>
 		</nav>

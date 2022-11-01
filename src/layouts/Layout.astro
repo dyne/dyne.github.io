@@ -7,7 +7,7 @@ import Footer from '~/components/Footer.astro';
 import Header from '~/components/Header.astro';
 import BaseLayout from './BaseLayout.astro';
 
-const { content } = Astro.props;
+const { content, meta = {} } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ const { content } = Astro.props;
 	</head>
 	<body class="bg-[#FFEEDD] p-2 md:p-20">
 		<Header />
-		<BaseLayout>
+		<BaseLayout meta>
 			<div
 				class="pb-24 prose-img:mx-auto w-full prose md:prose-2xl prose-blockquote:font-thin prose-blockquote:font-sans mx-auto prose-headings:text-accent"
 			>

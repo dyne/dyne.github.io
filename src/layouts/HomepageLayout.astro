@@ -6,7 +6,7 @@ import '@fontsource/syne/800.css';
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import BaseLayout from './BaseLayout.astro';
-const { title, description } = Astro.props;
+const { meta = {}, title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 		<meta name="description" content={description} />
 	</head>
-	<BaseLayout>
+	<BaseLayout meta>
 		<Header />
 		<slot />
 		<Footer />
