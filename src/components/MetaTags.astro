@@ -5,8 +5,6 @@ import { SITE } from '~/config.mjs';
 const {
 	title = SITE.name,
 	description = '',
-	// image: _image = defaultImage,
-
 	canonical,
 	noindex = false,
 	nofollow = false,
@@ -31,19 +29,18 @@ const {
 		title: ogTitle,
 		description: description,
 		type: ogType,
-		// images: image
-		// 	? [
-		// 			{
-		// 				url: image.toString(),
-		// 				alt: ogTitle,
-		// 			},
-		// 	  ]
-		// 	: undefined,
+		images: [
+			{
+				url: '/favicon.svg',
+				alt: 'Dyne.org cafudda',
+			},
+		],
 		site_name: 'Dyne.org',
 	}}
 	twitter={{
 		handle: '@DyneOrg',
 		site: '@DyneOrg',
+		cardType: 'summary_large_image',
 		// cardType: image ? 'summary_large_image' : undefined,
 	}}
 />

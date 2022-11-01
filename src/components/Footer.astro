@@ -5,15 +5,19 @@ import socials from '../content/social/index.json';
 ---
 
 <footer class="bg-black mt-8">
-	<Logo color="var(--accent-color)" />
-	<div class="flex justify-center md:justify-end space-x-6 mr-4 md:mr-24">
-		{socials.map((social) => <SocialIcon name={social.name} href={social.href} />)}
-	</div>
-	<div class="flex flex-col text-white opacity-30 text-lg mr-4 md:mr-24 space-y-8 mt-12 py-8 pb-24">
-		<p class="text-right">
-			Copyleft ©2000-{new Date().getFullYear()} Dyne.org foundation<br />
-			Haparandadam 7-A1 1013AK Amsterdam
-		</p>
-		<p class="text-right">Not for profit organization established in 2005 with reg.num. 34237525 in The Netherlands.</p>
+	<div class="max-w-7xl mx-auto">
+		<Logo color="var(--accent-color)" />
+		<div class="flex justify-center md:justify-end space-x-6 mr-4 md:mr-24">
+			{socials.map((social) => <SocialIcon name={social.name} href={social.href} />)}
+		</div>
+		<div class="flex flex-col text-white opacity-30 text-lg mr-4 md:mr-24 space-y-8 mt-12 py-8 pb-24">
+			<p class="text-right">
+				Copyleft ©2000-{new Date().getFullYear()} Dyne.org foundation<br />
+				Haparandadam 7-A1 1013AK Amsterdam
+			</p>
+			<p class="text-right">
+				Not for profit organization established in 2005 with reg.num. 34237525 in The Netherlands.
+			</p>
+		</div>
 	</div>
 </footer>

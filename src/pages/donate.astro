@@ -1,6 +1,8 @@
 ---
 import Button from '~/components/Button.astro';
 import Layout from '~/layouts/HomepageLayout.astro';
+import { Tabs } from 'astro-tabs';
+
 const meta = { title: 'Dyne.org :: Donations' };
 
 const wallets = [
@@ -21,8 +23,29 @@ const wallets = [
 ];
 ---
 
+<style is:global>
+	.tab {
+		padding: 1rem;
+		justify-content: space-between;
+		display: flex;
+		&:hover {
+		}
+	}
+
+	.tabs nav {
+		justify-content: space-between;
+	}
+
+	.tab-selector:checked ~ .tab {
+	}
+
+	.panel {
+		margin-top: 1rem;
+	}
+</style>
+
 <Layout meta={meta}>
-	<div class="grid grid-cols-1 lg:grid-cols-2 text-center lg:text-start">
+	<div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-20 text-center lg:text-start">
 		<div class="space-y-10 px-6">
 			<h1 class="px-2 text-4xl">
 				Help making an impact by <em>supporting</em> our work
@@ -37,24 +60,32 @@ const wallets = [
 			</p>
 		</div>
 
-		<div class="space-y-10">
-			<div class="flex justify-between p-6">
-				<Button cls="text-xl" text="Donate money" id="money" />
-				<Button
-					cls="text-xl text-black border-2-black bg-[#FFEEDD] border-2 border-black"
-					text="Donate crypto"
-					id="crypto"
-				/>
-			</div>
-			<div>
-				<div id="donate-crypto" class="bg-sustainability rounded-3xl grid grid-cols-2 gap-6 py-10 justify-items-center">
-					{
-						wallets.map((w) => {
-							return <Button text={`${w.name} wallet`} href={w.href} />;
-						})
-					}
-				</div>
-			</div>
+		<div class="space-y-10 lg:col-span-2">
+			<Tabs>
+				<Fragment slot="tab-1"><Button cls="text-xl mb-4" text="Donate money" id="money" /></Fragment>
+				<Fragment slot="tab-2">
+					<Button
+						cls="text-xl text-black border-2-black bg-[#FFEEDD] border-2 border-black"
+						text="Donate crypto"
+						id="crypto"
+					/>
+				</Fragment>
+
+				<Fragment slot="panel-1" />
+
+				<Fragment slot="panel-2">
+					<div
+						id="donate-crypto"
+						class="bg-sustainability rounded-3xl grid grid-cols-2 gap-6 py-10 justify-items-center"
+					>
+						{
+							wallets.map((w) => {
+								return <Button text={`${w.name} wallet`} href={w.href} />;
+							})
+						}
+					</div>
+				</Fragment>
+			</Tabs>
 		</div>
 	</div>
 </Layout>
