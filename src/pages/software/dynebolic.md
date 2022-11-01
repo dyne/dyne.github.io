@@ -1,6 +1,7 @@
 ---
-title: Dyne:bolic :: Free & Live creative multimedia
-description: Dyne:bolic is a 100% free software operating system recommended by the Free Software Foundation. It is a live CD that runs without the need to install.
+title: "Dyne:bolic :: Free & Live creative multimedia"
+description: |
+  Dyne:bolic is a 100% free software operating system recommended by the Free Software Foundation. It is a live CD that runs without the need to install.
 layout: ../../layouts/Layout.astro
 ---
 

@@ -1,7 +1,8 @@
 ---
-layout: ../../layouts/Layout.astro
-title: MuSE :: Stream Internet Radio
-description: "MuSE is an application for the mixing, encoding, and network streaming of sound: it can mix a microphone and multiple channels and transmit to the Internet."
+layout: ~/layouts/Layout.astro
+title: "MuSE :: Stream Internet Radio"
+description: |
+  "MuSE is an application for the mixing, encoding, and network streaming of sound: it can mix a microphone and multiple channels and transmit to the Internet."
 ---
 
 [![MuSE internet radio streamer](https://dyne.org/wp-content/uploads/2011/10/peachspeak1.png "MuSE")](https://dyne.org/wp-content/uploads/2011/10/peachspeak1.png)
