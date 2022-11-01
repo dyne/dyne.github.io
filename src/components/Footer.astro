@@ -4,7 +4,7 @@ import SocialIcon from '~/components/SocialIcon.astro';
 import socials from '../content/social/index.json';
 ---
 
-<footer class="bg-black">
+<footer class="bg-black mt-8">
 	<Logo color="var(--accent-color)" />
 	<div class="flex justify-center md:justify-end space-x-6 mr-4 md:mr-24">
 		{socials.map((social) => <SocialIcon name={social.name} href={social.href} />)}

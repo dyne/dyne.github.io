@@ -20,7 +20,9 @@ const { meta = {}, title, description } = Astro.props;
 	</head>
 	<BaseLayout meta>
 		<Header />
-		<slot />
+		<div class="max-w-7xl mx-auto">
+			<slot />
+		</div>
 		<Footer />
 	</BaseLayout>
 </html>

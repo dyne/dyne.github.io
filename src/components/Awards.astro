@@ -3,7 +3,14 @@ import * as copy from '../content/awards/index.md';
 import Button from './Button.astro';
 ---
 
-<div class="bg-accent">
+<div class="bg-accent p-6 m-4 rounded-2xl text-xl text-[#FFEEDD]">
 	<div set:html={copy.compiledContent()}></div>
 	<Button href={copy.frontmatter.link}>{copy.frontmatter.cta}</Button>
 </div>
+<style>
+h2 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 4rem;
+    }
+</style>

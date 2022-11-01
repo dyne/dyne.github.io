@@ -2,6 +2,23 @@
 import Button from '~/components/Button.astro';
 import Layout from '~/layouts/HomepageLayout.astro';
 const meta = { title: 'Dyne.org :: Donations' };
+
+const wallets = [
+	{ name: 'bitcoin', address: 'bc1qz9wz2f9swcefra2tfrhk4fx49evqsv03m9nx4l' },
+	{ name: 'ethereum', address: '0x9b8aF04912c462b39bB4f26FeA22E7a70e3b8677' },
+	{
+		name: 'monero',
+		href: 'monero://49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE?tx_message=donation%20to%20dyne.org',
+		address: '49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE',
+	},
+	// { ltc: 'ltc1qspwm0zgexgc57udx5449pa3rwsdpj3jcp8cmdl' },
+	// { etc: '0xCd914718eEb90FEF028d957d691E15aaa98f9fc3' },
+	// { bch: 'bitcoincash:qzntsmfkth6drm2a42gj39snkemhtyax65n4esp8m0' },
+	// { dash: 'Xfx6BCCffkDzjTefwpBkRiC5kXS8sNsdJw' },
+	// { doge: 'DJ1ujhCsaGGTKKennQQUhwJZY7QWd9BBda' },
+	// { nmc: 'NC53CzNRZ7C1F8UYXqEXSorj367sZ2WQ3k' },
+	// { zec: 't1ZThp1gXGYNB93tj66Fa5LnYtxnR6ASKpG' },
+];
 ---
 
 <Layout meta={meta}>
@@ -20,15 +37,23 @@ const meta = { title: 'Dyne.org :: Donations' };
 			</p>
 		</div>
 
-		<div>
+		<div class="space-y-10">
 			<div class="flex justify-between p-6">
-				<Button cls="text-xl" color="primary" text="Donate money" id="money" />
+				<Button cls="text-xl" text="Donate money" id="money" />
 				<Button
 					cls="text-xl text-black border-2-black bg-[#FFEEDD] border-2 border-black"
-					color="primary"
 					text="Donate crypto"
 					id="crypto"
 				/>
+			</div>
+			<div>
+				<div id="donate-crypto" class="bg-sustainability rounded-3xl grid grid-cols-2 gap-6 py-10 justify-items-center">
+					{
+						wallets.map((w) => {
+							return <Button text={`${w.name} wallet`} href={w.href} />;
+						})
+					}
+				</div>
 			</div>
 		</div>
 	</div>
