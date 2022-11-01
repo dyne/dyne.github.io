@@ -1,0 +1,42 @@
+---
+import Button from '~/components/Button.astro';
+import Donation from '~/components/Donation';
+import Layout from '~/layouts/HomepageLayout.astro';
+const meta = { title: 'Dyne.org :: Donations' };
+---
+
+<Layout meta={meta}>
+	<div class="grid grid-cols-1 lg:grid-cols-2 text-center lg:text-start">
+		<div class="space-y-10 px-6">
+			<h1 class="px-2 text-4xl">
+				Help making an impact by <em>supporting</em> our work
+			</h1>
+			<p class="text-lg">
+				Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
+				worldwide to inspire, communicate, share and create.
+			</p>
+			<p class="text-lg">
+				Our work is strictly non-profit and not commercial. We finance our activities through public funding and
+				voluntary donations.
+			</p>
+		</div>
+
+		<div>
+			<div class="flex justify-between p-6">
+				<Button cls="text-xl" color="primary" text="Donate money" id="money" />
+				<Button
+					cls="text-xl text-black border-2-black bg-[#FFEEDD] border-2 border-black"
+					color="primary"
+					text="Donate crypto"
+					id="crypto"
+				/>
+                <Donation />
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<script is:inline>
+	attachEvent('#money', 'click', (e) => console.log(e));
+	attachEvent('#crypto', 'click', (e) => console.log(e));
+</script>

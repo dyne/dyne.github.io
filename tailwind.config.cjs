@@ -9,6 +9,7 @@ module.exports = {
 		'bg-crypto',
 		'bg-interdisciplinarity',
 		'bg-cybersecurity',
+        'bg-primary',
 		'rotate-2',
 		'-rotate-1',
 	],
