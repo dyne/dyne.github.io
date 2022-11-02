@@ -2,8 +2,9 @@
 pic: /images/testimonial/Geert_Lovink.png
 field: cybersecurity
 ---
-Dyne Methodologies: Unrequested Technologies, Sovereign Hacktivism, Autonomous Policy, Protological Subversion, Untimely Operating Systems, Utopian Code.
+Dyne.org is made of Empowering Technologies, Sovereign Hacktivism, Autonomous Policy, Protological Subversion, Alternative Operating Systems and Utopian Code.
 <br/>
 <br/>
-- prof. Geert Lovink _[Network Cultures](https://networkcultures.org)_
+- prof. Geert Lovink<br/>
+_[Institute of Network Cultures](https://networkcultures.org)_
 
