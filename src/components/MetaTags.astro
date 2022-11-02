@@ -4,7 +4,7 @@ import { SITE } from '~/config.mjs';
 
 const {
 	title = SITE.name,
-	description = '',
+	description = SITE.description,
 	canonical,
 	noindex = false,
 	nofollow = false,
@@ -31,7 +31,7 @@ const {
 		type: ogType,
 		images: [
 			{
-				url: 'https://dyne.org/favicon.svg',
+				url: 'https://dyne.org/social/facebook.png',
 				alt: 'Dyne.org cafudda',
 			},
 		],
@@ -41,6 +41,6 @@ const {
 		handle: '@DyneOrg',
 		site: '@DyneOrg',
 		cardType: 'summary_large_image',
-		// cardType: image ? 'summary_large_image' : undefined,
+    image: [{url: "https://dyne.org/social/twitter.png"}]
 	}}
 />
