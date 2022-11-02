@@ -1,4 +1,4 @@
 ---
 datum: 60
-title: Published softwares
+title: Published software
 ---
