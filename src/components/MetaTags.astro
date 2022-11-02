@@ -8,7 +8,7 @@ const {
 	canonical,
 	noindex = false,
 	nofollow = false,
-
+	url = SITE.origin,
 	ogTitle = title,
 	ogType = 'website',
 } = Astro.props;
@@ -24,20 +24,18 @@ const {
 	canonical={canonical}
 	noindex={noindex}
 	nofollow={nofollow}
+	url={url}
 	openGraph={{
 		url: canonical,
 		title: ogTitle,
 		description: description,
 		type: ogType,
-		images: [
-			{ url: 'https://dyne.org/social/facebook.jpg', alt: 'Dyne.org cafudda' },
-		],
+		images: [{ url: 'https://dyne.org/social/facebook.jpg', alt: 'Dyne.org cafudda' }],
 		site_name: 'Dyne.org',
 	}}
 	twitter={{
 		handle: '@DyneOrg',
 		site: '@DyneOrg',
 		cardType: 'summary_large_image',
-    image: [{url: "https://dyne.org/social/twitter.jpg" }]
 	}}
 />
