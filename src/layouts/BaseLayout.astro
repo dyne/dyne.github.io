@@ -3,11 +3,7 @@ import GlobalAssets from '~/components/GlobalAssets.astro';
 import MetaTags from '~/components/MetaTags.astro';
 
 const { meta = {} } = Astro.props;
-const choose = (choices) => {
-	const index = Math.floor(Math.random() * choices.length);
-	return choices[index];
-};
-const accent = choose(['#F4CC9C', '#154B45', '#4843EB', '#898989']);
+
 ---
 
 <!DOCTYPE html>
@@ -18,11 +14,6 @@ const accent = choose(['#F4CC9C', '#154B45', '#4843EB', '#898989']);
 
 	<body class="bg-[#FFEEDD] p-2 lg:p-20">
 		<slot />
-		<style is:global define:vars={{ accent }}>
-			:root {
-				--accent-color: var(--accent);
-			}
-		</style>
 		<GlobalAssets />
 	</body>
 </html>

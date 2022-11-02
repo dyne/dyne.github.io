@@ -6,7 +6,10 @@ import { Tabs } from 'astro-tabs';
 const meta = { title: 'Dyne.org :: Donations' };
 
 const wallets = [
-	{ name: 'bitcoin', address: 'bc1qz9wz2f9swcefra2tfrhk4fx49evqsv03m9nx4l' },
+	{
+		name: 'bitcoin',
+		address: 'bc1qz9wz2f9swcefra2tfrhk4fx49evqsv03m9nx4l',
+	},
 	{ name: 'ethereum', address: '0x9b8aF04912c462b39bB4f26FeA22E7a70e3b8677' },
 	{
 		name: 'monero',
@@ -21,14 +24,15 @@ const wallets = [
 	// { nmc: 'NC53CzNRZ7C1F8UYXqEXSorj367sZ2WQ3k' },
 	// { zec: 't1ZThp1gXGYNB93tj66Fa5LnYtxnR6ASKpG' },
 ];
+const amounts = [10, 50, 100, 500, 1000, 10000];
 ---
 
 <style is:global>
 	.tab {
-		padding: 1rem;
 		justify-content: space-between;
 		display: flex;
 		&:hover {
+			background-color: red;
 		}
 	}
 
@@ -36,7 +40,10 @@ const wallets = [
 		justify-content: space-between;
 	}
 
-	.tab-selector:checked ~ .tab {
+	.tab-selector:checked ~ .tab .button {
+		background-color: var(--accent-color);
+		border-color: var(--accent-color);
+		color: white;
 	}
 
 	.panel {
@@ -62,16 +69,22 @@ const wallets = [
 
 		<div class="space-y-10 lg:col-span-2">
 			<Tabs>
-				<Fragment slot="tab-1"><Button cls="text-xl mb-4" text="Donate money" id="money" /></Fragment>
+				<Fragment slot="tab-1">
+					<Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" />
+				</Fragment>
 				<Fragment slot="tab-2">
-					<Button
-						cls="text-xl text-black border-2-black bg-[#FFEEDD] border-2 border-black"
-						text="Donate crypto"
-						id="crypto"
-					/>
+					<Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" />
 				</Fragment>
 
-				<Fragment slot="panel-1" />
+				<Fragment slot="panel-1">
+					<div class="bg-accent rounded-3xl grid grid-cols-3 gap-6 py-10 justify-items-center">
+						{
+							amounts.map((amount) => (
+								<Button color="primary" text={`${amount}€`} href={`https://www.paypal.me/dyneorg/${amount}EUR`} />
+							))
+						}
+					</div>
+				</Fragment>
 
 				<Fragment slot="panel-2">
 					<div
@@ -80,7 +93,15 @@ const wallets = [
 					>
 						{
 							wallets.map((w) => {
-								return <Button text={`${w.name} wallet`} href={w.href} />;
+								return (
+									<div class="flex flex-col">
+										<Button id={w.name} text={`${w.name} wallet`} cls="mb-6" />
+										<div id={`${w.name}-address`} class="text-sustainability text-xs w-72 break-words">
+											{w.address} <br />
+											✔︎ Successfully copied to clipboard
+										</div>
+									</div>
+								);
 							})
 						}
 					</div>
@@ -90,7 +111,14 @@ const wallets = [
 	</div>
 </Layout>
 
-<script is:inline>
-	attachEvent('#money', 'click', (e) => console.log(e));
-	attachEvent('#crypto', 'click', (e) => console.log(e));
+<script is:inline define:vars={{ wallets }}>
+	for (const w of wallets) {
+		attachEvent(`#${w.name}`, 'click', (e) => {
+			if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
+				window.navigator.clipboard.writeText(w.address).then(() => {
+					document.querySelector(`#${w.name}-address`).classList.add('text-[#FFFFFF]');
+				});
+			}
+		});
+	}
 </script>

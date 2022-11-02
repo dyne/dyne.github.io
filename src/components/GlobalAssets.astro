@@ -30,6 +30,14 @@
 			});
 		}
 	}
+	window.addEventListener('DOMContentLoaded', (event) => {
+		const choose = (choices) => {
+			const index = Math.floor(Math.random() * choices.length);
+			return choices[index];
+		};
+		const accent = choose(['#F4CC9C', '#154B45', '#4843EB', '#898989']);
+		document.documentElement.style.setProperty('--accent-color', accent);
+	});
 
 	window.onload = function () {
 		attachEvent('[data-aw-toggle-menu]', 'click', function (elem) {
