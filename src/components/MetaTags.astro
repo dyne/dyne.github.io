@@ -5,10 +5,9 @@ import { SITE } from '~/config.mjs';
 const {
 	title = SITE.name,
 	description = SITE.description,
-	canonical,
+	canonical = SITE.origin,
 	noindex = false,
 	nofollow = false,
-	url = SITE.origin,
 	ogTitle = title,
 	ogType = 'website',
 } = Astro.props;
@@ -24,7 +23,9 @@ const {
 	canonical={canonical}
 	noindex={noindex}
 	nofollow={nofollow}
-	url={url}
+  facebook={{
+    appId: 140650172370
+  }}
 	openGraph={{
 		url: canonical,
 		title: ogTitle,
