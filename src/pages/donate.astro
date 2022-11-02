@@ -31,9 +31,6 @@ const amounts = [10, 50, 100, 500, 1000, 10000];
 	.tab {
 		justify-content: space-between;
 		display: flex;
-		&:hover {
-			background-color: red;
-		}
 	}
 
 	.tabs nav {
@@ -89,7 +86,7 @@ const amounts = [10, 50, 100, 500, 1000, 10000];
 				<Fragment slot="panel-2">
 					<div
 						id="donate-crypto"
-						class="bg-sustainability rounded-3xl grid grid-cols-2 gap-6 py-10 justify-items-center"
+						class="bg-sustainability rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-6 py-10 justify-items-center"
 					>
 						{
 							wallets.map((w) => {
