@@ -4,4 +4,4 @@ CTA: Donate now
 href: /donate
 ---
 
-## Help making an impact by *supporting* our work
+## Help make an impact by *supporting* our work
