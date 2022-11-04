@@ -6,7 +6,7 @@ const projects = await Astro.glob('~/content/what-we-do/*.md');
 ---
 
 <div class="lg:m-20">
-	<Swiper slidesPerView={3} id="projects-slider" delay="3000" client:idle>
+	<Swiper slidesPerView={3} id="projects-slider" delay="3000">
 		{
 			projects.map((p) => {
 				const { logo, name, link } = p.frontmatter;
