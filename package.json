@@ -29,6 +29,7 @@
     "@fontsource/syne": "^4.5.11",
     "@fontsource/syne-tactile": "^4.5.10",
     "@tailwindcss/typography": "^0.5.7",
+    "@types/marked": "^4.0.7",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
     "eslint": "^8.24.0",
