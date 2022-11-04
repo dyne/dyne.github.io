@@ -1,15 +1,17 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import Header from '~/components/Header.astro';
+import Footer from '~/components/Footer.astro';
 
 const { content, meta = {} } = Astro.props;
 ---
 
 <BaseLayout meta>
-	<body class="bg-[#FFEEDD] p-2 md:p-20">
-		<Header />
-			<div class="pb-24 prose-img:mx-auto w-full prose md:prose-2xl prose-blockquote:font-thin prose-blockquote:font-sans mx-auto prose-headings:text-accent">
-				<slot />
-			</div>
-			<Footer />
-	</body>
+	<Header />
+	<div
+		class="pb-24 prose-img:mx-auto w-full prose md:prose-2xl prose-blockquote:font-thin prose-blockquote:font-sans mx-auto prose-headings:text-accent"
+	>
+		<slot />
+	</div>
+	<Footer />
 </BaseLayout>

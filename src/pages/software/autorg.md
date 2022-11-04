@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ~/layouts/Layout.astro
 title: "AutOrg :: autonomous and extensible editor for power users"
 description: ""
 ---

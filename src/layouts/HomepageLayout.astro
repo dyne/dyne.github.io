@@ -2,13 +2,12 @@
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import BaseLayout from './BaseLayout.astro';
-const { meta = {}, title, description } = Astro.props;
 ---
 
-<BaseLayout meta>
+<BaseLayout>
 	<Header />
-		<div class="max-w-7xl mx-auto">
-			<slot />
-		</div>
+	<div class="max-w-7xl mx-auto">
+		<slot />
+	</div>
 	<Footer />
 </BaseLayout>

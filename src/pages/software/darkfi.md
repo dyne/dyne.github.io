@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ~/layouts/Layout.astro
 title: "DarkFi :: Free and open-source anonymous P2P ecosystem"
 description: ""
 ---
