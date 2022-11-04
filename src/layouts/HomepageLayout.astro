@@ -1,28 +1,14 @@
 ---
-import '@fontsource/syne-tactile/400.css';
-import '@fontsource/syne/400.css';
-import '@fontsource/syne/700.css';
-import '@fontsource/syne/800.css';
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import BaseLayout from './BaseLayout.astro';
 const { meta = {}, title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="description" content={description} />
-	</head>
-	<BaseLayout meta>
-		<Header />
+<BaseLayout meta>
+	<Header />
 		<div class="max-w-7xl mx-auto">
 			<slot />
 		</div>
-		<Footer />
-	</BaseLayout>
-</html>
+	<Footer />
+</BaseLayout>

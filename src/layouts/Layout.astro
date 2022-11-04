@@ -1,34 +1,15 @@
 ---
-import '@fontsource/syne-tactile/400.css';
-import '@fontsource/syne/400.css';
-import '@fontsource/syne/700.css';
-import '@fontsource/syne/800.css';
-import Footer from '~/components/Footer.astro';
-import Header from '~/components/Header.astro';
 import BaseLayout from './BaseLayout.astro';
 
 const { content, meta = {} } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{content?.title || 'Dyne.org'}</title>
-		<meta name="description" content={content?.description || ''} />
-	</head>
+<BaseLayout meta>
 	<body class="bg-[#FFEEDD] p-2 md:p-20">
 		<Header />
-		<BaseLayout meta>
-			<div
-				class="pb-24 prose-img:mx-auto w-full prose md:prose-2xl prose-blockquote:font-thin prose-blockquote:font-sans mx-auto prose-headings:text-accent"
-			>
+			<div class="pb-24 prose-img:mx-auto w-full prose md:prose-2xl prose-blockquote:font-thin prose-blockquote:font-sans mx-auto prose-headings:text-accent">
 				<slot />
 			</div>
 			<Footer />
-		</BaseLayout>
 	</body>
-</html>
+</BaseLayout>
