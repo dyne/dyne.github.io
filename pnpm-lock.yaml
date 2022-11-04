@@ -9,6 +9,7 @@ specifiers:
   '@fontsource/syne': ^4.5.11
   '@fontsource/syne-tactile': ^4.5.10
   '@tailwindcss/typography': ^0.5.7
+  '@types/marked': ^4.0.7
   '@typescript-eslint/eslint-plugin': ^5.38.1
   '@typescript-eslint/parser': ^5.38.1
   '@wcj/html-to-markdown-cli': ^1.0.0
@@ -39,6 +40,7 @@ devDependencies:
   '@fontsource/syne': 4.5.11
   '@fontsource/syne-tactile': 4.5.10
   '@tailwindcss/typography': 0.5.7_tailwindcss@3.1.8
+  '@types/marked': 4.0.7
   '@typescript-eslint/eslint-plugin': 5.38.1_c7qepppml3d4ahu5cnfwqe6ltq
   '@typescript-eslint/parser': 5.38.1_ypn2ylkkyfa5i233caldtndbqa
   eslint: 8.24.0
@@ -673,6 +675,10 @@ packages:
 
   /@types/json5/0.0.30:
     resolution: {integrity: sha512-sqm9g7mHlPY/43fcSNrCYfOeX9zkTTK+euO5E6+CVijSMm5tTjkVdwdqRkY3ljjIAf8679vps5jKUoJBCLsMDA==}
+
+  /@types/marked/4.0.7:
+    resolution: {integrity: sha512-eEAhnz21CwvKVW+YvRvcTuFKNU9CV1qH+opcgVK3pIMI6YZzDm6gc8o2vHjldFk6MGKt5pueSB7IOpvpx5Qekw==}
+    dev: true
 
   /@types/mdast/3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
