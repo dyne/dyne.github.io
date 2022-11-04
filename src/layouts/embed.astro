@@ -1,0 +1,12 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { marked } from 'marked';
+
+const {content} = Astro.props;
+const response = await fetch(content.destination);
+const html = marked.parse(await response.text());
+---
+
+<Layout>
+    <div set:html={html} />
+</Layout>
