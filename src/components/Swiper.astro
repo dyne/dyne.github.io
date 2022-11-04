@@ -12,10 +12,13 @@ const { slidesPerView = 1, id, delay = 2000, paginationClass="mt-10" } = Astro.p
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script is:inline define:vars={{ slidesPerView, id, delay }}>
-console.log(window.innerWidth, document.body.clientWidth);
 	new Swiper(`#${id}`, {
 		loop: true,
-		autoplay: { delay: delay },
+		autoplay: { 
+      delay: delay,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
 		slidesPerView: document.body.clientWidth < 1200 ? 1 : slidesPerView,
 		spaceBetween: 30,
 		pagination: { el: '.swiper-pagination', clickable: true },
