@@ -6,9 +6,11 @@ description: "Jaro Mail is a suite of console email tools to archive mails witho
 
 # Jaro Mail :: The Electronic Postman
 
-![](https://dyne.org/wp-content/uploads/2012/06/jaromail-diagram.png)Jaro Mail is an integrated suite of interoperable tools to manage **e-mail communication** in a **private and efficient** way, without relying too much on on-line services, in fact encouraging users to store their email locally.
+![](https://dyne.org/wp-content/uploads/2012/06/jaromail-diagram.png)
 
-Rather than reinventing the wheel, Jaro Mail reuses existing **free and open source **tools working since more than 10 years (and likely to exist for longer) and is mainly targeted to **Apple/OSX** and **GNU/Linux** desktop usage.
+Jaro Mail is an integrated suite of interoperable tools to manage **e-mail communication** in a **private and efficient** way, without relying too much on on-line services, in fact encouraging users to store their email locally.
+
+Rather than reinventing the wheel, Jaro Mail reuses existing **free and open source** tools working since more than 10 years (and likely to exist for longer) and is mainly targeted to **Apple/OSX** and **GNU/Linux** desktop usage.
 
 ## Features
 
@@ -51,9 +53,11 @@ Screenshot of a mailinglist folder open on OSX
 *   [Mixmaster](http://mixmaster.sourceforge.net) to send anonymous emails
 *   [Z Shell](http://www.zsh.org) the most awesome shell script interpreter
 
+![nyan mail cat](https://www.dyne.org/wp-content/uploads/2012/06/nyanmailcat_horizbar-600.png)\
+
 ## Documentation
 
-> “*The aptly named JaroMail is a step in the right direction – precisely how I’ve used email the last 10 yrs*” – Julian Oliver
+> “The aptly named JaroMail is a step in the right direction – precisely how I’ve used email the last 10 yrs” – Julian Oliver
 
 It is **recommended that you read the user manual**: this is not exactly a typical consumer grade software and you won’t get far unless you know what you are doing. Even for experienced Mutt users there are things to learn in the manual, on how Jaro Mail redesigns the e-mail workflow for instance with whitelisting and remote sieve folders.\
 [User Manual](http://files.dyne.org/jaromail/jaromail-manual.pdf)
@@ -72,16 +76,17 @@ Jaro Mail **version 2** is made available in a ready to install form for **Apple
 
 This software is developed in the spare time of one programmer who also uses it since several years. Do not expect it either to disappear nor to add big features. What one can expect is that I’m going to fix annoying bugs affecting me within a short time, since I do eat a lot of this dogfood… the code repository is on [Github.com/Dyne/JaroMail](https://github.com/dyne/JaroMail).
 
-### More interesting software
+### Encrypted storage
+
+![tomb logo](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)
 
 ![nyan mail cat](https://www.dyne.org/wp-content/uploads/2012/06/nyanmailcat_horizbar-600.png)\
-If you are concerned about your privacy, or in need to keep your communication confidential, then we recommend you to encrypt your emails using the [GNU Pretty Good Privacy](http://www.gnupg.org) tools and ask your peers to do the same. On Apple/OSX JaroMail includes its own version of GnuPG which won’t conflict with other installed versions, however keep in mind that if you need military grade security you are better off using GNU/Linux.\
-[![AutOrg](https://www.dyne.org/wp-content/uploads/2012/10/autorg_logo.png)](http://autorg.dyne.org)\
-Those looking for a powerful text editor can also have a look at our pre-configured distribution of Emacs called [AutOrg](http://autorg.dyne.org) which can well integrate with JaroMail.
 
-Uniquely available for GNU/Linux users is our other software [Tomb, the crypto undertaker](http://tomb.dyne.org) a small program to create encrypted folders promoting techniques that are well secure like key/storage separation, steganography etc.\
-[![Tomb the Crypto Undertaker](https://www.dyne.org/wp-content/uploads/2011/11/monmort.png)](http://tomb.dyne.org)\
-Tomb also integrates very well with Jaro Mail, for instance one can make the \~/Mail and \~/.gnupg directories reside into a tomb which will mount them in place inside the $HOME via its *bind-hooks*.
+If you are concerned about your privacy, or in need to keep your communication confidential, then we recommend you to encrypt your emails using the [GNU Pretty Good Privacy](http://www.gnupg.org) tools and ask your peers to do the same.
+
+To also encrypt your email archive when downloaded on local storage one can use [Tomb, the crypto undertaker](http://tomb.dyne.org) a small program to create encrypted folders promoting techniques that are well secure like key/storage separation, steganography etc.
+
+Tomb integrates very well with Jaro Mail: one can make the `~/Mail` and `~/.gnupg` directories reside inside a tomb which will mount them in place inside the `$HOME` via its **bind-hooks**.
 
 ## Other interesting e-mail frameworks
 
@@ -94,8 +99,3 @@ Below you will find a list of frameworks that can be used as an alternative or c
 *   **mu** stands for [maildir utils](http://www.djcbsoftware.nl/code/mu/): it might be harder to install for the novice hacker and has less user-friendly documentation, but it definitely looks like a solid and fast complimentary software for our setup and it may replace Mairix in the future of Jaro Mail 2.0.
 *   **cone** is a [COnsole Newsreader And Emailer](http://www.courier-mta.org/cone/) bringing some intelligent innovation into the console email world. Alternative to Mutt.
 
-If you know more projects please do not hesitate to [contact the dyne.org hackers](https://dyne.org/contact).
-
-## What about the name
-
-Besides being a mispronunciation of the nickname of its first user (Jaro Mail is spelled exactly like [Jaromil](http://rastasoft.org) while chewing bubblegum, it was hilariously suggested as a name for this software by our friend Max Kazemzadeh) it is also interesting to note that the nickname Jaro is used to familiarly indicate a friend in some dialects spoken on the eastern coast of the Adriatic sea, especially by people living in Bosnia and some southern parts of Dalmatia (coastal part of Croatia).
