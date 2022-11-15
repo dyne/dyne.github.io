@@ -5,9 +5,9 @@ import Footer from '~/components/Footer.astro';
 
 const { content } = Astro.props;
 const meta = {
-	title: content.title,
-	description: content.description,
-	cover: content.cover,
+	title: content?.title || undefined,
+	description: content?.description || undefined,
+	cover: content?.cover || undefined,
 };
 ---
 
