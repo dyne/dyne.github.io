@@ -8,8 +8,8 @@ const {
 	canonical = SITE.origin,
 	noindex = false,
 	nofollow = false,
-	ogTitle = title,
 	ogType = 'website',
+	cover = 'https://dyne.org/social/facebook.jpg',
 } = Astro.props;
 ---
 
@@ -29,10 +29,10 @@ const {
 	}}
 	openGraph={{
 		url: canonical,
-		title: ogTitle,
+		title: title,
 		description: description,
 		type: ogType,
-		images: [{ url: 'https://dyne.org/social/facebook.jpg', alt: 'Dyne.org cafudda' }],
+		images: [{ url: cover, alt: title }],
 		site_name: 'Dyne.org',
 	}}
 	twitter={{
