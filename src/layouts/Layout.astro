@@ -3,10 +3,15 @@ import BaseLayout from './BaseLayout.astro';
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 
-const { content, meta = {} } = Astro.props;
+const { content } = Astro.props;
+const meta = {
+	title: content.title,
+	description: content.description,
+	cover: content.cover,
+};
 ---
 
-<BaseLayout meta>
+<BaseLayout meta={meta}>
 	<Header />
 	<div
 		class="pb-24 prose-img:mx-auto w-full prose md:prose-2xl prose-blockquote:font-thin prose-blockquote:font-sans mx-auto prose-headings:text-accent"
