@@ -77,6 +77,8 @@ module.exports = {
 			fontFamily: {
 				sans: ['Syne', 'sans'],
 				serif: ['Syne Tactile', 'cursive'],
+				prose: ['Work Sans', 'sans-serif', 'sans'],
+				mono: ['JetBrains Mono', 'monospace'],
 			},
 			fontSize: {
 				mega: [
@@ -88,6 +90,13 @@ module.exports = {
 			},
 			letterSpacing: {
 				normal: '-0.2rem',
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						em: { fontFamily: 'Syne', fontStyle: 'italic' },
+					},
+				},
 			},
 		},
 	},

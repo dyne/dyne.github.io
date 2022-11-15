@@ -6,8 +6,10 @@ specifiers:
   '@astrojs/sitemap': ^1.0.0
   '@astrojs/tailwind': ^2.0.2
   '@astrolib/seo': ^0.2.1
+  '@fontsource/jetbrains-mono': ^4.5.11
   '@fontsource/syne': ^4.5.11
   '@fontsource/syne-tactile': ^4.5.10
+  '@fontsource/work-sans': ^4.5.12
   '@tailwindcss/typography': ^0.5.7
   '@types/marked': ^4.0.7
   '@typescript-eslint/eslint-plugin': ^5.38.1
@@ -28,6 +30,8 @@ dependencies:
   '@astrojs/partytown': 1.0.0
   '@astrojs/sitemap': 1.0.0
   '@astrojs/tailwind': 2.0.2_tailwindcss@3.1.8
+  '@fontsource/jetbrains-mono': 4.5.11
+  '@fontsource/work-sans': 4.5.12
   '@wcj/html-to-markdown-cli': 1.0.0
   astro: 1.4.0_sass@1.55.0
   astro-tabs: 0.1.6
@@ -484,6 +488,10 @@ packages:
       - supports-color
     dev: true
 
+  /@fontsource/jetbrains-mono/4.5.11:
+    resolution: {integrity: sha512-IW1qgWGkjlN1O6Jf+6LWF9DpcdXhyQEXhTlzfVKrWHX+ProuOT5FcrEAj34AR+19CgAb9Sheda2slORnybBsdw==}
+    dev: false
+
   /@fontsource/syne-tactile/4.5.10:
     resolution: {integrity: sha512-7W3EdDus2aO5NFk9D1oSl+02ot6pP+/FjYnJbjx/htY5k19lNvOc66JC5cbbXHJwsIG9m5nDCC+B4PeQv4yA0A==}
     dev: true
@@ -491,6 +499,10 @@ packages:
   /@fontsource/syne/4.5.11:
     resolution: {integrity: sha512-Mh8nUytWnk3mgNyVUWN+6+tLjiLGYZyWCiM+enMfM6Zw3nMw8b3jZC8rpL1B1zBNR4U5mOMGlk9hDONG7ygVvw==}
     dev: true
+
+  /@fontsource/work-sans/4.5.12:
+    resolution: {integrity: sha512-imoabud+eUL7FTHyGtpSN4KoYOmWXBWweMpVrgWhLGeSDYnH0IVWeUZT+cPtPcgrHWSvxefsl0oEdP9Ef3E2mw==}
+    dev: false
 
   /@humanwhocodes/config-array/0.10.6:
     resolution: {integrity: sha512-U/piU+VwXZsIgwnl+N+nRK12jCpHdc3s0UAc6zc1+HUgiESJxClpvYao/x9JwaN7onNeVb7kTlxlAvuEoaJ3ig==}

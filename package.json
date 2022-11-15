@@ -17,6 +17,8 @@
     "@astrojs/partytown": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^2.0.2",
+    "@fontsource/jetbrains-mono": "^4.5.11",
+    "@fontsource/work-sans": "^4.5.12",
     "@wcj/html-to-markdown-cli": "^1.0.0",
     "astro": "^1.4.0",
     "astro-tabs": "^0.1.6",
