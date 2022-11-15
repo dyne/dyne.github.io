@@ -10,7 +10,7 @@
 	}
 	em {
 		font-family: 'Syne Tactile';
-    font-style: inherit;
+		font-style: inherit;
 	}
 </style>
 <script is:inline>
@@ -36,8 +36,14 @@
 			const index = Math.floor(Math.random() * choices.length);
 			return choices[index];
 		};
-		const accent = choose(['#F4CC9C', '#154B45', '#4843EB', '#898989']);
+		const [accent, text_accent] = choose([
+			['#F4CC9C', '#000000'],
+			['#154B45', '#ffffff'],
+			['#4843EB', '#ffffff'],
+			['#898989', '#ffffff'],
+		]);
 		document.documentElement.style.setProperty('--accent-color', accent);
+		document.documentElement.style.setProperty('--text-accent-color', text_accent);
 	});
 
 	window.onload = function () {

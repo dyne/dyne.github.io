@@ -9,7 +9,7 @@ module.exports = {
 		'bg-crypto',
 		'bg-interdisciplinarity',
 		'bg-cybersecurity',
-    'bg-primary',
+		'bg-primary',
 		'rotate-2',
 		'-rotate-1',
 	],
@@ -17,6 +17,7 @@ module.exports = {
 		extend: {
 			colors: {
 				accent: 'var(--accent-color)',
+				taccent: 'var(--text-accent-color)',
 				sustainability: '#21897E',
 				open_source: '#FCEFE0',
 				interdisciplinarity: '#EFEFEF',
