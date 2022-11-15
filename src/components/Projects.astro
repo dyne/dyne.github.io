@@ -12,8 +12,8 @@ const projects = await Astro.glob('~/content/what-we-do/*.md');
 				const { logo, name, link } = p.frontmatter;
 				return (
 					<div class="swiper-slide bg-[#FAE0C6] w-full flex flex-col rounded-[40px] p-7">
-						<div class="flex justify-end">
-							<img class="w-28" src={logo} />
+						<div class="h-20 flex items-center justify-end">
+							<img class="w-36" src={logo} />
 						</div>
 						<h1 class="text-4xl text-black font-sans py-8">{name}</h1>
 						<div set:html={p.compiledContent()} class="text-black pb-10" />
