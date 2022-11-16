@@ -14,9 +14,9 @@ const feed = await parser.parseURL('https://medium.com/feed/think-do-tank');
 		We are hackers. <br />
 		We survive out of the commonplaces. <br />
 		Thoughts and tools out the box.
-        </span>
+	</span>
 
-	<div class="mt-8 grid grid-cols-2 gap-8">
+	<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
 		{feed.items.map((f) => <BlogArticlePreview {...f} />)}
 	</div>
 </Layout>
