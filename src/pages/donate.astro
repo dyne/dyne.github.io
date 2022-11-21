@@ -3,6 +3,14 @@ import Button from '~/components/Button.astro';
 import Layout from '~/layouts/HomepageLayout.astro';
 import Link from '~/components/Link.astro';
 import { Tabs } from 'astro-tabs';
+// Icons
+import Opencollective from '~/components/icons/donations/opencollective.astro';
+import Patreon from '~/components/icons/donations/patreon.astro';
+import Github from '~/components/icons/donations/github.astro';
+import SponsorLink from '~/components/SponsorLink.astro';
+import Bitcoin from '~/components/icons/donations/bitcoin.astro';
+import Monero from '~/components/icons/donations/monero.astro';
+import Ethereum from '~/components/icons/donations/ethereum.astro';
 
 const meta = { title: 'Dyne.org :: Donations' };
 
@@ -10,12 +18,14 @@ const wallets = [
 	{
 		name: 'bitcoin',
 		address: 'bc1qz9wz2f9swcefra2tfrhk4fx49evqsv03m9nx4l',
+		icon: Bitcoin,
 	},
-	{ name: 'ethereum', address: '0x9b8aF04912c462b39bB4f26FeA22E7a70e3b8677' },
+	{ name: 'ethereum', address: '0x9b8aF04912c462b39bB4f26FeA22E7a70e3b8677', icon: Ethereum },
 	{
 		name: 'monero',
 		href: 'monero://49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE?tx_message=donation%20to%20dyne.org',
 		address: '49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE',
+		icon: Monero,
 	},
 	// { ltc: 'ltc1qspwm0zgexgc57udx5449pa3rwsdpj3jcp8cmdl' },
 	// { etc: '0xCd914718eEb90FEF028d957d691E15aaa98f9fc3' },
@@ -27,33 +37,62 @@ const wallets = [
 ];
 const amounts = [10, 50, 100, 500, 1000, 10000];
 
-const recurring = [
+const tiers = [
 	{
-		name: 'GitHub',
-		href: 'https://github.com/sponsors/dyne',
+		amount: '10$',
+		text: 'Get a shoutout on Twitter or Mastodon linking to your user and a link of your choice.',
+	},
+	{
+		amount: '350$',
+		text: 'We will dedicate 1 hour of consulting or mentorship exclusively for you on a topic of your choice.',
+	},
+	{
+		amount: '600$',
+		text: 'We will run a 2h on-line workshop for your team',
+	},
+	{
+		amount: '3.000$',
+		text: 'Jaromil will give a professional keynote talk at your conference',
 	},
 ];
 ---
 
 <style is:global>
-	.tab {
-		justify-content: space-between;
-		display: flex;
-	}
-
 	.tabs nav {
 		justify-content: space-between;
+		padding-bottom: 12px;
 	}
 
-	.tab-selector:checked ~ .tab .button {
-		background-color: var(--accent-color);
-		border-color: var(--accent-color);
+	.tabs nav > * + * {
+		margin-left: 8px;
+	}
+
+	.tab {
+		border-radius: 16px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 8px;
+	}
+
+	.tab-wrapper {
+		flex-grow: 1;
+	}
+
+	.tab-selector:checked ~ .tab {
 		color: white;
+		background: black;
 	}
 
-	.panel {
-		margin-top: 1rem;
+	.tab-selector:not(:checked) ~ .tab {
+		color: black;
+		background: transparent;
+		border: 1px solid black;
 	}
+
+	/* .panel {
+		margin-top: 1rem;
+	} */
 </style>
 
 <Layout meta={meta}>
@@ -72,6 +111,7 @@ const recurring = [
 			<h1 class="text-3xl">What can you get:</h1>
 			<ul class="list-disc px-4 pt-2">
 				<li>Technical support</li>
+				<li>Dedicated training</li>
 				<li>Prioritized issues on GitHub</li>
 				<li>Special mentions</li>
 			</ul>
@@ -79,66 +119,86 @@ const recurring = [
 		</div>
 
 		<p class="text-center px-4">
-			We accept both <Link href="#onetime">one-time</Link> (also with <strong>crypto</strong>!) and <Link href=""
-				>recurring</Link
+			We accept both <Link href="#onetime">one-time</Link> (also with <strong>crypto</strong>!) and <Link
+				href="#recurring">recurring</Link
 			> donations
 		</p>
 
-		<div class="p-4 bg-primary rounded-3xl">
-			<h1 id="onetime" class="text-xl font-bold">One-time donations</h1>
-		</div>
-
-		<div class="p-4 bg-primary rounded-3xl space-y-2">
-			<h1 id="onetime" class="text-xl font-bold">Recurring donations</h1>
+		<div id="recurring" class="p-4 bg-primary rounded-3xl space-y-4">
+			<h1 class="text-xl font-bold">Recurring donations</h1>
+			<div class="space-y-2">
+				<SponsorLink href="/ciao" text="Open Collective"><Opencollective size={36} /></SponsorLink>
+				<SponsorLink href="/ciao" text="GitHub"><Github size={36} /></SponsorLink>
+				<SponsorLink href="/ciao" text="Patreon"><Patreon size={36} /></SponsorLink>
+			</div>
 			<p class="leading-6">Check our profiles for the full list of tiers and perks</p>
 		</div>
 
-		<!-- <div class="space-y-10 lg:col-span-2">
-			<Tabs>
-				<Fragment slot="tab-1">
-					<Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" />
-				</Fragment>
-				<Fragment slot="tab-2">
-					<Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" />
-				</Fragment>
+		<div id="onetime" class="p-4 bg-primary rounded-3xl space-y-4">
+			<h1 class="text-xl font-bold">One-time donations</h1>
+			<ul class="text-base space-y-4">
+				{
+					tiers.map((tier) => (
+						<li class="flex flex-row flex-nowrap space-x-3">
+							<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center rounded-2xl">
+								<p class="text-center">{tier.amount}</p>
+							</div>
+							<p>{tier.text}</p>
+						</li>
+					))
+				}
+			</ul>
 
-				<Fragment slot="panel-1">
-					<div class="bg-accent rounded-3xl grid grid-cols-3 gap-6 py-10 justify-items-center">
-						{
-							amounts.map((amount) => (
-								<Button
-									color="primary"
-									text={`${amount}€`}
-									href={`https://www.paypal.me/dyneorg/${amount}EUR`}
-									cls={'text-black'}
-								/>
-							))
-						}
-					</div>
-				</Fragment>
+			<div class="space-y-10 lg:col-span-2">
+				<Tabs>
+					<Fragment slot="tab-2">
+						<p>Use money</p>
+						<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" /> -->
+					</Fragment>
+					<Fragment slot="tab-1">
+						<p>Use crypto</p>
+						<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" /> -->
+					</Fragment>
 
-				<Fragment slot="panel-2">
-					<div
-						id="donate-crypto"
-						class="bg-sustainability rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-6 py-10 justify-items-center"
-					>
-						{
-							wallets.map((w) => {
-								return (
-									<div class="flex flex-col">
-										<Button id={w.name} text={`${w.name} wallet`} cls="mb-6" />
-										<div id={`${w.name}-address`} class="text-sustainability text-xs w-72 break-words">
-											{w.address} <br />
-											✔︎ Successfully copied to clipboard
-										</div>
-									</div>
-								);
-							})
-						}
-					</div>
-				</Fragment>
-			</Tabs>
-		</div> -->
+					<Fragment slot="panel-2">
+						<div class="space-y-4">
+							<p class="leading-6">(Donations via PayPal)</p>
+							<div class="grid grid-cols-2 gap-2">
+								{
+									tiers.map((tier) => (
+										<a
+											href={`https://www.paypal.me/dyneorg/${tier.amount}USD`}
+											class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
+										>
+											{tier.amount}
+										</a>
+									))
+								}
+							</div>
+						</div>
+					</Fragment>
+
+					<Fragment slot="panel-1">
+						<div class="space-y-4">
+							<p class="leading-6">Contact us with the transaction ID to redeem the perks.</p>
+							<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
+								{
+									wallets.map((w) => (
+										<button id={w.name} class="bg-sustainability p-4 rounded-3xl ">
+											<p class="font-bold text-2xl text-white">{`${w.name} wallet`}</p>
+											<p id={`${w.name}-address`} class="text-xs w-72 break-words hidden text-gray-400">
+												{w.address} <br />
+												✔︎ Successfully copied to clipboard
+											</p>
+										</button>
+									))
+								}
+							</div>
+						</div>
+					</Fragment>
+				</Tabs>
+			</div>
+		</div>
 	</div>
 </Layout>
 
@@ -147,7 +207,8 @@ const recurring = [
 		attachEvent(`#${w.name}`, 'click', (e) => {
 			if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
 				window.navigator.clipboard.writeText(w.address).then(() => {
-					document.querySelector(`#${w.name}-address`).classList.add('text-[#FFFFFF]');
+					document.querySelector(`#${w.name}-address`).classList.remove('hidden');
+					// document.querySelector(`#${w.name}-address`).classList.add('text-[#FFFFFF]');
 				});
 			}
 		});
