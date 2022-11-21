@@ -93,10 +93,10 @@ const tiers = [
 </style>
 
 <Layout meta={meta}>
-	<div class="pt-8 md:pt-16 text-lg mx-auto w-fit md:grid md:grid-cols-2 md:gap-8 max-w-4xl">
+	<div class="pt-8 md:pt-16 md:px-8 text-lg mx-auto w-fit md:grid md:grid-cols-2 md:gap-8 max-w-4xl">
 		<!-- Column 1 -->
 		<div class="space-y-8 max-w-lg md:sticky md:top-8 self-start">
-			<div class="space-y-6 px-4 text-center">
+			<div class="space-y-6 px-6 text-center">
 				<h1 class="text-3xl lg:text-4xl">
 					Help making an impact by <em class="bg-primary">supporting</em> our work
 				</h1>
@@ -106,9 +106,9 @@ const tiers = [
 				</p>
 			</div>
 
-			<div class="p-4 bg-black text-white rounded-3xl">
-				<h1 class="text-3xl">What can you get:</h1>
-				<ul class="list-disc px-4 pt-2">
+			<div class="p-6 bg-black text-white rounded-3xl">
+				<h1 class="text-3xl underline decoration-primary decoration-4">What can you get:</h1>
+				<ul class="list-disc px-6 pt-2">
 					<li>Technical support</li>
 					<li>Dedicated training</li>
 					<li>Prioritized issues on GitHub</li>
@@ -117,16 +117,16 @@ const tiers = [
 				<p class="pt-2">...and much more!</p>
 			</div>
 
-			<p class="text-center px-4">
-				We accept both <Link href="#onetime">one-time</Link> (also with <strong>crypto</strong>!) and <Link
-					href="#recurring">recurring</Link
-				> donations
+			<p class="text-center px-6">
+				We accept both <Link href="#onetime">one-time donations</Link> (also with <strong>crypto</strong>!) and <Link
+					href="#recurring">recurring donations</Link
+				>
 			</p>
 		</div>
 
 		<!-- Column 2 -->
 		<div class="space-y-8 max-w-lg pt-8 md:pt-0">
-			<div id="recurring" class="p-4 bg-primary rounded-3xl space-y-4">
+			<div id="recurring" class="p-6 bg-primary rounded-3xl space-y-4">
 				<h1 class="text-xl font-bold">Recurring donations</h1>
 				<div class="space-y-2">
 					<SponsorLink href="/ciao" text="Open Collective"><Opencollective size={36} /></SponsorLink>
@@ -136,7 +136,7 @@ const tiers = [
 				<p class="leading-6">Check our profiles for the full list of tiers and perks</p>
 			</div>
 
-			<div id="onetime" class="p-4 bg-primary rounded-3xl space-y-4">
+			<div id="onetime" class="p-6 bg-primary rounded-3xl space-y-4">
 				<h1 class="text-xl font-bold">One-time donations</h1>
 				<ul class="text-base space-y-4">
 					{
