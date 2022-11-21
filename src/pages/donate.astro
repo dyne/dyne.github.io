@@ -59,6 +59,7 @@ const tiers = [
 
 <style is:global>
 	.tabs nav {
+		margin-top: -12px;
 		justify-content: space-between;
 		padding-bottom: 12px;
 	}
@@ -89,114 +90,116 @@ const tiers = [
 		background: transparent;
 		border: 1px solid black;
 	}
-
-	/* .panel {
-		margin-top: 1rem;
-	} */
 </style>
 
 <Layout meta={meta}>
-	<div class="space-y-8 pt-6 text-lg">
-		<div class="space-y-6 px-4 text-center">
-			<h1 class="text-3xl lg:text-4xl">
-				Help making an impact by <em class="bg-primary">supporting</em> our work
-			</h1>
-			<p>
-				Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
-				worldwide to inspire, communicate, share and create.
+	<div class="pt-8 md:pt-16 text-lg mx-auto w-fit md:grid md:grid-cols-2 md:gap-8 max-w-4xl">
+		<!-- Column 1 -->
+		<div class="space-y-8 max-w-lg md:sticky md:top-8 self-start">
+			<div class="space-y-6 px-4 text-center">
+				<h1 class="text-3xl lg:text-4xl">
+					Help making an impact by <em class="bg-primary">supporting</em> our work
+				</h1>
+				<p>
+					Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
+					worldwide to inspire, communicate, share and create.
+				</p>
+			</div>
+
+			<div class="p-4 bg-black text-white rounded-3xl">
+				<h1 class="text-3xl">What can you get:</h1>
+				<ul class="list-disc px-4 pt-2">
+					<li>Technical support</li>
+					<li>Dedicated training</li>
+					<li>Prioritized issues on GitHub</li>
+					<li>Special mentions</li>
+				</ul>
+				<p class="pt-2">...and much more!</p>
+			</div>
+
+			<p class="text-center px-4">
+				We accept both <Link href="#onetime">one-time</Link> (also with <strong>crypto</strong>!) and <Link
+					href="#recurring">recurring</Link
+				> donations
 			</p>
 		</div>
 
-		<div class="p-4 bg-black text-white rounded-3xl">
-			<h1 class="text-3xl">What can you get:</h1>
-			<ul class="list-disc px-4 pt-2">
-				<li>Technical support</li>
-				<li>Dedicated training</li>
-				<li>Prioritized issues on GitHub</li>
-				<li>Special mentions</li>
-			</ul>
-			<p class="pt-2">...and much more!</p>
-		</div>
-
-		<p class="text-center px-4">
-			We accept both <Link href="#onetime">one-time</Link> (also with <strong>crypto</strong>!) and <Link
-				href="#recurring">recurring</Link
-			> donations
-		</p>
-
-		<div id="recurring" class="p-4 bg-primary rounded-3xl space-y-4">
-			<h1 class="text-xl font-bold">Recurring donations</h1>
-			<div class="space-y-2">
-				<SponsorLink href="/ciao" text="Open Collective"><Opencollective size={36} /></SponsorLink>
-				<SponsorLink href="/ciao" text="GitHub"><Github size={36} /></SponsorLink>
-				<SponsorLink href="/ciao" text="Patreon"><Patreon size={36} /></SponsorLink>
+		<!-- Column 2 -->
+		<div class="space-y-8 max-w-lg">
+			<div id="recurring" class="p-4 bg-primary rounded-3xl space-y-4">
+				<h1 class="text-xl font-bold">Recurring donations</h1>
+				<div class="space-y-2">
+					<SponsorLink href="/ciao" text="Open Collective"><Opencollective size={36} /></SponsorLink>
+					<SponsorLink href="/ciao" text="GitHub"><Github size={36} /></SponsorLink>
+					<SponsorLink href="/ciao" text="Patreon"><Patreon size={36} /></SponsorLink>
+				</div>
+				<p class="leading-6">Check our profiles for the full list of tiers and perks</p>
 			</div>
-			<p class="leading-6">Check our profiles for the full list of tiers and perks</p>
-		</div>
 
-		<div id="onetime" class="p-4 bg-primary rounded-3xl space-y-4">
-			<h1 class="text-xl font-bold">One-time donations</h1>
-			<ul class="text-base space-y-4">
-				{
-					tiers.map((tier) => (
-						<li class="flex flex-row flex-nowrap space-x-3">
-							<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center rounded-2xl">
-								<p class="text-center">{tier.amount}</p>
+			<div id="onetime" class="p-4 bg-primary rounded-3xl space-y-4">
+				<h1 class="text-xl font-bold">One-time donations</h1>
+				<ul class="text-base space-y-4">
+					{
+						tiers.map((tier) => (
+							<li class="flex flex-row flex-nowrap items-center bg-primary-60 rounded-2xl overflow-hidden">
+								<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center self-stretch">
+									<p class="text-center">{tier.amount}</p>
+								</div>
+								<p class="p-3">{tier.text}</p>
+							</li>
+						))
+					}
+				</ul>
+
+				<div class="space-y-10 lg:col-span-2">
+					<Tabs>
+						<Fragment slot="tab-2">
+							<p>Use money</p>
+							<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" /> -->
+						</Fragment>
+						<Fragment slot="tab-1">
+							<p>Use crypto</p>
+							<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" /> -->
+						</Fragment>
+
+						<Fragment slot="panel-2">
+							<div class="space-y-4">
+								<p class="leading-6">(Donations via PayPal)</p>
+								<div class="grid grid-cols-2 gap-2">
+									{
+										tiers.map((tier) => (
+											<a
+												href={`https://www.paypal.me/dyneorg/${tier.amount}USD`}
+												class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
+											>
+												{tier.amount}
+											</a>
+										))
+									}
+								</div>
 							</div>
-							<p>{tier.text}</p>
-						</li>
-					))
-				}
-			</ul>
+						</Fragment>
 
-			<div class="space-y-10 lg:col-span-2">
-				<Tabs>
-					<Fragment slot="tab-2">
-						<p>Use money</p>
-						<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" /> -->
-					</Fragment>
-					<Fragment slot="tab-1">
-						<p>Use crypto</p>
-						<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" /> -->
-					</Fragment>
-
-					<Fragment slot="panel-2">
-						<div class="space-y-4">
-							<p class="leading-6">(Donations via PayPal)</p>
-							<div class="grid grid-cols-2 gap-2">
-								{
-									tiers.map((tier) => (
-										<a
-											href={`https://www.paypal.me/dyneorg/${tier.amount}USD`}
-											class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
-										>
-											{tier.amount}
-										</a>
-									))
-								}
+						<Fragment slot="panel-1">
+							<div class="space-y-4">
+								<p class="leading-6">Contact us with the transaction ID to redeem the perks.</p>
+								<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
+									{
+										wallets.map((w) => (
+											<button id={w.name} class="bg-sustainability p-4 rounded-3xl ">
+												<p class="font-bold text-2xl text-white">{`${w.name} wallet`}</p>
+												<p id={`${w.name}-address`} class="text-xs w-72 break-words hidden text-gray-400">
+													{w.address} <br />
+													✔︎ Successfully copied to clipboard
+												</p>
+											</button>
+										))
+									}
+								</div>
 							</div>
-						</div>
-					</Fragment>
-
-					<Fragment slot="panel-1">
-						<div class="space-y-4">
-							<p class="leading-6">Contact us with the transaction ID to redeem the perks.</p>
-							<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
-								{
-									wallets.map((w) => (
-										<button id={w.name} class="bg-sustainability p-4 rounded-3xl ">
-											<p class="font-bold text-2xl text-white">{`${w.name} wallet`}</p>
-											<p id={`${w.name}-address`} class="text-xs w-72 break-words hidden text-gray-400">
-												{w.address} <br />
-												✔︎ Successfully copied to clipboard
-											</p>
-										</button>
-									))
-								}
-							</div>
-						</div>
-					</Fragment>
-				</Tabs>
+						</Fragment>
+					</Tabs>
+				</div>
 			</div>
 		</div>
 	</div>
