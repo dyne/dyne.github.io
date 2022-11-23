@@ -1,5 +1,37 @@
 ---
-const { href, name } = Astro.props;
+import Facebook from './social_icons/Facebook.astro';
+import Instagram from './social_icons/Instagram.astro';
+import Twitter from './social_icons/Twitter.astro';
+import Youtube from './social_icons/Youtube.astro';
+import Linkedin from './social_icons/Linkedin.astro';
+import Github from './social_icons/Github.astro';
+import Telegram from './social_icons/Telegram.astro';
+
+type SocialIcon = 'facebook' | 'twitter' | 'instagram' | 'youtube' | 'linkedin' | 'github' | 'telegram'
+
+interface Props {
+	href: string,
+	name: SocialIcon | string,
+	size?: number,
+	cls?: string
+}
+
+const record: Record<SocialIcon, Function> = {
+	facebook: Facebook,
+	twitter: Twitter,
+	instagram: Instagram,
+	youtube: Youtube,
+	linkedin: Linkedin,
+	github: Github,
+	telegram: Telegram
+}
+
+const { href, name, size = 20, cls = 'fill-black' } = Astro.props;
+
+const Component = record[name];
 ---
 
-<a href={href} target="_blank"><img class="h-5 w-5 md:h-8 md:w-8" alt={`Dyne.org's ${name}`} src={`/images/social_icons/${name}.svg`} /></a>
+<!-- <a href={href} target="_blank"><img class="h-5 w-5 md:h-8 md:w-8" alt={`Dyne.org's ${name}`} src={`/images/social_icons/${name}.svg`} /></a> -->
+<a href={href} target="_blank">
+	<Component size={size} cls={cls}></Component>
+	</a>

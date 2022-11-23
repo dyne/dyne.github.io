@@ -1,0 +1,15 @@
+---
+import SocialIcon from '~/components/SocialIcon.astro';
+import socials from '../content/social/index.json';
+
+interface Props {
+	size?: number;
+	cls?: string;
+}
+
+const {size = 24, cls = 'fill-black'} = Astro.props
+---
+
+<div class="flex justify-start items-center space-x-6">
+	{socials.map((social) => <SocialIcon name={social.name} href={social.href} cls={cls} size={size} />)}
+</div>
