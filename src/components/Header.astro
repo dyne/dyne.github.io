@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import socials from '../content/social/index.json';
+import Socials from './Socials.astro';
 
 const primaryLinks = [
 	{ name: 'Who we are', href: '/#who-we-are', },
@@ -8,7 +8,6 @@ const primaryLinks = [
 	{ name: 'Donate', href: '/donate' },
 	// { name: 'What we did', href: '/#what-we-did' },
 ];
-const secondaryLinks = [...socials, { name: 'Donate', href: '/donate' }];
 ---
 
 <header class="mx-auto w-full">
@@ -47,16 +46,8 @@ const secondaryLinks = [...socials, { name: 'Donate', href: '/donate' }];
 				}
 			</ul>
 
-			<div class="flex-col lg:items-end mb-4 lg:mb-0">
-				<div class="text-accent grid grid-cols-2 lg:grid-cols-4 lg:gap-0 gap-10 place-items-end px-6 lg:p-0 lg:pb-2">
-					{
-						secondaryLinks.map((sl) => (
-							<a href={sl.href} class="capitalize">
-								{sl.name}
-							</a>
-						))
-					}
-				</div>
+			<div class="flex flex-col items-end mb-4 space-y-4 p-10">
+				<Socials size={30}/>
 				<div class="hidden items-center lg:flex space-x-10 font-medium text-2xl">
 					{
 						primaryLinks.map((pl) => (
