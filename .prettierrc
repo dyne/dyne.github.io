@@ -1,4 +1,5 @@
 {
+  "plugins": ["./node_modules/prettier-plugin-astro"],
   "printWidth": 120,
   "semi": true,
   "singleQuote": true,
@@ -10,6 +11,12 @@
       "files": [".*", "*.json", "*.md", "*.toml", "*.yml"],
       "options": {
         "useTabs": false
+      }
+    },
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
       }
     }
   ]

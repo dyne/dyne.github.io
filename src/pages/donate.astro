@@ -1,7 +1,16 @@
 ---
 import Button from '~/components/Button.astro';
 import Layout from '~/layouts/HomepageLayout.astro';
+import Link from '~/components/Link.astro';
 import { Tabs } from 'astro-tabs';
+// Icons
+import Opencollective from '~/components/icons/donations/opencollective.astro';
+import Patreon from '~/components/icons/donations/patreon.astro';
+import Github from '~/components/icons/donations/github.astro';
+import SponsorLink from '~/components/SponsorLink.astro';
+import Bitcoin from '~/components/icons/donations/bitcoin.astro';
+import Monero from '~/components/icons/donations/monero.astro';
+import Ethereum from '~/components/icons/donations/ethereum.astro';
 
 const meta = { title: 'Dyne.org :: Donations' };
 
@@ -9,12 +18,14 @@ const wallets = [
 	{
 		name: 'bitcoin',
 		address: 'bc1qz9wz2f9swcefra2tfrhk4fx49evqsv03m9nx4l',
+		icon: Bitcoin,
 	},
-	{ name: 'ethereum', address: '0x9b8aF04912c462b39bB4f26FeA22E7a70e3b8677' },
+	{ name: 'ethereum', address: '0x9b8aF04912c462b39bB4f26FeA22E7a70e3b8677', icon: Ethereum },
 	{
 		name: 'monero',
 		href: 'monero://49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE?tx_message=donation%20to%20dyne.org',
 		address: '49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE',
+		icon: Monero,
 	},
 	// { ltc: 'ltc1qspwm0zgexgc57udx5449pa3rwsdpj3jcp8cmdl' },
 	// { etc: '0xCd914718eEb90FEF028d957d691E15aaa98f9fc3' },
@@ -25,85 +36,171 @@ const wallets = [
 	// { zec: 't1ZThp1gXGYNB93tj66Fa5LnYtxnR6ASKpG' },
 ];
 const amounts = [10, 50, 100, 500, 1000, 10000];
+
+const tiers = [
+	{
+		amount: '10$',
+		text: 'Get a shoutout on Twitter or Mastodon linking to your user and a link of your choice.',
+	},
+	{
+		amount: '350$',
+		text: 'We will dedicate 1 hour of consulting or mentorship exclusively for you on a topic of your choice.',
+	},
+	{
+		amount: '600$',
+		text: 'We will run a 2h on-line workshop for your team',
+	},
+	{
+		amount: '3.000$',
+		text: 'Jaromil will give a professional keynote talk at your conference',
+	},
+];
 ---
 
 <style is:global>
-	.tab {
-		justify-content: space-between;
-		display: flex;
-	}
-
 	.tabs nav {
+		margin-top: -12px;
 		justify-content: space-between;
+		padding-bottom: 12px;
 	}
 
-	.tab-selector:checked ~ .tab .button {
-		background-color: var(--accent-color);
-		border-color: var(--accent-color);
+	.tabs nav > * + * {
+		margin-left: 8px;
+	}
+
+	.tab {
+		border-radius: 16px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 8px;
+	}
+
+	.tab-wrapper {
+		flex-grow: 1;
+	}
+
+	.tab-selector:checked ~ .tab {
 		color: white;
+		background: black;
 	}
 
-	.panel {
-		margin-top: 1rem;
+	.tab-selector:not(:checked) ~ .tab {
+		color: black;
+		background: transparent;
+		border: 1px solid black;
 	}
 </style>
 
 <Layout meta={meta}>
-	<div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-20 text-center lg:text-start">
-		<div class="space-y-10 px-6">
-			<h1 class="px-2 text-4xl">
-				Help making an impact by <em>supporting</em> our work
-			</h1>
-			<p class="text-lg">
-				Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
-				worldwide to inspire, communicate, share and create.
-			</p>
-			<p class="text-lg">
-				Our work is strictly non-profit and not commercial. We finance our activities through public funding and
-				voluntary donations.
+	<div class="pt-8 md:pt-16 md:px-8 text-lg mx-auto w-fit md:grid md:grid-cols-2 md:gap-8 max-w-4xl">
+		<!-- Column 1 -->
+		<div class="space-y-8 max-w-lg md:sticky md:top-8 self-start">
+			<div class="space-y-6 px-6 text-center">
+				<h1 class="text-3xl lg:text-4xl">
+					Help making an impact by <em class="bg-primary">supporting</em> our work
+				</h1>
+				<p>
+					Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
+					worldwide to inspire, communicate, share and create.
+				</p>
+			</div>
+
+			<div class="p-6 bg-black text-white rounded-3xl">
+				<h1 class="text-3xl underline decoration-primary decoration-4">What can you get:</h1>
+				<ul class="list-disc px-6 pt-2">
+					<li>Technical support</li>
+					<li>Dedicated training</li>
+					<li>Prioritized issues on GitHub</li>
+					<li>Special mentions</li>
+				</ul>
+				<p class="pt-2">...and much more!</p>
+			</div>
+
+			<p class="text-center px-6">
+				We accept both <Link href="#onetime">one-time donations</Link> (also with <strong>crypto</strong>!) and <Link
+					href="#recurring">recurring donations</Link
+				>
 			</p>
 		</div>
 
-		<div class="space-y-10 lg:col-span-2">
-			<Tabs>
-				<Fragment slot="tab-1">
-					<Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" />
-				</Fragment>
-				<Fragment slot="tab-2">
-					<Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" />
-				</Fragment>
+		<!-- Column 2 -->
+		<div class="space-y-8 max-w-lg pt-8 md:pt-0">
+			<div id="recurring" class="p-6 bg-primary rounded-3xl space-y-4">
+				<h1 class="text-xl font-bold">Recurring donations</h1>
+				<div class="space-y-2">
+					<SponsorLink href="https://opencollective.com/dyneorg" text="Open Collective"><Opencollective size={36} /></SponsorLink>
+					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={36} /></SponsorLink>
+					<SponsorLink href="https://www.patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink>
+				</div>
+				<p class="leading-6">Check our profiles for the full list of tiers and perks</p>
+			</div>
 
-				<Fragment slot="panel-1">
-					<div class="bg-accent rounded-3xl grid grid-cols-3 gap-6 py-10 justify-items-center">
-						{
-							amounts.map((amount) => (
-								<Button color="primary" text={`${amount}€`} href={`https://www.paypal.me/dyneorg/${amount}EUR`} cls={"text-black"}/>
-							))
-						}
-					</div>
-				</Fragment>
+			<div id="onetime" class="p-6 bg-primary rounded-3xl space-y-4">
+				<h1 class="text-xl font-bold">One-time donations</h1>
+				<ul class="text-base space-y-4">
+					{
+						tiers.map((tier) => (
+							<li class="flex flex-row flex-nowrap items-center bg-primary-60 rounded-2xl overflow-hidden">
+								<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center self-stretch">
+									<p class="text-center">{tier.amount}</p>
+								</div>
+								<p class="p-3">{tier.text}</p>
+							</li>
+						))
+					}
+				</ul>
 
-				<Fragment slot="panel-2">
-					<div
-						id="donate-crypto"
-						class="bg-sustainability rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-6 py-10 justify-items-center"
-					>
-						{
-							wallets.map((w) => {
-								return (
-									<div class="flex flex-col">
-										<Button id={w.name} text={`${w.name} wallet`} cls="mb-6" />
-										<div id={`${w.name}-address`} class="text-sustainability text-xs w-72 break-words">
-											{w.address} <br />
-											✔︎ Successfully copied to clipboard
-										</div>
-									</div>
-								);
-							})
-						}
-					</div>
-				</Fragment>
-			</Tabs>
+				<div class="space-y-10 lg:col-span-2">
+					<Tabs>
+						<Fragment slot="tab-2">
+							<p>Use money</p>
+							<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" /> -->
+						</Fragment>
+						<Fragment slot="tab-1">
+							<p>Use crypto</p>
+							<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" /> -->
+						</Fragment>
+
+						<Fragment slot="panel-2">
+							<div class="space-y-4">
+								<p class="leading-6">(Donations via PayPal)</p>
+								<div class="grid grid-cols-2 gap-2">
+									{
+										tiers.map((tier) => (
+											<a
+												href={`https://www.paypal.me/dyneorg/${tier.amount}USD`}
+												class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
+											>
+												{tier.amount}
+											</a>
+										))
+									}
+								</div>
+							</div>
+						</Fragment>
+
+						<Fragment slot="panel-1">
+							<div class="space-y-4">
+								<p class="leading-6">Contact us with the transaction ID to redeem the perks.</p>
+								<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
+									{
+										wallets.map((w) => (
+											<button id={w.name} class="bg-sustainability p-4 rounded-3xl ">
+												<p class="font-bold text-2xl text-white">{`${w.name} wallet`}</p>
+												<p id={`${w.name}-address`} class="text-xs w-72 break-words hidden text-gray-400">
+													{w.address} <br />
+													✔︎ Successfully copied to clipboard
+												</p>
+											</button>
+										))
+									}
+								</div>
+							</div>
+						</Fragment>
+					</Tabs>
+				</div>
+			</div>
 		</div>
 	</div>
 </Layout>
@@ -113,7 +210,8 @@ const amounts = [10, 50, 100, 500, 1000, 10000];
 		attachEvent(`#${w.name}`, 'click', (e) => {
 			if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
 				window.navigator.clipboard.writeText(w.address).then(() => {
-					document.querySelector(`#${w.name}-address`).classList.add('text-[#FFFFFF]');
+					document.querySelector(`#${w.name}-address`).classList.remove('hidden');
+					// document.querySelector(`#${w.name}-address`).classList.add('text-[#FFFFFF]');
 				});
 			}
 		});
