@@ -5,23 +5,28 @@ import socials from '../content/social/index.json';
 ---
 
 <footer class="bg-black mt-8">
-	<div class="max-w-7xl mx-auto">
-		<Logo color="var(--accent-color)" />
-		<div class="flex justify-center md:justify-end space-x-6 mr-4 md:mr-24">
+	<div class="container mx-auto flex flex-col items-end max-w-4xl space-y-12 py-16 px-6">
+		<!-- <Logo color="var(--accent-color)" /> -->
+		<div class="flex items-center space-x-6">
 			{socials.map((social) => <SocialIcon name={social.name} href={social.href} />)}
 		</div>
-		<div class="flex flex-col text-white opacity-30 text-lg mr-4 md:mr-24 space-y-8 mt-12 py-8 pb-24">
-			<p class="text-right">
+
+		<div class="flex flex-col text-right text-white opacity-30 text-lg space-y-6">
+			<p>
 				Copyleft ©2000-{new Date().getFullYear()} Dyne.org foundation<br />
 				Haparandadam 7-A1 1013AK Amsterdam
 			</p>
-			<p class="text-right">
-				Not for profit org. est. 2005 with reg.num. 34237525 at KvK.NL
+			<p>
+				Not for profit org. est. 2005 with reg.num. 34237525 at KvK.NL<br />
 				<a href="/donate" class="font-bold">Make a donation.</a>
 			</p>
-      <p class="text-right">
-        The content of this website are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>
-      </p>
+			<p>
+				The content of this website are licensed under a <a
+					rel="license"
+					href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+					>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a
+				>
+			</p>
 		</div>
 	</div>
 </footer>

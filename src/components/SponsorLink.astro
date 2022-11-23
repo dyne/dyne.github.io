@@ -7,6 +7,6 @@ interface Props {
 const { href, text } = Astro.props;
 ---
 
-<a href={href} class="flex flex-row flex-nowrap bg-black rounded-full px-4 py-2 text-white items-center space-x-4"
+<a href={href} class="flex flex-row flex-nowrap bg-black rounded-full pl-8 pr-4 py-2 text-white items-center space-x-4"
 	><slot /><span class="font-bold text-xl">{text}</span>
 </a>
