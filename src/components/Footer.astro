@@ -3,30 +3,32 @@ import Logo from './Logo.astro';
 import Socials from './Socials.astro';
 ---
 
-<footer class="bg-black mt-8">
-	<div class="max-w-7xl mx-auto">
-		<div
-			class="flex flex-col text-white opacity-30 text-lg mr-4 md:mr-24 space-y-8 mt-12 py-8 pb-24 flex flex-col items-end"
-		>
+<footer class="bg-black rounded-t-3xl">
+	<div class="max-w-7xl mx-auto p-6 pt-10 lg:p-12">
+		<div class="flex flex-col items-end space-y-12 opacity-40">
 			<div class="self-start">
 				<Logo color="white" />
 			</div>
+
 			<Socials cls="fill-white" size={30} />
-			<p class="text-right">
-				Copyleft ©2000-{new Date().getFullYear()} Dyne.org foundation<br />
-				Haparandadam 7-A1 1013AK Amsterdam
-			</p>
-			<p>
-				Not for profit org. est. 2005 with reg.num. 34237525 at KvK.NL<br />
-				<a href="/donate" class="font-bold">Make a donation.</a>
-			</p>
-			<p>
-				The content of this website are licensed under a <a
-					rel="license"
-					href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-					>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a
-				>
-			</p>
+
+			<div class="text-white text-right space-y-4">
+				<p>
+					Copyleft ©2000-{new Date().getFullYear()} Dyne.org foundation<br />
+					Haparandadam 7-A1 1013AK Amsterdam
+				</p>
+				<p>
+					Not for profit org. est. 2005 with reg.num. 34237525 at KvK.NL<br />
+					<a href="/donate" class="font-bold">Make a donation.</a>
+				</p>
+				<p>
+					The content of this website are licensed under a <a
+						rel="license"
+						href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+						>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a
+					>
+				</p>
+			</div>
 		</div>
 	</div>
 </footer>
