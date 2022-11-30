@@ -7,9 +7,18 @@ interface Props {
 	cls?: string;
 }
 
-const {size = 24, cls = 'fill-black'} = Astro.props
+const { size = 24, cls = 'fill-black' } = Astro.props;
+
+const cols = socials.length;
+const midIndex = Math.ceil(socials.length / 2);
 ---
 
-<div class="flex justify-start items-center space-x-6">
-	{socials.map((social) => <SocialIcon name={social.name} href={social.href} cls={cls} size={size} />)}
+<div class="grid gap-6">
+	{
+		socials.map((social, index) => (
+			<div class={index == midIndex ? 'col-start-2' : ''}>
+				<SocialIcon name={social.name} href={social.href} cls={cls} size={size} />
+			</div>
+		))
+	}
 </div>
