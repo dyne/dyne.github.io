@@ -35,20 +35,19 @@ const wallets = [
 	// { nmc: 'NC53CzNRZ7C1F8UYXqEXSorj367sZ2WQ3k' },
 	// { zec: 't1ZThp1gXGYNB93tj66Fa5LnYtxnR6ASKpG' },
 ];
-const amounts = [10, 50, 100, 500, 1000, 10000];
 
 const tiers = [
 	{
-		amount: '10$',
+		amount: '50$',
 		text: 'Get a shoutout on Twitter or Mastodon linking to your user and a link of your choice.',
 	},
 	{
 		amount: '350$',
-		text: 'We will dedicate 1 hour of consulting or mentorship exclusively for you on a topic of your choice.',
+		text: 'We will dedicate 1 hour to advise you about a technical topic of your choice.',
 	},
 	{
 		amount: '600$',
-		text: 'We will run a 2h on-line workshop for your team',
+		text: 'We will run a 2h on-line workshop for you and your team',
 	},
 	{
 		amount: '3.000$',
@@ -127,25 +126,27 @@ const tiers = [
 		<!-- Column 2 -->
 		<div class="space-y-8 max-w-lg pt-8 md:pt-0">
 			<div id="recurring" class="p-6 bg-primary rounded-3xl space-y-4">
-				<h1 class="text-xl font-bold">Recurring donations</h1>
+				<h1 class="text-xl font-bold">Recurring donations on:</h1>
 				<div class="space-y-2">
-					<SponsorLink href="https://opencollective.com/dyneorg" text="Open Collective"><Opencollective size={36} /></SponsorLink>
+<!--					<SponsorLink href="https://opencollective.com/dyneorg" text="Open Collective"><Opencollective size={36} /></SponsorLink> -->
 					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={36} /></SponsorLink>
-					<SponsorLink href="https://www.patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink>
+<!--					<SponsorLink href="https://www.patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink> -->
 				</div>
-				<p class="leading-6">Check our profiles for the full list of tiers and perks</p>
+				<p class="leading-6">Donations can also give you benefits!</p>
 			</div>
 
 			<div id="onetime" class="p-6 bg-primary rounded-3xl space-y-4">
-				<h1 class="text-xl font-bold">One-time donations</h1>
+				<h1 class="text-xl font-bold">Optional benefits we offer:</h1>
 				<ul class="text-base space-y-4">
 					{
 						tiers.map((tier) => (
 							<li class="flex flex-row flex-nowrap items-center bg-primary-60 rounded-2xl overflow-hidden">
+<a href="https://github.com/sponsors/dyne" text="GitHub">
 								<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center self-stretch">
 									<p class="text-center">{tier.amount}</p>
 								</div>
 								<p class="p-3">{tier.text}</p>
+</a>
 							</li>
 						))
 					}
@@ -182,7 +183,7 @@ const tiers = [
 
 						<Fragment slot="panel-1">
 							<div class="space-y-4">
-								<p class="leading-6">Contact us with the transaction ID to redeem the perks.</p>
+								<p class="leading-6">Contact us with the transaction ID to redeem the benefits.</p>
 								<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
 									{
 										wallets.map((w) => (
