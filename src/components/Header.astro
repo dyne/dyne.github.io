@@ -1,6 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Socials from './Socials.astro';
+import MenuLink from './MenuLink.astro';
 
 const links = [
 	{ name: 'Who we are', href: '/#who-we-are' },
@@ -41,26 +42,27 @@ const links = [
 
 	<!-- Mobile: Fixed menu -->
 	<nav
-		class="fixed top-0 left-0 w-screen h-screen z-40 bg-black hidden lg:hidden p-6"
+		style="background-color: var(--accent-color);"
+		class="fixed top-0 left-0 w-screen h-screen z-40 hidden lg:hidden p-6"
 		aria-label="Mobile navigation"
 		id="menu"
 	>
-		<div class="flex flex-col justify-between h-full">
-			<Logo />
-      
-			<ul class="lg:hidden text-2xl text-[#FFEEDD] w-full text-right">
-				{
-					links.map((pl) => (
-						<li class="pb-6">
-							<a href={pl.href} class="block py-4 px-2 lg:px-4">
-								{pl.name}
-							</a>
-						</li>
-					))
-				}
-			</ul>
+		<div class="w-full h-full flex flex-col">
+			<Logo color="black" />
 
-			<Socials size={30} cls="fill-white" />
+			<div class="grow flex flex-col justify-between">
+				<ul class="grow flex flex-col items-end justify-center space-y-3">
+					{
+						links.map((pl) => (
+							<li>
+								<MenuLink href={pl.href}>{pl.name}</MenuLink>
+							</li>
+						))
+					}
+				</ul>
+
+				<Socials size={30} cls="fill-white" />
+			</div>
 		</div>
 	</nav>
 </header>
