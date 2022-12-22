@@ -74,7 +74,8 @@ Jaro Mail **version 2** is made available in a ready to install form for **Apple
 
 ## Development
 
-This software is developed in the spare time of one programmer who also uses it since several years. Do not expect it either to disappear nor to add big features. What one can expect is that I’m going to fix annoying bugs affecting me within a short time, since I do eat a lot of this dogfood… the code repository is on [Github.com/Dyne/JaroMail](https://github.com/dyne/JaroMail).
+The code repository along with more technical documentation is on
+[Github.com/Dyne/JaroMail](https://github.com/dyne/JaroMail).
 
 ### Encrypted storage
 

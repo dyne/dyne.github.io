@@ -1,8 +1,8 @@
 ---
-import LogoSmall from './LogoSmall.astro';
+import Logo from './Logo.astro';
 import Socials from './Socials.astro';
 
-const primaryLinks = [
+const links = [
 	{ name: 'Who we are', href: '/#who-we-are' },
 	{ name: 'What we do', href: '/#what-we-do' },
 	{ name: 'Donate', href: '/donate' },
@@ -10,33 +10,47 @@ const primaryLinks = [
 ];
 ---
 
-<header class="mx-auto w-full">
-	<div class="mx-auto w-full lg:flex lg:justify-between max-w-7xl items-center">
-		<div class="flex flex-row items-start justify-between px-4 pt-2">
-			<LogoSmall />
-			<div class="lg:hidden">
-				<button
-					type="button"
-					class="ml-1.5 text-gray-500 dark:text-gray-400 rounded-lg text-sm p-2.5 inline-flex items-center transition"
-					aria-label="Toggle menu"
-					data-aw-toggle-menu
-				>
-					<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path
-							d="M47.25 40.5H20.25V36H47.25V40.5ZM47.25 29.25H6.75V24.75H47.25V29.25ZM47.25 18H20.25V13.5H47.25V18Z"
-							fill="var(--accent-color)"></path>
-					</svg>
-				</button>
+<header class="w-full">
+	<div class="p-6 lg:px-8 mx-auto w-full max-w-7xl lg:flex lg:justify-between items-center">
+		<a href="/" class="inline-block">
+			<Logo />
+		</a>
+
+		<!-- Desktop: links -->
+		<nav class="hidden lg:visible lg:flex flex-col items-end space-y-4" aria-label="Main navigation">
+			<Socials size={30} />
+			<div class="space-x-10 font-medium text-2xl text-black flex">
+				{links.map((link) => <a href={link.href}>{link.name}</a>)}
 			</div>
-		</div>
-		<nav
-			class="items-center w-full lg:w-auto hidden lg:flex text-gray-600 dark:text-slate-200 h-screen lg:h-auto"
-			aria-label="Main navigation"
-			id="menu"
-		>
-			<ul class="lg:hidden text-2xl text-[#FFEEDD] w-full text-right pr-4">
+		</nav>
+	</div>
+
+	<!-- Mobile: Fixed menu button -->
+	<button
+		type="button"
+		class="bg-white shadow-xl rounded-full p-4 fixed top-4 right-4 z-50 lg:hidden"
+		aria-label="Toggle menu"
+		data-aw-toggle-menu
+	>
+		<svg width="40" height="40" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M47.25 40.5H20.25V36H47.25V40.5ZM47.25 29.25H6.75V24.75H47.25V29.25ZM47.25 18H20.25V13.5H47.25V18Z"
+				fill="var(--accent-color)"></path>
+		</svg>
+	</button>
+
+	<!-- Mobile: Fixed menu -->
+	<nav
+		class="fixed top-0 left-0 w-screen h-screen z-40 bg-black hidden lg:hidden p-6"
+		aria-label="Mobile navigation"
+		id="menu"
+	>
+		<div class="flex flex-col justify-between h-full">
+			<Logo />
+      
+			<ul class="lg:hidden text-2xl text-[#FFEEDD] w-full text-right">
 				{
-					primaryLinks.map((pl) => (
+					links.map((pl) => (
 						<li class="pb-6">
 							<a href={pl.href} class="block py-4 px-2 lg:px-4">
 								{pl.name}
@@ -46,18 +60,7 @@ const primaryLinks = [
 				}
 			</ul>
 
-			<div class="flex flex-col items-end mb-4 space-y-4 p-10">
-				<Socials size={30}/>
-				<div class="hidden items-center lg:flex space-x-10 font-medium text-2xl">
-					{
-						primaryLinks.map((pl) => (
-							<a href={pl.href} class="text-black block inline-flex items-center whitespace-nowrap">
-								{pl.name}
-							</a>
-						))
-					}
-				</div>
-			</div>
-		</nav>
-	</div>
+			<Socials size={30} cls="fill-white" />
+		</div>
+	</nav>
 </header>
