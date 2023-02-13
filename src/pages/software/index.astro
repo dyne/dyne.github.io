@@ -1,15 +1,13 @@
 ---
-import Layout from "~/layouts/Layout.astro";
+
+import MiniCard from '~/components/MiniCard.astro';
+import Layout from '~/layouts/Layout.astro';
 const softwares = await Astro.glob('~/pages/software/*.md');
 ---
 
 <Layout title="" description="">
-    <h1>Software</h1>
-    <ul>
-        {softwares.map((software) => (
-        <li>
-            <a href={software.url}>{software.frontmatter.title}</a>
-        </li>
-        ))}
-    </ul>
+	<h1>Software</h1>
+	<div class="grid grid-cols-2 gap-8">
+		{softwares.map((software) => <MiniCard body={software.frontmatter.description} href={software.url} title={software.frontmatter.title} cn={{"body": "text-sm", "title": "no-underline"}} />)}
+	</div>
 </Layout>
