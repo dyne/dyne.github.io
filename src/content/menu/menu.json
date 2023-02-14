@@ -3,5 +3,5 @@
     {"name": "Who we are", "href": "#who-we-are"},
     {"name": "What we do", "href": "#what-we-do"},
     {"name": "What we did", "href": "#what-we-did"},
-    {"name": "Donate 🎁", "href": "/donate"}
+    {"name": "Donations", "href": "/donate"}
 ]
