@@ -4,4 +4,4 @@ logo: https://zenroom.org/wp-content/uploads/2020/09/zenroom_only-logo_padding.p
 link: http://dev.zenroom.org
 ---
 
-Zenroom is a tiny and portable virtual machine that authenticates and manages access to data using-readableZenroom is a tiny and portable virtual machine that authenticates and manages access to data using human-readableachine that authenticates.
+Zenroom is a small, portable and **secure language interpreter** of a domain specific language called zencode, able to **execute cryptographic operations** and smart contracts in a multiplatform environment.
