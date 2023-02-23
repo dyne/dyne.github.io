@@ -10,6 +10,7 @@ import Awards from '~/components/Awards.astro';
 import Banner from '~/components/BannerMerch.astro';
 import BannerMerch from '~/components/BannerMerch.astro';
 import Discord from '~/components/social_icons/Discord.astro';
+import Timeline from '~/components/timeline/Timeline.svelte';
 ---
 
 <Layout title="Dyne.org">
@@ -36,6 +37,8 @@ import Discord from '~/components/social_icons/Discord.astro';
 		<Awards />
 
 		<Testimonials />
+
+		<Timeline client:only />
 
 		<BannerMerch />
 

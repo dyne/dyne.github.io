@@ -12,7 +12,9 @@ specifiers:
   '@fontsource/syne-tactile': ^4.5.10
   '@fontsource/work-sans': ^4.5.14
   '@tailwindcss/typography': ^0.5.9
+  '@types/lodash': ^4.14.191
   '@types/marked': ^4.0.8
+  '@types/papaparse': ^5.3.7
   '@typescript-eslint/eslint-plugin': ^5.53.0
   '@typescript-eslint/parser': ^5.53.0
   '@wcj/html-to-markdown-cli': ^1.0.0
@@ -21,12 +23,15 @@ specifiers:
   eslint: ^8.34.0
   eslint-plugin-astro: ^0.21.1
   eslint-plugin-jsx-a11y: ^6.7.1
+  lodash: ^4.17.21
   marked: ^4.2.12
+  papaparse: ^5.3.2
   prettier: ^2.8.4
   prettier-plugin-astro: ^0.7.2
   rss-parser: ^3.12.0
   sass: ^1.58.3
   svelte: ^3.54.0
+  svelte-loading-spinners: ^0.3.4
   tailwindcss: ^3.2.7
   typescript: ^4.9.5
 
@@ -40,6 +45,8 @@ dependencies:
   '@wcj/html-to-markdown-cli': 1.0.0
   astro: 2.0.14_sass@1.58.3
   astro-tabs: 0.1.7
+  lodash: 4.17.21
+  papaparse: 5.3.2
   rss-parser: 3.12.0
   sass: 1.58.3
   svelte: 3.55.1
@@ -51,7 +58,9 @@ devDependencies:
   '@fontsource/syne': 4.5.13
   '@fontsource/syne-tactile': 4.5.10
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.7
+  '@types/lodash': 4.14.191
   '@types/marked': 4.0.8
+  '@types/papaparse': 5.3.7
   '@typescript-eslint/eslint-plugin': 5.53.0_ny4s7qc6yg74faf3d6xty2ofzy
   '@typescript-eslint/parser': 5.53.0_7kw3g6rralp5ps6mg3uyzz6azm
   eslint: 8.34.0
@@ -60,6 +69,7 @@ devDependencies:
   marked: 4.2.12
   prettier: 2.8.4
   prettier-plugin-astro: 0.7.2
+  svelte-loading-spinners: 0.3.4
   typescript: 4.9.5
 
 packages:
@@ -833,6 +843,10 @@ packages:
   /@types/json5/0.0.30:
     resolution: {integrity: sha512-sqm9g7mHlPY/43fcSNrCYfOeX9zkTTK+euO5E6+CVijSMm5tTjkVdwdqRkY3ljjIAf8679vps5jKUoJBCLsMDA==}
 
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
+    dev: true
+
   /@types/marked/4.0.8:
     resolution: {integrity: sha512-HVNzMT5QlWCOdeuBsgXP8EZzKUf0+AXzN+sLmjvaB3ZlLqO+e4u0uXrdw9ub69wBKFs+c6/pA4r9sy6cCDvImw==}
     dev: true
@@ -856,7 +870,12 @@ packages:
 
   /@types/node/17.0.45:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
-    dev: false
+
+  /@types/papaparse/5.3.7:
+    resolution: {integrity: sha512-f2HKmlnPdCvS0WI33WtCs5GD7X1cxzzS/aduaxSu3I7TbhWlENjSPs6z5TaB9K0J+BH1jbmqTaM+ja5puis4wg==}
+    dependencies:
+      '@types/node': 17.0.45
+    dev: true
 
   /@types/parse5/6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -2852,6 +2871,10 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
+
   /log-symbols/5.1.0:
     resolution: {integrity: sha512-l0x2DvrW294C9uDCoQe1VSU4gf529FkSZ6leBl4TiqZH/e+0R7hSfHQBNut2mNygDgHwvYHfFLn6Oxb3VWj2rA==}
     engines: {node: '>=12'}
@@ -3482,6 +3505,10 @@ packages:
   /p-try/2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
+
+  /papaparse/5.3.2:
+    resolution: {integrity: sha512-6dNZu0Ki+gyV0eBsFKJhYr+MdQYAzFUGlBMNj3GNrmHxmz1lfRa24CjFObPXtjcetlOv5Ad299MhIK0znp3afw==}
+    dev: false
 
   /parent-module/1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
@@ -4196,6 +4223,10 @@ packages:
     dependencies:
       svelte: 3.55.1
     dev: false
+
+  /svelte-loading-spinners/0.3.4:
+    resolution: {integrity: sha512-vKaW71QMCBcTNijAGc0mUl8k3DQ66iYmp6MB8BMGCXyWk82bTrcLy8FOnSm9fE+8q6TwzD6PLUoYFHt0II93Xw==}
+    dev: true
 
   /svelte/3.55.1:
     resolution: {integrity: sha512-S+87/P0Ve67HxKkEV23iCdAh/SX1xiSfjF1HOglno/YTbSTW7RniICMCofWGdJJbdjw3S+0PfFb1JtGfTXE0oQ==}
