@@ -1,7 +1,6 @@
 import partytown from '@astrojs/partytown';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
-import image from '@astrojs/image';
 import sitemap from '@astrojs/sitemap';
 import path from 'path';
 import { SITE } from './src/config.mjs';
@@ -17,7 +16,7 @@ export default defineConfig({
   markdown: {
     drafts: true
   },
-  integrations: [tailwind(), partytown(), sitemap(), image(), svelte()],
+  integrations: [tailwind(), partytown(), sitemap(), svelte()],
   vite: {
     resolve: {
       alias: {

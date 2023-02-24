@@ -15,13 +15,13 @@
   },
   "dependencies": {
     "@astrojs/partytown": "^1.0.3",
-    "@astrojs/sitemap": "^1.0.1",
+    "@astrojs/sitemap": "^1.1.0",
     "@astrojs/svelte": "^2.0.2",
     "@astrojs/tailwind": "^3.0.1",
     "@fontsource/jetbrains-mono": "^4.5.12",
     "@fontsource/work-sans": "^4.5.14",
     "@wcj/html-to-markdown-cli": "^1.0.0",
-    "astro": "^2.0.12",
+    "astro": "^2.0.15",
     "astro-tabs": "^0.1.7",
     "lodash": "^4.17.21",
     "papaparse": "^5.3.2",
@@ -31,7 +31,6 @@
     "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.12.1",
     "@astrolib/seo": "^0.3.0",
     "@fontsource/syne": "^4.5.13",
     "@fontsource/syne-tactile": "^4.5.10",
