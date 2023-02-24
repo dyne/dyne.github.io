@@ -98,6 +98,9 @@ module.exports = {
 					},
 				},
 			},
+			borderRadius: {
+				'3xl': '60px'
+			},
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],
