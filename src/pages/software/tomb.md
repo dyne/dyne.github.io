@@ -42,7 +42,9 @@ Please note that user permission problems are due to the fact they are not using
 To create a 100MB tomb called “secret” do:
 
 ```
-tomb dig -s 100 secret.tomb tomb forge secret.tomb.key tomb lock secret.tomb -k secret.tomb.key
+tomb dig -s 100 secret.tomb
+tomb forge secret.tomb.key
+tomb lock secret.tomb -k secret.tomb.key
 ```
 
 To open it, do
@@ -54,12 +56,12 @@ and after you are done
 tomb close
 ```
 or if you are in a hurry
-![tomb slam all](/images/software/tomb_slam_all.jpg)
+```
+tomb slam all
+```
 will close immediately all open tombs, killing all applications using them. Multiple tombs can be used at the same time, also folders and files inside them can be bound to files and folders inside your $HOME, placing all configurations where the applications expect them.
 
-[Manpage (PDF)](http://tomb.dyne.org/tomb_manpage.pdf)
-
-Tomb can do much more, like execution hooks, steganography of keys and fast search over filenames and contents: have a look at the **manpage**.
+Tomb can do much more, like execution hooks, steganography of keys and fast search over filenames and contents: `man tomb`.
 
 ![awesome-shot](https://www.dyne.org/wp-content/uploads/2011/11/awesome-shot.png)
 
@@ -70,7 +72,7 @@ Here below is a snapshot of the command line help (tomb -h):
 ```man
   Tomb 3.0.0 - The Crypto Undertaker
 
-   Copyright (C) 2007-2022 Dyne.org Foundation, License GNU GPL v3+
+   Copyright (C) 2007-2023 Dyne.org Foundation, License GNU GPL v3+
    This is free software: you are free to change and redistribute it
    For the latest source code go to <http://dyne.org/software/tomb>
 
@@ -281,7 +283,7 @@ If you like to go more in detail, [this MA thesis](https://www.researchgate.net/
 
 ## More tips…
 
-More interesting usage tips can be found in our [Wiki documentation](https://github.com/dyne/Tomb/wiki) and in crunchbang’s [Paranoid #! Security guide](http://crunchbang.org/forums/viewtopic.php?id=24722) (great distro BTW!)
+More interesting usage tips can be found in our [Wiki documentation](https://github.com/dyne/Tomb/wiki) and in crunchbang’s [Paranoid #! Security guide](https://web.archive.org/web/20150703042116/https://crunchbang.org/forums/viewtopic.php?id=24722).
 
 [![github\_tomb](https://www.dyne.org/wp-content/uploads/2011/11/github_tomb.jpg)](https://github.com/dyne/Tomb)
 
