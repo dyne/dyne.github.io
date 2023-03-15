@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TimelineItem } from './dataProcess';
+	import type { TimelineItem } from './dataProcess/parse';
 
 	export let item: TimelineItem;
 </script>
