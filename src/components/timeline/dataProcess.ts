@@ -1,9 +1,9 @@
 import Papa from 'papaparse';
 import _ from 'lodash';
 
-/* Data parsing and cleaning */
+/* Data parsing */
 
-export type ParseResult = [string, string, string, string, string, string];
+export type ParseResult = string[];
 export type ParseResults = Array<ParseResult>;
 
 export async function fetchTimelineCSV(dataUrl: string): Promise<ParseResults> {
@@ -17,8 +17,22 @@ export async function fetchTimelineCSV(dataUrl: string): Promise<ParseResults> {
 	});
 }
 
+/* Data cleaning */
+
+type CleaningFn = (results: ParseResults) => ParseResults;
+
+const removeDataHeader: CleaningFn = (results) => {
+	return results.slice(1);
+};
+
+const removeEmptyResults = (results) => {
+	return results.filter((result) => result[0] !== '');
+};
+
+const cleaningFunctions: Array<CleaningFn> = [removeDataHeader, removeEmptyResults];
+
 export function cleanTimelineResults(results: ParseResults): ParseResults {
-	return results.slice(1).filter((result) => result[0] !== '');
+	return cleaningFunctions.reduce((acc, cleaner) => cleaner(acc), results);
 }
 
 /* Data formatting */
