@@ -11,11 +11,11 @@
 </script>
 
 {#await data}
-	<div class="p-12 w-full flex items-center justify-center">
-		<SyncLoader />
+	<div class="flex items-center justify-center p-12">
+		<SyncLoader color="var(--accent-color)" />
 	</div>
 {:then data}
-	<div id="timeline-main" class="overflow-x-auto w-full px-12">
+	<div id="timeline-main" class="overflow-x-auto px-12">
 		<div class="flex flex-row flex-nowrap space-x-8">
 			{#each data as group}
 				<div class="shrink-0">
