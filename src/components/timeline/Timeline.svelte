@@ -18,7 +18,7 @@
 {:then data}
 	{@const groupedData = groupItems(data)}
 	<div id="timeline-main" class="overflow-x-auto px-12">
-		<div class="flex flex-row flex-nowrap space-x-8">
+		<div class="flex flex-row flex-nowrap">
 			{#each groupedData as group}
 				<div class="shrink-0">
 					<TimelineGroup {group} />
