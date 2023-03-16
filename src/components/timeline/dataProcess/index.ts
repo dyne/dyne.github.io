@@ -1,14 +1,12 @@
 import { cleanFetchedItems } from './clean';
 import { fetchTimelineCSV } from './fetch';
-import { groupItems, TimelineGroup } from './group';
-import { resultsToItems } from './parse';
+import { TimelineGroup } from './group';
+import { resultsToItems, TimelineItem } from './parse';
 
 //
 
-export async function getTimelineDataGrouped(dataUrl: string): Promise<Array<TimelineGroup>> {
-	const data = cleanFetchedItems(await fetchTimelineCSV(dataUrl));
-	const groups = groupItems(resultsToItems(data));
-	return groups;
+export async function getTimelineData(dataUrl: string): Promise<Array<TimelineItem>> {
+	return resultsToItems(cleanFetchedItems(await fetchTimelineCSV(dataUrl)));
 }
 
 export function getTimelineYears(timelineData: Array<TimelineGroup>): Array<string> {
