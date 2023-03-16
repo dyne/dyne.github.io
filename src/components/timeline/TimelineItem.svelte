@@ -7,9 +7,9 @@
 <div class="relative rounded-md py-4">
 	<div class="absolute left-0 -top-3 w-6 h-6 bg-primary rounded-full" />
 	<div class="pt-3 space-y-3">
-		<h3 class="text-xl font-bold leading-5 text-primary">
+		<h3 class="text-xl font-bold leading-6 text-primary">
 			{#if item.infoUrl}
-				<a class="underline" href={item.infoUrl} target="_blank" rel="noreferrer">
+				<a class="underline underline-offset-4 text-accent" href={item.infoUrl} target="_blank" rel="noreferrer">
 					{item.title}
 				</a>
 			{:else}
