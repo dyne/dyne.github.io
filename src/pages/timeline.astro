@@ -1,10 +1,13 @@
 ---
 import Layout from '~/layouts/HomepageLayout.astro';
 import Timeline from '~/components/timeline/Timeline.svelte';
+import Section from '~/components/Section.svelte';
 ---
 
 <Layout title="Dyne.org">
 	<div class="mb-10">
-		<Timeline client:only />
+		<Section title="What we did">
+			<Timeline client:only />
+		</Section>
 	</div>
 </Layout>

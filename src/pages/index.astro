@@ -36,9 +36,11 @@ import Timeline from '~/components/timeline/Timeline.svelte';
 
 		<Testimonials />
 
-		<Section id="what-we-did" title="What we did" contentPadding={false}>
-			<Timeline client:only />
-		</Section>
+		<div class="mb-10">
+			<Section id="what-we-did" title="What we did" contentPadding={false}>
+				<Timeline client:only />
+			</Section>
+		</div>
 
 		<BannerMerch />
 
