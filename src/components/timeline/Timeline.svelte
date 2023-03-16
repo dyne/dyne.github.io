@@ -26,3 +26,16 @@
 	</div>
 	<TimelineNav steps={getTimelineYears(data)} />
 {/await}
+
+<style>
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	#timeline-main::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Hide scrollbar for IE, Edge and Firefox */
+	#timeline-main {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+</style>
