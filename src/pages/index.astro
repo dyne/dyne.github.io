@@ -1,15 +1,13 @@
 ---
 import Layout from '~/layouts/HomepageLayout.astro';
-import Section from '~/components/Section.astro';
+import Section from '~/components/Section.svelte';
 import WhoWeAre from '~/components/WhoWeAre.astro';
 import Hero from '~/components/Hero.astro';
 import Stats from '~/components/Stats.astro';
 import Projects from '~/components/Projects.astro';
 import Testimonials from '~/components/Testimonials.astro';
 import Awards from '~/components/Awards.astro';
-import Banner from '~/components/BannerMerch.astro';
 import BannerMerch from '~/components/BannerMerch.astro';
-import Discord from '~/components/social_icons/Discord.astro';
 import Timeline from '~/components/timeline/Timeline.svelte';
 ---
 
@@ -38,7 +36,9 @@ import Timeline from '~/components/timeline/Timeline.svelte';
 
 		<Testimonials />
 
-		<Timeline client:only />
+		<Section id="what-we-did" title="What we did" contentPadding={false}>
+			<Timeline client:only />
+		</Section>
 
 		<BannerMerch />
 
