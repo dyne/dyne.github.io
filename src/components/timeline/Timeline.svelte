@@ -1,19 +1,20 @@
 <script lang="ts">
 	import { getTimelineData, getTimelineYears } from './dataProcess';
-	import _ from 'lodash';
+	import { groupItems } from './dataProcess/group';
+	import { filterItems } from './dataProcess/filter';
+
+	// Components
 	import { SyncLoader } from 'svelte-loading-spinners';
 	import TimelineGroup from './TimelineGroup.svelte';
 	import TimelineNav from './TimelineNav.svelte';
-	import { groupItems } from './dataProcess/group';
 	import TimelineItem from './TimelineItem.svelte';
 
 	//
 
 	export let reverse = true;
+	export let zoom = null;
 
 	let dataUrl = 'dyne-timeline.csv';
-
-	let data: Array<TimelineItem> = [];
 	let promise = getTimelineData(dataUrl);
 </script>
 
@@ -22,7 +23,8 @@
 		<SyncLoader color="var(--accent-color)" />
 	</div>
 {:then data}
-	{@const groupedData = groupItems(data, reverse)}
+	{@const filteredData = filterItems(data, zoom)}
+	{@const groupedData = groupItems(filteredData, reverse)}
 	<div id="timeline-main" class="overflow-x-auto px-12">
 		<div class="flex flex-row flex-nowrap">
 			{#each groupedData as group}
