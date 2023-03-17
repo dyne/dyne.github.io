@@ -25,14 +25,12 @@
 {:then data}
 	{@const filteredData = filterItems(data, zoom)}
 	{@const groupedData = groupItems(filteredData, reverse)}
-	<div id="timeline-main" class="overflow-x-auto px-12">
-		<div class="flex flex-row flex-nowrap">
-			{#each groupedData as group}
-				<div class="shrink-0">
-					<TimelineGroup {group} />
-				</div>
-			{/each}
-		</div>
+	<div id="timeline-main" class="overflow-x-auto px-12 flex flex-row flex-nowrap">
+		{#each groupedData as group}
+			<div class="shrink-0">
+				<TimelineGroup {group} />
+			</div>
+		{/each}
 	</div>
 	<!-- <TimelineNav steps={getTimelineYears(groupedData)} /> -->
 {/await}
