@@ -10,7 +10,8 @@ export interface TimelineGroup {
 
 /* Function */
 
-export function groupItems(items: Array<TimelineItem>): Array<TimelineGroup> {
+export function groupItems(items: Array<TimelineItem>, reverse = false): Array<TimelineGroup> {
+	if (reverse) items.reverse();
 	const groups: Array<TimelineGroup> = [];
 	_.forIn(_.groupBy(items, 'year'), (value, key) => {
 		groups.push({
@@ -18,5 +19,6 @@ export function groupItems(items: Array<TimelineItem>): Array<TimelineGroup> {
 			items: value,
 		});
 	});
-	return _.sortBy(groups, 'year');
+	const sorted = _.sortBy(groups, 'year');
+	return reverse ? sorted.reverse() : sorted;
 }
