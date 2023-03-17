@@ -9,6 +9,7 @@ import Testimonials from '~/components/Testimonials.astro';
 import Awards from '~/components/Awards.astro';
 import BannerMerch from '~/components/BannerMerch.astro';
 import Timeline from '~/components/timeline/Timeline.svelte';
+import Button from '~/components/Button.astro';
 ---
 
 <Layout title="Dyne.org">
@@ -39,12 +40,14 @@ import Timeline from '~/components/timeline/Timeline.svelte';
 		<div class="mb-10">
 			<Section id="what-we-did" title="What we did" contentPadding={false}>
 				<Timeline client:only zoom={0} />
+				<div class="p-8 lg:p-12 flex justify-end">
+					<Button text="View full timeline" href="/timeline" />
+				</div>
 			</Section>
 		</div>
 
-		<BannerMerch />
-
-		<!-- spacer -->
-		<div class="h-16"></div>
+		<div class="mb-10">
+			<BannerMerch />
+		</div>
 	</main>
 </Layout>
