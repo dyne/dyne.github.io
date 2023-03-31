@@ -66,3 +66,12 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## 📚 Guides
+
+### ⏱️ Updating the timeline
+
+1. Edit the info at [this spreadsheet](https://docs.google.com/spreadsheets/d/1JG-bs1B7Nq1c7GvA0zQIgXhkkemKZn_ZUCL5RbZVo6U/edit#gid=1214211776)
+2. Export the sheet as `.csv`
+3. Rename it as `dyne-timeline.csv`
+4. Add it in `/public` folder
+5. Rebuild & deploy
