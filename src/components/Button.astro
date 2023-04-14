@@ -1,11 +1,11 @@
 ---
-const { href, text, color = 'accent', cls = '', id = '', onclick=() => {} } = Astro.props;
+const { href, text, color = 'accent', cls = '', id = '', onclick = () => {} } = Astro.props;
 ---
 
 <a
 	id={id}
 	href={href}
-    onclick={onclick}
+	onclick={onclick}
 	class={`cursor-pointer button bg-${color} py-2 px-4 rounded-full w-fit text-taccent text-3xl ${cls}`}
 	>{text}
 </a>
