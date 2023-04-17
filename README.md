@@ -31,6 +31,8 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+The comma separated file `public/dyne-timeline.csv` holds the contents of the timeline of events shown on homepage: updating it will update the website.
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
