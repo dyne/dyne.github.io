@@ -18,8 +18,8 @@
 		<SyncLoader color="var(--accent-color)" />
 	</div>
 {:then data}
-	{@const filteredData = filterItems(data, 0)}
-	{@const groupedData = groupItems(filteredData, true)}
+	{@const filteredData = filterItems(data, zoom)}
+	{@const groupedData = groupItems(filteredData, reverse)}
 	<div id="timeline-main" class="overflow-x-auto px-12 flex flex-row flex-nowrap">
 		{#each groupedData as group}
 			<div class="shrink-0">
@@ -30,14 +30,21 @@
 {/await}
 
 <style>
-	/* Hide scrollbar for Chrome, Safari and Opera */
+	#timeline-main {
+		--scrollbar-thumb-color: var(--accent-color);
+		--scrollbar-track-color: rgba(255, 255, 255, 0.2);
+	}
+	/* Chrome, Safari and Opera */
 	#timeline-main::-webkit-scrollbar {
-		display: none;
+		background-color: var(--scrollbar-track-color);
+	}
+	#timeline-main::-webkit-scrollbar-thumb {
+		background-color: var(--scrollbar-thumb-color);
+		border-radius: 999px;
 	}
 
-	/* Hide scrollbar for IE, Edge and Firefox */
+	/* Firefox */
 	#timeline-main {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
+		scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 	}
 </style>
