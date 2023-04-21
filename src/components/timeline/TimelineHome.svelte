@@ -1,20 +1,15 @@
 <script lang="ts">
-	import { getTimelineData, getTimelineYears } from './dataProcess';
+	import { getTimelineData } from './dataProcess';
 	import { groupItems } from './dataProcess/group';
 	import { filterItems } from './dataProcess/filter';
 
 	// Components
 	import { SyncLoader } from 'svelte-loading-spinners';
 	import TimelineGroup from './TimelineGroup.svelte';
-	import TimelineNav from './TimelineNav.svelte';
-	import TimelineItem from './TimelineItem.svelte';
 
 	//
 
-	export let reverse = true;
-	export let zoom = null;
-
-	let dataUrl = 'dyne-timeline.csv';
+	let dataUrl = '/dyne-timeline.csv';
 	let promise = getTimelineData(dataUrl);
 </script>
 
@@ -32,18 +27,24 @@
 			</div>
 		{/each}
 	</div>
-	<!-- <TimelineNav steps={getTimelineYears(groupedData)} /> -->
 {/await}
 
 <style>
-	/* Hide scrollbar for Chrome, Safari and Opera */
+	#timeline-main {
+		--scrollbar-thumb-color: var(--accent-color);
+		--scrollbar-track-color: rgba(255, 255, 255, 0.2);
+	}
+	/* Chrome, Safari and Opera */
 	#timeline-main::-webkit-scrollbar {
-		display: none;
+		background-color: var(--scrollbar-track-color);
+	}
+	#timeline-main::-webkit-scrollbar-thumb {
+		background-color: var(--scrollbar-thumb-color);
+		border-radius: 999px;
 	}
 
-	/* Hide scrollbar for IE, Edge and Firefox */
+	/* Firefox */
 	#timeline-main {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
+		scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 	}
 </style>
