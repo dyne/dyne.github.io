@@ -9,16 +9,17 @@ import Telegram from './social_icons/Telegram.astro';
 import Mastodon from './social_icons/Mastodon.astro';
 import Discord from './social_icons/Discord.astro';
 
-type SocialIcon =
-	| 'facebook'
-	| 'twitter'
-	| 'instagram'
-	| 'youtube'
-	| 'linkedin'
-	| 'github'
-	| 'telegram'
-	| 'mastodon'
-	| 'discord';
+enum SocialIcon {
+	FACEBOOK = 'facebook',
+	TWITTER = 'twitter',
+	INSTAGRAM = 'instagram',
+	YOUTUBE = 'youtube',
+	LINKEDIN = 'linkedin',
+	GITHUB = 'github',
+	TELEGRAM = 'telegram',
+	MASTODON = 'mastodon',
+	DISCORD = 'discord',
+}
 
 interface Props {
 	href: string;
@@ -42,9 +43,12 @@ const record: Record<SocialIcon, Function> = {
 const { href, name, size = 20, cls = 'fill-black' } = Astro.props;
 
 const Icon = record[name];
+
+let rel = `noopener`;
+if (name === SocialIcon.MASTODON) rel = 'me ' + rel;
 ---
 
 <!-- <a href={href} target="_blank"><img class="h-5 w-5 md:h-8 md:w-8" alt={`Dyne.org's ${name}`} src={`/images/social_icons/${name}.svg`} /></a> -->
-<a href={href} target="_blank">
+<a rel={rel} href={href} target="_blank" aria-label={`Follow dyne on ${name}`}>
 	<Icon size={size} cls={cls} alt={`Dyne.org's ${name}`} />
 </a>
