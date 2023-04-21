@@ -1,5 +1,7 @@
 [
-    {"name": "Who we are", "url": "#who-we-are"},
-    {"name": "What we do", "url": "#what-we-do"},
-    {"name": "What we did", "url": "#what-we-did"}
+    {"name": "Software", "href": "/software"}, 
+    {"name": "Who we are", "href": "/#who-we-are"},
+    {"name": "What we do", "href": "/#what-we-do"},
+    {"name": "What we did", "href": "/#what-we-did"},
+    {"name": "Donations", "href": "/donate"}
 ]

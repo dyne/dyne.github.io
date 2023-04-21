@@ -1,0 +1,27 @@
+---
+export interface Props {
+	title: string;
+	body: string;
+	href: string;
+	cn?: {
+		title?: string;
+		body?: string;
+	};
+}
+
+const { href, title, body, cta, cn={}  } = Astro.props;
+---
+
+<div class="flex justify-center">
+	<div class="block p-6 rounded-lg shadow-lg hover:shadow-2xl bg-white w-full">
+        <a href={href} class="no-underline">
+            <h4 class:list={[cn?.title, "font-bold"]}>
+                {title.split("::")[0]}
+            </h4>
+	    <h5>{title.split("::")[1]}</h5>
+            <p class={cn?.body}>
+                {body}
+            </p>
+        </a>
+	</div>
+</div>

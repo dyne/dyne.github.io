@@ -7,14 +7,24 @@ import Linkedin from './social_icons/Linkedin.astro';
 import Github from './social_icons/Github.astro';
 import Telegram from './social_icons/Telegram.astro';
 import Mastodon from './social_icons/Mastodon.astro';
+import Discord from './social_icons/Discord.astro';
 
-type SocialIcon = 'facebook' | 'twitter' | 'instagram' | 'youtube' | 'linkedin' | 'github' | 'telegram' | 'mastodon'
+type SocialIcon =
+	| 'facebook'
+	| 'twitter'
+	| 'instagram'
+	| 'youtube'
+	| 'linkedin'
+	| 'github'
+	| 'telegram'
+	| 'mastodon'
+	| 'discord';
 
 interface Props {
-	href: string,
-	name: SocialIcon | string,
-	size?: number,
-	cls?: string
+	href: string;
+	name: SocialIcon | string;
+	size?: number;
+	cls?: string;
 }
 
 const record: Record<SocialIcon, Function> = {
@@ -26,7 +36,8 @@ const record: Record<SocialIcon, Function> = {
 	github: Github,
 	telegram: Telegram,
 	mastodon: Mastodon,
-}
+	discord: Discord,
+};
 
 const { href, name, size = 20, cls = 'fill-black' } = Astro.props;
 
@@ -35,5 +46,5 @@ const Icon = record[name];
 
 <!-- <a href={href} target="_blank"><img class="h-5 w-5 md:h-8 md:w-8" alt={`Dyne.org's ${name}`} src={`/images/social_icons/${name}.svg`} /></a> -->
 <a href={href} target="_blank">
-	<Icon size={size} cls={cls} alt={`Dyne.org's ${name}`}></Icon>
+	<Icon size={size} cls={cls} alt={`Dyne.org's ${name}`} />
 </a>

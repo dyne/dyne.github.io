@@ -1,13 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Socials from './Socials.astro';
-
-const links = [
-	{ name: 'Who we are', href: '/#who-we-are' },
-	{ name: 'What we do', href: '/#what-we-do' },
-	{ name: 'Donate', href: '/donate' },
-	// { name: 'What we did', href: '/#what-we-did' },
-];
+import links from "../content/menu/menu.json";
 ---
 
 <header class="w-full">
@@ -19,7 +13,7 @@ const links = [
 		<!-- Desktop: links -->
 		<nav class="hidden lg:visible lg:flex flex-col items-end space-y-4" aria-label="Main navigation">
 			<Socials size={30} />
-			<div class="space-x-10 font-medium text-2xl text-black flex">
+			<div class="space-x-10 font-medium text-2xl text-black flex" id="d-link-container">
 				{links.map((link) => <a href={link.href}>{link.name}</a>)}
 			</div>
 		</nav>
@@ -64,3 +58,9 @@ const links = [
 		</div>
 	</nav>
 </header>
+
+<style>
+#d-link-container a:last-child {
+  @apply underline decoration-4 decoration-accent;
+}
+</style>
