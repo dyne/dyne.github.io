@@ -7,9 +7,23 @@ interface Props {
 	cls?: string;
 }
 
-const {size = 24, cls = 'fill-black'} = Astro.props
+const { size = 24, cls = 'fill-black' } = Astro.props;
+const half = Math.ceil(socials.length / 2);
 ---
 
-<div class="flex justify-start items-center space-x-6">
+<div class="hidden md:visible md:flex space-x-4">
 	{socials.map((social) => <SocialIcon name={social.name} href={social.href} cls={cls} size={size} />)}
+</div>
+
+<div class="visible md:hidden space-y-4">
+	<div class="flex justify-end space-x-4">
+		{socials.slice(0, half).map((social) => <SocialIcon name={social.name} href={social.href} cls={cls} size={size} />)}
+	</div>
+	<div class="flex justify-end space-x-4">
+		{
+			socials
+				.slice(half, socials.length)
+				.map((social) => <SocialIcon name={social.name} href={social.href} cls={cls} size={size} />)
+		}
+	</div>
 </div>
