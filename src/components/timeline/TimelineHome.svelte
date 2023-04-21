@@ -8,6 +8,8 @@
 	import TimelineGroup from './TimelineGroup.svelte';
 
 	//
+	export let reverse = true;
+	export let zoom = null;
 
 	let dataUrl = '/dyne-timeline.csv';
 	let promise = getTimelineData(dataUrl);
