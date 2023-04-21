@@ -18,8 +18,8 @@
 		<SyncLoader color="var(--accent-color)" />
 	</div>
 {:then data}
-	{@const filteredData = filterItems(data, zoom)}
-	{@const groupedData = groupItems(filteredData, reverse)}
+	{@const filteredData = filterItems(data, 0)}
+	{@const groupedData = groupItems(filteredData, true)}
 	<div id="timeline-main" class="overflow-x-auto px-12 flex flex-row flex-nowrap">
 		{#each groupedData as group}
 			<div class="shrink-0">
