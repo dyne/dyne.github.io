@@ -8,7 +8,7 @@ import Projects from '~/components/Projects.astro';
 import Testimonials from '~/components/Testimonials.astro';
 // import Awards from '~/components/Awards.astro';
 import BannerMerch from '~/components/BannerMerch.astro';
-import Timeline from '~/components/timeline/Timeline.svelte';
+import Timeline from '~/components/timeline/TimelineHome.svelte';
 import Button from '~/components/Button.astro';
 ---
 
@@ -33,16 +33,16 @@ import Button from '~/components/Button.astro';
 			<Projects />
 		</Section>
 
-<!--		<Awards /> -->
+		<!--		<Awards /> -->
 
 		<Testimonials />
 
 		<div class="mb-10">
 			<Section id="what-we-did" title="What we did" contentPadding={false}>
-				<Timeline client:only zoom={0} />
-				<div class="p-8 lg:p-12 flex justify-end">
+				<Timeline client:only />
+				<!-- <div class="p-8 lg:p-12 flex justify-end">
 					<Button text="View full timeline" href="/timeline" />
-				</div>
+				</div> -->
 			</Section>
 		</div>
 

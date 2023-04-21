@@ -8,6 +8,7 @@ import Github from './social_icons/Github.astro';
 import Telegram from './social_icons/Telegram.astro';
 import Mastodon from './social_icons/Mastodon.astro';
 import Discord from './social_icons/Discord.astro';
+import Matrix from './social_icons/Matrix.astro';
 
 enum SocialIcon {
 	FACEBOOK = 'facebook',
@@ -19,6 +20,7 @@ enum SocialIcon {
 	TELEGRAM = 'telegram',
 	MASTODON = 'mastodon',
 	DISCORD = 'discord',
+	MATRIX = 'matrix',
 }
 
 interface Props {
@@ -38,6 +40,7 @@ const record: Record<SocialIcon, Function> = {
 	telegram: Telegram,
 	mastodon: Mastodon,
 	discord: Discord,
+	matrix: Matrix,
 };
 
 const { href, name, size = 20, cls = 'fill-black' } = Astro.props;
