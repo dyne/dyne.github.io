@@ -13,6 +13,40 @@
 
 	let dataUrl = '/dyne-timeline.csv';
 	let promise = getTimelineData(dataUrl);
+
+	//
+
+	let ele;
+	let pos = { top: 0, left: 0, x: 0, y: 0 };
+	let isDown = false;
+
+	const mouseDownHandler = function (e) {
+		isDown = true;
+		pos = {
+			// The current scroll
+			left: ele.scrollLeft,
+			top: ele.scrollTop,
+			// Get the current mouse position
+			x: e.clientX,
+			y: e.clientY,
+		};
+	};
+
+	const mouseMoveHandler = function (e) {
+		if (!isDown) return;
+
+		// How far the mouse has been moved
+		const dx = e.clientX - pos.x;
+		const dy = e.clientY - pos.y;
+
+		// Scroll the element
+		ele.scrollTop = pos.top - dy;
+		ele.scrollLeft = pos.left - dx;
+	};
+
+	const mouseUpHandler = function () {
+		isDown = false;
+	};
 </script>
 
 {#await promise}
@@ -22,7 +56,15 @@
 {:then data}
 	{@const filteredData = filterItems(data, zoom)}
 	{@const groupedData = groupItems(filteredData, reverse)}
-	<div id="timeline-main" class="overflow-x-auto px-12 flex flex-row flex-nowrap">
+	<p class="px-12 text-gray-600 -mt-12 mb-8 text-lg">How to navigate: *Click and drag* or *Scroll*</p>
+	<div
+		bind:this={ele}
+		id="timeline-main"
+		class="overflow-x-auto px-12 flex flex-row flex-nowrap"
+		on:mousedown={mouseDownHandler}
+		on:mousemove={mouseMoveHandler}
+		on:mouseup={mouseUpHandler}
+	>
 		{#each groupedData as group}
 			<div class="shrink-0">
 				<TimelineGroup {group} />
