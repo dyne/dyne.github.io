@@ -47,7 +47,7 @@ const { href, name, size = 20, cls = 'fill-black' } = Astro.props;
 
 const Icon = record[name];
 
-let rel = `noopener`;
+let rel = 'noopener';
 if (name === SocialIcon.MASTODON) rel = 'me ' + rel;
 ---
 
