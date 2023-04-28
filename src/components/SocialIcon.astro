@@ -7,6 +7,7 @@ import Linkedin from './social_icons/Linkedin.astro';
 import Github from './social_icons/Github.astro';
 import Telegram from './social_icons/Telegram.astro';
 import Mastodon from './social_icons/Mastodon.astro';
+import Medium from './social_icons/Medium.astro';
 import Discord from './social_icons/Discord.astro';
 import Matrix from './social_icons/Matrix.astro';
 
@@ -19,6 +20,7 @@ enum SocialIcon {
 	GITHUB = 'github',
 	TELEGRAM = 'telegram',
 	MASTODON = 'mastodon',
+	MEDIUM = 'medium',
 	DISCORD = 'discord',
 	MATRIX = 'matrix',
 }
@@ -39,6 +41,7 @@ const record: Record<SocialIcon, Function> = {
 	github: Github,
 	telegram: Telegram,
 	mastodon: Mastodon,
+	medium: Medium,
 	discord: Discord,
 	matrix: Matrix,
 };
