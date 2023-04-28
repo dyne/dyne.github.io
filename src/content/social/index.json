@@ -7,6 +7,7 @@
   { "name": "facebook", "href": "https://fb.com/dyneorg" },
   { "name": "youtube", "href": "https://www.youtube.com/DyneOrg" },
   { "name": "mastodon", "href": "https://toot.community/@dyne" },
+  { "name": "medium", "href": "https://medium.com/think-do-tank"},
   { "name": "discord", "href": "https://discord.gg/be6Xq2zkgX" },
   { "name": "matrix", "href": "https://matrix.to/#/#dyne:matrix.org"}
 ]
