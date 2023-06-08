@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { getTimelineData } from './dataProcess';
-	import { groupItems } from './dataProcess/group';
-	import { filterItems } from './dataProcess/filter';
+	import { getTimelineData } from '../dataProcess';
+	import { groupItems } from '../dataProcess/group';
+	import { filterItems } from '../dataProcess/filter';
 
 	// Components
 	import { SyncLoader } from 'svelte-loading-spinners';
-	import TimelineGroup from './TimelineGroup.svelte';
+	import TimelineGroup from './TimelineHomeGroup.svelte';
 
 	//
 	export let reverse = true;
@@ -66,7 +66,7 @@
 	<div
 		bind:this={ele}
 		id="timeline-main"
-		class="overflow-x-auto px-12 flex flex-row flex-nowrap"
+		class="overflow-x-auto px-12 pb-10 flex flex-row flex-nowrap"
 		on:mousedown={mouseDownHandler}
 		on:mousemove={mouseMoveHandler}
 		on:mouseup={mouseUpHandler}
