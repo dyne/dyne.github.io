@@ -26,7 +26,7 @@
 					class="
 				w-10 h-10 shrink-0 rounded-md
 				text-black bg-primary-60
-				hover:cursor-pointer hover:border-4 hover:border-secondary
+				hover:cursor-pointer hover:border-4 hover:border-dyne-purple
 				flex items-center justify-center
 				"
 				>

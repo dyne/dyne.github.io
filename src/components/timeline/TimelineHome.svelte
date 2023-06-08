@@ -56,7 +56,13 @@
 {:then data}
 	{@const filteredData = filterItems(data, zoom)}
 	{@const groupedData = groupItems(filteredData, reverse)}
-	<p class="px-12 text-gray-600 -mt-12 mb-8 text-lg">How to navigate: *Click and drag* or *Scroll*</p>
+	<p class="px-12 text-gray-400 mb-8 text-lg">
+		Dyne.org has more than 20 years of history in the fields of
+		<span class="font-bold text-dyne-orange">open-source software development</span>,
+		<span class="font-bold text-white">interdisciplinary art and activism</span>,
+		<span class="font-bold text-dyne-green">circular economy</span>, and
+		<span class="font-bold text-dyne-purple">cyber security</span>.
+	</p>
 	<div
 		bind:this={ele}
 		id="timeline-main"
@@ -64,6 +70,7 @@
 		on:mousedown={mouseDownHandler}
 		on:mousemove={mouseMoveHandler}
 		on:mouseup={mouseUpHandler}
+		on:mouseleave={mouseUpHandler}
 	>
 		{#each groupedData as group}
 			<div class="shrink-0">
