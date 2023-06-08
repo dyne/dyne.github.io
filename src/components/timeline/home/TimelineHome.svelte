@@ -16,11 +16,11 @@
 
 	//
 
-	let ele;
+	let ele: HTMLDivElement;
 	let pos = { top: 0, left: 0, x: 0, y: 0 };
 	let isDown = false;
 
-	const mouseDownHandler = function (e) {
+	const mouseDownHandler = function (e: MouseEvent) {
 		isDown = true;
 		pos = {
 			// The current scroll
@@ -32,7 +32,7 @@
 		};
 	};
 
-	const mouseMoveHandler = function (e) {
+	const mouseMoveHandler = function (e: MouseEvent) {
 		if (!isDown) return;
 
 		// How far the mouse has been moved
@@ -56,13 +56,6 @@
 {:then data}
 	{@const filteredData = filterItems(data, zoom)}
 	{@const groupedData = groupItems(filteredData, reverse)}
-	<p class="px-12 text-gray-400 mb-8 text-lg">
-		Dyne.org has more than 20 years of history in the fields of
-		<span class="font-bold text-dyne-orange">open-source software development</span>,
-		<span class="font-bold text-white">interdisciplinary art and activism</span>,
-		<span class="font-bold text-dyne-green">circular economy</span>, and
-		<span class="font-bold text-dyne-purple">cyber security</span>.
-	</p>
 	<div
 		bind:this={ele}
 		id="timeline-main"

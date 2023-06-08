@@ -16,20 +16,22 @@ import Button from '~/components/Button.astro';
 	<main>
 		<Hero />
 
-		<Section
-			id="who-we-are"
-			title="Who we are"
-			description="Our mission is to create a more open world where all non-personal information is free for everyone to use. Our success is measured by the social, economical and environmental impact of our work. Learn more about what makes our approach so special: "
-		>
+		<Section id="who-we-are" title="Who we are">
+			<p slot="description">
+				Our mission is to create a more open world where all non-personal information is free for everyone to use. Our
+				success is measured by the social, economical and environmental impact of our work. Learn more about what makes
+				our approach so special:
+			</p>
 			<WhoWeAre />
 		</Section>
 
 		<Stats />
-		<Section
-			id="what-we-do"
-			title="What we do"
-			description="Since the year 2000 a large amount of people and organisations in all fields employed and redistributed our creations. Our software gives everybody the right to use, study, share and improve its code, supporting fundamental freedoms. Discover more by scrolling through some of our projects: "
-		>
+		<Section id="what-we-do" title="What we do">
+			<p slot="description">
+				Since the year 2000 a large amount of people and organisations in all fields employed and redistributed our
+				creations. Our software gives everybody the right to use, study, share and improve its code, supporting
+				fundamental freedoms. Discover more by scrolling through some of our projects:
+			</p>
 			<Projects />
 		</Section>
 
@@ -38,11 +40,15 @@ import Button from '~/components/Button.astro';
 		<Testimonials />
 
 		<div class="mb-10">
-			<Section description="" id="what-we-did" title="What we did" contentPadding={false}>
+			<Section id="what-we-did" title="What we did" contentPadding={false}>
+				<p class="text-gray-400 text-lg" slot="description">
+					Dyne.org has more than 20 years of history in the fields of
+					<span class="font-bold text-dyne-orange">open-source software development</span>,
+					<span class="font-bold text-white">interdisciplinary art and activism</span>,
+					<span class="font-bold text-dyne-green">circular economy</span>, and
+					<span class="font-bold text-dyne-purple">cyber security</span>.
+				</p>
 				<Timeline client:only />
-				<!-- <div class="p-8 lg:p-12 flex justify-end">
-					<Button text="View full timeline" href="/timeline" />
-				</div> -->
 			</Section>
 		</div>
 
