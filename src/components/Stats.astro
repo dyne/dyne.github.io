@@ -7,27 +7,27 @@ const { description, CTA, href, title, secondaryCTA, secondaryhref, feature1, fe
 // const stats = await Astro.glob('~/content/stats/stat_*.md');
 ---
 
-<div class="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 lg:space-x-8 p-20">
+<div class="grid grid-cols-1 lg:grid-cols-2 items-center space-y-8 p-8">
 	<div class="flex flex-col space-y-12 md:space-y-8 tracking-tight text-left">
-		<h1 class="text-4xl md:text-5xl lg:text-6xl !text-saccent">{title}</h1>
+		<h1 class="text-4xl md:text-5xl lg:text-6xl !text-saccent text-semibold">{title}</h1>
 		<p class="max-w-2 text-2xl text-inter !text-saccent">{description}</p>
-		<div class="flex flex-row justify-between">
+		<div class="flex flex-wrap justify-between">
 			<Button
 				href={secondaryhref}
 				text={secondaryCTA}
-				cls="!text-saccent bg-transparent border border-2 border-saccent"
+				cls="!text-saccent bg-transparent border border-2 border-saccent whitespace-nowrap "
 			/>
-			<Button href={href} text={CTA} />
+			<Button href={href} text={CTA} cls="whitespace-nowrap"/>
 		</div>
 	</div>
-	<div class="flex flex-row space-x-8 w-fit text-bold !text-saccent text-sans text-bold">
-		<div class="flex flex-col space-y-4 justify-center w-fit">
-			<h1 class="text-[9rem] ">+{feature1Value}</h1>
-			<p class="text-2xl whitespace-nowrap">{feature1}</p>
+	<div class="flex flex-row space-x-8 !text-saccent text-sans font-bold">
+		<div class="flex flex-col space-y-4 text-center ">
+			<h1 class="text-[9rem]">+{feature1Value}</h1>
+			<p class="text-2xl">{feature1}</p>
 		</div>
-		<div class="flex flex-col space-y-4 justify-center w-fit">
-			<h1 class="text-mega ">+{feature2Value}</h1>
-			<p class="text-2xl whitespace-nowrap">{feature2}</p>
+		<div class="flex flex-col space-y-4 text-center">
+			<h1 class="text-mega text-bold">+{feature2Value}</h1>
+			<p class="text-2xl text-bold">{feature2}</p>
 		</div>
 	</div>
 </div>
