@@ -9,6 +9,6 @@ CTA2: Community
 url2: "/community"
 ---
 
-Free to share *code*.
+Free to share code.
 
-Code to share *freedom*.
+**Code to share freedom**.

@@ -81,6 +81,7 @@ module.exports = {
 				serif: ['Syne Tactile', 'cursive'],
 				prose: ['Work Sans', 'sans-serif', 'sans'],
 				mono: ['JetBrains Mono', 'monospace'],
+				inter: ['Inter', 'sans-serif'],
 			},
 			fontSize: {
 				mega: [
