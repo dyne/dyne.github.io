@@ -3,6 +3,10 @@ welcome : Dyne.org is a digital community and free software foundry. We share to
 
 CTA: Meet us ⇓
 url: "#what-we-do"
+CTA1: Software
+url1: "/software"
+CTA2: Community
+url2: "/community"
 ---
 
 Free to share *code*.
