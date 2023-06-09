@@ -12,11 +12,7 @@ const { description, CTA, href, title, secondaryCTA, secondaryhref, feature1, fe
 		<h1 class="text-4xl md:text-5xl lg:text-6xl !text-saccent text-semibold">{title}</h1>
 		<p class="max-w-2 text-2xl text-inter !text-saccent">{description}</p>
 		<div class="flex flex-wrap space-y-4 lg:space-y-0 justify-between">
-			<Button
-				href={secondaryhref}
-				text={secondaryCTA}
-				cls="!text-saccent bg-transparent border border-2 border-saccent whitespace-nowrap "
-			/>
+			<Button href={secondaryhref} text={secondaryCTA} cls="whitespace-nowrap" inverted={true} />
 			<Button href={href} text={CTA} cls="whitespace-nowrap"/>
 		</div>
 	</div>
