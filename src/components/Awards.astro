@@ -6,7 +6,7 @@ const { description, CTA, href, CTA2, href2 } = copy.frontmatter;
 
 <div class="grid grid-cols-1 md:grid-cols-3 place-items-center space-y-8 p-20">
 	<div
-		class="col-span-2 flex flex-col text-center items-center md:text-left md:pr-24 md:items-start space-y-12 md:space-y-8 tracking-tight"
+		class="col-span-2 flex flex-col text-center items-center md:text-left md:items-start space-y-12 md:space-y-8 tracking-tight"
 	>
 		<div class="text-4xl md:text-5xl lg:text-6xl text-saccent" set:html={copy.compiledContent()} />
 		<p class="max-w-2 text-2xl text-inter text-saccent">{description}</p>
