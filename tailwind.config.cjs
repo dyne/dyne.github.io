@@ -20,9 +20,9 @@ module.exports = {
 				taccent: 'var(--text-accent-color)',
 				background: 'var(--bg-color)',
 				saccent: 'var(--secondary-accent-color)', 
-				sustainability: '#21897E',
-				open_source: '#FCEFE0',
-				interdisciplinarity: '#EFEFEF',
+				sustainability: '#69C9BF',
+				open_source: '#D77733',
+				interdisciplinarity: '#fff',
 				crypto: '#000000',
 				cybersecurity: '#8980f5',
 				primary: {
