@@ -7,11 +7,11 @@ const { description, CTA, href, title, secondaryCTA, secondaryhref, feature1, fe
 // const stats = await Astro.glob('~/content/stats/stat_*.md');
 ---
 
-<div class="grid grid-cols-1 lg:grid-cols-2 items-center p-8 space-x-16">
+<div class="grid grid-cols-1 lg:grid-cols-2 items-center p-8 lg:space-x-16">
 	<div class="flex flex-col space-y-12 md:space-y-8 tracking-tight text-left">
 		<h1 class="text-4xl md:text-5xl lg:text-6xl !text-saccent text-semibold">{title}</h1>
 		<p class="max-w-2 text-2xl text-inter !text-saccent">{description}</p>
-		<div class="flex flex-wrap justify-between">
+		<div class="flex flex-wrap space-y-4 lg:space-y-0 justify-between">
 			<Button
 				href={secondaryhref}
 				text={secondaryCTA}
@@ -20,8 +20,8 @@ const { description, CTA, href, title, secondaryCTA, secondaryhref, feature1, fe
 			<Button href={href} text={CTA} cls="whitespace-nowrap"/>
 		</div>
 	</div>
-	<div class="flex flex-row space-x-4 !text-saccent text-sans font-bold">
-		<div class="flex flex-col text-center ">
+	<div class="flex flex-wrap lg:space-x-4 !text-saccent text-sans font-bold">
+		<div class="flex flex-col text-center">
 			<h1 class="text-[8rem]">+{feature1Value}</h1>
 			<p class="text-2xl">{feature1}</p>
 		</div>
