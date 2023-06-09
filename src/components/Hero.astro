@@ -1,6 +1,7 @@
 ---
 import * as copy from '../content/hero/index.md';
 import Button from '~/components/Button.astro';
+import Caffuda from './Caffuda.astro';
 ---
 
 <div class="flex flex-col lg:flex-row items-center space-y-20 lg:space-y-0 px-10 py-36">
@@ -9,5 +10,6 @@ import Button from '~/components/Button.astro';
 		<p class="max-w-3xl text-3xl">{copy.frontmatter.welcome}</p>
 		<Button href={copy.frontmatter.url} text={copy.frontmatter.CTA} />
 	</div>
-	<img src="/cafudda.svg" alt="cafuddda" class="w-[350px] h-[350px]" />
+	<!-- <img src="/cafudda.svg" alt="cafuddda" class="w-[350px] h-[350px]" /> -->
+	<Caffuda />
 </div>
