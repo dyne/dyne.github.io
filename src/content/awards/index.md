@@ -1,12 +1,13 @@
 ---
-CTA: Donate
+CTA: How To Enroll
 href: /donate
+CTA2: About Memorial Awards
+href2: /donate
 description: | 
-  We are planning the creation of memorial awards to remember our heritage is made of very special people and to support individuals whose activities remind us of them.
-  This initiative will honour the memory of friends, activists and visionaries who passed away too early, using your donation 🙏🏽 to help new people continue their mission
+  Our work is strictly non-profit and not commercial. We finance our activities through public funding and voluntary donations.
 ---
 
-# Dyne.org Foundation Memorial Awards
+# Dyne.org Foundation **Memorial Awards**
 
 
 
