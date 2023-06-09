@@ -18,6 +18,8 @@ module.exports = {
 			colors: {
 				accent: 'var(--accent-color)',
 				taccent: 'var(--text-accent-color)',
+				background: 'var(--bg-color)',
+				saccent: 'var(--secondary-accent-color)', 
 				sustainability: '#21897E',
 				open_source: '#FCEFE0',
 				interdisciplinarity: '#EFEFEF',

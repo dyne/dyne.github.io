@@ -36,13 +36,15 @@
 			const index = Math.floor(Math.random() * choices.length);
 			return choices[index];
 		};
-		const [accent, text_accent] = choose([
-			['#6C67BD', '#ffffff'],
-			['#C85828', '#ffffff'],
-			['#28897E', '#ffffff'],
+		const [accent, text_accent, secondary, bg] = choose([
+			['#423E8E', '#15142D', "#211F47", "#ECECF8"   ],
+			['#36968C', '#15142D', "#0D2523", "#ECF8F7"],
+			['#D77733 ', '#6B3815', "#2A1308", "#FBF1EA"],
 		]);
 		document.documentElement.style.setProperty('--accent-color', accent);
 		document.documentElement.style.setProperty('--text-accent-color', text_accent);
+		document.documentElement.style.setProperty('--secondary-accent-color', secondary);
+		document.documentElement.style.setProperty('--bg-color', bg);
 	});
 
 	window.onload = function () {
