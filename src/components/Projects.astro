@@ -1,26 +1,32 @@
 ---
 import Button from '~/components/Button.astro';
-import Swiper from './Swiper.astro';
 
 const projects = await Astro.glob('~/content/what-we-do/*.md');
 ---
 
-<div class="lg:m-20">
-	<Swiper slidesPerView={3} id="projects-slider" delay="6000">
-		{
-			projects.map((p) => {
-				const { logo, name, link } = p.frontmatter;
-				return (
-					<div class="swiper-slide bg-[#FAE0C6] w-full flex flex-col rounded-[40px] p-7">
-						<div class="h-20 flex items-center justify-end">
-							<img class="w-36" src={logo} />
+<div class="lg:m-20 grid grid-cols-2 gap-6">
+	{
+		projects.map((p) => {
+			const { logo, name, link, download } = p.frontmatter;
+			return (
+				<div class="bg-white rounded-xl p-8 shadow bg-opacity-50">
+					<div class="grid grid-cols-4">
+						<div
+							class="bg-origin-content bg-contain bg-center bg-no-repeat w-20 h-20 rounded-full ring-2 ring-saccent"
+							style={`background-image: url(${logo})`}
+						/>
+						<div class="col-span-3">
+							<h1 class="text-4xl text-black font-sans">{name}</h1>
+							<div set:html={p.compiledContent()} class="text-black py-5" />
+							<Button href={download} text="Download" cls="text-sm mr-4" />
+							<Button href={link} text="Learn more..." inverted={true} cls="text-sm" />
 						</div>
-						<h1 class="text-4xl text-black font-sans py-8">{name}</h1>
-						<div set:html={p.compiledContent()} class="text-black pb-10" />
-						<Button href={link} text="View Project" cls="text-lg lg:text-3xl" />
 					</div>
-				);
-			})
-		}
-	</Swiper>
+				</div>
+			);
+		})
+	}
+</div>
+<div class="text-center">
+	<Button href="/software" text="Load more..." />
 </div>

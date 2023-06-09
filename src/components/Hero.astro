@@ -10,8 +10,8 @@ import Caffuda from './Caffuda.astro';
 		<p class="max-w-3xl text-2xl font-inter text-saccent">{copy.frontmatter.welcome}</p>
 		<div class="flex space-x-5 text-saccent">
 			<Button href={copy.frontmatter.url} text={copy.frontmatter.CTA} />
-			<Button href={copy.frontmatter.url1} text={copy.frontmatter.CTA1} cls="!text-saccent bg-transparent border border-2 border-saccent"/>
-			<Button href={copy.frontmatter.url2} text={copy.frontmatter.CTA2} cls="!text-saccent bg-transparent border border-2 border-saccent"/>
+			<Button href={copy.frontmatter.url1} text={copy.frontmatter.CTA1} inverted={true} />
+			<Button href={copy.frontmatter.url2} text={copy.frontmatter.CTA2} inverted={true} />
 		</div>
 	</div>
 	<Caffuda />
