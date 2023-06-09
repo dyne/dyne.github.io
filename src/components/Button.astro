@@ -1,16 +1,12 @@
 ---
 const { href, text, inverted, cls = '', id = '', onclick = () => {} } = Astro.props;
 let { color = 'accent' } = Astro.props;
-let second = 'saccent';
-let borderColor = 'accent';
 let textColor = 'white';
 let bg = color;
 
 if (inverted) {
 	bg = 'transparent';
-	borderColor = 'saccent';
 	color = 'accent';
-	second = 'saccent';
 	textColor = 'saccent';
 }
 ---
@@ -19,7 +15,7 @@ if (inverted) {
 	id={id}
 	href={href}
 	onclick={onclick}
-	class={`text-${textColor} cursor-pointer bg-${bg} border-2 border-${borderColor} hover:bg-${second} hover:text-white hover:border-${second} py-2 px-4 rounded-full w-fit text-3xl ${cls}`}
+	class={`text-${textColor} cursor-pointer bg-${bg} border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-2 px-4 rounded-full w-fit text-3xl ${cls}`}
 >
 	{text}
 </a>
