@@ -5,13 +5,18 @@ const keywords = await Astro.glob('~/content/who-we-are/*.md');
 <ul class="lg:px-12">
 	{
 		keywords.map((kw) => (
-			<li class={`flipper text-black bg-${kw.frontmatter.color} ${kw.frontmatter.rotation} rounded-3xl lg:rounded-[40px] lg:px-12 min-h-max`}>
+			<li
+				class={`flipper text-black bg-${kw.frontmatter.color} ${kw.frontmatter.rotation} rounded-3xl lg:rounded-[40px] lg:px-12 min-h-max`}
+			>
 				<h2
 					class={`front p-3 tracking-tighter top-0 left-0 font-semibold text-[1.9rem] md:text-[3.4rem] lg:text-mega whitespace-nowrap`}
 				>
 					{kw.frontmatter.word}
 				</h2>
-				<div set:html={kw.compiledContent()} class="back absolute top-0 left-0 p-2 text-xs md:text-lg md:p-5 lg:p-20 lg:text-3xl md:w-[80%] min-h-fit" />
+				<div
+					set:html={kw.compiledContent()}
+					class="back absolute top-0 left-0 p-2 text-xs md:text-lg md:p-5 lg:p-20 lg:text-3xl md:w-[80%] min-h-fit"
+				/>
 			</li>
 		))
 	}
@@ -21,6 +26,9 @@ const keywords = await Astro.glob('~/content/who-we-are/*.md');
 		overflow: hidden;
 		transform-style: preserve-3d;
 		transition: 0.5s;
+		padding-left: 16.5%;
+		margin-left: -16.5%;
+		width: 133%;
 	}
 	.flipper:hover .front {
 		transform: rotateX(-180deg);
