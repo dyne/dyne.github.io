@@ -204,6 +204,15 @@ declare module 'astro:content' {
   data: any
 },
 },
+"supports": {
+"index.md": {
+  id: "index.md",
+  slug: "index",
+  body: string,
+  collection: "supports",
+  data: any
+},
+},
 "testimonial": {
 "01_tbazz.md": {
   id: "01_tbazz.md",
