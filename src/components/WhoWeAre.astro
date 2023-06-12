@@ -6,7 +6,7 @@ const keywords = await Astro.glob('~/content/who-we-are/*.md');
 	{
 		keywords.map((kw) => (
 			<li
-				class={`flipper text-black bg-${kw.frontmatter.color} ${kw.frontmatter.rotation} rounded-3xl lg:rounded-[40px] lg:px-12 min-h-max`}
+				class={`flipper text-black bg-${kw.frontmatter.color} ${kw.frontmatter.rotation} lg:px-12 min-h-max`}
 			>
 				<h2
 					class={`front p-3 tracking-tighter top-0 left-0 font-semibold text-[1.9rem] md:text-[3.4rem] lg:text-mega whitespace-nowrap`}
