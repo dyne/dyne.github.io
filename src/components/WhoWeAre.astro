@@ -19,7 +19,7 @@ const keywords = await Astro.glob('~/content/who-we-are/*.md');
 						class="back absolute top-0 left-0 p-2 text-xs md:text-lg md:p-5 lg:p-20 lg:text-3xl md:w-[80%] min-h-fit hidden md:block"
 					/>
 				</li>
-				<div class="block md:hidden py-4" set:html={kw.compiledContent()}/>
+				<div class="block md:hidden py-4" set:html={kw.compiledContent()} />
 			</>
 		))
 	}
@@ -33,11 +33,14 @@ const keywords = await Astro.glob('~/content/who-we-are/*.md');
 		margin-left: -10%;
 		width: 120%;
 	}
-	.flipper:hover .front {
-		transform: rotateX(-180deg);
+
+	@media screen and (min-width: 768px) {
+		.flipper:hover .front {
+			transform: rotateX(-180deg);
+		}
 	}
 	.flipper:hover .back {
-		transform: translateX(0%);
+		@apply translate-x-0;
 	}
 
 	.front {
