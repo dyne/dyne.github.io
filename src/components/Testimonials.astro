@@ -4,20 +4,22 @@ import Swiper from './Swiper.astro';
 const testimonials = await Astro.glob('~/content/testimonial/*.md');
 ---
 
-<Swiper id="testimonials-slider" delay={5000} class="flex align-middle" paginationClass="hidden">
-	{
-		testimonials.map((t) => {
-			const { pic } = t.frontmatter;
-			return (
-				<div
-					class={`swiper-slide bg-baccent mx-auto lg:max-w-none rounded-4xl p-20 lg:p-28 my-24 max-w-[450px]`}
-				>
-					<div class="flex-col flex lg:flex-row gap-20 items-center justify-between">
-						<img src={pic} class="w-64 rounded-full" />
-						<div set:html={t.compiledContent()} class="text-saccent text-xl lg:text-3xl" />
+<div>
+	<Swiper id="testimonials-slider" delay={4000} class="flex align-middle">
+		{
+			testimonials.map((t) => {
+				const { pic } = t.frontmatter;
+				return (
+					<div
+						class={`swiper-slide bg-baccent mx-auto lg:max-w-none rounded-4xl p-20 lg:p-28 my-24 max-w-[450px]`}
+					>
+						<div class="flex-col flex lg:flex-row gap-20 items-center justify-between">
+							<img src={pic} class="w-64 rounded-full" />
+							<div set:html={t.compiledContent()} class="text-saccent text-xl lg:text-3xl" />
+						</div>
 					</div>
-				</div>
-			);
-		})
-	}
-</Swiper>
+				);
+			})
+		}
+	</Swiper>
+</div>

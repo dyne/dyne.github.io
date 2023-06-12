@@ -1,5 +1,5 @@
 ---
-const { slidesPerView = 1, id, delay = 2000, paginationClass="mt-10" } = Astro.props;
+const { slidesPerView = 1, id, delay = 2000, paginationClass="mt-0" } = Astro.props;
 ---
 
 <div class="swiper" id={id}>
@@ -26,8 +26,8 @@ const { slidesPerView = 1, id, delay = 2000, paginationClass="mt-10" } = Astro.p
 </script>
 <style>
 	:root {
-		--swiper-pagination-bullet-inactive-opacity: 0.5;
-		--swiper-pagination-bullet-inactive-color: #ffe8a3;
+		--swiper-pagination-bullet-inactive-opacity: 0.28;
+		--swiper-pagination-bullet-inactive-color: var(--accent-color);
 		--swiper-pagination-color: var(--accent-color);
 	}
 </style>
