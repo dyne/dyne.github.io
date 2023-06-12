@@ -7,23 +7,17 @@ const { description, CTA, href, title, secondaryCTA, secondaryhref, feature1, fe
 // const stats = await Astro.glob('~/content/stats/stat_*.md');
 ---
 
-<div class="grid grid-cols-1 lg:grid-cols-2 items-center p-8 lg:space-x-16">
-	<div class="flex flex-col space-y-12 md:space-y-8 tracking-tight text-left">
+<div class="grid grid-cols-1 md:grid-cols-3 items-center p-8">
+	<div class="flex flex-col col-span-2 space-y-12 md:space-y-8 tracking-tight text-left">
 		<h1 class="text-4xl md:text-5xl lg:text-6xl !text-saccent text-semibold">{title}</h1>
 		<p class="max-w-2 text-2xl text-inter !text-saccent">{description}</p>
 		<div class="flex flex-wrap space-x-4 space-y-4 lg:space-y-0">
 			<Button href={secondaryhref} text={secondaryCTA} cls="whitespace-nowrap" inverted={true} />
-			<Button href={href} text={CTA} cls="whitespace-nowrap"/>
+			<Button href={href} text={CTA} cls="whitespace-nowrap" />
 		</div>
 	</div>
-	<div class="flex flex-wrap lg:space-x-4 !text-saccent text-sans font-bold">
-		<div class="flex flex-col text-center">
-			<h1 class="text-[8rem]">+{feature1Value}</h1>
-			<p class="text-2xl">{feature1}</p>
-		</div>
-		<div class="flex flex-col text-center">
-			<h1 class="text-[8rem] text-bold">+{feature2Value}</h1>
-			<p class="text-2xl text-bold">{feature2}</p>
-		</div>
+	<div
+		class="bg-[url('/images/illustrations/manincula.png')] opacity-40 bg-contain bg-no-repeat h-full w-full hidden md:block"
+	>
 	</div>
 </div>
