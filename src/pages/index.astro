@@ -10,12 +10,15 @@ import BannerMerch from '~/components/BannerMerch.astro';
 import Timeline from '~/components/timeline/TimelineHome.svelte';
 import Awards from '~/components/Awards.astro';
 import Supports from '~/components/Supports.astro';
+import ToggleDark from '~/components/ToggleDark.svelte';
+import ToggleLight from '~/components/ToggleLight.svelte';
 ---
 
 <Layout title="Dyne.org">
 	<main class="flex flex-col space-y-28">
 		<Hero />
 
+		<ToggleDark id={'who-we-are-in'} toBottom={true} client:only />
 		<Section
 			id="who-we-are"
 			title="Who we are"
@@ -23,6 +26,7 @@ import Supports from '~/components/Supports.astro';
 		>
 			<WhoWeAre />
 		</Section>
+		<ToggleDark id={'who-we-are-out'} toBottom={false} client:only />
 
 		<Stats />
 
@@ -34,6 +38,7 @@ import Supports from '~/components/Supports.astro';
 
 		<Supports />
 
+		<ToggleDark id={'what-we-did-in'} toBottom={true} client:only />
 		<div class="mb-10">
 			<Section id="what-we-did" title="What we did" description="" contentPadding={false}>
 				<Timeline client:only />
@@ -42,6 +47,7 @@ import Supports from '~/components/Supports.astro';
 				</div> -->
 			</Section>
 		</div>
+		<ToggleDark id={'what-we-did-out'} toBottom={false} client:only />
 
 		<div class="mb-10">
 			<BannerMerch />
