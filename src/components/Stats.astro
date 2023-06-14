@@ -2,6 +2,7 @@
 import * as copy from '~/content/stats/index.md';
 import Button from '~/components/Button.astro';
 import Swiper from '~/components/Swiper.astro';
+import ButtonsGroup from './ButtonsGroup.astro';
 const { description, CTA, href, title, secondaryCTA, secondaryhref, feature1, feature1Value, feature2, feature2Value } =
 	copy.frontmatter;
 // const stats = await Astro.glob('~/content/stats/stat_*.md');
@@ -11,10 +12,10 @@ const { description, CTA, href, title, secondaryCTA, secondaryhref, feature1, fe
 	<div class="flex flex-col col-span-2 space-y-12 md:space-y-8 tracking-tight text-left">
 		<h1 class="text-4xl md:text-5xl lg:text-6xl !text-saccent text-semibold">{title}</h1>
 		<p class="max-w-2 text-2xl text-inter !text-saccent">{description}</p>
-		<div class="flex flex-wrap space-x-4 space-y-4 lg:space-y-0">
-			<Button href={secondaryhref} text={secondaryCTA} cls="whitespace-nowrap" inverted={true} />
-			<Button href={href} text={CTA} cls="whitespace-nowrap" />
-		</div>
+		<ButtonsGroup>
+			<Button href={secondaryhref} text={secondaryCTA} inverted={true} />
+			<Button href={href} text={CTA} />
+		</ButtonsGroup>
 	</div>
 	<div
 		class="bg-[url('/images/illustrations/manincula.png')] opacity-40 bg-contain bg-no-repeat h-full w-full hidden md:block"
