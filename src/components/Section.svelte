@@ -7,13 +7,21 @@
 </script>
 
 <section {id}>
-	<div class="dark:text-white space-y-8 lg:space-y-12 {cls} duration-1000" {id}>
+	<div id={`in-${id}`} class="h-48 lg:h-0" />
+	<div
+		class="lg:bg-saccent bg-transparent lg:rounded-3xl lg:py-12 text-saccent lg:text-white dark:text-white space-y-8 lg:space-y-20 duration-500 {cls}"
+		{id}
+	>
 		<div class="flex flex-col items-center lg:items-start space-y-8 lg:space-y-0">
-			<div class="font-semibold text-3x text-5xl whitespace-nowrap px-8 pt-4 lg:pt-0 lg:px-12 dark:text-background duration-1000">
+			<div
+				class="font-semibold text-3x text-5xl whitespace-nowrap px-8 pt-4 lg:pt-0 lg:px-12 dark:text-background duration-500"
+			>
 				{title}
 			</div>
 			{#if description}
-				<div class="text-center lg:text-start text-lg lg:px-12 lg:w-2/5 leading-tight pt-4 dark:text-background duration-1000">
+				<div
+					class="text-center lg:text-start text-lg lg:px-12 lg:w-2/5 leading-tight pt-4 dark:text-background duration-500"
+				>
 					{description}
 				</div>
 			{/if}
@@ -23,4 +31,5 @@
 			<slot />
 		</div>
 	</div>
+	<div id={`out-${id}`} class="h-48 lg:h-0" />
 </section>
