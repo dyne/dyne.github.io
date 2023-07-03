@@ -7,7 +7,7 @@
 		let previousScrollPosition = 0;
 
 		const handleScroll = () => {
-			const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+			const currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
 			const windowHeight = window.innerHeight;
 			idsToHandle.forEach((id) => {
 				const toBottom = id.split('-')[0] === 'in';
