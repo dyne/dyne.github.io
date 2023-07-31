@@ -12,17 +12,20 @@ At Dyne.org, we envision a future where equality is ingrained in all facets of o
 We recognize the importance of instilling inclusive practices in every aspect of our work. We aim to maintain a work culture that is tolerant and celebrates diversity. We want to grant equal opportunities for our professional development, ensure fair compensation regardless of gender, and implement flexible work arrangements that cater to individual needs.
 
 ## Generational Diversity
-We recognize that age diversity is essential to building a well-rounded and dynamic organization. Our team comprises individuals from different generations, each contributing their wealth of knowledge, experiences, and innovative thinking. By fostering an environment that values and respects the contributions of all age groups, we cultivate a culture of continuous learning and adaptability, enabling us to stay at the forefront of research and innovation.
+Age diversity is essential to building a well-rounded and dynamic organization. Our team comprises individuals from different generations, currently spanning between 16 and 80 years old, each contributing their wealth of knowledge, experiences, and innovative thinking.
+
+By fostering an environment that values and respects the contributions of all age groups, we cultivate a culture of continuous learning and adaptability, enabling us to stay at the forefront of research and innovation.
 
 Moreover, we emphasize intergenerational collaboration, recognizing that when different age groups come together, they can inspire each other, creating a harmonious exchange of ideas that fuels creativity and forward-thinking.
 
 ## Neurodiversity
+
 We embrace neurodiversity as a vital element of our inclusive approach. We acknowledge how individuals process information, think, and perceive the world. By embracing neurodiversity, we empower individuals with unique cognitive abilities to contribute to our research initiatives, bringing fresh perspectives and innovative solutions to complex challenges.
 
 We are committed to providing an accommodating and supportive environment that allows all individuals, regardless of neurodevelopmental differences, to thrive and unleash their full potential. Inclusivity lies at the heart of our interactions, ensuring every team member and volunteer feels valued, respected, and heard.
 
 # Our Starting Point
-As a small organization, we are proud to start from a good balance point regarding gender and age representation within our team. The diversity of our colleagues and the numerous volunteers contributing to our projects exemplifies our dedication to inclusivity. We acknowledge the positive progress made thus far and pledge to build upon this foundation to enhance gender equality within our organization further.
+As a small organization, we are proud to start from a good balance point regarding gender and age representation within our team. The diversity of our colleagues and the numerous volunteers contributing to our projects exemplifies our dedication to inclusivity. We acknowledge the positive progress made thus far and pledge to build upon this foundation to enhance equality within our organization further.
 
 ## Appointed Officers
 To strengthen our commitment, we have appointed a dedicated Gender Bias Officer: our colleague Manuela Annibali.
