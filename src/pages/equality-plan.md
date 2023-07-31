@@ -1,11 +1,10 @@
 ---
 layout: ../layouts/Layout.astro
-title: "Equality Plan and appointed officers"
-description: "Our Gender Equality Plan reflects the core values and principles that guide our small non-profit foundation as a research organization working closely with the European Commission. As advocates for progress and innovation, we firmly believe that gender equality is not just a goal to achieve but an intrinsic element of European values, promoting a fair, diverse, and inclusive society."
+title: "Equality Plan and appointed officers at Dyne.org"
+description: "Our Equality Plan reflects the core values and principles that guide our small non-profit foundation as a research organization working closely with the European Commission. As advocates for progress and innovation, we firmly believe that gender equality is not just a goal to achieve but an intrinsic element of European values, promoting a fair, diverse, and inclusive society."
 ---
 
-
-# Vision Statement
+# Equality Plan
 
 At Dyne.org, we envision a future where equality is ingrained in all facets of our organization, research projects, and interactions. Our commitment to fostering an environment that empowers individuals irrespective of age, gender and neurodiversity aligns with the European Commission's vision for a more equitable Europe. We believe that progress is nurtured through celebrating and integrating all forms of diversity, recognizing that each individual brings unique perspectives and strengths. In addition to our unwavering commitment to gender equality, we hold paramount the importance of embracing generational diversity (age) and neurodiversity.
 
