@@ -1,7 +1,7 @@
 ---
-word: Interdisciplinarity
+word: Diversity
 color: "interdisciplinarity"
 rotation: rotate-2
 ---
 
-**Dyne.org** is a non-profit free software foundry with almost 20 years of expertise in developing applications used worldwide.
+We love to mix: methods, disciplines, knowledge, culture and languages. We love our Bastard Culture!
