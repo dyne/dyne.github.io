@@ -1,0 +1,20 @@
+{
+  [
+    "matrix": {
+      "name": "matrix",
+      "icon": "https://logo.dyne.org/logo",
+      "links": [
+        {
+          "name": "channel 1",
+          "link": "https://socials/matrix/channel1",
+          "tagline": "some description of the channel"
+        },
+        {
+          "name": "channel 2",
+          "link": "https://socials/matrix/cha2",
+          "tagline": "Second of the very some description of the channel"
+        }
+      ]
+    }
+  ]
+}
