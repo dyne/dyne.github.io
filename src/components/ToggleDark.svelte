@@ -20,7 +20,7 @@
 
 				const position = toBottom ? componentPosition : componentBottomPosition;
 
-				if (position < windowHeight && position > 0) {
+				if (position < windowHeight - 30 && position > 0) {
 					toggleDarkOrLight
 						? document.documentElement.classList.add('dark')
 						: document.documentElement.classList.remove('dark');
