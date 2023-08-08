@@ -18,8 +18,8 @@
     "@astrojs/sitemap": "^1.1.0",
     "@astrojs/svelte": "^2.0.2",
     "@astrojs/tailwind": "^3.0.1",
+    "@fontsource-variable/inter": "^5.0.5",
     "@fontsource/jetbrains-mono": "^4.5.12",
-    "@fontsource/work-sans": "^4.5.14",
     "@wcj/html-to-markdown-cli": "^1.0.0",
     "astro": "^2.0.15",
     "astro-tabs": "^0.1.7",
@@ -33,7 +33,6 @@
   "devDependencies": {
     "@astrolib/seo": "^0.3.0",
     "@fontsource/syne": "^4.5.13",
-    "@fontsource/syne-tactile": "^4.5.10",
     "@tailwindcss/typography": "^0.5.9",
     "@types/lodash": "^4.14.191",
     "@types/marked": "^4.0.8",

@@ -6,7 +6,9 @@ description: "Our Equality Plan reflects the core values and principles that gui
 
 # Equality Plan
 
-At Dyne.org, we envision a future where equality is ingrained in all facets of our organization, research projects, and interactions. Our commitment to fostering an environment that empowers individuals irrespective of age, gender and neurodiversity aligns with the European Commission's vision for a more equitable Europe. We believe that progress is nurtured through celebrating and integrating all forms of diversity, recognizing that each individual brings unique perspectives and strengths. In addition to our unwavering commitment to gender equality, we hold paramount the importance of embracing generational diversity (age) and neurodiversity.
+**At Dyne.org, we envision a future where equality is ingrained in all facets of our organization, research projects, and interactions. Our commitment to fostering an environment that empowers individuals irrespective of age, gender and neurodiversity aligns with the European Commission's vision for a more equitable Europe.**
+
+We believe that progress is nurtured through celebrating and integrating all forms of diversity, recognizing that each individual brings unique perspectives and strengths. In addition to our unwavering commitment to gender equality, we hold paramount the importance of embracing generational diversity (age) and neurodiversity.
 
 ## Gender Diversity
 We recognize the importance of instilling inclusive practices in every aspect of our work. We aim to maintain a work culture that is tolerant and celebrates diversity. We want to grant equal opportunities for our professional development, ensure fair compensation regardless of gender, and implement flexible work arrangements that cater to individual needs.

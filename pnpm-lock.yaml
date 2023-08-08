@@ -17,12 +17,12 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^3.0.1
     version: 3.0.1(astro@2.0.15)(tailwindcss@3.2.7)
+  '@fontsource-variable/inter':
+    specifier: ^5.0.5
+    version: 5.0.5
   '@fontsource/jetbrains-mono':
     specifier: ^4.5.12
     version: 4.5.12
-  '@fontsource/work-sans':
-    specifier: ^4.5.14
-    version: 4.5.14
   '@wcj/html-to-markdown-cli':
     specifier: ^1.0.0
     version: 1.0.0
@@ -58,9 +58,6 @@ devDependencies:
   '@fontsource/syne':
     specifier: ^4.5.13
     version: 4.5.13
-  '@fontsource/syne-tactile':
-    specifier: ^4.5.10
-    version: 4.5.10
   '@tailwindcss/typography':
     specifier: ^0.5.9
     version: 0.5.9(tailwindcss@3.2.7)
@@ -670,21 +667,17 @@ packages:
       - supports-color
     dev: true
 
+  /@fontsource-variable/inter@5.0.5:
+    resolution: {integrity: sha512-hmj/jffr+1tabEPmvm+/b89MtbO6hd5PVbQ6HoMGTO7RMF5eD2C9UcprCgZTOF3OWh5uC21C9HZGN0O9wxe+UQ==}
+    dev: false
+
   /@fontsource/jetbrains-mono@4.5.12:
     resolution: {integrity: sha512-LJF1ala1/u+wXZmESFqIk08FA9yGX4/uAAleCHmXUMgEjvNAYFHUQQ7eK5hQQoBOwh99cU5suTrqYqEkgzwzPA==}
     dev: false
 
-  /@fontsource/syne-tactile@4.5.10:
-    resolution: {integrity: sha512-7W3EdDus2aO5NFk9D1oSl+02ot6pP+/FjYnJbjx/htY5k19lNvOc66JC5cbbXHJwsIG9m5nDCC+B4PeQv4yA0A==}
-    dev: true
-
   /@fontsource/syne@4.5.13:
     resolution: {integrity: sha512-wZQJ3rf/CkE5PQLQYOfoDGXCp1t6yyA0VTcgElyLHcSNiUGrvNUylCk9SjDan0xCGnnJ4lpwZP1iNorbBgBpRQ==}
     dev: true
-
-  /@fontsource/work-sans@4.5.14:
-    resolution: {integrity: sha512-AFBSDBA3hnSCXHwb52qBOMEGqF5nfdbANp+y5/hbE1PMjYfFY0lUdtUwL5J7mRAdyn1NJwobJlhduHtlAyPzmA==}
-    dev: false
 
   /@humanwhocodes/config-array@0.11.10:
     resolution: {integrity: sha512-KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==}

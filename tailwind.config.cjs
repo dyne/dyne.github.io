@@ -20,7 +20,7 @@ module.exports = {
 				taccent: 'var(--text-accent-color)',
 				background: 'var(--bg-color)',
 				saccent: 'var(--secondary-accent-color)',
-				baccent: 'var(--bg-accent-color)', 
+				baccent: 'var(--bg-accent-color)',
 				sustainability: '#69C9BF',
 				open_source: '#D77733',
 				interdisciplinarity: '#fff',
@@ -80,9 +80,8 @@ module.exports = {
 			fontFamily: {
 				sans: ['Syne', 'sans'],
 				serif: ['Syne Tactile', 'cursive'],
-				prose: ['Work Sans', 'sans-serif', 'sans'],
+				prose: ['Inter Variable', 'sans-serif', 'sans'],
 				mono: ['JetBrains Mono', 'monospace'],
-				inter: ['Inter', 'sans-serif'],
 			},
 			fontSize: {
 				mega: [
@@ -104,7 +103,7 @@ module.exports = {
 			},
 			borderRadius: {
 				'3xl': '60px',
-				'4xl': '120px'
+				'4xl': '120px',
 			},
 		},
 	},
