@@ -1,36 +1,147 @@
 [
-    {
-      "group_name": "telegram",
-      "icon": "https://logo.dyne.org/logo",
-      "description": "group description",
-      "links": [
-        {
-          "name": "channel 1",
-          "link": "https://socials/matrix/channel1",
-          "tagline": "some description of the channel"
-        },
-        {
-          "name": "channel 2",
-          "link": "https://socials/matrix/cha2",
-          "tagline": "Second of the very some description of the channel"
-        }
-      ]
-    },
-    {
-      "group_name": "matrix",
-      "icon": "https://logo.dyne.org/logo",
-      "description": "Very second group description",
-      "links": [
-        {
-          "name": "channel 1",
-          "link": "https://socials/matrix/channel1",
-          "tagline": "some description of the channel"
-        },
-        {
-          "name": "channel 2",
-          "link": "https://socials/matrix/cha2",
-          "tagline": "Second of the very some description of the channel"
-        }
-      ]
-    }
-  ]
+  {
+    "group_name": "Telegram",
+    "icon": "https://logo.dyne.org/logo",
+    "description": "Dyne's Telegram channels",
+    "links": [
+      {
+        "name": "Dyne.org welcome chat",
+        "link": "https://socials.dyne.org/telegram",
+        "tagline": "Come hang out and get oriented to a more topic-specific chat."
+      },
+      {
+        "name": "Darkfi",
+        "link": "https://socials.dyne.org/telegram-darkfi",
+        "tagline": "DarkFi is an anonymous L1 based on zero-knowledge, multi-party computation and homomorphic encryption."
+      },
+      {
+        "name": "Decidiamo.",
+        "link": "https://socials.dyne.org/telegram-decidiamo",
+        "tagline": "Comunita' di ricerca e sviluppo su piattaforme libere di democrazia partecipativa."
+      },
+      {
+        "name": "Devuan",
+        "link": "https://socials.dyne.org/telegram-devuan",
+        "tagline": "Welcome to the Devuan GNU+Linux group on Telegram."
+      },
+      {
+        "name": "Devuan ES",
+        "link": "https://socials.dyne.org/telegram-devuan-es",
+        "tagline": "Grupo no oficial sobre Devuan."
+      },
+      {
+        "name": "frei0r",
+        "link": "https://socials.dyne.org/telegram-frei0r",
+        "tagline": "The biggest free and open source video plugin collection. Code to manipulate video is our passion."
+      },
+      {
+        "name": "Interfacer",
+        "link": "https://socials.dyne.org/telegram-interfacer",
+        "tagline": "Building the digital infrastructure for fab cities."
+      },
+      {
+        "name": "Zenroom",
+        "link": "https://socials.dyne.org/telegram-zenroom",
+        "tagline": "Secure VM for human language execution."
+      }
+    ]
+  },
+  {
+    "group_name": "Matrix",
+    "icon": "https://logo.dyne.org/logo",
+    "description": "Dyne's Matrix spaces.",
+    "links": [
+      {
+        "name": "Dyne Space",
+        "link": "https://socials.dyne.org/matrix",
+        "tagline": "Collection of channels related to dyne and it's many projects."
+      },
+      {
+        "name": "Devuan Space",
+        "link": "https://socials.dyne.org/matrix-devuan",
+        "tagline": "Collection of Devuan channels (bridged to IRC, Libera.chat)."
+      },
+      {
+        "name": "Interfacer Space",
+        "link": "https://socials.dyne.org/matrix-interfacer",
+        "tagline": "Collection of channels related to Interfacer."
+      }
+    ]
+  },
+  {
+    "group_name": "Discord",
+    "icon": "https://logo.dyne.org/logo",
+    "description": "Based Dyne bussin on Discord rn.",
+    "links": [
+      {
+        "name": "Dyne Discord Guild",
+        "link": "https://socials.dyne.org/discord",
+        "tagline": "Reach the Dyne community through Discord."
+      }
+    ]
+  },
+  {
+    "group_name": "SimpleX",
+    "icon": "https://logo.dyne.org/logo",
+    "description": "Dyne channel on secure & anonymous Simplex.",
+    "links": [
+      {
+        "name": "DyneX",
+        "link": "https://socials.dyne.org/simplex",
+        "tagline": "Reach the Dyne community through SimpleX."
+      }
+    ]
+  },
+  {
+    "group_name": "Socials",
+    "icon": "https://logo.dyne.org/logo",
+    "description": "Social Media properties of dyne.",
+    "links": [
+      {
+        "name": "Facebook",
+        "link": "https://socials.dyne.org/facebook",
+        "tagline": "Like Dyne on facebook."
+      },
+      {
+        "name": "Instagram",
+        "link": "https://socials.dyne.org/instagram",
+        "tagline": "Follow Dyne on Instagram."
+      },
+      {
+        "name": "LinkedIn",
+        "link": "https://socials.dyne.org/linkedin",
+        "tagline": "Follow Dyne on LinkedIn."
+      },
+      {
+        "name": "Mastodon",
+        "link": "https://socials.dyne.org/mastodon",
+        "tagline": "Follow Dyne on Mastodon."
+      },
+      {
+        "name": "Medium",
+        "link": "https://socials.dyne.org/medium",
+        "tagline": "Follow Dyne on Medium."
+      },
+      {
+        "name": "Peertube",
+        "link": "https://socials.dyne.org/peertube",
+        "tagline": "Follow Dyne on Peertube."
+      },
+      {
+        "name": "Substack",
+        "link": "https://socials.dyne.org/substack",
+        "tagline": "Subscribe to Dyne newsletter on Substack."
+      },
+      {
+        "name": "Twitter",
+        "link": "https://socials.dyne.org/twitter",
+        "tagline": "Follow Dyne on Twitter."
+      },
+      {
+        "name": "YouTube",
+        "link": "https://socials.dyne.org/youtube",
+        "tagline": "Subscribe to Dyne on YouTube."
+      }
+    ]
+  }
+]
