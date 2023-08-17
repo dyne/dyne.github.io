@@ -1,0 +1,111 @@
+[
+  {
+    "title": "Social Interaction Technologies and Collaboration Software",
+    "author": "Tatyana Dumova & Richard Fiordo",
+    "url": "https://books.google.com/books?id=G7hWCRcl0ncC",
+    "image": "/images/book-covers/socialinteractions.jpeg"
+  },
+  {
+    "title": "Live Linux CDs, Building and Customising Bootables",
+    "author": "Christopher Negus",
+    "url": "https://www.google.com/books/edition/Live_Linux_CDs/2S3eUgb39C8C",
+    "image": "/images/book-covers/livelinuxcd.jpg"
+  },
+  {
+    "title": "Networked Affect",
+    "author": "Ken Hillis, Susanna Paasonen, Michael Petit",
+    "url": "https://direct.mit.edu/books/edited-volume/4057/Networked-Affect",
+    "image": "/images/book-covers/networkedaffect.jpeg"
+  },
+  {
+    "title": "Incommunicado reader",
+    "author": "Geert Lovink & Soenke Zehle",
+    "url": "https://networkcultures.org/blog/publication/incommunicado-reader/",
+    "image": "/images/book-covers/1reader_incommunicado.jpg"
+  },
+  {
+    "title": "The Purpose Economy, Expanded and updated",
+    "author": "Aaron Hurst",
+    "url": "https://www.amazon.com/-/en/Aaron-Hurst/dp/194342599X",
+    "image": "/images/book-covers/purposeeconomy.jpg"
+  },
+  {
+    "title": "Dynamics of critical internet culture (1994-2001)",
+    "author": "Geert Lovink",
+    "url": "https://books.google.com/books?id=2IFanhsEJGwC",
+    "image": "/images/book-covers/dynamicsofinternetculture.jpg"
+  },
+  {
+    "title": "Mastering Blockchain",
+    "author": "Imran Bashir",
+    "url": "https://www.google.com/books/edition/Mastering_Blockchain/urkrDwAAQBAJ",
+    "image": "/images/book-covers/masteringblockcahin.jpg"
+  },
+  {
+    "title": "Emerging Issues, Challenges, and Opportunities in the Urban E-Planning",
+    "author": "Carlos Nunes Silva",
+    "url": "https://www.lehmanns.de/shop/naturwissenschaften/31895742-9781466681507-emerging-issues-challenges-and-opportunities-in-urban-e-planning",
+    "image": "/images/book-covers/emergingissueschallengesandopportunities.jpeg"
+  },
+  {
+    "title": "Networking. The Net as Artwork",
+    "author": "Tatiana Bazzichelli",
+    "url": "https://www.networkingart.eu/pdf/networking_bazzichelli.pdf",
+    "image": "/images/book-covers/networkingthenetasart.jpg"
+  },
+  {
+    "title": "Handbook of Research on Open Source Software
+Technological, Economic, and Social Perspectives",
+    "author": "Kirk St. Amant, Brian Still",
+    "url": "https://www.google.com/books/edition/Handbook_of_Research_on_Open_Source_Soft/jVq9AQAAQBAJ",
+    "image": "/images/book-covers/opensourcesoftwaretechnologicalecosocperspective.jpg"
+  },
+  {
+    "title": "How Open is the future?",
+    "author": "Marleen Wynants & Jan Cornelius",
+    "url": "https://crosstalks.vub.ac.be/publication/how-open-future",
+    "image": "/images/book-covers/howopenisthefuture.jpg"
+  },
+  {
+    "title": "Handbook of the International Political Economy of Production",
+    "author": "Kees van der Pijl",
+    "url": "https://www.e-elgar.com/shop/gbp/handbook-of-the-international-political-economy-of-production-9781784712587.html",
+    "image": "/images/book-covers/handbook-of-the-international-political-economy-of-production-kees-van-der-pijl.jpg"
+  },
+  {
+    "title": "Another Language. Poetic Experiments in Britain and North America",
+    "author": "Kornelia Freitag, Katharina Vetter",
+    "url": "https://www.google.com/books/edition/Another_Language/JkIiKLmzATMC",
+    "image": "/images/book-covers/anotherlanguage.jpg"
+  },
+  {
+    "title": "Engineering Culture",
+    "author": "Geoff Cox & Joasia Krysa",
+    "url": "http://www.data-browser.net/db02.html",
+    "image": "/images/book-covers/engineeringculture.jpg"
+  },
+  {
+    "title": "Cost of Freedom, A Collective Inquiry",
+    "author": "Various Authors",
+    "url": "https://costoffreedom.cc/",
+    "image": "/images/book-covers/cof-cover-450x600.jpg"
+  },
+  {
+    "title": "Computer Privacy and Data Protection: An Element of Choice",
+    "author": "Various Authors",
+    "url": "https://www.google.com/books/edition/Computers_Privacy_and_Data_Protection_an/7iLyulobRg8C",
+    "image": "/images/book-covers/computersprivacyprotection.jpeg"
+  },
+  {
+    "title": "Deleuze and Contemporary Art",
+    "author": "Simon O'Sullivan, Stephen Zepke",
+    "url": "https://www.google.com/books/edition/Deleuze_and_Contemporary_Art/rRerBgAAQBAJ",
+    "image": "/images/book-covers/deluzecontemporary.jpg"
+  },
+  {
+    "title": "Read_me. Software Art & Cultures",
+    "author": "Simon O'Sullivan, Stephen Zepke",
+    "url": "https://www.amazon.com/Read-Me-Software-Art-Cultures/dp/8798844040",
+    "image": "/images/book-covers/readme.jpg"
+  },
+]
