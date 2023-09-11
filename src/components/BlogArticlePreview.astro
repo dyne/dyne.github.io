@@ -1,27 +1,22 @@
 ---
-const { creator, title, link, pubDate, categories } = Astro.props;
+import Button from './Button.astro';
+
+const { creator, title, link } = Astro.props;
+const snippet = Astro.props['content:encodedSnippet'];
 ---
 
 <div
-	class="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:shadow-2xl rounded-lg rounded-[40px] p-7 bg-[#FAE0C6]"
+	class="transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent hover:border-accent hover:shadow-none hover:bg-background rounded-3xl p-7 bg-baccent"
 >
 	<div class="w-full p-4 h-full">
-		<a href={link} class="text-accent text-3xl font-bold">{title}</a>
+		<a href={link} class="text-3xl font-bold font-sans no-underline">{title}</a>
 		<div class="py-4">
-			by <span class="font-bold">{creator}</span>
+			by <span class="font-medium">{creator}</span>
 		</div>
 
-		<div
-			class="flex flex-wrap justify-starts items-center py-3 border-b-2 border-accent text-xs text-white font-medium"
-		>
-			{categories.map((category) => <span class="bg-accent px-2 py-1 rounded-full mr-2 mb-2">{category}</span>)}
-		</div>
-		<div class="flex items-center mt-2">
-			<div class="pl-2">
-				<p class="text-gray-800 text-sm font-medium mb-2">
-					Published on {pubDate}.
-				</p>
-			</div>
-		</div>
+		<p class="text-gray-800 text-sm font-medium mb-2 text-clip overflow-hidden max-h-20">
+			{snippet}
+		</p>
+		<Button href={link} text="Read on Medium.com" inverted={true} cls="text-base no-underline" />
 	</div>
 </div>
