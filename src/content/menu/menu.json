@@ -1,9 +1,8 @@
 [
     {"name": "Who we are", "href": "/#who-we-are"},
     {"name": "Software", "href": "/software"}, 
-    {"name": "Timeline", "href": "/#timeline"},
-    {"name": "Methodology", "href": "/#methodology"},
-    {"name": "Reach us", "href": "/#contact"},
+    {"name": "Timeline", "href": "/timeline"},
+    {"name": "Reach us", "href": "/linktree"},
     {"name": "Articles", "href": "/blog"},
     {"name": "Donate", "href": "/donate"}
 ]
