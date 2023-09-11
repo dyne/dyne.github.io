@@ -1,7 +1,6 @@
 ---
 import GlobalAssets from '~/components/GlobalAssets.astro';
 import MetaTags from '~/components/MetaTags.astro';
-import '@fontsource/syne-tactile/400.css';
 import '@fontsource/syne/400.css';
 import '@fontsource/syne/700.css';
 import '@fontsource/syne/800.css';
@@ -15,7 +14,7 @@ const { meta = {} } = Astro.props;
 		<MetaTags {...meta} />
 	</head>
 
-	<body class="bg-[#FFEEDD]">
+	<body class="bg-background duration-500">
 		<slot />
 		<GlobalAssets />
 	</body>

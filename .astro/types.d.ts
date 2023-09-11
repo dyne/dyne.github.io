@@ -84,6 +84,15 @@ declare module 'astro:content' {
   data: any
 },
 },
+"heritage": {
+"index.md": {
+  id: "index.md",
+  slug: "index",
+  body: string,
+  collection: "heritage",
+  data: any
+},
+},
 "hero": {
 "index.md": {
   id: "index.md",
@@ -181,26 +190,12 @@ declare module 'astro:content' {
   data: any
 },
 },
-"stats": {
+"supports": {
 "index.md": {
   id: "index.md",
   slug: "index",
   body: string,
-  collection: "stats",
-  data: any
-},
-"stat_1.md": {
-  id: "stat_1.md",
-  slug: "stat_1",
-  body: string,
-  collection: "stats",
-  data: any
-},
-"stat_2.md": {
-  id: "stat_2.md",
-  slug: "stat_2",
-  body: string,
-  collection: "stats",
+  collection: "supports",
   data: any
 },
 },

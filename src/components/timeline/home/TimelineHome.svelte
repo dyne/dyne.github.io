@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { getTimelineData } from './dataProcess';
-	import { groupItems } from './dataProcess/group';
-	import { filterItems } from './dataProcess/filter';
+	import { getTimelineData } from '../dataProcess';
+	import { groupItems } from '../dataProcess/group';
+	import { filterItems } from '../dataProcess/filter';
 
 	// Components
 	import { SyncLoader } from 'svelte-loading-spinners';
-	import TimelineGroup from './TimelineGroup.svelte';
+	import TimelineGroup from './TimelineHomeGroup.svelte';
 
 	//
 	export let reverse = true;
@@ -16,11 +16,11 @@
 
 	//
 
-	let ele;
+	let ele: HTMLDivElement;
 	let pos = { top: 0, left: 0, x: 0, y: 0 };
 	let isDown = false;
 
-	const mouseDownHandler = function (e) {
+	const mouseDownHandler = function (e: MouseEvent) {
 		isDown = true;
 		pos = {
 			// The current scroll
@@ -32,7 +32,7 @@
 		};
 	};
 
-	const mouseMoveHandler = function (e) {
+	const mouseMoveHandler = function (e: MouseEvent) {
 		if (!isDown) return;
 
 		// How far the mouse has been moved
@@ -56,14 +56,14 @@
 {:then data}
 	{@const filteredData = filterItems(data, zoom)}
 	{@const groupedData = groupItems(filteredData, reverse)}
-	<p class="px-12 text-gray-600 -mt-12 mb-8 text-lg">How to navigate: *Click and drag* or *Scroll*</p>
 	<div
 		bind:this={ele}
 		id="timeline-main"
-		class="overflow-x-auto px-12 flex flex-row flex-nowrap"
+		class="overflow-x-auto px-12 pb-10 flex flex-row flex-nowrap"
 		on:mousedown={mouseDownHandler}
 		on:mousemove={mouseMoveHandler}
 		on:mouseup={mouseUpHandler}
+		on:mouseleave={mouseUpHandler}
 	>
 		{#each groupedData as group}
 			<div class="shrink-0">
