@@ -26,8 +26,8 @@ const projects = await Astro.glob('~/content/what-we-do/*.md');
 								</div>
 								<div set:html={p.compiledContent()} class="text-black py-5" />
 								<div class="flex flex-row flex-wrap space-x-3">
-									<Button href={download} text="Download" cls="text-sm" />
 									<Button href={link} text="Learn more..." inverted={true} cls="text-sm" />
+									<!--Button href={download} text="Download" cls="text-sm" /-->
 								</div>
 							</div>
 						</div>

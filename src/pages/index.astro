@@ -9,6 +9,7 @@ import Testimonials from '~/components/Testimonials.astro';
 import BannerMerch from '~/components/BannerMerch.astro';
 import Timeline from '~/components/timeline/home/TimelineHome.svelte';
 import Supports from '~/components/Supports.astro';
+import Button from '~/components/Button.astro';
 // import ToggleDark from '~/components/ToggleDark.svelte';
 ---
 
@@ -18,11 +19,11 @@ import Supports from '~/components/Supports.astro';
 		<Hero />
 
 		<Section id="who-we-are" title="Who we are" cls="-mt-40 p-4 pt-40 lg:pt-14 -z-1">
-			<!-- <slot name="description">
+			<span slot="description">
 				We are a think & do tank, born as an on-line community in 1999 by uniting artists, activists and hackers of
 				mixed backgrounds. We are also a young research organization working on a growing number of succesful projects
 				for the European Commission. These are our three guiding principles:
-			</slot> -->
+			</span>
 			<WhoWeAre />
 		</Section>
 
@@ -34,12 +35,12 @@ import Supports from '~/components/Supports.astro';
 
 		<Supports />
 
-		<div class="mb-10">
+		<div class="my-10">
 			<Section id="what-we-did" title="What we did" contentPadding={false}>
 				<Timeline client:only />
-				<!-- <div class="p-8 lg:p-12 flex justify-end">
+				<div class="p-8 lg:p-12 flex justify-end">
 					<Button text="View full timeline" href="/timeline" />
-				</div> -->
+				</div>
 			</Section>
 		</div>
 

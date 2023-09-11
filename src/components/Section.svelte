@@ -12,7 +12,7 @@
 				{title}
 			</div>
 			{#if $$slots.description}
-				<div class="text-lg text-center lg:text-start">
+				<div class="text-center md:text-start md:px-12 text-xl text-inter md:w-3/5 text-inter leading-tight pt-4">
 					<slot name="description" />
 				</div>
 			{/if}
