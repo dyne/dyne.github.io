@@ -10,7 +10,7 @@
 	const isMilestone = item.importance == '0';
 </script>
 
-<div class="relative pl-6">
+<div class="relative pl-6" id={encodeURIComponent(item.title)}>
 	<div class={`absolute ${isMilestone ? 'top-5' : 'top-1'} -left-3 w-6 h-6 ${accent} rounded-full ring-4 ring-black`} />
 	<div class={`space-y-2 text-gray-200 rounded-2xl ${isMilestone ? `p-4 border ${border} ${bg}` : ''}`}>
 		<!-- Base content -->
