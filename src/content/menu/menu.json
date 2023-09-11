@@ -1,6 +1,7 @@
 [
     {"name": "Who we are", "href": "/#who-we-are"},
     {"name": "Software", "href": "/software"}, 
+    {"name": "Books", "href": "/books"}, 
     {"name": "Timeline", "href": "/timeline"},
     {"name": "Reach us", "href": "/linktree"},
     {"name": "Articles", "href": "/blog"},
