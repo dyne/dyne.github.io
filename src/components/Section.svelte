@@ -22,4 +22,5 @@
 			<slot />
 		</div>
 	</div>
+	<div id={`out-${id}`} class="h-48 md:hidden" />
 </section>
