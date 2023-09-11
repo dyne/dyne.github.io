@@ -23,9 +23,12 @@ module.exports = {
 				},
 				accent: 'var(--accent-color)',
 				taccent: 'var(--text-accent-color)',
-				sustainability: '#21897E',
-				open_source: '#FCEFE0',
-				interdisciplinarity: '#EFEFEF',
+				background: 'var(--bg-color)',
+				saccent: 'var(--secondary-accent-color)',
+				baccent: 'var(--bg-accent-color)',
+				sustainability: '#69C9BF',
+				open_source: '#D77733',
+				interdisciplinarity: '#fff',
 				crypto: '#000000',
 				cybersecurity: '#8980f5',
 				primary: {
@@ -42,7 +45,7 @@ module.exports = {
 			fontFamily: {
 				sans: ['Syne', 'sans'],
 				serif: ['Syne Tactile', 'cursive'],
-				prose: ['Work Sans', 'sans-serif', 'sans'],
+				prose: ['Inter Variable', 'sans-serif', 'sans'],
 				mono: ['JetBrains Mono', 'monospace'],
 			},
 			fontSize: {
@@ -65,6 +68,7 @@ module.exports = {
 			},
 			borderRadius: {
 				'3xl': '60px',
+				'4xl': '120px',
 			},
 		},
 	},

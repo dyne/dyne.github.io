@@ -6,48 +6,40 @@ import Hero from '~/components/Hero.astro';
 import Stats from '~/components/Stats.astro';
 import Projects from '~/components/Projects.astro';
 import Testimonials from '~/components/Testimonials.astro';
-// import Awards from '~/components/Awards.astro';
 import BannerMerch from '~/components/BannerMerch.astro';
 import Timeline from '~/components/timeline/home/TimelineHome.svelte';
-import Button from '~/components/Button.astro';
+import Supports from '~/components/Supports.astro';
+// import ToggleDark from '~/components/ToggleDark.svelte';
 ---
 
 <Layout title="Dyne.org">
-	<main>
+	<!-- <ToggleDark ids={['who-we-are', 'what-we-did']} client:only /> -->
+	<main class="flex flex-col lg:space-y-28">
 		<Hero />
 
-		<Section
-			id="who-we-are"
-			title="Who we are"
-			description="We are a think & do tank, born as an on-line community in 1999 by uniting artists, activists and hackers of mixed backgrounds. We are also a young research organization working on a growing number of succesful projects for the European Commission. These are our three guiding principles:"
-		>
+		<Section id="who-we-are" title="Who we are" cls="-mt-40 p-4 pt-40 lg:pt-14 -z-1">
+			<!-- <slot name="description">
+				We are a think & do tank, born as an on-line community in 1999 by uniting artists, activists and hackers of
+				mixed backgrounds. We are also a young research organization working on a growing number of succesful projects
+				for the European Commission. These are our three guiding principles:
+			</slot> -->
 			<WhoWeAre />
 		</Section>
 
 		<Stats />
-		<Section id="what-we-do" title="What we do">
-			<p slot="description">
-				Since the year 2000 a large amount of people and organisations in all fields employed and redistributed our
-				creations. Our software gives everybody the right to use, study, share and improve its code, supporting
-				fundamental freedoms. Discover more by scrolling through some of our projects:
-			</p>
-			<Projects />
-		</Section>
 
-		<!--		<Awards /> -->
+		<Projects />
 
 		<Testimonials />
 
+		<Supports />
+
 		<div class="mb-10">
 			<Section id="what-we-did" title="What we did" contentPadding={false}>
-				<p class="text-gray-400 text-lg" slot="description">
-					Dyne.org has more than 20 years of history in the fields of
-					<span class="font-bold text-dyne-orange">open-source software development</span>,
-					<span class="font-bold text-white">interdisciplinary art and activism</span>,
-					<span class="font-bold text-dyne-green">circular economy</span>, and
-					<span class="font-bold text-dyne-purple">cyber security</span>.
-				</p>
 				<Timeline client:only />
+				<!-- <div class="p-8 lg:p-12 flex justify-end">
+					<Button text="View full timeline" href="/timeline" />
+				</div> -->
 			</Section>
 		</div>
 
