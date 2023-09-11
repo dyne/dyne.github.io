@@ -1,13 +1,13 @@
 [
-  { "name": "twitter", "href": "https://twitter.com/dyneorg" },
+  { "name": "twitter", "href": "https://socials.dyne.org/twitter" },
   { "name": "telegram", "href": "https://socials.dyne.org/telegram" },
-  { "name": "github", "href": "https://github.com/dyne" },
-  { "name": "linkedin", "href": "https://www.linkedin.com/company/dyne-org/" },
-  { "name": "instagram", "href": "https://instagram.com/dyneorg" },
-  { "name": "facebook", "href": "https://fb.com/dyneorg" },
-  { "name": "youtube", "href": "https://www.youtube.com/DyneOrg" },
-  { "name": "mastodon", "href": "https://toot.community/@dyne" },
-  { "name": "medium", "href": "https://medium.com/think-do-tank" },
+  { "name": "github", "href": "https://socials.dyne.org/github" },
+  { "name": "linkedin", "href": "https://socials.dyne.org/linkedin" },
+  { "name": "instagram", "href": "https://socials.dyne.org/instagram" },
+  { "name": "facebook", "href": "https://socials.dyne.org/facebook" },
+  { "name": "youtube", "href": "https://socials.dyne.org/youtube" },
+  { "name": "mastodon", "href": "https://socials.dyne.org/mastodon" },
+  { "name": "medium", "href": "https://socials.dyne.org/medium" },
   { "name": "discord", "href": "https://socials.dyne.org/discord" },
   { "name": "matrix", "href": "https://socials.dyne.org/matrix" }
 ]
