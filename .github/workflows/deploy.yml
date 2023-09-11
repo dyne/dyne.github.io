@@ -21,6 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: withastro/action@v0
+        with:
+          pnpm-version: 8
 
   deploy:
     needs: build

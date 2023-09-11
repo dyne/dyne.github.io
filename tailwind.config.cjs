@@ -16,6 +16,11 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+				dyne: {
+					orange: '#D77733',
+					green: '#36968C',
+					purple: '#423E8E',
+				},
 				accent: 'var(--accent-color)',
 				taccent: 'var(--text-accent-color)',
 				background: 'var(--bg-color)',
@@ -35,46 +40,6 @@ module.exports = {
 					20: '#FDF5EB',
 					10: '#FEFAF5',
 					5: '#FEFCFA',
-				},
-				secondary: {
-					DEFAULT: '#4843EB',
-					light: '#CBC8FA',
-					80: '#6D69EF',
-					60: '#918EF3',
-					40: '#B6B4F7',
-					20: '#DAD9FB',
-					10: '#EDECFD',
-					5: '#F6F6FE',
-				},
-				tertiary: {
-					DEFAULT: '#154B45',
-					light: '#3BC7B7',
-					80: '#1C6058',
-					60: '#22746B',
-					40: '#28897E',
-					20: '#2E9E91',
-					10: '#35B3A4',
-					5: '#3BC7B7',
-				},
-				black: {
-					DEFAULT: '#000000',
-					light: '#25282B',
-					80: '#52575C',
-					60: '#A0A4A8',
-					40: '#CACCCF',
-					20: '#DBDDE0',
-					10: '#E8E8E8',
-					5: '#F9F9FA',
-				},
-				gray: {
-					DEFAULT: '#B0B0B0',
-					light: '#FCFCFC',
-					80: '#B0B0B0',
-					60: '#BDBDBD',
-					40: '#C9C9C9',
-					20: '#D6D6D6',
-					10: '#F0F0F0',
-					5: '#FCFCFC',
 				},
 			},
 			fontFamily: {

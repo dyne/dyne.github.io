@@ -14,8 +14,8 @@ const { meta = {} } = Astro.props;
     <MetaTags {...meta} />
   </head>
 
-  <body class="bg-background dark:bg-saccent lg:dark:bg-background duration-500">
-    <slot />
-    <GlobalAssets />
-  </body>
+	<body class="bg-background duration-500">
+		<slot />
+		<GlobalAssets />
+	</body>
 </html>

@@ -1,10 +1,9 @@
 ---
-import * as copy from '~/content/stats/index.md';
+import * as copy from '~/content/heritage/index.md';
 import Button from '~/components/Button.astro';
 import ButtonsGroup from './ButtonsGroup.astro';
-const { description, CTA, href, title, secondaryCTA, secondaryhref, feature1, feature1Value, feature2, feature2Value } =
+const { description, CTA, href, title, secondaryCTA, secondaryHref, feature1, feature1Value, feature2, feature2Value } =
   copy.frontmatter;
-// const stats = await Astro.glob('~/content/stats/stat_*.md');
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-3 items-center p-8">
@@ -12,7 +11,7 @@ const { description, CTA, href, title, secondaryCTA, secondaryhref, feature1, fe
     <h1 class="text-4xl md:text-5xl lg:text-6xl !text-saccent text-semibold">{title}</h1>
     <p class="max-w-2 text-2xl text-inter !text-saccent">{description}</p>
     <ButtonsGroup>
-      <Button href={secondaryhref} text={secondaryCTA} inverted={true} />
+      <Button href={secondaryHref} text={secondaryCTA} inverted={true} />
       <Button href={href} text={CTA} />
     </ButtonsGroup>
   </div>

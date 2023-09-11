@@ -7,43 +7,42 @@ import Stats from '~/components/Stats.astro';
 import Projects from '~/components/Projects.astro';
 import Testimonials from '~/components/Testimonials.astro';
 import BannerMerch from '~/components/BannerMerch.astro';
-import Timeline from '~/components/timeline/TimelineHome.svelte';
-import Awards from '~/components/Awards.astro';
+import Timeline from '~/components/timeline/home/TimelineHome.svelte';
 import Supports from '~/components/Supports.astro';
-import ToggleDark from '~/components/ToggleDark.svelte';
+import Button from '~/components/Button.astro';
+// import ToggleDark from '~/components/ToggleDark.svelte';
 ---
 
 <Layout title="Dyne.org">
-  <ToggleDark ids={['who-we-are', 'what-we-did']} client:only />
-  <main class="flex flex-col space-y-28">
-    <Hero />
+	<!-- <ToggleDark ids={['who-we-are', 'what-we-did']} client:only /> -->
+	<main class="flex flex-col lg:space-y-28">
+		<Hero />
 
-    <Section
-      id="who-we-are"
-      title="Who we are"
-      description="We are a think & do tank, born as an on-line community in 1999 by uniting artists, activists and hackers of mixed backgrounds. We are also a young research organization working on a growing number of succesful projects for the European Commission. These are our three guiding principles:"
-    >
-      <WhoWeAre />
-    </Section>
+		<Section id="who-we-are" title="Who we are" cls="-mt-40 p-4 pt-40 lg:pt-14 -z-1">
+			<span slot="description">
+				We are a think & do tank, born as an on-line community in 1999 by uniting artists, activists and hackers of
+				mixed backgrounds. We are also a young research organization working on a growing number of succesful projects
+				for the European Commission. These are our three guiding principles:
+			</span>
+			<WhoWeAre />
+		</Section>
 
-    <Stats />
+		<Stats />
 
-    <Projects />
+		<Projects />
 
     <Awards />
 
-    <Testimonials />
+		<Supports />
 
-    <Supports />
-
-    <div class="mb-10">
-      <Section id="what-we-did" title="What we did" description="" contentPadding={false}>
-        <Timeline client:only />
-        <!-- <div class="p-8 lg:p-12 flex justify-end">
+		<div class="my-10">
+			<Section id="timeline" title="What we did" contentPadding={false}>
+				<Timeline client:only />
+				<div class="p-8 lg:p-12 flex justify-end">
 					<Button text="View full timeline" href="/timeline" />
-				</div> -->
-      </Section>
-    </div>
+				</div>
+			</Section>
+		</div>
 
     <div class="mb-10">
       <BannerMerch />

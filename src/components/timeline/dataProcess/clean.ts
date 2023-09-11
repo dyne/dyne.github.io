@@ -1,4 +1,10 @@
-import type { FetchedItems } from './fetch';
+import type { FetchedItems, FetchedItem } from './fetch';
+
+/* Helpers */
+
+const isResultEmpty = (result: FetchedItem): boolean => {
+	return result.every((item) => item === '');
+};
 
 /* Types */
 
@@ -11,7 +17,7 @@ const removeDataHeader: FetchedItemsCleaner = (results) => {
 };
 
 const removeEmptyResults: FetchedItemsCleaner = (results) => {
-	return results.filter((result) => result[0] !== '');
+	return results.filter((result) => !isResultEmpty(result));
 };
 
 /* Config */

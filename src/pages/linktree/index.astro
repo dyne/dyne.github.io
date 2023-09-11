@@ -1,15 +1,35 @@
 ---
-
-import MiniCard from '~/components/MiniCard.astro';
 import Layout from '~/layouts/Layout.astro';
 import links from '../../content/social/linktree.json';
+import Section from '~/components/Section.svelte';
 ---
 
 <Layout>
 	<h1>Linktree</h1>
-  <h5>Our tree of links</h3>
-  <br/>
-	<div class="grid grid-cols-2 gap-8">
-		{links.map((l) => <MiniCard body={l.description} title={l.group_name} cn={{"body": "text-sm", "title": "no-underline"}} />)}
+	<h5>Our tree of links</h5>
+	<br />
+	<div class="grid grid-cols-1 gap-8">
+		{
+			links.map((l) => (
+				<Section title={l.group_name} cls="pb-8">
+					<span slot="description">{l.description}</span>
+					<div class="grid md:grid-cols-2 gap-5">
+						{l.links.map((link) => (
+							<div class="bg-current p-4 rounded-lg leading-4 group/link hover:bg-slate-100">
+								<span class="text-md font-medium text-accent leading-6">{link.name}</span>
+								<span class="text-sm text-saccent">{link.tagline}</span>
+								<br />
+								<a
+									href={link.link}
+									class="text-sm md:no-underline text-saccent group-hover/link:text-accent group-hover/link:underline"
+								>
+									{link.link}
+								</a>
+							</div>
+						))}
+					</div>
+				</Section>
+			))
+		}
 	</div>
 </Layout>

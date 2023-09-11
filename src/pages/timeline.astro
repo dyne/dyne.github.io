@@ -1,0 +1,12 @@
+---
+import Layout from '~/layouts/HomepageLayout.astro';
+import TimelinePage from '~/components/timeline/page/TimelinePage.svelte';
+---
+
+<Layout>
+	<div class="bg-black mb-12 rounded-3xl px-10 py-20">
+		<div class="max-w-xl mx-auto">
+			<TimelinePage client:only />
+		</div>
+	</div>
+</Layout>

@@ -21,7 +21,7 @@ export type TimelineItem = {
 	infoUrl: string | null;
 	description: string | null;
 	imageUrl: string | Array<string> | null;
-	importance: number | null;
+	importance: string | null;
 };
 
 /* Config */

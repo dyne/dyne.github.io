@@ -14,11 +14,7 @@ const { creator, title, link, pubDate, categories } = Astro.props;
 		<div
 			class="flex flex-wrap justify-starts items-center py-3 border-b-2 border-accent text-xs text-white font-medium"
 		>
-			{
-				categories.map((category) => (
-					<span class="bg-accent text-taccent px-2 py-1 rounded-full mr-2 mb-2">{category}</span>
-				))
-			}
+			{categories.map((category) => <span class="bg-accent px-2 py-1 rounded-full mr-2 mb-2">{category}</span>)}
 		</div>
 		<div class="flex items-center mt-2">
 			<div class="pl-2">
