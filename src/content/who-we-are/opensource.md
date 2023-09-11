@@ -4,4 +4,4 @@ color: "open_source"
 rotation: -rotate-1
 ---
 
-Code is our literature: we build software to communicate, interact and inspire. We let art, science and technology meet open source.
+Code is our literature: we build software to communicate, interact and inspire. Dyne.org is where art, science and technology meet open source.

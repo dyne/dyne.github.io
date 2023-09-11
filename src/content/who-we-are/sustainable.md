@@ -1,7 +1,7 @@
 ---
-word: Sustainable
+word: Ecology
 color: sustainability
 rotation: 
 ---
 
-We welcome donations and cooperation proposals for projects that benefit human society and respect the natural environment.
+We recycle old technology rather than create needs for new one: this is our way to respect the environment and optimize resources.
