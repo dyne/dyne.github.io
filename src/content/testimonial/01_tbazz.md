@@ -5,5 +5,5 @@ field: primary
 Dyne has contributed to the development of digital culture and the Internet since the 1990s, showing that it is possible to bring technology close to the people and fight successfully for the common good.
 <br/>
 <br/>
-— Tatiana Bazzichelli<br/>
-_[Disruption Network Lab](https://www.disruptionlab.org)_
+**— Tatiana Bazzichelli<br/>**
+[Disruption Network Lab ↗](https://www.disruptionlab.org)

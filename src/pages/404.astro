@@ -10,6 +10,8 @@
 	</p>
 </div>
 <script is:inline>
+  const link = encodeURI(window.location)
+  fetch(`http://localhost:5173/report?link=${link}`)
 	const gameboard = document.querySelector('.gameboard');
 	const resultsDisplay = document.querySelector('.results');
 	let currentShooterIndex = 202;

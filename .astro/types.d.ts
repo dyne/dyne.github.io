@@ -261,6 +261,13 @@ declare module 'astro:content' {
   collection: "testimonial",
   data: any
 },
+"08_bruce.md": {
+  id: "08_bruce.md",
+  slug: "08_bruce",
+  body: string,
+  collection: "testimonial",
+  data: any
+},
 },
 "timeline": {
 "10.md": {

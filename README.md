@@ -31,6 +31,8 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+The comma separated file `public/dyne-timeline.csv` holds the contents of the timeline of events shown on homepage: updating it will update the website.
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
@@ -70,8 +72,6 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 ### ⏱️ Updating the timeline
 
-1. Edit the info at [this spreadsheet](https://docs.google.com/spreadsheets/d/1JG-bs1B7Nq1c7GvA0zQIgXhkkemKZn_ZUCL5RbZVo6U/edit#gid=1214211776)
-2. Export the sheet as `.csv`
-3. Rename it as `dyne-timeline.csv`
-4. Add it in `/public` folder
-5. Rebuild & deploy
+1. Edit the file in `dyne-timeline.csv`
+2. Add it in `/public` folder
+3. Rebuild & deploy
