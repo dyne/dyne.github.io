@@ -9,7 +9,7 @@
 
 	//
 
-	let dataUrl = './dyne-timeline.csv';
+	let dataUrl = '/dyne-timeline.csv';
 	let promise = getTimelineData(dataUrl);
 </script>
 
