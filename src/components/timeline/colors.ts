@@ -27,7 +27,7 @@ export const timelineColors: Record<string, TimelineColorDefs> = {
 	},
 	default: {
 		accent: 'bg-gray-400',
-		bg: 'transparent',
-		border: 'border-gray-400/30',
+		bg: 'bg-transparent',
+		border: 'border-primary-light',
 	},
 };
