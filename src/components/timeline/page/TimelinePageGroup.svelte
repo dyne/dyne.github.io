@@ -6,7 +6,7 @@
 </script>
 
 <div class="">
-	<div class="sticky top-0 z-10">
+	<div class="sticky top-0 z-10 font-sans">
 		<h2 class="text-white text-7xl bg-black py-2">{group.year}</h2>
 	</div>
 

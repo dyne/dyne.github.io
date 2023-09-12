@@ -26,7 +26,7 @@ export const timelineColors: Record<string, TimelineColorDefs> = {
 		border: 'border-dyne-orange',
 	},
 	default: {
-		accent: 'bg-gray-400',
+		accent: 'bg-primary-light',
 		bg: 'bg-transparent',
 		border: 'border-primary-light',
 	},

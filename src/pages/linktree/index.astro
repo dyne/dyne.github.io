@@ -4,10 +4,12 @@ import links from '../../content/social/linktree.json';
 import Section from '~/components/Section.svelte';
 ---
 
-<Layout>
-	<h1>Linktree</h1>
-	<h5>Our tree of links</h5>
-	<br />
+<Layout
+	content={{
+		title: 'Linktree',
+		description: "Link up with Dyne's cyber playground<br/>Dive into our network of connections and resources",
+	}}
+>
 	<div class="grid grid-cols-1 gap-8">
 		{
 			links.map((l) => (

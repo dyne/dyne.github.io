@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { rest } from 'lodash';
 	import { timelineColors } from '../colors';
 	import type { TimelineItem } from '../dataProcess/parse';
 
@@ -9,6 +8,7 @@
 
 	const isDefault = !Boolean(item.type);
 	const isMilestone = item.importance == '0';
+	console.log(item);
 </script>
 
 <div class="relative pl-6" id={encodeURIComponent(item.title)}>
@@ -20,16 +20,26 @@
 		</div>
 	{/if}
 	<div class={`absolute ${isMilestone ? 'top-5' : 'top-1'} -left-3 w-6 h-6 ${accent} rounded-full ring-4 ring-black`} />
-	<div class={`space-y-2 text-primary-60 rounded-2xl ${isMilestone ? `p-4 border-4 ${border} ${bg}` : ''}`}>
+	<div
+		class={`flex flex-col space-y-4 text-primary-60 rounded-2xl ${isMilestone ? `p-4 border-4 ${border} ${bg}` : ''}`}
+	>
 		<!-- Base content -->
-		<h3 class="text-3xl font-bold text-primary-light">
+		<h3 class="text-3xl font-bold text-primary-light font-sans">
 			{item.title}
 		</h3>
 		{#if item.imageUrl}
 			<img src={item.imageUrl} class={`bg-primary-light border-4 ${border} w-full rounded-lg`} alt={item.title} />
 		{/if}
 		{#if item.description}
-			<p class="text-xl">{item.description}</p>
+			<p class="text-xl mb-2">{item.description}</p>
+		{/if}
+		{#if item.ctaLink1}
+			<a
+				href={item.ctaLink1}
+				class={`${accent} cursor-pointer ${bg} border-2 ${border} hover:bg-saccent hover:text-white hover:border-saccent py-2 px-4 rounded-full w-fit text-xl whitespace-nowrap`}
+			>
+				{item.cta1}
+			</a>
 		{/if}
 	</div>
 </div>

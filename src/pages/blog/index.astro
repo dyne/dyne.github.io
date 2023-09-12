@@ -7,18 +7,12 @@ const parser = new Parser();
 const feed = await parser.parseURL('https://medium.com/feed/think-do-tank');
 ---
 
-<Layout>
-	<div class="flex items-baseline justify-between">
-		<h1 class="font-medium">Dyne.org <br /> <span class="font-bold">think & do tank</span></h1>
-
-		<span class="text-lg">
-			<span class="text-accent font-medium">We are hackers.</span>
-			<br />
-			We survive out of the commonplaces. <br />
-			Thoughts and tools out the box.
-		</span>
-	</div>
-
+<Layout
+	content={{
+		title: 'think & do tank',
+		description: 'We survive out of the commonplaces.<br/>Thoughts and tools out the box.',
+	}}
+>
 	<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
 		{feed.items.map((f) => <BlogArticlePreview {...f} />)}
 	</div>
