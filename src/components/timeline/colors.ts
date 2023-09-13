@@ -5,7 +5,7 @@ type TimelineColorDefs = {
 };
 
 export const timelineColors: Record<string, TimelineColorDefs> = {
-	cyber: {
+	crypto: {
 		accent: 'bg-dyne-purple',
 		bg: 'bg-dyne-purple/20',
 		border: 'border-dyne-purple',
