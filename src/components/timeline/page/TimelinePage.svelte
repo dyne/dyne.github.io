@@ -22,7 +22,7 @@
 	{@const groupedData = groupItems(filteredData, true)}
 	<div id="timeline-main">
 		<div>
-			<h2 class="text-white text-5xl bg-black py-2">Today</h2>
+			<h2 class="text-white text-5xl bg-black py-2 font-sans">What happened so far..</h2>
 			<div class="pl-8">
 				<div class="space-y-12 border-l border-l-gray-200 py-12" />
 			</div>

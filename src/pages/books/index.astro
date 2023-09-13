@@ -3,10 +3,12 @@ import Layout from '~/layouts/Layout.astro';
 import books from '../../content/books/books.json';
 ---
 
-<Layout>
-	<h1>Books</h1>
-	<h5>People keep mention us in thei books, here you'll find a small essay of those</h5>
-	<br />
+<Layout
+	content={{
+		title: 'Books',
+		description: "Uncover hidden gems<br/> Dyne's literary haven for the curious minds and bookworms",
+	}}
+>
 	<div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 		{
 			books.map((b) => (

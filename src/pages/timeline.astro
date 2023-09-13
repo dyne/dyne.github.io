@@ -1,11 +1,16 @@
 ---
-import Layout from '~/layouts/HomepageLayout.astro';
+import Layout from '~/layouts/Layout.astro';
 import TimelinePage from '~/components/timeline/page/TimelinePage.svelte';
 ---
 
-<Layout>
-	<div class="bg-black mb-12 rounded-3xl px-10 py-20">
-		<div class="max-w-xl mx-auto">
+<Layout
+	content={{
+		title: 'Timeline',
+		description: "Tracing our steps<br/>Dyne's remarkable journey, milestones and digital chronicles",
+	}}
+>
+	<div class="bg-black mb-12 rounded-3xl py-20">
+		<div class="max-w-xl mx-auto not-prose">
 			<TimelinePage client:only />
 		</div>
 	</div>

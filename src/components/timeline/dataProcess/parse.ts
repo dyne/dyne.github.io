@@ -22,6 +22,13 @@ export type TimelineItem = {
 	description: string | null;
 	imageUrl: string | Array<string> | null;
 	importance: string | null;
+	location: string | null;
+	cta1: string | null;
+	cta2: string | null;
+	cta3: string | null;
+	ctaLink1: string | null;
+	ctaLink2: string | null;
+	ctaLink3: string | null;
 };
 
 /* Config */
@@ -57,6 +64,34 @@ const timelineParseConfig: ParseConfig<TimelineItem> = {
 	},
 	importance: {
 		index: 7,
+		fallback: null,
+	},
+	location: {
+		index: 8,
+		fallback: null,
+	},
+	cta1: {
+		index: 9,
+		fallback: null,
+	},
+	ctaLink1: {
+		index: 10,
+		fallback: null,
+	},
+	cta2: {
+		index: 11,
+		fallback: null,
+	},
+	ctaLink2: {
+		index: 12,
+		fallback: null,
+	},
+	cta3: {
+		index: 13,
+		fallback: null,
+	},
+	ctaLink3: {
+		index: 14,
 		fallback: null,
 	},
 };
