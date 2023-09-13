@@ -7,6 +7,6 @@ const response = await fetch(content.destination);
 const html = marked.parse(await response.text());
 ---
 
-<Layout>
+<Layout content={content}>
     <div set:html={html} />
 </Layout>
