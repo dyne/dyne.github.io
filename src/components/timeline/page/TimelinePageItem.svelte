@@ -1,17 +1,38 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { timelineColors } from '../colors';
 	import type { TimelineItem } from '../dataProcess/parse';
 
 	export let item: TimelineItem;
+
 	const colors = timelineColors[item.type] ?? timelineColors['default'];
 	const { bg, accent, border } = colors;
 
 	const isDefault = !Boolean(item.type);
 	const isMilestone = item.importance == '0';
-	console.log(item);
+
+	/* Scrolling behavior */
+
+	const anchorId = encodeURIComponent(item.title);
+	const anchor = window.location.hash.substring(1);
+	const isAnchor = anchorId == anchor;
+
+	let thisEl: HTMLDivElement;
+
+	onMount(() => {
+		if (!isAnchor) return;
+		const headerOffset = 45;
+		const elementPosition = thisEl.getBoundingClientRect().top;
+		const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+	});
 </script>
 
-<div class="relative pl-6 font-sans" id={encodeURIComponent(item.title)}>
+<div bind:this={thisEl} id={anchorId} class="relative pl-6 font-sans">
 	{#if item.restOfDate}
 		<div
 			class={`hidden md:block absolute top-0.5 -left-32 text-primary-light pr-2 w-28 text-right text-xl ${
