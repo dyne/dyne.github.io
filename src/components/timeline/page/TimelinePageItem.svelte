@@ -14,7 +14,9 @@
 <div class="relative pl-6 font-sans" id={encodeURIComponent(item.title)}>
 	{#if item.restOfDate}
 		<div
-			class={`absolute top-0.5 -left-32 text-primary-light pr-2 w-28 text-right text-xl ${isMilestone ? `pt-4` : ''}`}
+			class={`hidden md:block absolute top-0.5 -left-32 text-primary-light pr-2 w-28 text-right text-xl ${
+				isMilestone ? `pt-4` : ''
+			}`}
 		>
 			<div>{item.restOfDate}</div>
 		</div>
@@ -27,6 +29,11 @@
 		<h3 class="text-3xl font-bold text-primary-light font-sans">
 			{item.title}
 		</h3>
+		{#if item.restOfDate}
+			<div class={`text-primary-light text-xl`}>
+				<div>{item.restOfDate}</div>
+			</div>
+		{/if}
 		{#if item.imageUrl}
 			<img src={item.imageUrl} class={`bg-primary-light border-4 ${border} w-full rounded-lg`} alt={item.title} />
 		{/if}

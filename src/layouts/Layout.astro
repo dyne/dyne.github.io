@@ -16,14 +16,14 @@ const meta = {
 <BaseLayout meta={meta}>
 	<Header />
 	<div
-		class={`pb-24 p-8 lg:p-0 mx-auto w-full prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent prose-headings:font-sans font-prose prose-strong:text-accent prose-strong:font-medium ${cls}`}
+		class={`pb-14 p-4 lg:p-0 mx-auto w-full prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent prose-headings:font-sans font-prose prose-strong:text-accent prose-strong:font-medium ${cls}`}
 	>
-		<div class="flex items-baseline justify-between">
+		<div class="flex flex-col md:flex-row items-baseline justify-between">
 			<h1 class="font-medium">Dyne.org <br /> <span class="font-bold">{content.title}</span></h1>
 
-			<span class="text-lg">
+			<span class="text-lg mb-8 md:mb-0">
 				<span class="text-accent font-medium">We are hackers.</span>
-				<br />
+				<br class="hidden md:block" />
 				<span set:html={content.description} />
 			</span>
 		</div>
