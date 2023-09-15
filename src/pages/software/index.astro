@@ -2,7 +2,7 @@
 import ProjectCard from '~/components/ProjectCard.astro';
 import Layout from '~/layouts/Layout.astro';
 const softwares = await Astro.glob('~/pages/software/*.md');
-const github_fetch = await fetch('https://api.github.com/orgs/dyne/repos?per_page=100');
+const github_fetch = await fetch('https://api.github.com/orgs/dyne/repos?per_page=100&type=sources');
 const github = await github_fetch.json();
 ---
 
@@ -26,7 +26,7 @@ const github = await github_fetch.json();
 					<ProjectCard
 						url={software.homepage ? software.homepage : software.html_url}
 						title={software.name}
-						download={software.html_url}
+						download={software.homepage ? software.html_url : false}
 					>
 						{software.description}
 					</ProjectCard>
