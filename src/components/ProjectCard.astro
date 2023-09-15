@@ -1,0 +1,45 @@
+---
+import Button from './Button.astro';
+
+const { logo, title, url, tagline, download } = Astro.props;
+---
+
+<div
+	class="transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent hover:border-accent hover:shadow-none hover:bg-white hover:bg-opacity-50 rounded-xl p-7"
+>
+	<div class="w-full p-4 h-full flex gap-8">
+		{
+			logo && (
+				<div
+					class="flex-none hidden md:block bg-origin-content bg-contain bg-center bg-no-repeat w-32 h-32 lg:w-20 lg:h-20 rounded-full ring-2 ring-saccent"
+					style={`background-image: url(${logo})`}
+				/>
+			)
+		}
+		<div>
+			<div class="flex flex-row items-center gap-4">
+				<a href={url} class="text-2xl font-bold font-sans no-underline">{title}</a>
+
+				{
+					logo && (
+						<div
+							class="block md:hidden bg-origin-content bg-contain bg-center bg-no-repeat w-12 h-12 rounded-full border-[0.5px] border-accent"
+							style={`background-image: url(${logo})`}
+						/>
+					)
+				}
+			</div>
+			<div class="py-4">
+				<span class="font-medium">{tagline}</span>
+			</div>
+
+			<p class="text-gray-800 text-sm font-medium mb-2 text-clip overflow-hidden max-h-20">
+				<slot />
+			</p>
+			<div class="flex flex-row flex-wrap space-x-3 mt-4">
+				<Button href={url} text="Learn more..." inverted={true} cls="text-sm" />
+				{download && <Button href={download} text="Download" cls={`text-sm`} />}
+			</div>
+		</div>
+	</div>
+</div>

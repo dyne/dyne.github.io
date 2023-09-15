@@ -10,9 +10,7 @@ const testimonials = await Astro.glob('~/content/testimonial/*.md');
 			testimonials.map((t) => {
 				const { pic } = t.frontmatter;
 				return (
-					<div
-						class={`swiper-slide bg-baccent mx-auto lg:max-w-none rounded-4xl p-20 lg:p-28 my-24 max-w-[450px]`}
-					>
+					<div class={`swiper-slide bg-baccent mx-auto lg:max-w-none rounded-4xl p-20 lg:p-28 my-24 max-w-[450px]`}>
 						<div class="flex-col flex lg:flex-row gap-20 items-center justify-between">
 							<img src={pic} class="w-64 rounded-full" />
 							<div set:html={t.compiledContent()} class="text-saccent text-xl lg:text-3xl" />
