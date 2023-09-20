@@ -81,15 +81,25 @@ behaviour and the security of tombs in everyday usage: it protects the
 typing of passwords from keyloggers, facilitates hiding keys inside
 images, mounts directories in place without copying delicate files around, allows a user to kill all running processes and slam close a tomb in a straightforward command, warns the user about free space and last-time usage, etc.
 
+![Tomb logo by monmort](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)
+
 One can use **multiple tombs** simultaneously on the same system and list them using `tomb list`.
 
-Using `tomb resize`, one can expand tomb files to have more space (but cannot shrink them).
+![Tomb logo by monmort](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)
 
-When it is open, a tomb can bind its contents inside the user’s `$HOME` folder using `bind-hooks`. For instance, `.gnupg` will only be found inside your `$HOME` when the tomb opens. 
+Using `tomb resize`, one can **expand tombs** to have more space (but cannot shrink them).
 
-A tomb can be used on a local machine with keys on a server and never stored on the same device: `ssh me@dyne.org 'cat my.tomb.key' | tomb open my.tomb -k -` the option `-k -` tells tomb to take the key from stdin.
+![Tomb logo by monmort](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)
 
-It is also possible to store a tomb on a cloud service and mount it locally, ensuring remote servers cannot access contents. One can use **sshfs** for this:
+When it is open, a tomb can **bind contents inside the user’s `$HOME`** folder using `bind-hooks`. For instance, `.gnupg` will only be found inside your `$HOME` when the tomb opens. 
+
+![Tomb logo by monmort](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)
+
+A tomb can be used on a local machine with **keys on a server** and never stored on the same device: `ssh me@dyne.org 'cat my.tomb.key' | tomb open my.tomb -k -` the option `-k -` tells tomb to take the key from stdin.
+
+![Tomb logo by monmort](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)
+
+It is also possible to **store a tomb on a cloud service and mount it locally**, ensuring remote servers cannot access contents. One can use **sshfs** for this:
 
 ```
 sshfs -o allow_root me@dyne.org:/ /mnt/cloud/
@@ -98,7 +108,11 @@ tomb open /mnt/cloud/my.tomb -k my.key
 
 [This paper](https://www.researchgate.net/publication/262698824_Data_privacy_in_Desktop_as_a_Service) provides a lot of details about using tombs hosted on cloud storage.
 
+![Tomb logo by monmort](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)
+
 Tomb also supports **deniable key storage** using steganography. One can `tomb bury` and `tomb exhume` keys to and from `JPEG` images when the utility `steghide` is installed. When securing private data, one must never forget where the keys are. It may be easier to remember a picture, as well it may be less suspicious to transport it and exchange it as a file.
+
+![Tomb logo by monmort](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)
 
 The command `tomb engrave` also allows to backup keys on paper by saving them as printable QR codes, to hide it between the pages of a book. To recover an engraved key, one can scan it with any phone and save the resulting plain text file as the tomb key.
 
@@ -115,8 +129,6 @@ The following applications are compatible with Tomb:
 
 - [zuluCrypt](https://mhogomchungu.github.io/zuluCrypt/) is a graphical application to manage various types of encrypted volumes on GNU/Linux, among them also Tombs, written in C++.
 
-
-![Tomb logo by monmort](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)
 
 
 
@@ -148,6 +160,7 @@ cryptsetup luksClose /dev/mapper/secret
 ```
 
 
+
 ## Who needs Tomb
 
 > Democracy requires privacy as much as Freedom of Expression. - Anonymous
@@ -165,7 +178,7 @@ The Internet offers plenty of free services; in most cases, **corporate or state
 
 **Tomb is ethical software that empowers everyone to protect their privacy**.
 
-<img src=”https://www.dyne.org/wp-content/uploads/2012/06/foster_privacy.png”>
+<img src="https://www.dyne.org/wp-content/uploads/2012/06/foster_privacy.png">
 
 
 ## Aren't there enough encryption tools?
@@ -214,9 +227,11 @@ access to ISO/IEC documents is limited.
 
 # Development
 
-[Tomb is on GitHub](https://github.com/dyne/Tomb), where most of the community activity is going.
+<a href="https://github.com/dyne/Tomb">
+<img src="https://www.dyne.org/wp-content/uploads/2011/11/github_tomb.jpg">
+Tomb is on GitHub</a>, where most of the community activity goes.
 
-Developers are welcome to interact with us via a discussion area, issues, or pull requests. The README is also a brief introduction for developers willing to engage.
+Developers can interact with us via a discussion area, issues, or pull requests. The README is also a brief introduction for developers willing to engage.
 
 The [short tomb tester howto](https://github.com/dyne/Tomb/wiki/TesterHowTo) provides a guide to troubleshooting problems. Anyone planning to write code in Tomb should first look at the [short tomb developer howto](https://github.com/dyne/Tomb/wiki/DeveloperHowto).
 
