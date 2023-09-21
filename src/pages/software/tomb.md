@@ -116,6 +116,11 @@ Tomb also supports **deniable key storage** using steganography. One can `tomb b
 
 The command `tomb engrave` also allows to backup keys on paper by saving them as printable QR codes, to hide it between the pages of a book. To recover an engraved key, one can scan it with any phone and save the resulting plain text file as the tomb key.
 
+<a href="https://www.youtube-nocookie.com/embed/IgO19-3ffrY">
+<img src="https://github.com/dyne/dyne.github.io/assets/148059/183bd300-dfca-457d-b50b-2f8826dec187">
+</a>
+
+You can also watch this other video guide by Nerd on the Street.
 
 ## External applications
 
@@ -192,6 +197,12 @@ The encrypted home mechanism of most operating systems doesn’t make it easy to
 [Veracrypt](https://veracrypt.org) is a very portable rewrite of TrueCrypt (works also on Mac OSX) but is very slow and has some interaction patterns that are not secure. Its way of encrypting is comparable to Tomb.
 
 [EncFS](http://www.arg0.net/encfs) doesn’t need root access. But it has drawbacks: it implements weaker encryption, doesn't promote the separated storage of keys and exposes the size of each single file rather than hiding the structure of a folder.
+
+<a href="https://www.youtube-nocookie.com/embed/4VcJtj_oGqg">
+  <img src="https://github.com/dyne/dyne.github.io/assets/148059/05ae0f87-17c6-4937-a94d-a2549b00f45a">
+</a>
+
+Watch Tomb's development history in this infographic based on git commits.
 
 ## Compliancy
 
