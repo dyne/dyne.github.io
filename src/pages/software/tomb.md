@@ -117,7 +117,7 @@ Tomb also supports **deniable key storage** using steganography. One can `tomb b
 The command `tomb engrave` also allows to backup keys on paper by saving them as printable QR codes, to hide it between the pages of a book. To recover an engraved key, one can scan it with any phone and save the resulting plain text file as the tomb key.
 
 <a href="https://www.youtube-nocookie.com/embed/IgO19-3ffrY">
-<img src="https://github.com/dyne/dyne.github.io/assets/148059/183bd300-dfca-457d-b50b-2f8826dec187">
+<img src="https://github.com/dyne/dyne.github.io/assets/148059/183bd300-dfca-457d-b50b-2f8826dec187" width="80%">
 </a>
 
 You can also watch this other video guide by Nerd on the Street.
