@@ -7,8 +7,9 @@ import BaseLayout from './BaseLayout.astro';
 <BaseLayout>
 	<Header />
 	<div class="max-w-full overflow-hidden">
-	<div class="max-w-7xl mx-auto">
-		<slot />
+		<div class="max-w-7xl mx-auto">
+			<slot />
+		</div>
+		<Footer />
 	</div>
-	<Footer />
 </BaseLayout>

@@ -7,7 +7,9 @@
       {
         "name": "Dyne.org welcome chat",
         "link": "https://socials.dyne.org/telegram",
-        "tagline": "Come hang out and get oriented to a more topic-specific chat."
+        "tagline": "Come hang out and get oriented to a more topic-specific chat.",
+        "main": true,
+        "cta": "Join chat"
       },
       {
         "name": "Darkfi",

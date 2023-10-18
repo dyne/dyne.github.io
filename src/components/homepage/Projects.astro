@@ -11,9 +11,9 @@ const projects = await Astro.glob('~/content/what-we-do/*.md');
 			projects.map((p) => {
 				const { logo, name, link, download } = p.frontmatter;
 				return (
-						<ProjectCard logo={logo} title={name} url={link} download={download}}>
-							<div set:html={p.compiledContent()} />
-						</ProjectCard>
+					<ProjectCard logo={logo} title={name} url={link} download={download}>
+						<div set:html={p.compiledContent()} />
+					</ProjectCard>
 				);
 			})
 		}

@@ -7,7 +7,7 @@ const parser = new Parser();
 const medium = await parser.parseURL('https://medium.com/feed/think-do-tank');
 const planet = await parser.parseURL('https://dyne.substack.com/feed/');
 const feed = medium.items.concat(planet.items);
-feed.sort((a,b)=>new Date(b.isoDate).getTime()-new Date(a.isoDate).getTime());
+feed.sort((a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime());
 ---
 
 <Layout

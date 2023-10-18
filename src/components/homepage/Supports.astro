@@ -4,13 +4,16 @@ import Button from '~/components/Button.astro';
 const { description, CTA, href } = copy.frontmatter;
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-3  place-items-center px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 place-items-center px-8">
 	<div
 		class="col-span-2 flex flex-col text-center items-center md:text-left md:items-start space-y-12 md:space-y-8 tracking-tight"
 	>
 		<div class="text-4xl md:text-5xl lg:text-6xl text-saccent" set:html={copy.compiledContent()} />
 		<p class="max-w-2 text-2xl text-inter text-saccent">{description}</p>
-			<Button href={href} text={CTA} />
+		<Button href={href} text={CTA} />
 	</div>
-	<div class="bg-[url('/images/illustrations/manincula.png')] opacity-40 bg-contain bg-no-repeat h-full w-full hidden md:block"></div>
+	<div
+		class="bg-[url('/images/illustrations/manincula.png')] opacity-40 bg-contain bg-no-repeat h-full w-full hidden md:block"
+	>
+	</div>
 </div>
