@@ -3,96 +3,96 @@ const keywords = await Astro.glob('~/content/who-we-are/*.md');
 ---
 
 <ul class="lg:px-12 px-0">
-  {
-    keywords.map((kw) => (
-      <>
-        <li
-          class={`flipper text-black bg-${kw.frontmatter.color} ${kw.frontmatter.rotation} rounded-[22px] lg:rounded-3xl lg:px-12 min-h-max`}
-        >
-          <h2
-            class={`front py-3 tracking-tighter top-0 left-0 font-semibold text-[1.9rem] md:text-[3.4rem] lg:text-mega whitespace-nowrap`}
-          >
-            {kw.frontmatter.word}
-          </h2>
-          <div
-            set:html={kw.compiledContent()}
-            class="back absolute top-0 left-0 p-2 text-xs md:text-lg md:p-5 lg:p-20 lg:text-3xl md:w-[80%] min-h-fit hidden md:block"
-          />
-        </li>
-        <div class="block md:hidden py-4" set:html={kw.compiledContent()} />
-      </>
-    ))
-  }
+	{
+		keywords.map((kw) => (
+			<>
+				<li
+					class={`flipper text-black bg-${kw.frontmatter.color} ${kw.frontmatter.rotation} rounded-[22px] lg:rounded-3xl lg:px-12 min-h-max`}
+				>
+					<h2
+						class={`front py-3 tracking-tighter top-0 left-0 font-semibold text-[1.9rem] md:text-[3.4rem] lg:text-mega whitespace-nowrap`}
+					>
+						{kw.frontmatter.word}
+					</h2>
+					<div
+						set:html={kw.compiledContent()}
+						class="back absolute top-0 left-0 p-2 text-xs md:text-lg md:p-5 lg:p-20 lg:text-3xl md:w-[80%] min-h-fit hidden md:block"
+					/>
+				</li>
+				<div class="block md:hidden py-4" set:html={kw.compiledContent()} />
+			</>
+		))
+	}
 </ul>
 <style>
-  .flipper {
-    overflow: hidden;
-    transform-style: preserve-3d;
-    transition: 0.5s;
-    padding-left: 10%;
-    margin-left: -10%;
-    width: 120%;
-  }
+	.flipper {
+		overflow: hidden;
+		transform-style: preserve-3d;
+		transition: 0.5s;
+		padding-left: 10%;
+		margin-left: -10%;
+		width: 120%;
+	}
 
-  @media screen and (min-width: 768px) {
-    .flipper:hover .front {
-      transform: rotateX(-180deg);
-    }
-  }
-  .flipper:hover .back {
-    @apply translate-x-0;
-  }
+	@media screen and (min-width: 768px) {
+		.flipper:hover .front {
+			transform: rotateX(-180deg);
+		}
+	}
+	.flipper:hover .back {
+		@apply translate-x-0;
+	}
 
-  .front {
-    backface-visibility: hidden;
-    transform: rotateX(0deg);
-    transition: 0.5s;
-  }
+	.front {
+		backface-visibility: hidden;
+		transform: rotateX(0deg);
+		transition: 0.5s;
+	}
 
-  .back {
-    backface-visibility: hidden;
-    transform: translateX(100%);
-    transition: 0.5s;
-    animation: slide-out 0.5s forward;
-  }
+	.back {
+		backface-visibility: hidden;
+		transform: translateX(100%);
+		transition: 0.5s;
+		animation: slide-out 0.5s forward;
+	}
 
-  .slide-in {
-    animation: slide-in 0.5s forwards;
-    -webkit-animation: slide-in 0.5s forwards;
-  }
+	.slide-in {
+		animation: slide-in 0.5s forwards;
+		-webkit-animation: slide-in 0.5s forwards;
+	}
 
-  .slide-out {
-    animation: slide-out 0.5s forwards;
-    -webkit-animation: slide-out 0.5s forwards;
-  }
+	.slide-out {
+		animation: slide-out 0.5s forwards;
+		-webkit-animation: slide-out 0.5s forwards;
+	}
 
-  @keyframes slide-in {
-    100% {
-      transform: translateX(0%);
-    }
-  }
+	@keyframes slide-in {
+		100% {
+			transform: translateX(0%);
+		}
+	}
 
-  @-webkit-keyframes slide-in {
-    100% {
-      -webkit-transform: translateX(0%);
-    }
-  }
+	@-webkit-keyframes slide-in {
+		100% {
+			-webkit-transform: translateX(0%);
+		}
+	}
 
-  @keyframes slide-out {
-    0% {
-      transform: translateX(0%);
-    }
-    70% {
-      transform: translateX(-70%);
-    }
-  }
+	@keyframes slide-out {
+		0% {
+			transform: translateX(0%);
+		}
+		70% {
+			transform: translateX(-70%);
+		}
+	}
 
-  @-webkit-keyframes slide-out {
-    0% {
-      -webkit-transform: translateX(0%);
-    }
-    100% {
-      -webkit-transform: translateX(-70%);
-    }
-  }
+	@-webkit-keyframes slide-out {
+		0% {
+			-webkit-transform: translateX(0%);
+		}
+		100% {
+			-webkit-transform: translateX(-70%);
+		}
+	}
 </style>

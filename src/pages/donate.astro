@@ -118,8 +118,10 @@ const tiers = [
 
 			<p class="text-center px-6">
 				We accept both <Link href="#onetime">one-time donations</Link> (also with <strong>crypto</strong>!) and <Link
-					href="#recurring">recurring donations</Link
+					href="#recurring"
 				>
+					recurring donations
+				</Link>
 			</p>
 		</div>
 
@@ -128,9 +130,9 @@ const tiers = [
 			<div id="recurring" class="p-6 bg-primary rounded-3xl space-y-4">
 				<h1 class="text-xl font-bold">Recurring donations on:</h1>
 				<div class="space-y-2">
-<!--					<SponsorLink href="https://opencollective.com/dyneorg" text="Open Collective"><Opencollective size={36} /></SponsorLink> -->
+					<!--					<SponsorLink href="https://opencollective.com/dyneorg" text="Open Collective"><Opencollective size={36} /></SponsorLink> -->
 					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={36} /></SponsorLink>
-<!--					<SponsorLink href="https://www.patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink> -->
+					<!--					<SponsorLink href="https://www.patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink> -->
 				</div>
 				<p class="leading-6">Donations can also give you benefits!</p>
 			</div>
@@ -141,12 +143,12 @@ const tiers = [
 					{
 						tiers.map((tier) => (
 							<li class="flex flex-row flex-nowrap items-center bg-primary-60 rounded-2xl overflow-hidden">
-<a href="https://github.com/sponsors/dyne" text="GitHub">
-								<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center self-stretch">
-									<p class="text-center">{tier.amount}</p>
-								</div>
-								<p class="p-3">{tier.text}</p>
-</a>
+								<a href="https://github.com/sponsors/dyne" text="GitHub">
+									<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center self-stretch">
+										<p class="text-center">{tier.amount}</p>
+									</div>
+									<p class="p-3">{tier.text}</p>
+								</a>
 							</li>
 						))
 					}
