@@ -535,6 +535,11 @@ declare module 'astro:content' {
   collection: "social";
   data: any
 };
+"quicklinks": {
+	id: "quicklinks";
+  collection: "social";
+  data: any
+};
 };
 
 	};
