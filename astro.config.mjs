@@ -16,7 +16,14 @@ export default defineConfig({
 	markdown: {
 		drafts: true,
 	},
-	integrations: [tailwind(), partytown(), sitemap(), svelte()],
+	integrations: [
+		tailwind({
+			applyBaseStyles: false,
+		}),
+		partytown(),
+		sitemap(),
+		svelte(),
+	],
 	vite: {
 		resolve: {
 			alias: {
