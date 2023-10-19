@@ -144,6 +144,22 @@
 }
 
 @layer components {
+    .h1, .h2, .h3 {
+        font-family: Syne;
+        @apply leading-[120%];
+    }
+    .h1 {
+        @apply text-4xl font-extrabold  tracking-[-0.72px] md:text-[42px] md:tracking-[-0.84px]
+    }
+
+    .h2 {
+        @apply text-[32px] font-semibold  tracking-[-0.64px] md:text-[38px] md:tracking-[-0.76px];
+    }
+
+    .h3 {
+        @apply text-[28px] font-medium tracking-[-0.56px] md:text-[34px] md:tracking-[-0.68px];
+    }
+
 	.card {
 		background-color: theme('colors.white');
 		border-radius: theme('borderRadius.lg');
