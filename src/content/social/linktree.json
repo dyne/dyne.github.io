@@ -102,47 +102,56 @@
       {
         "name": "Facebook",
         "link": "https://socials.dyne.org/facebook",
-        "tagline": "Like Dyne on facebook."
+        "tagline": "Like Dyne on facebook.",
+        "cta": "Like"
       },
       {
         "name": "Instagram",
         "link": "https://socials.dyne.org/instagram",
-        "tagline": "Follow Dyne on Instagram."
+        "tagline": "Follow Dyne on Instagram.",
+        "cta": "Follow"
       },
       {
         "name": "LinkedIn",
         "link": "https://socials.dyne.org/linkedin",
-        "tagline": "Follow Dyne on LinkedIn."
+        "tagline": "Follow Dyne on LinkedIn.",
+        "cta": "Follow"
       },
       {
         "name": "Mastodon",
         "link": "https://socials.dyne.org/mastodon",
-        "tagline": "Follow Dyne on Mastodon."
+        "tagline": "Follow Dyne on Mastodon.",
+        "cta": "Follow"
       },
       {
         "name": "Medium",
         "link": "https://socials.dyne.org/medium",
-        "tagline": "Follow Dyne on Medium."
+        "tagline": "Follow Dyne on Medium.",
+        "cta": "Follow"
       },
       {
         "name": "Peertube",
         "link": "https://socials.dyne.org/peertube",
-        "tagline": "Subscribe to Dyne on Peertube."
+        "tagline": "Subscribe to Dyne on Peertube.",
+        "cta": "Subscribe"
       },
       {
         "name": "Substack",
         "link": "https://socials.dyne.org/substack",
-        "tagline": "Subscribe to Dyne newsletter on Substack."
+        "tagline": "Subscribe to Dyne newsletter on Substack.",
+        "cta": "Subscribe"
       },
       {
         "name": "Twitter",
         "link": "https://socials.dyne.org/twitter",
-        "tagline": "Follow Dyne on Twitter."
+        "tagline": "Follow Dyne on Twitter.",
+        "cta": "Follow"
       },
       {
         "name": "YouTube",
         "link": "https://socials.dyne.org/youtube",
-        "tagline": "Subscribe to Dyne on YouTube."
+        "tagline": "Subscribe to Dyne on YouTube.",
+        "cta": "Subscribe"
       }
     ]
   }
