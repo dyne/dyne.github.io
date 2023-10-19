@@ -22,6 +22,7 @@
     "@fontsource/jetbrains-mono": "^5.0.15",
     "@wcj/html-to-markdown-cli": "^1.0.0",
     "astro": "^3.3.2",
+    "astro-icon": "^0.8.1",
     "astro-tabs": "^0.1.8",
     "lodash": "^4.17.21",
     "papaparse": "^5.4.1",

@@ -1,0 +1,57 @@
+---
+import { Icon } from 'astro-icon';
+interface Props {
+	color?: 'neutral' | 'black' | 'green' | 'orange' | 'purple';
+	size?: 'large' | 'medium' | 'small';
+	outline?: boolean;
+	icon?: boolean;
+	href?: string;
+}
+const { color = 'orange', size = 'medium', outline = false, icon, href } = Astro.props;
+---
+
+<button
+	class:list={[
+		`w-fit h-fit inline-flex justify-center items-center rounded-[100px] whitespace-nowrap leading-[100%]`,
+		{ 'py-2 px-3 text-[20px] tracking-[-0.40px]': size === 'small' },
+		{ 'py-3 px-4 text-[22px] tracking-[-0.44px]': size === 'medium' },
+		{ 'px-6 py-4 text-[24px] tracking-[-0.48px]': size === 'large' },
+		{
+			'bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-800':
+				color === 'orange',
+		},
+		{
+			'bg-purple-500 text-white hover:bg-purple-600 active:bg-purple-700 focus:outline-none focus:ring focus:ring-purple-800':
+				color === 'purple',
+		},
+		{
+			'bg-neutral-300 text-black hover:bg-neutral-400 active:bg-neutral-500 focus:outline-none focus:ring focus:ring-neutral-700':
+				color === 'neutral',
+		},
+		{
+			'bg-[#100D09] text-white hover:bg-black-800 active:bg-black-700 focus:outline-none focus:ring focus:ring-black':
+				color === 'black',
+		},
+		{
+			'bg-green-500 text-white hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring focus:ring-green-800':
+				color === 'green',
+		},
+	]}
+>
+	<slot />
+	{
+		icon && (
+			<Icon
+				name="mdi:arrow-down"
+				class:list={[
+					'pl-2 text-white',
+					{
+						'w-6': size === 'small',
+						'w-7': size === 'medium',
+						'w-8': size === 'large',
+					},
+				]}
+			/>
+		)
+	}
+</button>
