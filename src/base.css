@@ -160,6 +160,10 @@
         @apply text-[28px] font-medium tracking-[-0.56px] md:text-[34px] md:tracking-[-0.68px];
     }
 
+    hr {
+        @apply h-px mt-1 mb-5 bg-black-900 border-0;
+    }
+
 	.card {
 		background-color: theme('colors.white');
 		border-radius: theme('borderRadius.lg');
