@@ -1,3 +1,45 @@
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 900;
+	src:
+		url('/fonts/BasisGrotesqueArabicPro-Black.ttf') format('truetype'),
+		url('/fonts/BasisGrotesqueArabicPro-Black.woff') format('woff'),
+		url('/fonts/BasisGrotesqueArabicPro-Black.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 700;
+	src:
+		url('/fonts/BasisGrotesqueArabicPro-Bold.ttf') format('truetype'),
+		url('/fonts/BasisGrotesqueArabicPro-Bold.woff') format('woff'),
+		url('/fonts/BasisGrotesqueArabicPro-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 300;
+	src: url('/fonts/BasisGrotesqueArabicPro-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 500;
+	src:
+		url('/fonts/BasisGrotesqueArabicPro-Medium.ttf') format('truetype'),
+		url('/fonts/BasisGrotesqueArabicPro-Medium.woff') format('woff'),
+		url('/fonts/BasisGrotesqueArabicPro-Medium.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 400;
+	src:
+		url('/fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype'),
+		url('/fonts/BasisGrotesqueArabicPro-Regular.woff') format('woff'),
+		url('/fonts/BasisGrotesqueArabicPro-Regular.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,37 +55,31 @@
 		--cards-simple-green: 0px 1px 10px 0px rgba(54, 150, 140, 0.15);
 		--cards-simple-orange: 0px 1px 10px 0px rgba(215, 119, 51, 0.15);
 		--cards-simple-purple: 0px 1px 10px 0px rgba(66, 62, 142, 0.15);
-		--headline-desktop-large-font-family: 'Syne', Helvetica;
 		--headline-desktop-large-font-size: 42px;
 		--headline-desktop-large-font-style: normal;
 		--headline-desktop-large-font-weight: 800;
 		--headline-desktop-large-letter-spacing: -0.84px;
 		--headline-desktop-large-line-height: 120.00000476837158%;
-		--headline-desktop-medium-font-family: 'Syne', Helvetica;
 		--headline-desktop-medium-font-size: 38px;
 		--headline-desktop-medium-font-style: normal;
 		--headline-desktop-medium-font-weight: 600;
 		--headline-desktop-medium-letter-spacing: -0.76px;
 		--headline-desktop-medium-line-height: 120.00000476837158%;
-		--headline-desktop-small-font-family: 'Syne', Helvetica;
 		--headline-desktop-small-font-size: 34px;
 		--headline-desktop-small-font-style: normal;
 		--headline-desktop-small-font-weight: 500;
 		--headline-desktop-small-letter-spacing: -0.68px;
 		--headline-desktop-small-line-height: 120.00000476837158%;
-		--headline-mobile-large-font-family: 'Syne', Helvetica;
 		--headline-mobile-large-font-size: 36px;
 		--headline-mobile-large-font-style: normal;
 		--headline-mobile-large-font-weight: 800;
 		--headline-mobile-large-letter-spacing: -0.72px;
 		--headline-mobile-large-line-height: 120.00000476837158%;
-		--headline-mobile-medium-font-family: 'Syne', Helvetica;
 		--headline-mobile-medium-font-size: 32px;
 		--headline-mobile-medium-font-style: normal;
 		--headline-mobile-medium-font-weight: 600;
 		--headline-mobile-medium-letter-spacing: -0.64px;
 		--headline-mobile-medium-line-height: 120.00000476837158%;
-		--headline-mobile-small-font-family: 'Syne', Helvetica;
 		--headline-mobile-small-font-size: 28px;
 		--headline-mobile-small-font-style: normal;
 		--headline-mobile-small-font-weight: 500;
@@ -144,25 +180,47 @@
 }
 
 @layer components {
-    .h1, .h2, .h3 {
-        font-family: Syne;
-        @apply leading-[120%];
-    }
-    .h1 {
-        @apply text-4xl font-extrabold  tracking-[-0.72px] md:text-[42px] md:tracking-[-0.84px]
-    }
+	a {
+		@apply underline text-accent;
+	}
 
-    .h2 {
-        @apply text-[32px] font-semibold  tracking-[-0.64px] md:text-[38px] md:tracking-[-0.76px];
-    }
+	hr {
+		@apply h-px mt-1 mb-5 bg-black-900 border-0;
+	}
+	.h1,
+	.h2,
+	.h3 {
+		@apply leading-[120%] font-display;
+	}
+	.h1 {
+		@apply text-4xl font-extrabold tracking-[-0.72px] md:text-[42px] md:tracking-[-0.84px];
+	}
 
-    .h3 {
-        @apply text-[28px] font-medium tracking-[-0.56px] md:text-[34px] md:tracking-[-0.68px];
-    }
+	.h2 {
+		@apply text-[32px] font-semibold tracking-[-0.64px] md:text-[38px] md:tracking-[-0.76px];
+	}
 
-    hr {
-        @apply h-px mt-1 mb-5 bg-black-900 border-0;
-    }
+	.h3 {
+		@apply text-[28px] font-medium tracking-[-0.56px] md:text-[34px] md:tracking-[-0.68px];
+	}
+
+	.text-base,
+	.text-medium,
+	.text-large {
+		@apply font-sans;
+	}
+
+	.text-base {
+		@apply text-lg leading-[140%] tracking-[-0.36px] md:text-xl md:leading-[140%] md:tracking-[-0.4px];
+	}
+
+	.text-medium {
+		@apply text-xl leading-[130%] tracking-[-0.4px] md:text-[22px] md:tracking-[-0.44px];
+	}
+
+	.text-large {
+		@apply text-[22px] leading-[130%] tracking-[-0.44px] md:text-2xl md:tracking-[-0.48px];
+	}
 
 	.card {
 		background-color: theme('colors.white');

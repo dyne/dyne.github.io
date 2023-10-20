@@ -3,19 +3,17 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}'],
 	safelist: [
+		{
+			pattern: /bg-(orange|green|purple|black|neutral)-(50|100|200|300|400|500|600|700|800|900)/,
+		},
+		{ pattern: /cards-(.*)/ },
+		{ pattern: /bg-(sustainability|open_source|interdisciplinarity|crypto|cybersecurity)/ },
 		'bg-white',
-		'bg-sustainability',
-		'bg-open_source',
-		'bg-crypto',
-		'bg-interdisciplinarity',
-		'bg-cybersecurity',
 		'bg-primary',
 		'bg-accent',
 		'bg-saccent',
 		'bg-taccent',
 		'bg-baccent',
-		'rotate-2',
-		'-rotate-1',
 	],
 	theme: {
 		extend: {
@@ -95,7 +93,7 @@ module.exports = {
 				crypto: '#000000',
 				cybersecurity: '#8980f5',
 				// primary: {
-				// 	DEFAULT: '#F4CC9C',
+				// 	DEFAULT: '#F4CC9C' #FFEEDD,
 				// 	light: '#FEFBF6',
 				// 	800: '#F6D6B0',
 				// 	600: '#F8E0C4',
@@ -106,12 +104,6 @@ module.exports = {
 				// },
 			},
 			fontFamily: {
-				'headline-desktop-large': 'var(--headline-desktop-large-font-family)',
-				'headline-desktop-medium': 'var(--headline-desktop-medium-font-family)',
-				'headline-desktop-small': 'var(--headline-desktop-small-font-family)',
-				'headline-mobile-large': 'var(--headline-mobile-large-font-family)',
-				'headline-mobile-medium': 'var(--headline-mobile-medium-font-family)',
-				'headline-mobile-small': 'var(--headline-mobile-small-font-family)',
 				'text-desktop-base': 'var(--text-desktop-base-font-family)',
 				'text-desktop-base-highlight': 'var(--text-desktop-base-highlight-font-family)',
 				'text-desktop-large': 'var(--text-desktop-large-font-family)',
@@ -120,8 +112,8 @@ module.exports = {
 				'text-mobile-base-highlight': 'var(--text-mobile-base-highlight-font-family)',
 				'text-mobile-large': 'var(--text-mobile-large-font-family)',
 				'text-mobile-medium': 'var(--text-mobile-medium-font-family)',
-				sans: ['Syne', 'sans'],
-				prose: ['Inter Variable', 'sans-serif', 'sans'],
+				display: ['Syne', 'sans'],
+				sans: ['Basis Grotesque Arabic Pro', 'sans-serif', 'sans'],
 				mono: ['JetBrains Mono', 'monospace'],
 			},
 			boxShadow: {
@@ -133,7 +125,15 @@ module.exports = {
 				'cards-simple-purple': 'var(--cards-simple-purple)',
 				simple: 'var(--simple)',
 			},
+			fontWeight: {
+				highlight: 700,
+			},
 			fontSize: {
+				base: '18px',
+				lg: '20px',
+				xl: ['22px', '130%'],
+				'2xl': ['', '130%'],
+
 				mega: [
 					'7.65rem',
 					{
@@ -141,9 +141,9 @@ module.exports = {
 					},
 				],
 			},
-			letterSpacing: {
-				normal: '-0.2rem',
-			},
+			// letterSpacing: {
+			// 	normal: '-0.2rem',
+			// },
 			typography: {
 				DEFAULT: {
 					css: {

@@ -1,0 +1,30 @@
+---
+interface Props {
+	size?: 'large' | 'medium' | 'small';
+	class?: string;
+}
+
+const { size = 'medium', class: cls } = Astro.props;
+---
+
+{
+	size === 'small' && (
+		<h3 class:list={['h3', cls]}>
+			<slot />
+		</h3>
+	)
+}
+{
+	size === 'medium' && (
+		<h2 class:list={['h2', cls]}>
+			<slot />
+		</h2>
+	)
+}
+{
+	size === 'large' && (
+		<h1 class:list={['h1', cls]}>
+			<slot />
+		</h1>
+	)
+}

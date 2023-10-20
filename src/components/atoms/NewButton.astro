@@ -6,36 +6,48 @@ interface Props {
 	outline?: boolean;
 	icon?: boolean;
 	href?: string;
+	class?: string;
 }
-const { color = 'orange', size = 'medium', outline = false, icon, href } = Astro.props;
+const { color = 'orange', size = 'medium', outline = false, icon, href, class: cls } = Astro.props;
 ---
 
 <button
 	class:list={[
 		`w-fit h-fit inline-flex justify-center items-center rounded-[100px] whitespace-nowrap leading-[100%]`,
-		{ 'py-2 px-3 text-[20px] tracking-[-0.40px]': size === 'small' },
-		{ 'py-3 px-4 text-[22px] tracking-[-0.44px]': size === 'medium' },
-		{ 'px-6 py-4 text-[24px] tracking-[-0.48px]': size === 'large' },
+		{ 'py-2 px-3 text-base': size === 'small' },
+		{ 'py-3 px-4 text-medium': size === 'medium' },
+		{ 'px-6 py-4 text-large': size === 'large' },
 		{
 			'bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-800':
-				color === 'orange',
+				color === 'orange' && !outline,
+			'border-2 border-orange-500 text-orange-500 hover:bg-orange-50 active:bg-orange-100 focus:outline-none focus:ring focus:ring-orange-800':
+				color === 'orange' && outline,
 		},
 		{
 			'bg-purple-500 text-white hover:bg-purple-600 active:bg-purple-700 focus:outline-none focus:ring focus:ring-purple-800':
-				color === 'purple',
+				color === 'purple' && !outline,
+			'border-2 border-purple-500 text-purple-500 hover:bg-purple-50 active:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-800':
+				color === 'purple' && outline,
 		},
 		{
 			'bg-neutral-300 text-black hover:bg-neutral-400 active:bg-neutral-500 focus:outline-none focus:ring focus:ring-neutral-700':
-				color === 'neutral',
+				color === 'neutral' && !outline,
+			'border-2 border-neutral-300 text-black hover:bg-neutral-50 active:bg-neutral-100 focus:outline-none focus:ring focus:ring-neutral-700':
+				color === 'neutral' && outline,
 		},
 		{
 			'bg-[#100D09] text-white hover:bg-black-800 active:bg-black-700 focus:outline-none focus:ring focus:ring-black':
-				color === 'black',
+				color === 'black' && !outline,
+			'border-2 border-black-800 text-black hover:bg-black-50 active:bg-black-100 focus:outline-none focus:ring focus:ring-black':
+				color === 'black' && outline,
 		},
 		{
 			'bg-green-500 text-white hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring focus:ring-green-800':
-				color === 'green',
+				color === 'green' && !outline,
+			'border-2 border-green-500 text-green-500 hover:bg-green-50 active:bg-green-100 focus:outline-none focus:ring focus:ring-green-800':
+				color === 'green' && outline,
 		},
+		cls,
 	]}
 >
 	<slot />
@@ -44,7 +56,8 @@ const { color = 'orange', size = 'medium', outline = false, icon, href } = Astro
 			<Icon
 				name="mdi:arrow-down"
 				class:list={[
-					'pl-2 text-white',
+					'pl-2',
+					{ 'text-black': color === 'neutral' },
 					{
 						'w-6': size === 'small',
 						'w-7': size === 'medium',
