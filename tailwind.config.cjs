@@ -4,16 +4,14 @@ module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}'],
 	safelist: [
 		{
+			pattern: /dyne-(orange|green|purple|black|neutral|random)/,
+		},
+		{
+			pattern: /btn-(orange|green|purple|black|neutral|random)/,
+		},
+		{
 			pattern: /bg-(orange|green|purple|black|neutral|random)-(50|100|200|300|400|500|600|700|800|900)/,
 		},
-		{ pattern: /cards-(.*)/ },
-		{ pattern: /bg-(sustainability|open_source|interdisciplinarity|crypto|cybersecurity)/ },
-		'bg-white',
-		'bg-primary',
-		'bg-accent',
-		'bg-saccent',
-		'bg-taccent',
-		'bg-baccent',
 	],
 	theme: {
 		extend: {
@@ -88,7 +86,7 @@ module.exports = {
 					400: 'var(--accent-400)',
 					500: 'var(--accent-500)',
 					600: 'var(--accent-600)',
-					700: 'var(--accnet-700)',
+					700: 'var(--accent-700)',
 					800: 'var(--accent-800)',
 					900: 'var(--accent-900)',
 				},
@@ -116,14 +114,6 @@ module.exports = {
 				// },
 			},
 			fontFamily: {
-				'text-desktop-base': 'var(--text-desktop-base-font-family)',
-				'text-desktop-base-highlight': 'var(--text-desktop-base-highlight-font-family)',
-				'text-desktop-large': 'var(--text-desktop-large-font-family)',
-				'text-desktop-medium': 'var(--text-desktop-medium-font-family)',
-				'text-mobile-base': 'var(--text-mobile-base-font-family)',
-				'text-mobile-base-highlight': 'var(--text-mobile-base-highlight-font-family)',
-				'text-mobile-large': 'var(--text-mobile-large-font-family)',
-				'text-mobile-medium': 'var(--text-mobile-medium-font-family)',
 				display: ['Syne', 'sans'],
 				sans: ['Basis Grotesque Arabic Pro', 'sans-serif', 'sans'],
 				mono: ['JetBrains Mono', 'monospace'],

@@ -154,4 +154,54 @@
 	.text-large {
 		@apply text-[22px] leading-[130%] tracking-[-0.44px] md:text-2xl md:tracking-[-0.48px];
 	}
+
+	.btn {
+		@apply transition ease-in-out duration-300 w-fit h-fit inline-flex justify-center items-center rounded-[100px] whitespace-nowrap leading-[100%] focus:ring focus:outline-none;
+	}
+
+	.dyne-orange .btn-random,
+	.btn-orange {
+		@apply bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 focus:ring-orange-800;
+	}
+
+	.dyne-orange .btn-random-outline,
+	.btn-orange-outline {
+		@apply border-2 border-orange-500 text-orange-500 hover:bg-orange-50 active:bg-orange-100 focus:border-transparent focus:ring-orange-800;
+	}
+
+	.dyne-purple .btn-random,
+	.btn-purple {
+		@apply bg-purple-500 text-white hover:bg-purple-600 active:bg-purple-700 focus:ring-purple-800;
+	}
+
+	.dyne-purple .btn-random-outline,
+	.btn-purple-outline {
+		@apply border-2 border-purple-500 text-purple-500 hover:bg-purple-50 active:bg-purple-100 focus:border-transparent focus:ring-purple-800;
+	}
+
+	.btn-neutral {
+		@apply bg-neutral-300 text-black-800 hover:bg-neutral-400 active:bg-neutral-500 focus:ring-neutral-700;
+	}
+
+	.btn-neutral-outline {
+		@apply border-2 border-neutral-700 hover:bg-neutral-50 active:bg-neutral-100 focus:border-transparent focus:ring-neutral-700;
+	}
+
+	.btn-black {
+		@apply bg-black-700 text-white hover:bg-black-800 active:bg-black-700 focus:ring-black-700;
+	}
+
+	.btn-black-outline {
+		@apply border-2 border-black-800 hover:bg-black-50 active:bg-black-100 focus:border-transparent focus:ring-black-700;
+	}
+
+	.dyne-green .btn-random,
+	.btn-green {
+		@apply bg-green-500 text-white hover:bg-green-600 active:bg-green-700 focus:ring-green-800;
+	}
+
+	.dyne-green .btn-random-outline,
+	.btn-green-outline {
+		@apply border-2 border-green-500 text-green-500 hover:bg-green-50 active:bg-green-100 focus:border-transparent focus:ring-green-800;
+	}
 }

@@ -1,52 +1,25 @@
 ---
 import { Icon } from 'astro-icon';
 interface Props {
-	color?: 'neutral' | 'black' | 'green' | 'orange' | 'purple';
+	color?: 'neutral' | 'black' | 'green' | 'orange' | 'purple' | 'random';
 	size?: 'large' | 'medium' | 'small';
 	outline?: boolean;
 	icon?: boolean;
 	href?: string;
 	class?: string;
 }
-const { color = 'orange', size = 'medium', outline = false, icon, href, class: cls } = Astro.props;
+let { color = 'random' } = Astro.props;
+const { size = 'medium', outline = false, icon, href, class: cls } = Astro.props;
 ---
 
 <button
 	class:list={[
-		`transition ease-in-out delay-50 duration-300 w-fit h-fit inline-flex justify-center items-center rounded-[100px] whitespace-nowrap leading-[100%]`,
+		'btn',
 		{ 'py-2 px-3 text-base': size === 'small' },
 		{ 'py-3 px-4 text-medium': size === 'medium' },
 		{ 'px-6 py-4 text-large': size === 'large' },
-		{
-			'bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-800':
-				color === 'orange' && !outline,
-			'border-2 border-orange-500 text-orange-500 hover:bg-orange-50 active:bg-orange-100 focus:border-transparent focus:outline-none focus:ring focus:ring-orange-800':
-				color === 'orange' && outline,
-		},
-		{
-			'bg-purple-500 text-white hover:bg-purple-600 active:bg-purple-700 focus:outline-none focus:ring focus:ring-purple-800':
-				color === 'purple' && !outline,
-			'border-2 border-purple-500 text-purple-500 hover:bg-purple-50 active:bg-purple-100 focus:border-transparent focus:outline-none focus:ring focus:ring-purple-800':
-				color === 'purple' && outline,
-		},
-		{
-			'bg-neutral-300 text-black hover:bg-neutral-400 active:bg-neutral-500 focus:outline-none focus:ring focus:ring-neutral-700':
-				color === 'neutral' && !outline,
-			'border-2 border-neutral-700 text-black hover:bg-neutral-50 active:bg-neutral-100 focus:border-transparent focus:outline-none focus:ring focus:ring-neutral-700':
-				color === 'neutral' && outline,
-		},
-		{
-			'bg-black-700 text-white hover:bg-black-800 active:bg-black-700 focus:outline-none focus:ring focus:ring-black-700':
-				color === 'black' && !outline,
-			'border-2 border-black-800 text-black hover:bg-black-50 active:bg-black-100 focus:border-transparent focus:outline-none focus:ring focus:ring-black-700':
-				color === 'black' && outline,
-		},
-		{
-			'bg-green-500 text-white hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring focus:ring-green-800':
-				color === 'green' && !outline,
-			'border-2 border-green-500 text-green-500 hover:bg-green-50 active:bg-green-100 focus:border-transparent focus:outline-none focus:ring focus:ring-green-800':
-				color === 'green' && outline,
-		},
+		{ [`btn-${color}`]: !outline },
+		{ [`btn-${color}-outline`]: outline },
 		cls,
 	]}
 >

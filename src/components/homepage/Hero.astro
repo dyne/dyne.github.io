@@ -1,6 +1,6 @@
 ---
 import * as copy from '../../content/hero/index.md';
-import Button from '~/components/Button.astro';
+import Button from '~/components/atoms/NewButton.astro';
 import Caffuda from '../Caffuda.astro';
 import ButtonsGroup from '../ButtonsGroup.astro';
 ---
@@ -10,9 +10,9 @@ import ButtonsGroup from '../ButtonsGroup.astro';
 		<div class="text-6xl text-saccent" set:html={copy.compiledContent()} />
 		<p class="max-w-3xl text-2xl font-inter text-saccent">{copy.frontmatter.welcome}</p>
 		<ButtonsGroup>
-			<Button href={copy.frontmatter.url} text={copy.frontmatter.CTA} />
-			<Button href={copy.frontmatter.url1} text={copy.frontmatter.CTA1} inverted={true} />
-			<Button href={copy.frontmatter.url2} text={copy.frontmatter.CTA2} inverted={true} />
+			<Button href={copy.frontmatter.url}>{copy.frontmatter.CTA}</Button>
+			<Button href={copy.frontmatter.url1} outline={true}>{copy.frontmatter.CTA1}</Button>
+			<Button href={copy.frontmatter.url2} outline={true}>{copy.frontmatter.CTA2}</Button>
 		</ButtonsGroup>
 	</div>
 	<Caffuda />
