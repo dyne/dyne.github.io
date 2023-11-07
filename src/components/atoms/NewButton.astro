@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon';
 interface Props {
 	color?: 'neutral' | 'black' | 'green' | 'orange' | 'purple' | 'random';
 	size?: 'large' | 'medium' | 'small';
@@ -8,8 +7,7 @@ interface Props {
 	href?: string;
 	class?: string;
 }
-let { color = 'random' } = Astro.props;
-const { size = 'medium', outline = false, icon, href, class: cls } = Astro.props;
+const { color = 'random', size = 'medium', outline = false, icon, href, class: cls } = Astro.props;
 ---
 
 <button
@@ -26,7 +24,12 @@ const { size = 'medium', outline = false, icon, href, class: cls } = Astro.props
 	<slot />
 	{
 		icon && (
-			<Icon
+			<svg
+				width="19"
+				height="20"
+				viewBox="0 0 19 20"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
 				name="mdi:arrow-down"
 				class:list={[
 					'pl-2',
@@ -37,7 +40,15 @@ const { size = 'medium', outline = false, icon, href, class: cls } = Astro.props
 						'w-8': size === 'large',
 					},
 				]}
-			/>
+			>
+				<path
+					d="M9.68 2V18M9.68 18L2 10.32M9.68 18L17.36 10.32"
+					stroke={color === 'neutral' ? 'var(--black-800)' : 'white'}
+					stroke-width="2.4"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
 		)
 	}
 </button>

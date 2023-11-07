@@ -30,10 +30,12 @@ import '../base.css';
 			return choices[index];
 		};
 		const color = choose(['green', 'orange', 'purple']);
+		document.body.classList.add(`dyne-${color}`);
 		'50 100 200 300 400 500 600 700 800 900'.split(' ').map((v) => {
 			document.documentElement.style.setProperty(`--accent-${v}`, `var(--${color}-${v})`);
-			document.body.classList.add(`dyne-${color}`);
 		});
+		document.documentElement.style.setProperty(`--accent-shadow`, `var(--${color}-shadow)`);
+		document.documentElement.style.setProperty(`--accent-shadow-focused`, `var(--${color}-shadow-focused)`);
 	});
 
 	window.onload = function () {

@@ -1,0 +1,21 @@
+---
+interface Props {
+	color?: 'neutral' | 'black' | 'green' | 'orange' | 'purple' | 'random';
+	class?: string;
+}
+const { color = 'random', class: cls } = Astro.props;
+---
+
+<div
+	class:list={[
+		'card',
+		{
+			'card-orange': color === 'orange',
+			'card-green': color === 'green',
+			'card-purple': color === 'purple',
+			'card-random': color === 'random',
+		},
+	]}
+>
+	<slot />
+</div>

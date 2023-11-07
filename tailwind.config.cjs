@@ -7,11 +7,18 @@ module.exports = {
 			pattern: /dyne-(orange|green|purple|black|neutral|random)/,
 		},
 		{
-			pattern: /btn-(orange|green|purple|black|neutral|random)/,
+			pattern: /text-(random)-(50|100|200|300|400|500|600|700|800|900)/,
+		},
+		{
+			pattern: /(.*)-random-(.*)/,
 		},
 		{
 			pattern: /bg-(orange|green|purple|black|neutral|random)-(50|100|200|300|400|500|600|700|800|900)/,
 		},
+		{
+			pattern: /btn-(orange|green|purple|black|neutral|random)/,
+		},
+		{ pattern: /shadow-(.*)/ },
 	],
 	theme: {
 		extend: {
@@ -119,12 +126,14 @@ module.exports = {
 				mono: ['JetBrains Mono', 'monospace'],
 			},
 			boxShadow: {
-				'cards-focused-green': 'var(--cards-focused-green)',
-				'cards-focused-orange': 'var(--cards-focused-orange)',
-				'cards-focused-purple': 'var(--cards-focused-purple)',
-				'cards-simple-green': 'var(--cards-simple-green)',
-				'cards-simple-orange': 'var(--cards-simple-orange)',
-				'cards-simple-purple': 'var(--cards-simple-purple)',
+				green: 'var(--green-shadow)',
+				orange: 'var(--orange-shadow)',
+				purple: 'var(--purple-shadow)',
+				random: 'var(--accent-shadow)',
+				'green-focused': 'var(--green-shadow-focused)',
+				'orange-focused': 'var(--orange-shadow-focused)',
+				'purple-focused': 'var(--purple-shadow-focused)',
+				'random-focused': 'var(--accent-shadow-focused)',
 				simple: 'var(--simple)',
 			},
 			fontWeight: {

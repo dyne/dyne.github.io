@@ -49,12 +49,23 @@
 		--neutral-primary-h: 30;
 		--neutral-primary-s: 100%;
 		--neutral-primary-l: 93.3%;
-		--cards-focused-green: 0px 3px 15px 0px hsla(168, 47%, 41%, 0.25);
-		--cards-focused-orange: 0px 3px 15px 0px hsla(27, 70%, 53%, 0.3);
-		--cards-focused-purple: 0px 3px 15px 0px hsla(248, 35%, 34%, 0.25);
-		--cards-simple-green: 0px 1px 10px 0px hsla(168, 47%, 41%, 0.15);
-		--cards-simple-orange: 0px 1px 10px 0px hsla(27, 70%, 53%, 0.15);
-		--cards-simple-purple: 0px 1px 10px 0px hsla(248, 35%, 34%, 0.15);
+		--green-shadow-focused: 0px 3px 15px 0px hsla(168, 47%, 41%, 0.25);
+		--orange-shadow-focused: 0px 3px 15px 0px hsla(27, 70%, 53%, 0.3);
+		--purple-shadow-focused: 0px 3px 15px 0px hsla(248, 35%, 34%, 0.25);
+		--green-shadow: 0px 1px 10px 0px hsla(168, 47%, 41%, 0.15);
+		--orange-shadow: 0px 1px 10px 0px hsla(27, 70%, 53%, 0.15);
+		--purple-shadow: 0px 1px 10px 0px hsla(248, 35%, 34%, 0.15);
+		--black-50: hsla(263, 8%, 96%, 1);
+		--black-100: hsla(263, 8%, 90%, 1);
+		--black-200: hsla(263, 8%, 79%, 1);
+		--black-300: hsla(263, 8%, 67%, 1);
+		--black-400: hsla(263, 8%, 53%, 1);
+		--black-500: hsla(263, 8%, 47%, 1);
+		--black-600: hsla(263, 8%, 40%, 1);
+		--black-700: hsla(263, 8%, 28%, 1);
+		--black-800: hsla(263, 8%, 20%, 1);
+		--black-900: hsla(263, 8%, 13%, 1);
+		--black-950: hsla(263, 8%, 3%, 1);
 		--green-50: hsla(175, 45%, 95%, 1);
 		--green-100: hsla(174, 47%, 90%, 1);
 		--green-200: hsla(174, 47%, 80%, 1);
@@ -65,6 +76,17 @@
 		--green-700: hsla(174, 47%, 26%, 1);
 		--green-800: hsla(175, 46%, 19%, 1);
 		--green-900: hsla(174, 47%, 10%, 1);
+		--neutral-50: hsl(30, 63%, 90%);
+		--neutral-100: hsl(30, 63%, 87%);
+		--neutral-200: hsl(30, 63%, 85%);
+		--neutral-300: hsl(30, 63%, 80%);
+		--neutral-400: hsl(30, 63%, 76%);
+		--neutral-500: hsl(30, 63%, 74%);
+		--neutral-600: hsl(30, 63%, 72%);
+		--neutral-700: hsl(30, 63%, 70%);
+		--neutral-800: hsl(30, 63%, 67%);
+		--neutral-900: hsl(30, 63%, 64%);
+		--neutral-950: hsl(30, 63%, 60%);
 		--orange-50: hsla(25, 67%, 95%, 1);
 		--orange-100: hsla(25, 67%, 88%, 1);
 		--orange-200: hsla(25, 67%, 80%, 1);
@@ -85,36 +107,13 @@
 		--purple-700: hsla(243, 49%, 30%, 1);
 		--purple-800: hsla(243, 39%, 20%, 1);
 		--purple-900: hsla(243, 39%, 10%, 1);
-		--black-950: hsla(263, 8%, 3%, 1);
-		--black-900: hsla(263, 8%, 13%, 1);
-		--black-800: hsla(263, 8%, 20%, 1);
-		--black-700: hsla(263, 8%, 28%, 1);
-		--black-600: hsla(263, 8%, 40%, 1);
-		--black-500: hsla(263, 8%, 47%, 1);
-		--black-400: hsla(263, 8%, 53%, 1);
-		--black-300: hsla(263, 8%, 67%, 1);
-		--black-200: hsla(263, 8%, 79%, 1);
-		--black-100: hsla(263, 8%, 90%, 1);
-		--black-50: hsla(263, 8%, 96%, 1);
-		--black-1000: hsla(263, 8%, 100%, 1);
-		--neutral-50: hsl(30, 63%, 90%);
-		--neutral-100: hsl(30, 63%, 87%);
-		--neutral-200: hsl(30, 63%, 85%);
-		--neutral-300: hsl(30, 63%, 80%);
-		--neutral-400: hsl(30, 63%, 76%);
-		--neutral-500: hsl(30, 63%, 74%);
-		--neutral-600: hsl(30, 63%, 72%);
-		--neutral-700: hsl(30, 63%, 70%);
-		--neutral-800: hsl(30, 63%, 67%);
-		--neutral-900: hsl(30, 63%, 64%);
-		--neutral-950: hsl(30, 63%, 60%);
 		--simple: 0px 1px 10px 0px hsla(248, 35%, 34%, 0.15);
 	}
 }
 
 @layer components {
 	a {
-		@apply underline text-random-300;
+		@apply text-random-300;
 	}
 
 	hr {
@@ -203,5 +202,26 @@
 	.dyne-green .btn-random-outline,
 	.btn-green-outline {
 		@apply border-2 border-green-500 text-green-500 hover:bg-green-50 active:bg-green-100 focus:border-transparent focus:ring-green-800;
+	}
+
+	.card {
+		@apply flex items-center content-center gap-[30px] flex-wrap shadow-[0px_1px_10px_0px_rgba(215,119,51,0.15)] px-[35px] py-[45px] rounded-[45px] border-[0.4px] border-solid;
+		padding: 20px;
+	}
+
+	.card-green {
+		@apply border-green-300 shadow-green hover:shadow-green-focused focus:shadow-green-focused;
+	}
+
+	.card-orange {
+		@apply border-orange-300 shadow-green hover:shadow-green-focused focus:shadow-green-focused;
+	}
+
+	.card-purple {
+		@apply border-purple-300 shadow-purple hover:shadow-purple-focused focus:shadow-purple-focused;
+	}
+
+	.card-random {
+		@apply border-random-300 shadow-random hover:shadow-random-focused focus:shadow-random-focused;
 	}
 }

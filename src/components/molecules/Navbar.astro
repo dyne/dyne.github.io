@@ -1,0 +1,21 @@
+---
+import links from '~/content/menu/menu.json';
+import Text from '~/components/atoms/Text.astro';
+
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<nav class="flex items-center gap-6 whitespace-nowrap">
+	{
+		links.map((link) => {
+			return (
+				<a
+					class:list={['hover:underline', { ['underline underline-random-900']: pathname.includes(link.href) }]}
+					href={link.href}
+				>
+					<Text class="text-random-900">{link.name}</Text>
+				</a>
+			);
+		})
+	}
+</nav>
