@@ -1,0 +1,37 @@
+---
+import Text from 'A/Text.astro';
+import Heading from 'A/Heading.astro';
+import Card from 'M/Card.astro';
+
+interface Props {
+	title: string;
+	picture?: URL;
+	date?: Date;
+	color?: Color;
+}
+
+const { picture, title, date, color } = Astro.props;
+---
+
+<Card color={color}>
+	{
+		picture && (
+			<div class="bg-cover bg-center rounded-full w-32 h-32" style={`background-image: url(${picture.href})`} />
+		)
+	}
+	<div class="flex flex-col gap-4 flex-1">
+		<Heading size="medium">{title}</Heading>
+		<slot />
+		{
+			date && (
+				<p class="text-base">
+					<span class="font-highlight">Last update: </span> {date.toDateString()}
+				</p>
+			)
+		}
+		<div class="flex gap-4">
+			<slot name="CTA" />
+			<slot name="CTA2" />
+		</div>
+	</div>
+</Card>

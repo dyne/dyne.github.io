@@ -1,0 +1,11 @@
+---
+interface Props {
+	color?: Color;
+}
+
+const { color } = Astro.props;
+---
+
+<div>
+	<div class="w-6 h-6 border border-[color:var(--Black,#000)] rounded-full border-solid"></div>
+</div>

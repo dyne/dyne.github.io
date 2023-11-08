@@ -5,6 +5,7 @@ import Heading from 'A/Heading.astro';
 import Text from 'A/Text.astro';
 import Navbar from 'M/Navbar.astro';
 import Card from 'M/Card.astro';
+import SoftwareCard from '~/components/molecules/SoftwareCard.astro';
 
 const colors = ['random', 'orange', 'green', 'purple', 'black', 'neutral'];
 const sizes = ['small', 'medium', 'large'];
@@ -105,9 +106,33 @@ const hues = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900
 		<Heading>Navbar</Heading>
 		<Navbar />
 		<Heading>Cards</Heading>
-		<Card>ciao</Card>
-		<Card color="green">ciao</Card>
-		<Card color="orange">ciao</Card>
-		<Card color="purple">ciao</Card>
+		<Card><Heading size="medium">Layout / random</Heading></Card>
+		<div class="flex flex-col lg:flex-row gap-6">
+			<Card color="green"><Heading size="medium">Layout / green</Heading></Card>
+			<Card color="orange"><Heading size="medium">Layout / orange</Heading></Card>
+			<Card color="purple"><Heading size="medium">Layout / purple</Heading></Card>
+		</div>
+		<Heading>Software Cards</Heading>
+		<SoftwareCard
+			title="Gitzone"
+			color="random"
+			date={new Date()}
+			picture={new URL('https://www.dyne.org/wp-content/uploads/2013/10/octocat_spider.png')}
+		>
+			<Text>
+				Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
+				then during a push the zone files are checked, updated & reloaded from git receive hooks.
+			</Text>
+			<NewButton slot="CTA" size="small" color="black" icon={true}>Download</NewButton>
+			<NewButton slot="CTA2" size="small" color="black" outline={true}>More...</NewButton>
+		</SoftwareCard>
+		<SoftwareCard title="No image sw" color="random" date={new Date()}>
+			<Text>
+				Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
+				then during a push the zone files are checked, updated & reloaded from git receive hooks.
+			</Text>
+			<NewButton slot="CTA" size="small" color="black" icon={true}>Download</NewButton>
+			<NewButton slot="CTA2" size="small" color="black" outline={true}>More...</NewButton>
+		</SoftwareCard>
 	</div>
 </BaseLayout>

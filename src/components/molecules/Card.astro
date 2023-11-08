@@ -1,6 +1,6 @@
 ---
 interface Props {
-	color?: 'neutral' | 'black' | 'green' | 'orange' | 'purple' | 'random';
+	color?: Color;
 	class?: string;
 }
 const { color = 'random', class: cls } = Astro.props;
@@ -15,6 +15,7 @@ const { color = 'random', class: cls } = Astro.props;
 			'card-purple': color === 'purple',
 			'card-random': color === 'random',
 		},
+		cls,
 	]}
 >
 	<slot />
