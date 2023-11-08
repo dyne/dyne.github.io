@@ -6,6 +6,7 @@ import Text from 'A/Text.astro';
 import Navbar from 'M/Navbar.astro';
 import Card from 'M/Card.astro';
 import SoftwareCard from '~/components/molecules/SoftwareCard.astro';
+import BlogCard from '~/components/molecules/BlogCard.astro';
 
 const colors = ['random', 'orange', 'green', 'purple', 'black', 'neutral'];
 const sizes = ['small', 'medium', 'large'];
@@ -22,7 +23,7 @@ const hues = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900
 		</div>
 		<Heading>Buttons</Heading>
 		<hr />
-		<div class="grid md:grid-cols-3 gap-2">
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
 			{
 				colors.map((c) => {
 					return sizes.map((s) => {
@@ -103,36 +104,51 @@ const hues = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900
 		<div class="w-full items-center text-center bg-random-200 p-2">
 			<Heading size="large" class="p-10">Molecules</Heading>
 		</div>
+
 		<Heading>Navbar</Heading>
+		<hr />
 		<Navbar />
+
 		<Heading>Cards</Heading>
+		<hr />
 		<Card><Heading size="medium">Layout / random</Heading></Card>
 		<div class="flex flex-col lg:flex-row gap-6">
 			<Card color="green"><Heading size="medium">Layout / green</Heading></Card>
 			<Card color="orange"><Heading size="medium">Layout / orange</Heading></Card>
 			<Card color="purple"><Heading size="medium">Layout / purple</Heading></Card>
 		</div>
+
 		<Heading>Software Cards</Heading>
-		<SoftwareCard
-			title="Gitzone"
-			color="random"
-			date={new Date()}
-			picture={new URL('https://www.dyne.org/wp-content/uploads/2013/10/octocat_spider.png')}
-		>
-			<Text>
-				Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
-				then during a push the zone files are checked, updated & reloaded from git receive hooks.
-			</Text>
-			<NewButton slot="CTA" size="small" color="black" icon={true}>Download</NewButton>
-			<NewButton slot="CTA2" size="small" color="black" outline={true}>More...</NewButton>
-		</SoftwareCard>
-		<SoftwareCard title="No image sw" color="random" date={new Date()}>
-			<Text>
-				Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
-				then during a push the zone files are checked, updated & reloaded from git receive hooks.
-			</Text>
-			<NewButton slot="CTA" size="small" color="black" icon={true}>Download</NewButton>
-			<NewButton slot="CTA2" size="small" color="black" outline={true}>More...</NewButton>
-		</SoftwareCard>
+		<hr />
+		<div class="grid lg:grid-cols-2 justify-center gap-5">
+			<SoftwareCard
+				title="Gitzone"
+				color="random"
+				date={new Date()}
+				picture={new URL('https://www.dyne.org/wp-content/uploads/2013/10/octocat_spider.png')}
+			>
+				<Text>
+					Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
+					then during a push the zone files are checked, updated & reloaded from git receive hooks.
+				</Text>
+				<NewButton slot="CTA" size="small" color="black" icon={true}>Download</NewButton>
+				<NewButton slot="CTA2" size="small" color="black" outline={true}>Learn more...</NewButton>
+			</SoftwareCard>
+			<SoftwareCard title="No image sw" color="random" date={new Date()}>
+				<Text>
+					Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
+					then during a push the zone files are checked, updated & reloaded from git receive hooks.
+				</Text>
+				<NewButton slot="CTA" size="small" color="black" icon={true}>Download</NewButton>
+				<NewButton slot="CTA2" size="small" color="black" outline={true}>Learn more...</NewButton>
+			</SoftwareCard>
+		</div>
+
+		<Heading>Blog cards</Heading>
+		<hr />
+		<BlogCard title="Open Source at the core of Europe: the Cyber Resilience Act" author="Jaromil" href="/blog">
+			This week’s news is that The European Parliament has approved the European Cyber Resilience Act, and I believe it
+			to be good news for us free and open-source developers.
+		</BlogCard>
 	</div>
 </BaseLayout>

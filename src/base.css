@@ -112,10 +112,6 @@
 }
 
 @layer components {
-	a {
-		@apply text-random-300;
-	}
-
 	hr {
 		@apply h-px mt-1 mb-5 bg-black-900 border-0;
 	}

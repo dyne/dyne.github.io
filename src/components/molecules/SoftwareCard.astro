@@ -1,5 +1,4 @@
 ---
-import Text from 'A/Text.astro';
 import Heading from 'A/Heading.astro';
 import Card from 'M/Card.astro';
 
@@ -29,7 +28,7 @@ const { picture, title, date, color } = Astro.props;
 				</p>
 			)
 		}
-		<div class="flex gap-4">
+		<div class="flex gap-4 flex-col md:flex-row">
 			<slot name="CTA" />
 			<slot name="CTA2" />
 		</div>

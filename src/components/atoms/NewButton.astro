@@ -21,7 +21,15 @@ const { color = 'random', size = 'medium', outline = false, icon, href, class: c
 		cls,
 	]}
 >
-	<slot />
+	{
+		href ? (
+			<a href={href}>
+				<slot />
+			</a>
+		) : (
+			<slot />
+		)
+	}
 	{
 		icon && (
 			<svg
@@ -35,9 +43,9 @@ const { color = 'random', size = 'medium', outline = false, icon, href, class: c
 					'pl-2',
 					{ 'text-black': color === 'neutral' },
 					{
-						'w-6': size === 'small',
-						'w-7': size === 'medium',
-						'w-8': size === 'large',
+						'w-5': size === 'small',
+						'w-6': size === 'medium',
+						'w-7': size === 'large',
 					},
 				]}
 			>
