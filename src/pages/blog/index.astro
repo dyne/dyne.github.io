@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/Layout.astro';
-import BlogArticlePreview from '~/components/BlogArticlePreview.astro';
 import Parser from 'rss-parser';
+import BlogCard from 'M/BlogCard.astro';
 
 const parser = new Parser();
 const medium = await parser.parseURL('https://medium.com/feed/think-do-tank');
@@ -17,6 +17,12 @@ feed.sort((a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime(
 	}}
 >
 	<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-		{feed.map((f) => <BlogArticlePreview {...f} />)}
+		{
+			feed.map((f) => (
+				<BlogCard title={f.title} author={f.creator} href={f.link}>
+					{f.content}
+				</BlogCard>
+			))
+		}
 	</div>
 </Layout>
