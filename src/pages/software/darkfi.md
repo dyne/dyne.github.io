@@ -1,10 +1,11 @@
 ---
 layout: ~/layouts/Layout.astro
-title: "DarkFi :: Free and open-source anonymous P2P ecosystem"
-description: ""
+title: "DarkFi"
+description: "A free and open-source anonymous P2P ecosystem and cryptocurrency"
+logo: https://dyne.org/images/darkfi.png
 ---
 
-# DarkFi :: A free and open-source anonymous P2P ecosystem and cryptocurrency
+# DarkFi
 
 ![DarkFi logo](/images/darkfi.png)
 

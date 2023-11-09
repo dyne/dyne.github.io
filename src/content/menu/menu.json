@@ -3,7 +3,5 @@
   { "name": "Software", "href": "/software" },
   { "name": "Books", "href": "/books" },
   { "name": "Timeline", "href": "/timeline" },
-  { "name": "Reach us", "href": "/linktree" },
-  { "name": "Articles", "href": "/blog" },
-  { "name": "Donate", "href": "/donate" }
+  { "name": "Articles", "href": "/blog" }
 ]

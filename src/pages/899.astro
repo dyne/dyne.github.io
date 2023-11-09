@@ -126,21 +126,25 @@ const hues = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900
 				color="random"
 				date={new Date()}
 				picture={new URL('https://www.dyne.org/wp-content/uploads/2013/10/octocat_spider.png')}
+				download={new URL('https://dyne.org')}
+				href={new URL('https://dyne.org')}
 			>
 				<Text>
 					Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
 					then during a push the zone files are checked, updated & reloaded from git receive hooks.
 				</Text>
-				<NewButton slot="CTA" size="small" color="black" icon={true}>Download</NewButton>
-				<NewButton slot="CTA2" size="small" color="black" outline={true}>Learn more...</NewButton>
 			</SoftwareCard>
-			<SoftwareCard title="No image sw" color="random" date={new Date()}>
+			<SoftwareCard
+				title="No image sw"
+				color="random"
+				date={new Date()}
+				download={new URL('https://dyne.org')}
+				href={new URL('https://dyne.org')}
+			>
 				<Text>
 					Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
 					then during a push the zone files are checked, updated & reloaded from git receive hooks.
 				</Text>
-				<NewButton slot="CTA" size="small" color="black" icon={true}>Download</NewButton>
-				<NewButton slot="CTA2" size="small" color="black" outline={true}>Learn more...</NewButton>
 			</SoftwareCard>
 		</div>
 

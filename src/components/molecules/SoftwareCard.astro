@@ -1,5 +1,6 @@
 ---
 import Heading from 'A/Heading.astro';
+import Button from 'A/NewButton.astro';
 import Card from 'M/Card.astro';
 
 interface Props {
@@ -7,9 +8,11 @@ interface Props {
 	picture?: URL;
 	date?: Date;
 	color?: Color;
+	href?: URL;
+	download?: URL;
 }
 
-const { picture, title, date, color } = Astro.props;
+const { picture, title, date, color, href, download } = Astro.props;
 ---
 
 <Card color={color}>
@@ -29,8 +32,20 @@ const { picture, title, date, color } = Astro.props;
 			)
 		}
 		<div class="flex gap-4 flex-col md:flex-row">
-			<slot name="CTA" />
-			<slot name="CTA2" />
+			{
+				download && (
+					<Button size="small" color="black" icon={true} href={download.href}>
+						Download
+					</Button>
+				)
+			}
+			{
+				href && (
+					<Button slot="CTA2" size="small" color="black" outline={true} href={href.href}>
+						Learn more...
+					</Button>
+				)
+			}
 		</div>
 	</div>
 </Card>

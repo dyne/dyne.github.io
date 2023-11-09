@@ -1,6 +1,7 @@
 ---
 import Text from '~/components/atoms/Text.astro';
 import links from '~/content/menu/menu.json';
+import NewButton from '../atoms/NewButton.astro';
 
 const pathname = new URL(Astro.request.url).pathname;
 ---
@@ -18,4 +19,6 @@ const pathname = new URL(Astro.request.url).pathname;
 			);
 		})
 	}
+	<NewButton href="/linktree" color="random" outline={true} size="small">Reach us</NewButton>
+	<NewButton href="/donate" color="random" size="small">Donate</NewButton>
 </nav>

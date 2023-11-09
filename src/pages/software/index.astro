@@ -1,5 +1,6 @@
 ---
-import ProjectCard from '~/components/ProjectCard.astro';
+import Text from 'A/Text.astro';
+import SoftwareCard from '~/components/molecules/SoftwareCard.astro';
 import Layout from '~/layouts/Layout.astro';
 const softwares = await Astro.glob('~/pages/software/*.md');
 const github_fetch = await fetch('https://api.github.com/orgs/dyne/repos?per_page=100&type=sources');
@@ -15,22 +16,26 @@ const github = await github_fetch.json();
 	<div class="grid md:grid-cols-2 gap-8">
 		{
 			softwares.map((software) => (
-				<ProjectCard url={software.url} title={software.frontmatter.title}>
-					{software.frontmatter.description}
-				</ProjectCard>
+				<SoftwareCard
+					title={software.frontmatter.title}
+					color="random"
+					href={new URL(software.url, 'https://dyne.org')}
+					picture={software.frontmatter.logo ? new URL(software.frontmatter.logo, 'https://dyne.org') : undefined}
+				>
+					<Text>{software.frontmatter.description}</Text>
+				</SoftwareCard>
 			))
 		}
 		{
 			github.map((software) => (
-				<div>
-					<ProjectCard
-						url={software.homepage ? software.homepage : software.html_url}
-						title={software.name}
-						download={software.homepage ? software.html_url : false}
-					>
-						{software.description}
-					</ProjectCard>
-				</div>
+				<SoftwareCard
+					title={software.name}
+					color="random"
+					href={new URL(software.homepage ? software.homepage : software.html_url)}
+					download={software.homepage ? software.html_url : false}
+				>
+					<Text>{software.description}</Text>
+				</SoftwareCard>
 			))
 		}
 	</div>
