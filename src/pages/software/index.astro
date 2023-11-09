@@ -32,7 +32,7 @@ const github = await github_fetch.json();
 					title={software.name}
 					color="random"
 					href={new URL(software.homepage ? software.homepage : software.html_url)}
-					download={software.homepage ? software.html_url : false}
+					download={software.homepage ? new URL(software.html_url) : undefined}
 				>
 					<Text>{software.description}</Text>
 				</SoftwareCard>
