@@ -1,8 +1,15 @@
 ---
-import Button from '~/components/Button.astro';
-import ProjectCard from '../ProjectCard.astro';
+import Button from 'A/NewButton.astro';
+import SoftwareCard from 'M/SoftwareCard.astro';
 
-const projects = await Astro.glob('~/content/what-we-do/*.md');
+const projects = await Astro.glob('~/content/homepage/projects/*.md');
+const uri = (u) => {
+	try {
+		return new URL(u, 'https://dyne.org');
+	} catch (e) {
+		return undefined;
+	}
+};
 ---
 
 <div class="flex flex-col gap-y-8">
@@ -10,15 +17,16 @@ const projects = await Astro.glob('~/content/what-we-do/*.md');
 		{
 			projects.map((p) => {
 				const { logo, name, link, download } = p.frontmatter;
+
 				return (
-					<ProjectCard logo={logo} title={name} url={link} download={download}>
+					<SoftwareCard picture={uri(logo)} title={name} href={uri(link)} download={uri(download)}>
 						<div set:html={p.compiledContent()} />
-					</ProjectCard>
+					</SoftwareCard>
 				);
 			})
 		}
 	</div>
 	<div class="text-center">
-		<Button href="/software" text="Load more..." />
+		<Button href="/software">Learn more…</Button>
 	</div>
 </div>

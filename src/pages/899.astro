@@ -3,13 +3,14 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
 import NewButton from 'A/NewButton.astro';
 import Heading from 'A/Heading.astro';
 import Text from 'A/Text.astro';
+import Logo from 'A/Logo.astro';
 import Navbar from 'M/Navbar.astro';
 import Card from 'M/Card.astro';
 import SoftwareCard from '~/components/molecules/SoftwareCard.astro';
 import BlogCard from '~/components/molecules/BlogCard.astro';
 
-const colors = ['random', 'orange', 'green', 'purple', 'black', 'neutral'];
-const sizes = ['small', 'medium', 'large'];
+const colors: Color[] = ['random', 'orange', 'green', 'purple', 'black', 'neutral'];
+const sizes: Size[] = ['small', 'medium', 'large'];
 const hues = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
 ---
 
@@ -20,6 +21,18 @@ const hues = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900
 		</Heading>
 		<div class="w-full items-center text-center bg-random-200 p-2">
 			<Heading size="large" class="p-10">Atoms</Heading>
+		</div>
+		<Heading>Logo</Heading>
+		<hr />
+		<div class="grid grid-cols-3 lg:grid-cols-6 justify-items-center">
+			{
+				colors.map((c) => (
+					<div class="text-center">
+						<Logo color={c} class="pt-5 pb-2" />
+						<span class="text-[12px]">logo / {c}</span>
+					</div>
+				))
+			}
 		</div>
 		<Heading>Buttons</Heading>
 		<hr />

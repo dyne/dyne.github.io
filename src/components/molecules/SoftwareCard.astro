@@ -18,10 +18,10 @@ const { picture, title, date, color, href, download } = Astro.props;
 <Card color={color}>
 	{
 		picture && (
-			<div class="bg-cover bg-center rounded-full w-32 h-32" style={`background-image: url(${picture.href})`} />
+			<div class="bg-contain bg-center rounded-full w-32 h-32" style={`background-image: url(${picture.href})`} />
 		)
 	}
-	<div class="flex flex-col gap-4 flex-1">
+	<div class="flex flex-col gap-4 flex-1 w-full">
 		<Heading size="medium">{title}</Heading>
 		<slot />
 		{

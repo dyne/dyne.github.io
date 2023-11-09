@@ -15,7 +15,9 @@ const meta = {
 
 <BaseLayout meta={meta}>
 	<Header />
-	<div class="mx-auto w-full max-w-6xl grid grid-cols-2 items-center px-[25px] py-20 gap-[50px]">
+	<div
+		class="mx-auto w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 items-center px-[25px] py-[60px] lg:py-20 gap-[25px] lg:gap-[50px]"
+	>
 		<Heading size="large" class:list={{ 'col-span-2': !content.description }}>{content.title}</Heading>
 		{
 			content.description && (
@@ -31,7 +33,7 @@ const meta = {
 		}
 	</div>
 	<!-- <div class={`pb-14 p-4 lg:p-0 mx-auto w-full prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent prose-headings:font-sans font-prose prose-strong:text-accent prose-strong:font-medium ${cls}`} > -->
-	<div class="mx-auto max-w-6xl">
+	<div class="mx-auto max-w-6xl px-[25px]">
 		<slot />
 	</div>
 	<!-- </div> -->
