@@ -210,7 +210,7 @@
 	}
 
 	.card-orange {
-		@apply border-orange-300 shadow-green hover:shadow-green-focused focus:shadow-green-focused;
+		@apply border-orange-300 shadow-orange hover:shadow-orange-focused focus:shadow-orange-focused;
 	}
 
 	.card-purple {
