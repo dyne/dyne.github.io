@@ -1,0 +1,62 @@
+---
+interface Props {
+	color?: Color;
+	size?: Size;
+	outline?: boolean;
+	icon?: boolean;
+	href?: string;
+	class?: string;
+}
+const { color = 'random', size = 'medium', outline = false, icon, href, class: cls } = Astro.props;
+---
+
+<button
+	class:list={[
+		'btn',
+		{ 'py-2 px-3 text-base': size === 'small' },
+		{ 'py-3 px-4 text-medium': size === 'medium' },
+		{ 'px-6 py-4 text-large': size === 'large' },
+		{ [`btn-${color}`]: !outline },
+		{ [`btn-${color}-outline`]: outline },
+		cls,
+	]}
+>
+	{
+		href ? (
+			<a href={href}>
+				<slot />
+			</a>
+		) : (
+			<slot />
+		)
+	}
+	{
+		icon && (
+			<svg
+				width="19"
+				height="20"
+				viewBox="0 0 19 20"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				name="mdi:arrow-down"
+				class:list={[
+					'pl-2',
+					{ 'text-black': color === 'neutral' },
+					{
+						'w-5': size === 'small',
+						'w-6': size === 'medium',
+						'w-7': size === 'large',
+					},
+				]}
+			>
+				<path
+					d="M9.68 2V18M9.68 18L2 10.32M9.68 18L17.36 10.32"
+					stroke={color === 'neutral' ? 'var(--black-800)' : 'white'}
+					stroke-width="2.4"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+		)
+	}
+</button>

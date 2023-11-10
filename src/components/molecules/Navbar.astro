@@ -1,0 +1,24 @@
+---
+import Text from '~/components/atoms/Text.astro';
+import links from '~/content/menu/menu.json';
+import NewButton from '../atoms/NewButton.astro';
+
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<nav class="flex items-center gap-6 whitespace-nowrap">
+	{
+		links.map((link) => {
+			return (
+				<a
+					class:list={['hover:underline', { ['underline underline-random-900']: pathname.includes(link.href) }]}
+					href={link.href}
+				>
+					<Text class="text-random-900">{link.name}</Text>
+				</a>
+			);
+		})
+	}
+	<NewButton href="/linktree" color="random" outline={true} size="small">Reach us</NewButton>
+	<NewButton href="/donate" color="random" size="small">Donate</NewButton>
+</nav>

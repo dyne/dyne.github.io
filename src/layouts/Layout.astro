@@ -1,14 +1,14 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import Header from '~/components/Header.astro';
+import Heading from 'A/Heading.astro';
+import Text from 'A/Text.astro';
 import Footer from '~/components/Footer.astro';
-import '@fontsource/jetbrains-mono';
-import '@fontsource-variable/inter';
+import Header from '~/components/Header.astro';
+import BaseLayout from './BaseLayout.astro';
 
 const { content, cls } = Astro.props;
 const meta = {
-	title: 'Dyne.org :: ' + content?.title || undefined,
-	description: content?.description || undefined,
+	title: content?.title || undefined,
+	description: content?.description || false,
 	cover: content?.cover || undefined,
 };
 ---
@@ -16,18 +16,26 @@ const meta = {
 <BaseLayout meta={meta}>
 	<Header />
 	<div
-		class={`pb-14 p-4 lg:p-0 mx-auto w-full prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent prose-headings:font-sans font-prose prose-strong:text-accent prose-strong:font-medium ${cls}`}
+		class="mx-auto w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 items-center px-[25px] py-[60px] lg:py-20 gap-[25px] lg:gap-[50px]"
 	>
-		<div class="grid grid-rows-1 justify-between items-center md:grid-cols-2 pb-8">
-			<h1 class="font-medium mb-0">Dyne.org <br /> <span class="font-bold">{content.title}</span></h1>
-
-			<span class="text-lg">
-				<span class="text-accent font-medium">We are hackers.</span>
-				<br class="hidden md:block" />
-				<span set:html={content.description} />
-			</span>
-		</div>
+		<Heading size="large" class:list={{ 'col-span-2': !content.description }}>{content.title}</Heading>
+		{
+			content.description && (
+				<div class="leading-10">
+					<Text class="text-random-500 pb-2" size="medium">
+						We are hackers.
+					</Text>
+					<Text size="medium" class="leading-10">
+						<span set:html={content.description} />
+					</Text>
+				</div>
+			)
+		}
+	</div>
+	<!-- <div class={`pb-14 p-4 lg:p-0 mx-auto w-full prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent prose-headings:font-sans font-prose prose-strong:text-accent prose-strong:font-medium ${cls}`} > -->
+	<div class="mx-auto max-w-6xl px-[25px]">
 		<slot />
 	</div>
+	<!-- </div> -->
 	<Footer />
 </BaseLayout>

@@ -174,16 +174,7 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"awards": {
-"index.md": {
-	id: "index.md";
-  slug: "index";
-  body: string;
-  collection: "awards";
-  data: any
-} & { render(): Render[".md"] };
-};
-"contact": {
+		"contact": {
 "index.md": {
 	id: "index.md";
   slug: "index";
@@ -210,6 +201,71 @@ declare module 'astro:content' {
   data: any
 } & { render(): Render[".md"] };
 };
+"homepage": {
+"projects/01_zenroom.md": {
+	id: "projects/01_zenroom.md";
+  slug: "projects/01_zenroom";
+  body: string;
+  collection: "homepage";
+  data: any
+} & { render(): Render[".md"] };
+"projects/02_devuan.md": {
+	id: "projects/02_devuan.md";
+  slug: "projects/02_devuan";
+  body: string;
+  collection: "homepage";
+  data: any
+} & { render(): Render[".md"] };
+"projects/03_interfacer.md": {
+	id: "projects/03_interfacer.md";
+  slug: "projects/03_interfacer";
+  body: string;
+  collection: "homepage";
+  data: any
+} & { render(): Render[".md"] };
+"projects/04_reflow.md": {
+	id: "projects/04_reflow.md";
+  slug: "projects/04_reflow";
+  body: string;
+  collection: "homepage";
+  data: any
+} & { render(): Render[".md"] };
+"projects/05_dowse.md": {
+	id: "projects/05_dowse.md";
+  slug: "projects/05_dowse";
+  body: string;
+  collection: "homepage";
+  data: any
+} & { render(): Render[".md"] };
+"projects/06_gitzone.md": {
+	id: "projects/06_gitzone.md";
+  slug: "projects/06_gitzone";
+  body: string;
+  collection: "homepage";
+  data: any
+} & { render(): Render[".md"] };
+"projects/07_fei0r.md": {
+	id: "projects/07_fei0r.md";
+  slug: "projects/07_fei0r";
+  body: string;
+  collection: "homepage";
+  data: any
+} & { render(): Render[".md"] };
+"projects/08_dynebolic.md": {
+	id: "projects/08_dynebolic.md";
+  slug: "projects/08_dynebolic";
+  body: string;
+  collection: "homepage";
+  data: any
+} & { render(): Render[".md"] };
+"projects/09_tomb.md": {
+	id: "projects/09_tomb.md";
+  slug: "projects/09_tomb";
+  body: string;
+  collection: "homepage";
+  data: any
+} & { render(): Render[".md"] };
+};
 "pillars": {
 "interdisciplinary.md": {
 	id: "interdisciplinary.md";
@@ -230,71 +286,6 @@ declare module 'astro:content' {
   slug: "sustainable";
   body: string;
   collection: "pillars";
-  data: any
-} & { render(): Render[".md"] };
-};
-"projects": {
-"01_zenroom.md": {
-	id: "01_zenroom.md";
-  slug: "01_zenroom";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
-"02_devuan.md": {
-	id: "02_devuan.md";
-  slug: "02_devuan";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
-"03_interfacer.md": {
-	id: "03_interfacer.md";
-  slug: "03_interfacer";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
-"04_reflow.md": {
-	id: "04_reflow.md";
-  slug: "04_reflow";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
-"05_dowse.md": {
-	id: "05_dowse.md";
-  slug: "05_dowse";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
-"06_gitzone.md": {
-	id: "06_gitzone.md";
-  slug: "06_gitzone";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
-"07_fei0r.md": {
-	id: "07_fei0r.md";
-  slug: "07_fei0r";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
-"08_dynebolic.md": {
-	id: "08_dynebolic.md";
-  slug: "08_dynebolic";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
-"09_tomb.md": {
-	id: "09_tomb.md";
-  slug: "09_tomb";
-  body: string;
-  collection: "projects";
   data: any
 } & { render(): Render[".md"] };
 };
@@ -415,71 +406,6 @@ declare module 'astro:content' {
   slug: "index";
   body: string;
   collection: "what-we-did";
-  data: any
-} & { render(): Render[".md"] };
-};
-"what-we-do": {
-"01_zenroom.md": {
-	id: "01_zenroom.md";
-  slug: "01_zenroom";
-  body: string;
-  collection: "what-we-do";
-  data: any
-} & { render(): Render[".md"] };
-"02_devuan.md": {
-	id: "02_devuan.md";
-  slug: "02_devuan";
-  body: string;
-  collection: "what-we-do";
-  data: any
-} & { render(): Render[".md"] };
-"03_interfacer.md": {
-	id: "03_interfacer.md";
-  slug: "03_interfacer";
-  body: string;
-  collection: "what-we-do";
-  data: any
-} & { render(): Render[".md"] };
-"04_reflow.md": {
-	id: "04_reflow.md";
-  slug: "04_reflow";
-  body: string;
-  collection: "what-we-do";
-  data: any
-} & { render(): Render[".md"] };
-"05_dowse.md": {
-	id: "05_dowse.md";
-  slug: "05_dowse";
-  body: string;
-  collection: "what-we-do";
-  data: any
-} & { render(): Render[".md"] };
-"06_gitzone.md": {
-	id: "06_gitzone.md";
-  slug: "06_gitzone";
-  body: string;
-  collection: "what-we-do";
-  data: any
-} & { render(): Render[".md"] };
-"07_fei0r.md": {
-	id: "07_fei0r.md";
-  slug: "07_fei0r";
-  body: string;
-  collection: "what-we-do";
-  data: any
-} & { render(): Render[".md"] };
-"08_dynebolic.md": {
-	id: "08_dynebolic.md";
-  slug: "08_dynebolic";
-  body: string;
-  collection: "what-we-do";
-  data: any
-} & { render(): Render[".md"] };
-"09_tomb.md": {
-	id: "09_tomb.md";
-  slug: "09_tomb";
-  body: string;
-  collection: "what-we-do";
   data: any
 } & { render(): Render[".md"] };
 };

@@ -1,7 +1,8 @@
 ---
-import Logo from './Logo.astro';
+import Logo from './atoms/Logo.astro';
 import Socials from './Socials.astro';
 import links from '../content/menu/menu.json';
+import Navbar from 'M/Navbar.astro';
 ---
 
 <header class="w-full">
@@ -11,12 +12,10 @@ import links from '../content/menu/menu.json';
 		</a>
 
 		<!-- Desktop: links -->
-		<nav class="hidden lg:visible lg:flex flex-col items-end space-y-4" aria-label="Main navigation">
+		<div class="hidden lg:visible lg:flex flex-col items-end space-y-4" aria-label="Main navigation">
 			<Socials size={30} />
-			<div class="space-x-5 font-medium text-2xl text-black flex" id="d-link-container">
-				{links.map((link) => <a href={link.href}>{link.name}</a>)}
-			</div>
-		</nav>
+			<Navbar />
+		</div>
 	</div>
 
 	<!-- Mobile: Fixed menu button -->

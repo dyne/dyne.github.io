@@ -1,15 +1,11 @@
 ---
-
+import '@fontsource/syne/400.css';
+import '@fontsource/syne/700.css';
+import '@fontsource/syne/800.css';
+import '@fontsource/jetbrains-mono';
+import '../base.css';
 ---
 
-<style is:global>
-	html {
-		scroll-behavior: smooth;
-	}
-	strong {
-		font-weight: 700;
-	}
-</style>
 <script is:inline>
 	if (
 		localStorage.theme === 'dark' ||
@@ -33,16 +29,13 @@
 			const index = Math.floor(Math.random() * choices.length);
 			return choices[index];
 		};
-		const [accent, text_accent, secondary, bg, bg_accent] = choose([
-			['#423E8E', '#15142D', '#211F47', '#ECECF8', '#B5B3E5'],
-			['#36968C', '#15142D', '#0D2523', '#ECF8F7', '#B4E4DF'],
-			['#D77733 ', '#6B3815', '#2A1308', '#FBF1EA', '#F5DDCC'],
-		]);
-		document.documentElement.style.setProperty('--accent-color', accent);
-		document.documentElement.style.setProperty('--text-accent-color', text_accent);
-		document.documentElement.style.setProperty('--secondary-accent-color', secondary);
-		document.documentElement.style.setProperty('--bg-color', bg);
-		document.documentElement.style.setProperty('--bg-accent-color', bg_accent);
+		const color = choose(['green', 'orange', 'purple']);
+		document.body.classList.add(`dyne-${color}`);
+		'50 100 200 300 400 500 600 700 800 900'.split(' ').map((v) => {
+			document.documentElement.style.setProperty(`--accent-${v}`, `var(--${color}-${v})`);
+		});
+		document.documentElement.style.setProperty(`--accent-shadow`, `var(--${color}-shadow)`);
+		document.documentElement.style.setProperty(`--accent-shadow-focused`, `var(--${color}-shadow-focused)`);
 	});
 
 	window.onload = function () {

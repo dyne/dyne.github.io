@@ -1,0 +1,223 @@
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 900;
+	src:
+		url('/fonts/BasisGrotesqueArabicPro-Black.ttf') format('truetype'),
+		url('/fonts/BasisGrotesqueArabicPro-Black.woff') format('woff'),
+		url('/fonts/BasisGrotesqueArabicPro-Black.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 700;
+	src:
+		url('/fonts/BasisGrotesqueArabicPro-Bold.ttf') format('truetype'),
+		url('/fonts/BasisGrotesqueArabicPro-Bold.woff') format('woff'),
+		url('/fonts/BasisGrotesqueArabicPro-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 300;
+	src: url('/fonts/BasisGrotesqueArabicPro-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 500;
+	src:
+		url('/fonts/BasisGrotesqueArabicPro-Medium.ttf') format('truetype'),
+		url('/fonts/BasisGrotesqueArabicPro-Medium.woff') format('woff'),
+		url('/fonts/BasisGrotesqueArabicPro-Medium.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Basis Grotesque Arabic Pro';
+	font-weight: 400;
+	src:
+		url('/fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype'),
+		url('/fonts/BasisGrotesqueArabicPro-Regular.woff') format('woff'),
+		url('/fonts/BasisGrotesqueArabicPro-Regular.woff2') format('woff2');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--neutral-primary-h: 30;
+		--neutral-primary-s: 100%;
+		--neutral-primary-l: 93.3%;
+		--green-shadow-focused: 0px 3px 15px 0px hsla(168, 47%, 41%, 0.25);
+		--orange-shadow-focused: 0px 3px 15px 0px hsla(27, 70%, 53%, 0.3);
+		--purple-shadow-focused: 0px 3px 15px 0px hsla(248, 35%, 34%, 0.25);
+		--green-shadow: 0px 1px 10px 0px hsla(168, 47%, 41%, 0.15);
+		--orange-shadow: 0px 1px 10px 0px hsla(27, 70%, 53%, 0.15);
+		--purple-shadow: 0px 1px 10px 0px hsla(248, 35%, 34%, 0.15);
+		--black-50: hsla(263, 8%, 96%, 1);
+		--black-100: hsla(263, 8%, 90%, 1);
+		--black-200: hsla(263, 8%, 79%, 1);
+		--black-300: hsla(263, 8%, 67%, 1);
+		--black-400: hsla(263, 8%, 53%, 1);
+		--black-500: hsla(263, 8%, 47%, 1);
+		--black-600: hsla(263, 8%, 40%, 1);
+		--black-700: hsla(263, 8%, 28%, 1);
+		--black-800: hsla(263, 8%, 20%, 1);
+		--black-900: hsla(263, 8%, 13%, 1);
+		--black-950: hsla(263, 8%, 3%, 1);
+		--green-50: hsla(175, 45%, 95%, 1);
+		--green-100: hsla(174, 47%, 90%, 1);
+		--green-200: hsla(174, 47%, 80%, 1);
+		--green-300: hsla(174, 47%, 70%, 1);
+		--green-400: hsla(174, 47%, 55%, 1);
+		--green-500: hsla(174, 47%, 40%, 1);
+		--green-600: hsla(174, 47%, 32%, 1);
+		--green-700: hsla(174, 47%, 26%, 1);
+		--green-800: hsla(175, 46%, 19%, 1);
+		--green-900: hsla(174, 47%, 10%, 1);
+		--neutral-50: hsl(30, 63%, 90%);
+		--neutral-100: hsl(30, 63%, 87%);
+		--neutral-200: hsl(30, 63%, 85%);
+		--neutral-300: hsl(30, 63%, 80%);
+		--neutral-400: hsl(30, 63%, 76%);
+		--neutral-500: hsl(30, 63%, 74%);
+		--neutral-600: hsl(30, 63%, 72%);
+		--neutral-700: hsl(30, 63%, 70%);
+		--neutral-800: hsl(30, 63%, 67%);
+		--neutral-900: hsl(30, 63%, 64%);
+		--neutral-950: hsl(30, 63%, 60%);
+		--orange-50: hsla(25, 67%, 95%, 1);
+		--orange-100: hsla(25, 67%, 88%, 1);
+		--orange-200: hsla(25, 67%, 80%, 1);
+		--orange-300: hsla(25, 67%, 70%, 1);
+		--orange-400: hsla(25, 68%, 63%, 1);
+		--orange-500: hsla(25, 67%, 52%, 1);
+		--orange-600: hsla(25, 62%, 47%, 1);
+		--orange-700: hsla(25, 67%, 40%, 1);
+		--orange-800: hsla(25, 67%, 25%, 1);
+		--orange-900: hsla(18, 67%, 10%, 1);
+		--purple-50: hsla(242, 49%, 95%, 1);
+		--purple-100: hsla(244, 49%, 90%, 1);
+		--purple-200: hsla(243, 49%, 80%, 1);
+		--purple-300: hsla(243, 49%, 70%, 1);
+		--purple-400: hsla(243, 49%, 62%, 1);
+		--purple-500: hsla(243, 39%, 40%, 1);
+		--purple-600: hsla(243, 49%, 41%, 1);
+		--purple-700: hsla(243, 49%, 30%, 1);
+		--purple-800: hsla(243, 39%, 20%, 1);
+		--purple-900: hsla(243, 39%, 10%, 1);
+		--simple: 0px 1px 10px 0px hsla(248, 35%, 34%, 0.15);
+	}
+}
+
+@layer components {
+	hr {
+		@apply h-px mt-1 mb-5 bg-black-900 border-0;
+	}
+	.h1,
+	.h2,
+	.h3 {
+		@apply leading-[120%] font-display;
+	}
+	.h1 {
+		@apply text-4xl font-extrabold tracking-[-0.72px] md:text-[42px] md:tracking-[-0.84px];
+	}
+
+	.h2 {
+		@apply text-[32px] font-semibold tracking-[-0.64px] md:text-[38px] md:tracking-[-0.76px];
+	}
+
+	.h3 {
+		@apply text-[28px] font-medium tracking-[-0.56px] md:text-[34px] md:tracking-[-0.68px];
+	}
+
+	.text-base,
+	.text-medium,
+	.text-large {
+		@apply font-sans;
+	}
+
+	.text-base {
+		@apply text-lg leading-[140%] tracking-[-0.36px] md:text-xl md:leading-[140%] md:tracking-[-0.4px];
+	}
+
+	.text-medium {
+		@apply text-xl leading-[130%] tracking-[-0.4px] md:text-[22px] md:tracking-[-0.44px];
+	}
+
+	.text-large {
+		@apply text-[22px] leading-[130%] tracking-[-0.44px] md:text-2xl md:tracking-[-0.48px];
+	}
+
+	.btn {
+		@apply transition ease-in-out duration-300 w-fit h-fit inline-flex justify-center items-center rounded-[100px] whitespace-nowrap leading-[100%] focus:ring focus:outline-none border-2;
+	}
+
+	.dyne-orange .btn-random,
+	.btn-orange {
+		@apply border-orange-500 bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 focus:ring-orange-800;
+	}
+
+	.dyne-orange .btn-random-outline,
+	.btn-orange-outline {
+		@apply border-orange-500 text-orange-500 hover:bg-orange-50 active:bg-orange-100 focus:border-transparent focus:ring-orange-800;
+	}
+
+	.dyne-purple .btn-random,
+	.btn-purple {
+		@apply border-purple-500 bg-purple-500 text-white hover:bg-purple-600 active:bg-purple-700 focus:ring-purple-800;
+	}
+
+	.dyne-purple .btn-random-outline,
+	.btn-purple-outline {
+		@apply border-2 border-purple-500 text-purple-500 hover:bg-purple-50 active:bg-purple-100 focus:border-transparent focus:ring-purple-800;
+	}
+
+	.btn-neutral {
+		@apply bg-neutral-300 border-neutral-700 text-black-800 hover:bg-neutral-400 active:bg-neutral-500 focus:ring-neutral-700;
+	}
+
+	.btn-neutral-outline {
+		@apply border-2 border-neutral-700 hover:bg-neutral-50 active:bg-neutral-100 focus:border-transparent focus:ring-neutral-700;
+	}
+
+	.btn-black {
+		@apply bg-black-700 border-black-800 text-white hover:bg-black-800 active:bg-black-700 focus:ring-black-700;
+	}
+
+	.btn-black-outline {
+		@apply border-2 border-black-800 hover:bg-black-50 active:bg-black-100 focus:border-transparent focus:ring-black-700;
+	}
+
+	.dyne-green .btn-random,
+	.btn-green {
+		@apply bg-green-500 border-green-500 text-white hover:bg-green-600 active:bg-green-700 focus:ring-green-800;
+	}
+
+	.dyne-green .btn-random-outline,
+	.btn-green-outline {
+		@apply border-2 border-green-500 text-green-500 hover:bg-green-50 active:bg-green-100 focus:border-transparent focus:ring-green-800;
+	}
+
+	.card {
+		@apply flex flex-col md:flex-row items-center gap-[30px] flex-wrap shadow-[0px_1px_10px_0px_rgba(215,119,51,0.15)] px-6 md:px-9 py-8 md:py-11 rounded-[45px] border-2 max-w-[616px];
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	.card-green {
+		@apply border-green-300 shadow-green hover:shadow-green-focused focus:shadow-green-focused;
+	}
+
+	.card-orange {
+		@apply border-orange-300 shadow-orange hover:shadow-orange-focused focus:shadow-orange-focused;
+	}
+
+	.card-purple {
+		@apply border-purple-300 shadow-purple hover:shadow-purple-focused focus:shadow-purple-focused;
+	}
+
+	.card-random {
+		@apply border-random-300 shadow-random hover:shadow-random-focused focus:shadow-random-focused;
+	}
+}

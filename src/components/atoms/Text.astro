@@ -1,0 +1,27 @@
+---
+interface Props {
+	size?: Size;
+	highlight?: boolean;
+	class?: string;
+}
+
+const { size = 'base', highlight = false, class: cls } = Astro.props;
+let composed = '';
+
+switch (size) {
+	case 'medium':
+		composed = 'text-medium';
+		break;
+	case 'base':
+		composed = highlight ? 'text-base font-highlight' : 'text-base';
+		break;
+	case 'large':
+		composed = 'text-large';
+		break;
+
+	default:
+		break;
+}
+---
+
+<div class:list={[composed, cls]}><slot /></div>

@@ -1,0 +1,171 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import NewButton from 'A/NewButton.astro';
+import Heading from 'A/Heading.astro';
+import Text from 'A/Text.astro';
+import Logo from 'A/Logo.astro';
+import Navbar from 'M/Navbar.astro';
+import Card from 'M/Card.astro';
+import SoftwareCard from '~/components/molecules/SoftwareCard.astro';
+import BlogCard from '~/components/molecules/BlogCard.astro';
+
+const colors: Color[] = ['random', 'orange', 'green', 'purple', 'black', 'neutral'];
+const sizes: Size[] = ['small', 'medium', 'large'];
+const hues = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
+---
+
+<BaseLayout>
+	<div class="p-2 md:p-20 space-y-10">
+		<Heading size="large">
+			<a href="https://www.servizitelevideo.rai.it/televideo/pub/pagina.jsp?p=899">Pagina 899</a> del televideo
+		</Heading>
+		<div class="w-full items-center text-center bg-random-200 p-2">
+			<Heading size="large" class="p-10">Atoms</Heading>
+		</div>
+		<Heading>Logo</Heading>
+		<hr />
+		<div class="grid grid-cols-3 lg:grid-cols-6 justify-items-center">
+			{
+				colors.map((c) => (
+					<div class="text-center">
+						<Logo color={c} class="pt-5 pb-2" />
+						<span class="text-[12px]">logo / {c}</span>
+					</div>
+				))
+			}
+		</div>
+		<Heading>Buttons</Heading>
+		<hr />
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+			{
+				colors.map((c) => {
+					return sizes.map((s) => {
+						return (
+							<div class="flex flex-col gap-2">
+								<NewButton size={s} color={c}>
+									{c} / {s}
+								</NewButton>
+								<NewButton size={s} color={c} outline={true}>
+									{c} / {s} / outline
+								</NewButton>
+								<NewButton size={s} color={c} icon={true}>
+									{c} / {s} / icon
+								</NewButton>
+							</div>
+						);
+					});
+				})
+			}
+		</div>
+		<Heading>Colors</Heading>
+		<hr />
+		<div class="grid grid-cols-4 md:grid-cols-10 gap-6 mb-10">
+			{
+				colors.map((c) => {
+					return hues.map((h) => {
+						return (
+							<div class="flex flex-col items-center">
+								<div class={`bg-${c}-${h} w-[80px] h-[80px] rounded-[12px]`} />
+								<span class="text-[12px]">
+									{c} / {h}
+								</span>
+							</div>
+						);
+					});
+				})
+			}
+		</div>
+		<Heading>Shadows</Heading>
+		<hr />
+		<div class="grid grid-cols-4 md:grid-cols-10 gap-6 mb-10">
+			<div class="flex flex-col items-center">
+				<div class="w-[80px] h-[80px] bg-white rounded-[12px] shadow-simple"></div>
+				<span class="text-[12px]">simple</span>
+			</div>
+			{
+				['orange', 'purple', 'green'].map((c) => {
+					return (
+						<>
+							<div class="flex flex-col items-center">
+								<div class={`shadow-${c} w-[80px] h-[80px] bg-white rounded-[12px]`} />
+								<span class="text-[12px]">{c} / simple</span>
+							</div>
+							<div class="flex flex-col items-center">
+								<div class={`shadow-${c}-focused w-[80px] h-[80px] bg-white rounded-[12px]`} />
+								<span class="text-[12px]">{c} / focus</span>
+							</div>
+						</>
+					);
+				})
+			}
+		</div>
+		<Heading>Typography</Heading>
+		<hr />
+
+		<Heading size="large">Headline / large</Heading>
+		<Heading size="medium">Headline / medium</Heading>
+		<Heading size="small">Headline / small</Heading>
+
+		<Text>Text/base</Text>
+		<Text highlight={true}>Text / base / highlight</Text>
+
+		<Text size="medium">Text / medium</Text>
+		<Text size="medium" highlight={true}>Text / medium / highlight</Text>
+
+		<Text size="large">Text / large</Text>
+		<Text size="large" highlight={true}>Text / large / highlight</Text>
+		<div class="w-full items-center text-center bg-random-200 p-2">
+			<Heading size="large" class="p-10">Molecules</Heading>
+		</div>
+
+		<Heading>Navbar</Heading>
+		<hr />
+		<Navbar />
+
+		<Heading>Cards</Heading>
+		<hr />
+		<Card><Heading size="medium">Layout / random</Heading></Card>
+		<div class="flex flex-col lg:flex-row gap-6">
+			<Card color="green"><Heading size="medium">Layout / green</Heading></Card>
+			<Card color="orange"><Heading size="medium">Layout / orange</Heading></Card>
+			<Card color="purple"><Heading size="medium">Layout / purple</Heading></Card>
+		</div>
+
+		<Heading>Software Cards</Heading>
+		<hr />
+		<div class="grid lg:grid-cols-2 justify-center gap-5">
+			<SoftwareCard
+				title="Gitzone"
+				color="random"
+				date={new Date()}
+				picture={new URL('https://www.dyne.org/wp-content/uploads/2013/10/octocat_spider.png')}
+				download={new URL('https://dyne.org')}
+				href={new URL('https://dyne.org')}
+			>
+				<Text>
+					Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
+					then during a push the zone files are checked, updated & reloaded from git receive hooks.
+				</Text>
+			</SoftwareCard>
+			<SoftwareCard
+				title="No image sw"
+				color="random"
+				date={new Date()}
+				download={new URL('https://dyne.org')}
+				href={new URL('https://dyne.org')}
+			>
+				<Text>
+					Gitzone is a git-based zone file management tool for BIND. Users can update their zones in a git repository,
+					then during a push the zone files are checked, updated & reloaded from git receive hooks.
+				</Text>
+			</SoftwareCard>
+		</div>
+
+		<Heading>Blog cards</Heading>
+		<hr />
+		<BlogCard title="Open Source at the core of Europe: the Cyber Resilience Act" author="Jaromil" href="/blog">
+			This week’s news is that The European Parliament has approved the European Cyber Resilience Act, and I believe it
+			to be good news for us free and open-source developers.
+		</BlogCard>
+	</div>
+</BaseLayout>

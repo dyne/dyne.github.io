@@ -1,0 +1,26 @@
+---
+import Heading from 'A/Heading.astro';
+import Card from 'M/Card.astro';
+import NewButton from '../atoms/NewButton.astro';
+
+interface Props {
+	title: string;
+	author: string;
+	href: string;
+	color?: Color;
+}
+
+const { author, title, color, href } = Astro.props;
+---
+
+<Card color={color}>
+	<div class="flex flex-col gap-3 md:gap-4 flex-1">
+		<Heading size="medium">{title}</Heading>
+		<hr />
+		<slot />
+		<p class="text-base">
+			by {author}
+		</p>
+		<NewButton size="small" color="black" outline={true} href={href}>Read it now</NewButton>
+	</div>
+</Card>

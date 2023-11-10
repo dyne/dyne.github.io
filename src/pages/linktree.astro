@@ -1,8 +1,10 @@
 ---
 import Layout from '~/layouts/Layout.astro';
-import links from '../../content/social/linktree.json';
-import quicklinks from '../../content/social/quicklinks.json';
+import links from '../content/social/linktree.json';
+import quicklinks from '../content/social/quicklinks.json';
 import Button from '~/components/Button.astro';
+import Heading from 'A/Heading.astro';
+import Card from 'M/Card.astro';
 ---
 
 <Layout
@@ -11,12 +13,13 @@ import Button from '~/components/Button.astro';
 		description: "Link up with Dyne's cyber playground<br/>Dive into our network of connections and resources",
 	}}
 >
-	<div class="py-8 md:py-20 justify-start items-start gap-2.5 inline-flex">
-		<div class="text-saccent text-4xl font-semibold font-['Syne'] leading-10">Dive in</div>
-	</div>
-	<div class="grid md:grid-cols-3 gap-8">
-		{quicklinks.map((ql) => <Button text={ql.cta} href={ql.link} cls="no-underline" />)}
-	</div>
+	<Heading size="medium">Dive in</Heading>
+	<hr />
+	<Card class="w-full">
+		<div class="grid md:grid-cols-3 gap-8">
+			{quicklinks.map((ql) => <Button text={ql.cta} href={ql.link} cls="no-underline" />)}
+		</div>
+	</Card>
 	<div class="grid grid-cols-1">
 		{
 			links.map((l) => (
