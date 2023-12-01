@@ -93,7 +93,7 @@ For licensing information see the [GNU General Public License](http://www.gnu.o
 
 ## Support
 
-Donations are very welcome, see [www.dyne.org/donate](https://dyne.org/donate).
+Donations are very welcome, see [https://ko-fi.com/dyneorg](https://ko-fi.com/dyneorg).
 
 To get in touch with developers join our chat on [irc.dyne.org](https://irc.dyne.org) (SSL over port 9999) on channel #dyne.
 

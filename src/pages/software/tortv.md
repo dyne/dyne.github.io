@@ -41,7 +41,7 @@ TorTV development is [revisioned on GitHub](http://github.com/dyne/TorTV), if yo
 
 If you have hints about more TV hardware that is based on the Linux kernel and can have applications added, [please let us know](https://dyne.org/contact)!
 
-If you like this idea and would like to see it working on another device, please [donate us some money to buy the equipment](https://dyne.org/donate). Ideally the next port of TorTV should be for the [Boxee](http://boxeeboxwiki.org/wiki/Main_Page), we can [buy one for 180 neuros](http://www.computerland.nl/a/site/Catalog/ItemDetail.aspx?ItemNo=20068928) with some help.
+If you like this idea and would like to see it working on another device, please [donate us some money to buy the equipment](https://ko-fi.com/dyneorg). Ideally the next port of TorTV should be for the [Boxee](http://boxeeboxwiki.org/wiki/Main_Page), we can [buy one for 180 neuros](http://www.computerland.nl/a/site/Catalog/ItemDetail.aspx?ItemNo=20068928) with some help.
 
 If you are a TV manufacturer interested in having this application running on your products [you are also very welcome to contact us](https://dyne.org/contact)!
 
@@ -93,7 +93,7 @@ TorTV development is [revisioned on GitHub](http://github.com/dyne/TorTV), if yo
 
 If you have hints about more TV hardware that is based on the Linux kernel and can have applications added, [please let us know](https://dyne.org/contact)!
 
-If you like this idea and would like to see it working on another device, please [donate us some money to buy the equipment](https://dyne.org/donate). Ideally the next port of TorTV should be for the [Boxee](http://boxeeboxwiki.org/wiki/Main_Page), we can [buy one for 180 neuros](http://www.computerland.nl/a/site/Catalog/ItemDetail.aspx?ItemNo=20068928) with some help.
+If you like this idea and would like to see it working on another device, please [donate us some money to buy the equipment](https://ko-fi.com/dyneorg). Ideally the next port of TorTV should be for the [Boxee](http://boxeeboxwiki.org/wiki/Main_Page), we can [buy one for 180 neuros](http://www.computerland.nl/a/site/Catalog/ItemDetail.aspx?ItemNo=20068928) with some help.
 
 If you are a TV manufacturer interested in having this application running on your products [you are also very welcome to contact us](https://dyne.org/contact)!
 
@@ -145,7 +145,7 @@ TorTV development is [revisioned on GitHub](http://github.com/dyne/TorTV), if yo
 
 If you have hints about more TV hardware that is based on the Linux kernel and can have applications added, [please let us know](https://dyne.org/contact)!
 
-If you like this idea and would like to see it working on another device, please [donate us some money to buy the equipment](https://dyne.org/donate). Ideally the next port of TorTV should be for the [Boxee](http://boxeeboxwiki.org/wiki/Main_Page), we can [buy one for 180 neuros](http://www.computerland.nl/a/site/Catalog/ItemDetail.aspx?ItemNo=20068928) with some help.
+If you like this idea and would like to see it working on another device, please [donate us some money to buy the equipment](https://ko-fi.com/dyneorg). Ideally the next port of TorTV should be for the [Boxee](http://boxeeboxwiki.org/wiki/Main_Page), we can [buy one for 180 neuros](http://www.computerland.nl/a/site/Catalog/ItemDetail.aspx?ItemNo=20068928) with some help.
 
 If you are a TV manufacturer interested in having this application running on your products [you are also very welcome to contact us](https://dyne.org/contact)!
 

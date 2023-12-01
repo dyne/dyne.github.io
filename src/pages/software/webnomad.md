@@ -34,7 +34,7 @@ WebNomad has well established functionalities already used in production for a n
 
 # Usage
 
-As of now, webnomad is operated from a Terminal. A simple interface might be built in future if [donors](/donate) request it.
+As of now, webnomad is operated from a Terminal. A simple interface might be built in future if [donors](https://ko-fi.com/dyneorg) request it.
 
 [Docs in Spanish](https://lab.dyne.org/WebNomad.es)
 
