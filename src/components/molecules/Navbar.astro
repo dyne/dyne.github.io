@@ -11,10 +11,10 @@ const pathname = new URL(Astro.request.url).pathname;
 		links.map((link) => {
 			return (
 				<a
-					class:list={['hover:underline', { ['underline underline-random-900']: pathname.includes(link.href) }]}
+					class:list={['text-random-800 hover:underline', { ['underline underline-random-900']: pathname.includes(link.href) }]}
 					href={link.href}
 				>
-					<Text class="text-random-900">{link.name}</Text>
+					<Text class="font-display font-semibold">{link.name}</Text>
 				</a>
 			);
 		})
