@@ -59,11 +59,6 @@
         "tagline": "Collection of channels related to dyne and it's many projects."
       },
       {
-        "name": "Devuan Space",
-        "link": "https://socials.dyne.org/matrix-devuan",
-        "tagline": "Collection of Devuan channels (bridged to IRC, Libera.chat)."
-      },
-      {
         "name": "Interfacer Space",
         "link": "https://socials.dyne.org/matrix-interfacer",
         "tagline": "Collection of channels related to Interfacer."
