@@ -27,11 +27,6 @@
         "tagline": "Welcome to the Devuan GNU+Linux group on Telegram."
       },
       {
-        "name": "Devuan ES",
-        "link": "https://socials.dyne.org/telegram-devuan-es",
-        "tagline": "Grupo no oficial sobre Devuan."
-      },
-      {
         "name": "frei0r",
         "link": "https://socials.dyne.org/telegram-frei0r",
         "tagline": "The biggest free and open source video plugin collection. Code to manipulate video is our passion."
@@ -94,6 +89,12 @@
     "icon": "https://logo.dyne.org/logo",
     "description": "Social Media properties of dyne.",
     "links": [
+      {
+        "name": "Lemmy",
+        "link": "https://fed.dyne.org",
+        "tagline": "Join the Federation",
+        "cta": "Updoot"
+      },
       {
         "name": "Facebook",
         "link": "https://socials.dyne.org/facebook",
