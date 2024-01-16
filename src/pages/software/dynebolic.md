@@ -30,21 +30,21 @@ Dyne:bolic is a [GNU+Linux distribution](http://www.gnu.org/distros/free-distros
 
 You are free to study, modify, redistribute and even sell this Operating System, as long you grant the same freedom to your peers.
 
-### Friendly To The Tnvironment
+### Friendly To The Environment
 
 > Dyne:bolic is designed to run on copmuters with extremly low ressources (Dyne:bolic III was benchmarked at Pentium2 processors with 256MB RAM). It can even run in ram: not even a harddisk is required.
 
 ![](/wp-content/uploads/2015/01/recycle-15172_1280-e1422457346278.jpg)
 
-Unleash the full potential of computers, including **second hand machines**. Let’s put an end to consumerism and use what we have to its full potential.
+Unleash the full potential of computers, including **second hand machines**. Let’s put an end to consumerism and use what already exists to its full potential.
 
 ### Digital Resistance
 
-The Dyne:bolic Operating System is about resilience and digital resistance. In a reality where governments and corporation are excercising control by monitoring the way people communicate, hackers, creatives and citizens of the digital era have common interest in keeping their computing sovereign. To accomplish this sharing knowledge is paramount.
+The Dyne:bolic Operating System is about resilience and digital resistance. In a reality where governments and corporation are excercising control by monitoring the way people communicate, hackers, creatives and citizens of the digital era have a common interest in keeping their computing sovereign. To accomplish this, sharing knowledge is paramount.
 
 [![lion-rastasoft](/wp-content/uploads/2011/09/lion-rastasoft.png)](http://rastasoft.org)
 
-Liberate yourself from mental slavery. Embrace sovereignity communication. Free your mind, open the source!
+Liberate yourself from mental slavery. Embrace sovereign communication. Free your mind, open the source!
 
 ### Freedom Needs Privacy
 
@@ -54,16 +54,15 @@ Dyne:bolic Operating System does not include any cloud-service and does not esta
 
 [![Tomb logo by monmort](/wp-content/uploads/2011/11/monmort1.png)](/software/tomb)
 
-Dynebolic also includes support for strong encryption of private data, thanks to Dyne.org's [Tomb](/software/tomb).
+Dyne:bolic also includes support for strong encryption of private data, thanks to Dyne.org's [Tomb](/software/tomb).
 
 ### Freedom Of Expression
 
-More than the means of media playback, Dyne:bolic includes free software for professional grade multimedia production.
+More than the means of media playback, Dyne:bolic includes free software for the production of professional grade multimedia.
 
 ![dancing-tux](/wp-content/uploads/2015/01/dancing-tux.gif)
 
-For everything you can see and play, Dyne:bolic includes the software to creat it. This Operating System lets you express yourself, without the need to rent a license or install additional components. Dyne:bolic was built to make it possible for people to be independent producers of their own material. Not just content creators for corporate platforms or consumers of information.
-
+For everything you can see and play, Dyne:bolic includes the software to create it. This Operating System lets you express yourself, without the need to rent a license or install additional components. Dyne:bolic was built to make it possible for people to be the independent producers of their own story. Not just content creators for corporate platforms or consumers of information.
 
 ## Appreciated Worldwide
 
