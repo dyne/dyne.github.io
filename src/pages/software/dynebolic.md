@@ -1,138 +1,92 @@
 ---
 title: "Dyne:bolic :: Free & Live Creative Multimedia"
 description: |
-  Dyne:bolic is a 100% Free Software operating system for multimedia production, recommended by the [FSF](https://fsf.org). It is a live ISO that can run from a CD or Drive, without the need to install.
+  Dyne:bolic is a 100% Free Software Operating System for multimedia production, recommended by the <a href="https://fsf.org" target="_blank" rel="noreffer">Free Software Foundation</a>. It is a live ISO that can run from a CD or Drive, without the need to install.
 layout: ../../layouts/Layout.astro
 ---
 
-## Be welcome in a GNU/Linux world!
+## Be Welcome In a GNU+Linux World!
 
-Free software operating system for media activists, artists and creatives. Dynebolic is  as a practical tool for **multimedia production**: you can manipulate and broadcast both **sound and video** with tools to **record**, **edit**, **encode** and **stream**, having automatically recognized most device and peripherals: audio, video, TV, network cards, firewire, usb and more; all using only free software!
+For culture and information to ciruclate freely and unbiased, media activists, artists and creatives need to be independent from corporate alienation. Dynebolic is an Operating System and a practical tool for **multimedia production**: it enables the manipulation and broadcasting of both **audio and video** with tools to **record**, **edit**, **encode**, **stream**, and publish. Dyne:bolic automatically recognizes most device and peripherals: audio, video, TV, network cards, firewire, usb and more; all using only free software!
 
+#### Dyne.org is happy to announce that the [development of Dyne:bolic IV is being resumed](https://github.com/dyne/dynebolic/)! Hacker; unite! Let's take back the means of production and publication of our art, stories and creativity. 
 
-## 100% Free, as in speech
+<hr />
 
- Dyne:bolic is one of the [GNU/Linux distributions](http://www.gnu.org/distros/free-distros.html) recommended by the **Free Software Foundation**: no proprietary software is inside, no closed source firmware.
+### Join the community
 
-![libre-35444\_140x140](https://www.dyne.org/wp-content/uploads/2015/01/libre-35444_140x140.png)
+All the chat rooms are bridged, join the discussion with your favorite chat client, be it [Telegram](https://socials.dyne.org/telegram-dynebolic), [Matrix](https://socials.dyne.org/matrix-dynebolic) or [Discord](https://socials.dyne.org/discord-dynebolic).
 
-You are free to study, modify, redistribute and even sell this operating system, as long you grant the same freedom to others.
+### Keep the memes based!
+Fediverse users are invited to contribute with memes, questions and/or discussions on the Dyne:bolic [Lemmy](https://fed.dyne.org/c/dynebolic)
 
-## Friendly to the environment
+## What is Dyne:bolic?
 
-> This operating system is designed to run on Pentium2 processors with 256MB RAM, not even an harddisk is needed.
+### 100% Free, As In Speech
 
-![](https://www.dyne.org/wp-content/uploads/2015/01/recycle-15172_1280-e1422457346278.jpg)Unleash the full potential of computers even with a **second hand PC**. Let’s stop consumerism and use well what we have.
+Dyne:bolic is a [GNU+Linux distribution](http://www.gnu.org/distros/free-distros.html) recommended by the **[Free Software Foundation](https://fsf.org)**: no proprietary software is inside, no closed source firmware, no hockus pockus. Everything is transparent and can be peer reviewed. All of this without ever compromising with the expression creatives rely on.
 
-[![screenshot 1](https://www.dyne.org/wp-content/uploads/2015/01/db1a5-shot.jpg)](https://www.dyne.org/wp-content/uploads/2015/01/db1a5-shot.jpg "screenshot 1")
+![libre-35444\_140x140](/wp-content/uploads/2015/01/libre-35444_140x140.png)
 
-[![screenshot 2](https://www.dyne.org/wp-content/uploads/2015/01/db1a5-shot2.jpg)](https://www.dyne.org/wp-content/uploads/2015/01/db1a5-shot2.jpg "screenshot 2")
+You are free to study, modify, redistribute and even sell this Operating System, as long you grant the same freedom to your peers.
 
-[![screenshot 3](https://www.dyne.org/wp-content/uploads/2015/01/db1a5-shot3.jpg)](https://www.dyne.org/wp-content/uploads/2015/01/db1a5-shot3.jpg "screenshot 3")
+### Friendly To The Tnvironment
 
-## Digital resistance
+> Dyne:bolic is designed to run on copmuters with extremly low ressources (Dyne:bolic III was benchmarked at Pentium2 processors with 256MB RAM). It can even run in ram: not even a harddisk is required.
 
-This software is about digital resistance to all those governments and corporations trying to monitor and control the way we communicate, we share our interests and knowledge.
+![](/wp-content/uploads/2015/01/recycle-15172_1280-e1422457346278.jpg)
 
-[![lion-rastasoft](https://www.dyne.org/wp-content/uploads/2011/09/lion-rastasoft.png)](http://rastasoft.org)
+Unleash the full potential of computers, including **second hand machines**. Let’s put an end to consumerism and use what we have to its full potential.
 
-Liberate yourself from mental slavery.
+### Digital Resistance
 
-## Freedom needs privacy
+The Dyne:bolic Operating System is about resilience and digital resistance. In a reality where governments and corporation are excercising control by monitoring the way people communicate, hackers, creatives and citizens of the digital era have common interest in keeping their computing sovereign. To accomplish this sharing knowledge is paramount.
 
-Our operating system does not include any cloud-service and does not establishes background communications without the consent of its user.
+[![lion-rastasoft](/wp-content/uploads/2011/09/lion-rastasoft.png)](http://rastasoft.org)
 
-![foster\_privacy](https://www.dyne.org/wp-content/uploads/2012/06/foster_privacy.png)
+Liberate yourself from mental slavery. Embrace sovereignity communication. Free your mind, open the source!
 
-[![Tomb logo by monmort](https://www.dyne.org/wp-content/uploads/2011/11/monmort1.png)](/software/tomb)Dynebolic also includes support for strong encryption of private data, thanks to our software [Tomb](/software/tomb).
+### Freedom Needs Privacy
 
-[![dynebolic v1 screenshot](https://www.dyne.org/wp-content/uploads/2015/01/shot-141-2.jpg)](https://www.dyne.org/wp-content/uploads/2015/01/shot-141-2.jpg "dynebolic v1 screenshot")
+Dyne:bolic Operating System does not include any cloud-service and does not establish background communications without the consent of the user. 
 
-[![dynebolic v1 screenshot](https://www.dyne.org/wp-content/uploads/2015/01/grab_apr2004-2.jpg)](https://www.dyne.org/wp-content/uploads/2015/01/grab_apr2004-2.jpg "dynebolic v1 screenshot")
+![foster\_privacy](/wp-content/uploads/2012/06/foster_privacy.png)
 
-[![dynebolic v1 screenshot](https://www.dyne.org/wp-content/uploads/2015/01/grab_apr2004-1.jpg)](https://www.dyne.org/wp-content/uploads/2015/01/grab_apr2004-1.jpg "dynebolic v1 screenshot")
+[![Tomb logo by monmort](/wp-content/uploads/2011/11/monmort1.png)](/software/tomb)
 
+Dynebolic also includes support for strong encryption of private data, thanks to Dyne.org's [Tomb](/software/tomb).
 
-## Freedom of expression
+### Freedom Of Expression
 
-Dyne:bolic includes free software for the production and not only for the playback of media.
+More than the means of media playback, Dyne:bolic includes free software for professional grade multimedia production.
 
-![dancing-tux](https://www.dyne.org/wp-content/uploads/2015/01/dancing-tux.gif)
+![dancing-tux](/wp-content/uploads/2015/01/dancing-tux.gif)
 
-For each application that lets you listen there is one that lets you express, without the need to buy or install additional components. We want to make it possible for people to be producers and not just consumers of information.
+For everything you can see and play, Dyne:bolic includes the software to creat it. This Operating System lets you express yourself, without the need to rent a license or install additional components. Dyne:bolic was built to make it possible for people to be independent producers of their own material. Not just content creators for corporate platforms or consumers of information.
 
 
-## Appreciated worldwide
+## Appreciated Worldwide
 
-Since its birth in 2000 dyne:bolic has been redistributed by several magazines and adopted by universities, community initiatives, medialabs and public institutions around the World.
+Since its birth in 2000, Dyne:bolic has been redistributed by several magazines and adopted by universities, community initiatives, medialabs and public institutions around the World.
 
-[![unesco](https://www.dyne.org/wp-content/uploads/2015/01/unesco.jpg)](http://www.unesco.org/archives/multimedia/index.php?s=films_details\&id_page=33\&id_film=1985)
+Listen to this recording from BBC World Debate on Future of learning 12 December 2007 GK3 conference, Kuala Lumpur:
+[![unesco](/wp-content/uploads/2015/01/unesco.jpg)](http://www.unesco.org/archives/multimedia/index.php?s=films_details\&id_page=33\&id_film=1985)
 
-<!-- .et_pb_text -->
 
-<!-- .et_pb_column -->
+> Dyne:bolic is a multimedia studio that you simply pop into any computer and start it up, instantly turning it into a Linux/GNU system without affecting existing things on your computer.
+> - Independent UK "Top 10 open source in 2005"
 
-<!-- .et_pb_row_inner -->
+> Readers with older Windows PCs can use Dyne:bolic to run the GNU/Linux version of Pure Data on their machine without affecting their Windows installation, creating audio files in GNU/Linux before transferring them into their sequencer.
+> - Adam Armfield, "Sound on Sound", 2006
 
-![dynebolic v2 screenshot](https://www.dyne.org/wp-content/uploads/2015/01/shot-20-1.jpg)
 
-<!-- .et_pb_column -->
+> It has all the right apps for an artist to express his creativity, without the headache of installing and configuring them. It includes some of the best free and open source tools with which you can compose music, mix video streams, and create 3-D animations.
+> - Mayank Sharma, Linux.com, 2007
 
-![freej screenshot](https://www.dyne.org/wp-content/uploads/2015/01/shot-141-3.jpg)
 
-<!-- .et_pb_column -->
+## Dyne:bolic III
 
-![dynebolic v2 screenshot](https://www.dyne.org/wp-content/uploads/2015/01/shot-141-1.jpg)
-
-<!-- .et_pb_column -->
-
-<!-- .et_pb_row_inner -->
-
-Dyne:bolic is a multimedia studio that you simply pop into any computer and start it up, instantly turning it into a Linux/GNU system without affecting existing things on your computer.
-
-<!-- .et_pb_testimonial_description_inner -->
-
-Independent UK
-
-Top 10 open source in 2005
-
-<!-- .et_pb_testimonial_description -->
-
-<!-- .et_pb_testimonial -->
-
-<!-- .et_pb_column -->
-
-Readers with older Windows PCs can use Dyne:bolic to run the GNU/Linux version of Pure Data on their machine without affecting their Windows installation, creating audio files in GNU/Linux before transferring them into their sequencer.
-
-<!-- .et_pb_testimonial_description_inner -->
-
-Adam Armfield
-
-Sound on Sound, 2006
-
-<!-- .et_pb_testimonial_description -->
-
-<!-- .et_pb_testimonial -->
-
-<!-- .et_pb_column -->
-
-It has all the right apps for an artist to express his creativity, without the headache of installing and configuring them. It includes some of the best free and open source tools with which you can compose music, mix video streams, and create 3-D animations.
-
-<!-- .et_pb_testimonial_description_inner -->
-
-Mayank Sharma
-
-Linux.com, 2007
-
-<!-- .et_pb_testimonial_description -->
-
-<!-- .et_pb_testimonial -->
-
-<!-- .et_pb_column -->
-
-<!-- .et_pb_row_inner -->
-
-## 1.4 GB ISO, run from DVD, USB or VM
+1.4 GB ISO, Run from DVD, USB or VM
 
 Codename: **MUNIR** – released in September 2011
 
@@ -141,3 +95,5 @@ MD5 sum 23371b38a375dfd5efb88872a336c6db  dynebolic-3.0.0-beta.iso
 File integrity verifiable using Jaromil’s old key 0xF6D3FBD9C2B68E39
 
 [Download Dyne:bolic 3.0-beta (i386)](https://files.dyne.org/dynebolic)
+
+## &nbsp;
