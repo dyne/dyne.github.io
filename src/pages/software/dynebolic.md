@@ -11,7 +11,6 @@ For culture and information to ciruclate freely and unbiased, media activists, a
 
 #### Dyne.org is happy to announce that the [development of Dyne:bolic IV is being resumed](https://github.com/dyne/dynebolic/)! Hacker; unite! Let's take back the means of production and publication of our art, stories and creativity. 
 
-<hr />
 
 ### Join the community
 
