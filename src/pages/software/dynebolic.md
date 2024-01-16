@@ -1,16 +1,16 @@
 ---
-title: "Dyne:bolic :: Free & Live creative multimedia"
+title: "Dyne:bolic :: Free & Live Creative Multimedia"
 description: |
-  Dyne:bolic is a 100% free software operating system recommended by the Free Software Foundation. It is a live CD that runs without the need to install.
+  Dyne:bolic is a 100% Free Software operating system for multimedia production, recommended by the [FSF](https://fsf.org). It is a live ISO that can run from a CD or Drive, without the need to install.
 layout: ../../layouts/Layout.astro
 ---
 
-# Be welcome in a GNU/Linux world!
+## Be welcome in a GNU/Linux world!
 
 Free software operating system for media activists, artists and creatives. Dynebolic is  as a practical tool for **multimedia production**: you can manipulate and broadcast both **sound and video** with tools to **record**, **edit**, **encode** and **stream**, having automatically recognized most device and peripherals: audio, video, TV, network cards, firewire, usb and more; all using only free software!
 
 
-# 100% Free, as in speech
+## 100% Free, as in speech
 
  Dyne:bolic is one of the [GNU/Linux distributions](http://www.gnu.org/distros/free-distros.html) recommended by the **Free Software Foundation**: no proprietary software is inside, no closed source firmware.
 
@@ -18,7 +18,7 @@ Free software operating system for media activists, artists and creatives. Dyn
 
 You are free to study, modify, redistribute and even sell this operating system, as long you grant the same freedom to others.
 
-# Friendly to the environment
+## Friendly to the environment
 
 > This operating system is designed to run on Pentium2 processors with 256MB RAM, not even an harddisk is needed.
 
@@ -30,7 +30,7 @@ You are free to study, modify, redistribute and even sell this operating system,
 
 [![screenshot 3](https://www.dyne.org/wp-content/uploads/2015/01/db1a5-shot3.jpg)](https://www.dyne.org/wp-content/uploads/2015/01/db1a5-shot3.jpg "screenshot 3")
 
-# Digital resistance
+## Digital resistance
 
 This software is about digital resistance to all those governments and corporations trying to monitor and control the way we communicate, we share our interests and knowledge.
 
@@ -38,7 +38,7 @@ This software is about digital resistance to all those governments and corpora
 
 Liberate yourself from mental slavery.
 
-# Freedom needs privacy
+## Freedom needs privacy
 
 Our operating system does not include any cloud-service and does not establishes background communications without the consent of its user.
 
