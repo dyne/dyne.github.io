@@ -13,7 +13,7 @@ This Privacy Policy describes how your personal information is collected, used, 
 ### PERSONAL INFORMATION WE COLLECT
 
 #### DYNE.ORG
-When you visit https://dyne.org, dyne.org automatically logs your IP for a limited amount of time. We DO NOT collect any information and no cookies are placed in your browser. However, our community services require some information from you in order to operate.
+When you visit https://dyne.org, dyne.org automatically logs your IP for a limited amount of time. We DO NOT collect any information and no cookies are placed in your browser. 
 
 #### NEWS.DYNE.ORG 
 News.dyne.org automatically logs your IP for a limited amount of time. If you chose to interact (register/login) with the service, you have to consensually provide an Email and a Nickname. The national location and timezone from wich your device is connected is automatically estimated and **essential 1st party cookies** are placed in your browser. These cookies **sole purpose** is to authenticate your account and enable you to interact with the content. Additionally, as you browse the Site, we automatically collect information about interactions you make through out news.dyne.org what external websites or search terms referred you to the Site. We refer to this automatically-collected information as “Device Information.”
