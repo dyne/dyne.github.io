@@ -43,7 +43,7 @@ We DO NOT share your Personal Information with third partie. However, we may sha
 
 ### BEHAVIOURAL ADVERTISING
 
-We DO NOT use your Personal Information to provide you with targeted advertisements or marketing communications we believe may be of no interest to you. For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work.
+We DO NOT use your Personal Information to provide you with targeted advertisements or marketing communications assumed to be of interest to you. For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work.
 
 Additionally, you can opt out of some of these services by visiting the Digital Advertising Alliance’s opt-out portal at: http://optout.aboutads.info/.
 
