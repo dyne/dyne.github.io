@@ -21,7 +21,7 @@ News.dyne.org automatically logs your IP for a limited amount of time. If you ch
 News.dyne.org sends out newsletter. These newsletter contain 1st party “Web beacons,” “tags,” and “pixels”. These are electronic files used to record information about how you interact with the newsletters. You are free to unsubscribe from these newsletters at anytime, including the removal of your account
 
 #### FED.DYNE.ORG
-Fed.dyne.org automatically logs your IP for a limited amount of time. If you chose to interact (register/login) with the service, you have to consensually provide an Email and a Nickname. The national location and timezone from wich your device is connected is automatically estimated and **essential 1st party cookies** are placed in your browser. These cookies **sole purpose** is to authenticate your account and enable you to interact with the content.
+Fed.dyne.org automatically logs your IP for a limited amount of time. If you chose to interact (register/login) with the service, you have to consensually provide an Email and a Nickname. The timezone from wich your device is connected is automatically estimated and **essential 1st party cookies** are placed in your browser. These cookies **sole purpose** is to authenticate your account and enable you to interact with the content.
 
 You are free to remove your account at anytime.
 
