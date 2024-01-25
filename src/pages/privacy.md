@@ -11,6 +11,8 @@ Dyne.org is adamant about privacy and working hard to avoid the involvement of a
 This Privacy Policy describes how your personal information is collected, used, and shared when you visit [dyne.org](https://dyne.org) or use any of it's community services at [fed.dyne.org](https://fed.dyne.or) and [news.dyne.org](https://news.dyne.org)
 
 ### PERSONAL INFORMATION WE COLLECT
+
+#### DYNE.ORG
 When you visit https://dyne.org, dyne.org automatically logs your IP for a limited amount of time. We DO NOT collect any information and no cookies are placed in your browser. However, our community services require some information from you in order to operate.
 
 #### NEWS.DYNE.ORG 
