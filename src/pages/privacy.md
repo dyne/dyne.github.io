@@ -8,18 +8,18 @@ description: "Privacy is paramount in everything Dyne.org does"
 
 Dyne.org is adamant about privacy and working hard to avoid the involvement of any third party. We do our best to be GDPR compliant – if you have any question or comments you’re most welcome to reach out to us: [info+gdpr@dyne.org](mailto:info+gdpr@dyne.org)
 
-This Privacy Policy describes how your personal information is collected, used, and shared when you visit [dyne.org](https://dyne.org) or use any of it's community services at [fed.dyne.org](https://fed.dyne.or)g and [news.dyne.org](https://news.dyne.org)
+This Privacy Policy describes how your personal information is collected, used, and shared when you visit [dyne.org](https://dyne.org) or use any of it's community services at [fed.dyne.org](https://fed.dyne.or) and [news.dyne.org](https://news.dyne.org)
 
 ### PERSONAL INFORMATION WE COLLECT
 When you visit https://dyne.org, dyne.org automatically logs your IP for a limited amount of time. We DO NOT collect any information and no cookies are placed in your browser. However, our community services require some information from you in order to operate.
 
 #### NEWS.DYNE.ORG 
-News.dyne.org automatically logs your IP for a limited amount of time. If you chose to interact (register/login) with the service, you have to consensually provide an Email and a Nickname. The national location and timezone from wich your device is connected is automatically estimated and **essential** 1st party cookies are placed in your browser. These cookies sole purpose is to authenticate your account and enable you to interact with the content. Additionally, as you browse the Site, we automatically collect information about interactions you make through out news.dyne.org what external websites or search terms referred you to the Site. We refer to this automatically-collected information as “Device Information.”
+News.dyne.org automatically logs your IP for a limited amount of time. If you chose to interact (register/login) with the service, you have to consensually provide an Email and a Nickname. The national location and timezone from wich your device is connected is automatically estimated and **essential 1st party cookies** are placed in your browser. These cookies **sole purpose** is to authenticate your account and enable you to interact with the content. Additionally, as you browse the Site, we automatically collect information about interactions you make through out news.dyne.org what external websites or search terms referred you to the Site. We refer to this automatically-collected information as “Device Information.”
 
 News.dyne.org sends out newsletter. These newsletter contain 1st party “Web beacons,” “tags,” and “pixels”. These are electronic files used to record information about how you interact with the newsletters. You are free to unsubscribe from these newsletters at anytime, including the removal of your account
 
 #### FED.DYNE.ORG
-Fed.dyne.org automatically logs your IP for a limited amount of time. If you chose to interact (register/login) with the service, you have to consensually provide an Email and a Nickname. The national location and timezone from wich your device is connected is automatically estimated and **essential** 1st party cookies are placed in your browser. These cookies sole purpose is to authenticate your account and enable you to interact with the content.
+Fed.dyne.org automatically logs your IP for a limited amount of time. If you chose to interact (register/login) with the service, you have to consensually provide an Email and a Nickname. The national location and timezone from wich your device is connected is automatically estimated and **essential 1st party cookies** are placed in your browser. These cookies **sole purpose** is to authenticate your account and enable you to interact with the content.
 
 You are free to remove your account at anytime.
 
