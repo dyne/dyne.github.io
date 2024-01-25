@@ -35,7 +35,7 @@ You are free to remove your account at anytime.
 
 We use the personal information to:
 - Screen your interactions for potential risk or fraud.
-- When in line with the preferences you have shared with us, communicate information relating to Dyne.org Foundation or services to you.
+- When in line with the preferences you have shared with us, communicate information relating to Dyne.org Foundation or the community services to you.
 
 ### SHARING YOUR PERSONAL INFORMATION
 
