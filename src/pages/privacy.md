@@ -62,6 +62,6 @@ We may update this privacy policy from time to time in order to reflect, for exa
 ### CONTACT US
 For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at info+gdpr@dyne.org.
 
-**Dyne.org foundation**
-**Haparandadam 7-A1**
-**1013AK Amsterdam**
+**Dyne.org foundation, Haparandadam 7-A1, 1013AK Amsterdam, Netherlands**
+  
+Last modified: 2024-01-25
