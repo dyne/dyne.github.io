@@ -7,7 +7,7 @@ layout: ../../layouts/Layout.astro
 
 ## Be Welcome In a GNU+Linux World!
 
-For culture and information to ciruclate freely and unbiased, media activists, artists and creatives need to be independent from corporate alienation. Dynebolic is an Operating System and a practical tool for **multimedia production**: it enables the manipulation and broadcasting of both **audio and video** with tools to **record**, **edit**, **encode**, **stream**, and publish. Dyne:bolic automatically recognizes most device and peripherals: audio, video, TV, network cards, firewire, usb and more; all using only free software!
+For culture and information to circulate freely and unbiased, media activists, artists and creatives need to be independent from corporate alienation. Dynebolic is an Operating System and a practical tool for **multimedia production**: it enables the manipulation and broadcasting of both **audio and video** with tools to **record**, **edit**, **encode**, **stream**, and publish. Dyne:bolic automatically recognizes most device and peripherals: audio, video, TV, network cards, firewire, usb and more; all using only free software!
 
 #### Dyne.org is happy to announce that the [development of Dyne:bolic IV is being resumed](https://github.com/dyne/dynebolic/)! Hacker; unite! Let's take back the means of production and publication of our art, stories and creativity. 
 
