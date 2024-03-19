@@ -14,7 +14,7 @@ If you are already an Emacs user, you likely don’t need AutOrg. However, here 
 
 If you never heard about anything we have named so far, then this is your chance to become a bit more literate about **reliable computer tools**: grab this occasion and read on! The time you spend studying this stuff will all be saved off the frustrations from using proprietary, third-party tools or even worst on-line services which are apparently easy, but unreliable on the longer term.
 
-If you like, you are welcome to [share your suggestions](https://dyne.org/contact) and [make a donation](https://ko-fi.com/dyneorg) to the people busy on this development.
+If you like, you are welcome to [share your suggestions](https://dyne.org/contact) and [make a donation](/donate) to the people busy on this development.
 
 # Features
 
