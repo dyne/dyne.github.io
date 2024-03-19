@@ -1,0 +1,24 @@
+---
+interface Props {
+	intro?: string;
+	href: string;
+}
+
+const { intro, href } = Astro.props;
+---
+
+<a href={href}>
+	<div class="flex flex-col gap-y-8 py-8">
+		<div class="grid grid-cols lg:grid-cols-1 gap-6 px-8">
+			<div
+				class="transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent hover:border-accent hover:shadow-none hover:bg-white hover:bg-opacity-50 rounded-[40px] p-7 space-y-4"
+			>
+				{intro && <p class="text-3xl text-inter !text-saccent">{intro}</p>}
+
+				<div>
+					<slot />
+				</div>
+			</div>
+		</div>
+	</div>
+</a>
