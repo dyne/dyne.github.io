@@ -6,10 +6,13 @@ import Hero from '~/components/homepage/Hero.astro';
 import Stats from '~/components/homepage/Stats.astro';
 import Projects from '~/components/homepage/Projects.astro';
 import Testimonials from '~/components/homepage/Testimonials.astro';
-import BannerMerch from '~/components/homepage/BannerMerch.astro';
 import Timeline from '~/components/timeline/home/TimelineHome.svelte';
 import Supports from '~/components/homepage/Supports.astro';
 import Button from '~/components/Button.astro';
+import SoftwareAnnouncement from '~/components/SoftwareAnnouncement.astro';
+
+import Banner from '~/assets/dynebolic-banner.svg?raw';
+import Svg from '~/components/Svg.astro';
 ---
 
 <Layout title="Dyne.org">
@@ -27,6 +30,13 @@ import Button from '~/components/Button.astro';
 
 		<Stats />
 
+		<SoftwareAnnouncement
+			intro="Dyne.org foundation is proud to announce a new RASTASOFT production:"
+			href="https://dynebolic.org"
+		>
+			<Svg content={Banner} />
+		</SoftwareAnnouncement>
+
 		<Projects />
 
 		<Testimonials />
@@ -41,6 +51,5 @@ import Button from '~/components/Button.astro';
 				</div>
 			</Section>
 		</div>
-
 	</main>
 </Layout>
