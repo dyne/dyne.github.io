@@ -41,26 +41,26 @@ Each activity is easily reached from the desktop panel or via keyboard shortcuts
 
 ![Screenshots of dynebolic and the activities](/images/projects/full-activities-xomposition.webp)
 
-## Join us
+## 🫱🏻‍🫲🏿 Join us
 
 Those who remember how dynebolic was already 20 years ago recall well that we are not just working on a wonderful distribution to introduce people to the Free Software Movement and its original values, but we also facilitate a community of creatives that help each other to make this distribution better. You are very welcome to join us in the online channels and give use feedback: this release is BETA, because we need your help.
 
 - [IRC](https://irc.dyne.org/?channels=dynebolic)
 - [Matrix](https://socials.dyne.org/matrix-dynebolic)
 
-## The path to the final release 
+## 🏁 The path to the final release 
 While you may already be able to produce work in most workflows with this beta release, expect bugs. 
 
-#### Audio production
+#### 🔊 Audio production
 This part still needs a lot of love; proper audio routing still needs to be configured. For this, we are currently experimenting with PipeWire, but you are more than welcome to join us in the quest for the optimal interoperable configuration. Dynebolic emphases reuse: it is of utmost importance that the final state be compatible with as many devices as possible, including older sound-devices.
 
-#### Wallpaper
+#### 🎨 Wallpaper
 Currently, each activity has a placeholder wallpaper-art that works. But ultimately, we'd love to have an artwork for each workflow. Is this your call? Join us in the channels to propose your vision of the most beautiful and functional artwork.
 
-#### Modules
+#### 🧩 Modules
 Also for this new release of Dynebolic there is an easy way to brew your own modules and distribute them freely from your website, contact us if you are interested to know and and help us writing up this part of the documentation.
 
-## Source code
+## 👩🏿‍💻 Source code
 To secure your init-freedom, dyne:bolic IV is based on [Devuan](https://www.devuan.org) and all its build system is published here:
 
 **[https://git.devuan.org/jaromil/dynebolic](https://git.devuan.org/jaromil/dynebolic)**
