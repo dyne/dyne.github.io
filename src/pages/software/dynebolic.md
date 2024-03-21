@@ -16,6 +16,8 @@ This is Free Software, share it for the good of yourself and the people around y
 
 <a id="" href="https://files.dyne.org/dynebolic/dynebolic-4.0.0-beta.iso" class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-4 px-8 rounded-full w-fit text-2xl whitespace-nowrap center">👉🏽 Download dynebolic 👈🏿</a>
 
+([sha512sum](https://files.dyne.org/dynebolic/dynebolic-4.0.0-beta.iso.sha512sum))
+
 ✊🏿 **There can be no peace without justice.** This software is a tool for resistance, to share knowledge and information in a Babylonian world that seeks to control the way we communicate as much as possible. This software is for all those who cannot afford new expensive equipment to express their consciousness and words of goodwill. This software is not just for consuming information: it has a whole series of tools for producing it. It is a complete multimedia studio, thanks to it you do not need to buy anything to express yourself. Freedom, knowledge sharing and empowerment are the pillars of our development. That is where this software comes from.
 
 🔥 **Dynebolic is a Live and 100% Free Operating System for multimedia production,** it runs from a USB stick and it requires no installation, giving you a chance to try GNU/Linux applications without any ads,  spyware or attempts to make you pay to express your creativity. We include free software to create your own media and not just consume it with a gratis player and expensive producer products, because we believe in free speech and freedom of creation. Jah Bless You.
