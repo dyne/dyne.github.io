@@ -4,13 +4,70 @@ description: |
   Dyne:bolic is a 100% Free Software Operating System for multimedia production, recommended by the Free Software Foundation. It is a live ISO that can run from a CD or Drive, without the need to install.
 layout: ../../layouts/Layout.astro
 ---
+## dyne:bolic IV in beta 
+
+**The [Dyne.org](https://dyne.org/software/dynebolic) foundation is proud to announce a new [RASTASOFT](https://rastasoft.org) production: Dynebolic 4.0 BETA.**
+
+![rastasoft lion, happy lion, jah bless](/images/projects/rastalion.svg)
+
+## Jah Rastafari Livity Bless Us With Freedom!
+
+This is Free Software, share it for the good of yourself and the people around you, respect others and let them express, be free and let others be free. Live clean and let your work be seen! May you live a long and prosperous life in peace!
+
+<a id="" href="https://files.dyne.org/dynebolic/development/dyneIV-latest.iso" class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-4 px-8 rounded-full w-fit text-2xl whitespace-nowrap center">👉🏽 Download dynebolic 👈🏿</a>
+
+✊🏿 **There can be no peace without justice.** This software is a tool for resistance, to share knowledge and information in a Babylonian world that seeks to control the way we communicate as much as possible. This software is for all those who cannot afford new expensive equipment to express their consciousness and words of goodwill. This software is not just for consuming information: it has a whole series of tools for producing it. It is a complete multimedia studio, thanks to it you do not need to buy anything to express yourself. Freedom, knowledge sharing and empowerment are the pillars of our development. That is where this software comes from.
+
+🔥 **Dynebolic is a Live and 100% Free Operating System for multimedia production,** it runs from a USB stick and it requires no installation, giving you a chance to try GNU/Linux applications without any ads,  spyware or attempts to make you pay to express your creativity. We include free software to create your own media and not just consume it with a gratis player and expensive producer products, because we believe in free speech and freedom of creation. Jah Bless You.
+
+🫰🏾 **In this Babylonian world, money is a vital necessity in order to make one's voice heard.** Capitalist and ideological governments rule the world by using a monopoly on mass television and corporate social media to propagate their principles, and suppress all criticism. With Dynebolic we break free from exploitative operating systems: always demanding expensive hardware, giving us free players while requiring us to spend money to make and share our own creations.
+
+🖖🏾 **Dynebolic is a self-contained production and publishing tool.** There is no need to spend anything, it contains everything you need for production. It commits to the Free System Distribution Guidelines of the GNU project and includes exclusively free software: we reject nonfree applications, nonfree programming platforms, nonfree drivers and firmware, nonfree games, and any other nonfree software, as well as nonfree manuals or documentation. 
+
+
+## Version IV
+
+Ten years have passed and today we are back with a brand new Dynebolic 4.0 based on Devuan 5 "Daedalus", live-boot and the Linux kernel 6.8 series.
+
+We introduce a new user experience organized as different journeys into creativity, that we call workflows. Our desktop adopts KDE 5 Plasma and its "Activities" to provide pre-sets for five specific workflows:
+
+- Streaming
+- Audio
+- Video
+- Graphics
+- Publishing
+
+Each activity is easily reached from the desktop panel or via keyboard shortcuts and offers everything needed for each workflow, while excluding the noise of other workflows, without compromising on access. If you are working for example in the Graphic workflow, nothing is stooping you from starting an app that pertains to, say, the Video workflow. Activities are easily customizable by the user in the system settings.
+
+![Screenshots of dynebolic and the activities](/images/projects/full-activities-xomposition.webp)
+
+## Join us
+
+Those who remember how dynebolic was already 20 years ago recall well that we are not just working on a wonderful distribution to introduce people to the Free Software Movement and its original values, but we also facilitate a community of creatives that help each other to make this distribution better. You are very welcome to join us in the online channels and give use feedback: this release is BETA, because we need your help.
+
+- [IRC](https://irc.dyne.org/?channels=dynebolic)
+- [Matrix](https://socials.dyne.org/matrix-dynebolic)
+
+## The path to the final release 
+While you may already be able to produce work in most workflows with this beta release, expect bugs. 
+
+#### Audio production
+This part still needs a lot of love; proper audio routing still needs to be configured. For this, we are currently experimenting with PipeWire, but you are more than welcome to join us in the quest for the optimal interoperable configuration. Dynebolic emphases reuse: it is of utmost importance that the final state be compatible with as many devices as possible, including older sound-devices.
+
+#### Wallpaper
+Currently, each activity has a placeholder wallpaper-art that works. But ultimately, we'd love to have an artwork for each workflow. Is this your call? Join us in the channels to propose your vision of the most beautiful and functional artwork.
+
+#### Modules
+Also for this new release of Dynebolic there is an easy way to brew your own modules and distribute them freely from your website, contact us if you are interested to know and and help us writing up this part of the documentation.
+
+## Source code
+To secure your init-freedom, dyne:bolic IV is based on [Devuan](https://www.devuan.org) and all its build system is published here:
+
+**[https://git.devuan.org/jaromil/dynebolic](https://git.devuan.org/jaromil/dynebolic)**
 
 ## Be Welcome In a GNU+Linux World!
 
 For culture and information to circulate freely and unbiased, media activists, artists and creatives need to be independent from corporate alienation. Dynebolic is an Operating System and a practical tool for **multimedia production**: it enables the manipulation and broadcasting of both **audio and video** with tools to **record**, **edit**, **encode**, **stream**, and publish. Dyne:bolic automatically recognizes most device and peripherals: audio, video, TV, network cards, firewire, usb and more; all using only free software!
-
-#### Dyne.org is happy to announce that the [development of Dyne:bolic IV is being resumed](https://github.com/dyne/dynebolic/)! Hacker; unite! Let's take back the means of production and publication of our art, stories and creativity. 
-
 
 ### Join the community
 
@@ -41,7 +98,7 @@ Unleash the full potential of computers, including **second hand machines**. Let
 
 The Dyne:bolic Operating System is about resilience and digital resistance. In a reality where governments and corporation are excercising control by monitoring the way people communicate, hackers, creatives and citizens of the digital era have a common interest in keeping their computing sovereign. To accomplish this, sharing knowledge is paramount.
 
-[![lion-rastasoft](/wp-content/uploads/2011/09/lion-rastasoft.png)](http://rastasoft.org)
+[![lion-rastasoft](/images/projects/rastalion-transparenbackground.svg)](http://rastasoft.org)
 
 Liberate yourself from mental slavery. Embrace sovereign communication. Free your mind, open the source!
 
