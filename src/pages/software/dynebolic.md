@@ -14,7 +14,7 @@ layout: ../../layouts/Layout.astro
 
 This is Free Software, share it for the good of yourself and the people around you, respect others and let them express, be free and let others be free. Live clean and let your work be seen! May you live a long and prosperous life in peace!
 
-<a id="" href="https://files.dyne.org/dynebolic/development/dyneIV-latest.iso" class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-4 px-8 rounded-full w-fit text-2xl whitespace-nowrap center">👉🏽 Download dynebolic 👈🏿</a>
+<a id="" href="https://files.dyne.org/dynebolic/dynebolic-4.0.0-beta.iso" class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-4 px-8 rounded-full w-fit text-2xl whitespace-nowrap center">👉🏽 Download dynebolic 👈🏿</a>
 
 ✊🏿 **There can be no peace without justice.** This software is a tool for resistance, to share knowledge and information in a Babylonian world that seeks to control the way we communicate as much as possible. This software is for all those who cannot afford new expensive equipment to express their consciousness and words of goodwill. This software is not just for consuming information: it has a whole series of tools for producing it. It is a complete multimedia studio, thanks to it you do not need to buy anything to express yourself. Freedom, knowledge sharing and empowerment are the pillars of our development. That is where this software comes from.
 
