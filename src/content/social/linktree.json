@@ -26,6 +26,11 @@
         "link": "https://socials.dyne.org/telegram-devuan",
         "tagline": "Welcome to the Devuan GNU+Linux group on Telegram."
       },
+            {
+        "name": "Dynebolic",
+        "link": "https://socials.dyne.org/telegram-dynebolic",
+        "tagline": "Welcome to the dynebolic group on Telegram."
+      },
       {
         "name": "frei0r",
         "link": "https://socials.dyne.org/telegram-frei0r",
@@ -57,6 +62,11 @@
         "name": "Interfacer Space",
         "link": "https://socials.dyne.org/matrix-interfacer",
         "tagline": "Collection of channels related to Interfacer."
+      },
+      {
+        "name": "Dynebolic Channel",
+        "link": "https://socials.dyne.org/matrix-dynebolic",
+        "tagline": "Welcome to the dynebolic channel on Matrix."
       }
     ]
   },
