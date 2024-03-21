@@ -1,10 +1,10 @@
 ---
-title: "Dyne:bolic :: Free & Live Creative Multimedia"
+title: "Dynebolic :: Free & Live Creative Multimedia"
 description: |
   Dyne:bolic is a 100% Free Software Operating System for multimedia production, recommended by the Free Software Foundation. It is a live ISO that can run from a CD or Drive, without the need to install.
 layout: ../../layouts/Layout.astro
 ---
-## dyne:bolic IV in beta 
+## dynebolic IV in beta 
 
 **The [Dyne.org](https://dyne.org/software/dynebolic) foundation is proud to announce a new [RASTASOFT](https://rastasoft.org) production: Dynebolic 4.0 BETA.**
 
