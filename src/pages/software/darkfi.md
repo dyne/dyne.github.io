@@ -33,7 +33,7 @@ a Dark Renaissance.
 
 The source code of DarkFi is released under the terms of the **GNU
 Affero General Public License**. The latest source code can be obtained
-using **git** at: [github.com/darkrenaissance/darkfi](https://github.com/darkrenaissance/darkfi)
+using **git** at: [codeberg.org/darkrenaissance/darkfi](https://codeberg.org/darkrenaissance/darkfi)
 
 Further instructions on how to compile and install the software can
 be found in the repository's README file.
@@ -43,7 +43,7 @@ be found in the repository's README file.
 DarkFi's documentation can be found in the [mdbook](https://darkrenaissance.github.io/darkfi/)
 where most of the ecosystem is documented. Additionally, the source
 code and the programming API documentation is available in the
-[git repository](https://github.com/darkrenaissance/darkfi) and can be
+[git repository](https://codeberg.org/darkrenaissance/darkfi) and can be
 built with `make rustdoc`.
 
 # Communication
