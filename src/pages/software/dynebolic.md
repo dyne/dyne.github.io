@@ -76,9 +76,9 @@ For culture and information to circulate freely and unbiased, media activists, a
 All the chat rooms are bridged, join the discussion with your favorite chat client, be it [Telegram](https://socials.dyne.org/telegram-dynebolic), [Matrix](https://socials.dyne.org/matrix-dynebolic) or [Discord](https://socials.dyne.org/discord-dynebolic).
 
 ### Keep the memes based!
-Fediverse users are invited to contribute with memes, questions and/or discussions on the Dynebolic [Lemmy](https://fed.dyne.org/c/dynebolic)
+Fediverse users are invited to contribute with memes, questions and/or discussions on the dynebolic [Lemmy](https://fed.dyne.org/c/dynebolic)
 
-## What is Dynebolic?
+## What is dynebolic?
 
 ### 100% Free, As In Speech
 
@@ -98,7 +98,7 @@ Unleash the full potential of computers, including **second hand machines**. Let
 
 ### Digital Resistance
 
-The Dynebolic Operating System is about resilience and digital resistance. In a reality where governments and corporation are excercising control by monitoring the way people communicate, hackers, creatives and citizens of the digital era have a common interest in keeping their computing sovereign. To accomplish this, sharing knowledge is paramount.
+The dynebolic Operating System is about resilience and digital resistance. In a reality where governments and corporation are excercising control by monitoring the way people communicate, hackers, creatives and citizens of the digital era have a common interest in keeping their computing sovereign. To accomplish this, sharing knowledge is paramount.
 
 [![lion-rastasoft](/images/projects/rastalion-transparenbackground.svg)](http://rastasoft.org)
 
@@ -116,15 +116,15 @@ Dynebolic also includes support for strong encryption of private data, thanks to
 
 ### Freedom Of Expression
 
-More than the means of media playback, Dynebolic includes free software for the production of professional grade multimedia.
+More than the means of media playback, dynebolic includes free software for the production of professional grade multimedia.
 
 ![dancing-tux](/wp-content/uploads/2015/01/dancing-tux.gif)
 
-For everything you can see and play, Dynebolic includes the software to create it. This Operating System lets you express yourself, without the need to rent a license or install additional components. Dynebolic was built to make it possible for people to be the independent producers of their own story. Not just content creators for corporate platforms or consumers of information.
+For everything you can see and play, dynebolic includes the software to create it. This Operating System lets you express yourself, without the need to rent a license or install additional components. Dynebolic was built to make it possible for people to be the independent producers of their own story. Not just content creators for corporate platforms or consumers of information.
 
 ## Appreciated Worldwide
 
-Since its birth in 2000, Dynebolic has been redistributed by several magazines and adopted by universities, community initiatives, medialabs and public institutions around the World.
+Since its birth in 2000, dynebolic has been redistributed by several magazines and adopted by universities, community initiatives, medialabs and public institutions around the World.
 
 Listen to this recording from BBC World Debate on Future of learning 12 December 2007 GK3 conference, Kuala Lumpur:
 [![unesco](/wp-content/uploads/2015/01/unesco.jpg)](http://www.unesco.org/archives/multimedia/index.php?s=films_details\&id_page=33\&id_film=1985)
@@ -133,7 +133,7 @@ Listen to this recording from BBC World Debate on Future of learning 12 December
 > Dynebolic is a multimedia studio that you simply pop into any computer and start it up, instantly turning it into a Linux/GNU system without affecting existing things on your computer.
 > - Independent UK "Top 10 open source in 2005"
 
-> Readers with older Windows PCs can use Dynebolic to run the GNU/Linux version of Pure Data on their machine without affecting their Windows installation, creating audio files in GNU/Linux before transferring them into their sequencer.
+> Readers with older Windows PCs can use dynebolic to run the GNU/Linux version of Pure Data on their machine without affecting their Windows installation, creating audio files in GNU/Linux before transferring them into their sequencer.
 > - Adam Armfield, "Sound on Sound", 2006
 
 
@@ -151,6 +151,6 @@ MD5 sum 23371b38a375dfd5efb88872a336c6db  dynebolic-3.0.0-beta.iso
 
 File integrity verifiable using Jaromil’s old key 0xF6D3FBD9C2B68E39
 
-[Download Dynebolic 3.0-beta (i386)](https://files.dyne.org/dynebolic)
+[Download dynebolic 3.0-beta (i386)](https://files.dyne.org/dynebolic)
 
 ## &nbsp;
