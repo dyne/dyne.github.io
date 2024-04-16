@@ -138,17 +138,4 @@ Listen to this recording from BBC World Debate on Future of learning 12 December
 > It has all the right apps for an artist to express his creativity, without the headache of installing and configuring them. It includes some of the best free and open source tools with which you can compose music, mix video streams, and create 3-D animations.
 > - Mayank Sharma, Linux.com, 2007
 
-
-## Dynebolic III
-
-1.4 GB ISO, Run from DVD, USB or VM
-
-Codename: **MUNIR** – released in September 2011
-
-MD5 sum 23371b38a375dfd5efb88872a336c6db  dynebolic-3.0.0-beta.iso
-
-File integrity verifiable using Jaromil’s old key 0xF6D3FBD9C2B68E39
-
-[Download dynebolic 3.0-beta (i386)](https://files.dyne.org/dynebolic)
-
 ## &nbsp;
