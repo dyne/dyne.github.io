@@ -73,10 +73,6 @@ To secure your init-freedom, dynebolic IV is based on [Devuan](https://www.devua
 
 For culture and information to circulate freely and unbiased, media activists, artists and creatives need to be independent from corporate alienation. Dynebolic is an Operating System and a practical tool for **multimedia production**: it enables the manipulation and broadcasting of both **audio and video** with tools to **record**, **edit**, **encode**, **stream**, and publish. Dynebolic automatically recognizes most device and peripherals: audio, video, TV, network cards, firewire, usb and more; all using only free software!
 
-### Join the community
-
-All the chat rooms are bridged, join the discussion with your favorite chat client, be it [Telegram](https://socials.dyne.org/telegram-dynebolic), [Matrix](https://socials.dyne.org/matrix-dynebolic) or [Discord](https://socials.dyne.org/discord-dynebolic).
-
 ### Keep the memes based!
 Fediverse users are invited to contribute with memes, questions and/or discussions on the dynebolic [Lemmy](https://fed.dyne.org/c/dynebolic)
 
