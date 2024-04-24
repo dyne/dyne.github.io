@@ -1,14 +1,20 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "Dowse :: local area network rabdomancy"
-description: "Dowse is a RPi application that functions as a transparent proxy for home network privacy and visualizes network traffic real-time."
+title: "Dowse :: Network Awareness"
+description: "Dowse is a beautiful network visualization to make us privacy conscious in the Internet of Things era."
 ---
 
-# Dowse :: local area network rabdomancy
+# Dowse :: LAN rhabdomancy
+
+![Dowse network visualization](/images/projects/dowse/Background-grey-transp.png)
+
+Dowse processes all DNS network connections on its network and makes them visible in real-time, showing when we connect to .com or .org or .net domains, or to the corporate cloud of social networks. This way we can immediately see how many connections are opened by our personal devices, without us even knowing, every time we connect to a network.
 
 ![dowsing\_on\_map](https://www.dyne.org/wp-content/uploads/2013/07/dowsing_on_map.png)
 
 Running a network in the age of the Internet of Things means hosting the connectivity of multiple devices owned by a diversity of subjects. Often such devices have full access to private, common and public information about humans operating them. Furthermore, devices can talk to each other without humans even asking and such interactions are not even manifest. This situation raises issues that are not just technical, but socio-political, about the way **connections happen without human consent**, within local networks and towards the outside, to and from the Internet.
+
+![Dowse box](/images/projects/dowse/20160705_082209.jpg)
 
 The risks of *unconscious* abuse or exploitation of information asymmetry is growing tremendously. As **things initiate the context of users**, we are making a major leap towards a world that provides us with contexts that we may not want at all. Getting some insights on such situations is crucial for civil society at large.
 
@@ -43,6 +49,8 @@ In a highly connected home environment, Dowse will provide an easy to use interf
 From a legal perspective, **Dowse clearly separates the leased network device by the network carrier (ISP) from user owned LAN devices**, making them opaque to each other.
 
 Dowse helps **removing undesired advertisements and browser malware** to make Internet surfing less distracting and less dangerous. Dowse filters all clear web traffic to avoid advertisements, but also applies IP block-lists to avoid known malware distributors and botnet connections, also useful to avoid damages and complaints in case a tainted device brought in by a guest connects from inside the network.
+
+![Dowse data protection](/images/projects/dowse/dowse-dataprevention-campaign-1024x576.jpg)
 
 Dowse enhances the privacy of people surfing the Internet in cases where **confidentiality and integrity of research conducted from an office premise or at home is important**. For example in case of journalists and activists, the profiling of DNS resolution queries can be a delicate point of vulnerability to all kinds of covert operations: not just passive tapping, but also active deception. Dowse alleviates the risk in such situation by relying on the connection to a few trusted and authenticated DNS services, encrypting all traffic (UDP port 53) and avoiding most widespread covert practices of user profiling. In case of Internet censorship, Dowse also facilitates access to parallel networks that let users circumvent limitations imposed by a connectivity carrier. Access to parallel networks like Tor, I2P, GNUnet or Netsukuku will be granted without requiring users to install any software.
 
@@ -127,3 +135,20 @@ Its realization was inspired by dialogues with Anatole Shaw, Hellekin O. Wolf, J
 Dowse depends from various free and open source software components redistributed under the GNU GPLv2 and GPLv3, MIT/BSD or Apache\
 licenses. Their sources are the property of the respective authors and are used by Dowse in the binary form offered by major distributions.
 
+![Dowse illustration](/images/projects/dowse/Dowse-1024x724.jpeg)
+
+## Credits
+
+The Dowse network visualization shown in the exibition is designed and developed by Denis "Jaromil" Roio, who published it along with the Dowse Whitepaper in 2013.
+
+Soon Jaromil was joined by Rob van Kranenburg who has woven the Dowse narrative to a wider perspective on the Internet of Things, and by Federico Bonelli who ran workshops in various schools using Dowse.
+
+![Dowse workshop](/images/projects/dowse/hd6.jpg)
+
+![Dowse workshop](/images/projects/dowse/h10-1024x683.jpg)
+
+![Dowse workshop](/images/projects/dowse/hd8.jpg)
+
+The project has been funded by SIDN Fonds and received the ISOC NL Prize 2016.
+
+The Dowse software running in this exhibition includes code contributions by Luca Greco, Ivan Jelinčić, Andrea Scarpino, Nicola Rossi and Danilo Spinella, and is based on the DNSCrypt Proxy v2 framework by Frank Denis. Jaromil is still the current maintainer and accepts contributions via Dyne.org.
