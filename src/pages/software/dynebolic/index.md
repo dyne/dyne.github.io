@@ -14,7 +14,14 @@ layout: ../../../layouts/Layout.astro
 
 This is Free Software, share it for the good of yourself and the people around you, respect others and let them express, be free and let others be free. Live clean and let your work be seen! May you live a long and prosperous life in peace!
 
-<a id="" href="https://files.dyne.org/dynebolic/dynebolic-4.0.0-beta.iso" class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-4 px-8 rounded-full w-fit text-2xl whitespace-nowrap center">👉🏽 Download dynebolic 👈🏿</a>
+## Downloads
+Pick a mirror:
+
+<a id="" href="https://files.dyne.org/dynebolic/dynebolic-4.0.0-beta.iso" class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-4 px-8 rounded-full w-fit text-2xl whitespace-nowrap center">👉🏽 Download - dyne.org 🇩🇪</a>
+
+<a id="" href="https://mirror.k0a1a.net/~dynebolic/dynebolic-4.0.0-beta.iso" class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-4 px-8 rounded-full w-fit text-2xl whitespace-nowrap center">👉🏽 Download - k0a1a.net 🏴</a>
+
+<a id="" href="https://mirrors.ircam.fr/pub/dynebolic/development/dynebolic-4.0.0-beta.iso" class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-4 px-8 rounded-full w-fit text-2xl whitespace-nowrap center">👉🏽 Download - ircam.fr 🇫🇷</a>
 
 ([sha512sum](https://files.dyne.org/dynebolic/dynebolic-4.0.0-beta.iso.sha512sum))
 
