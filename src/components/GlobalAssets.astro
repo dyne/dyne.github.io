@@ -6,16 +6,10 @@ import '@fontsource/jetbrains-mono';
 import '../base.css';
 ---
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dyne/components/dist/dyne-components/dyne-components.css" />
+<script type="module" src="https://cdn.jsdelivr.net/npm/@dyne/components/dist/dyne-components/dyne-components.esm.js"
+></script>
 <script is:inline>
-	if (
-		localStorage.theme === 'dark' ||
-		(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-	) {
-		document.documentElement.classList.add('dark');
-	} else {
-		document.documentElement.classList.remove('dark');
-	}
-
 	function attachEvent(selector, event, fn) {
 		const matches = document.querySelectorAll(selector);
 		if (matches && matches.length) {
@@ -43,13 +37,7 @@ import '../base.css';
 			elem.classList.toggle('expanded');
 			document.body.classList.toggle('overflow-hidden');
 			document.getElementById('menu')?.classList.toggle('hidden');
-			// document.querySelector('header')?.classList.toggle('bg-black');
 		});
-
-		// attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
-		// 	document.documentElement.classList.toggle('dark');
-		// 	localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-		// });
 	};
 	window.onpageshow = function () {
 		const elem = document.querySelector('[data-aw-toggle-menu]');

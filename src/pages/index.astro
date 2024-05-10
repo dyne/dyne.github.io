@@ -1,15 +1,14 @@
 ---
-import Layout from '~/layouts/HomepageLayout.astro';
 import Section from '~/components/Section.svelte';
-import WhoWeAre from '~/components/homepage/WhoWeAre.astro';
-import Hero from '~/components/homepage/Hero.astro';
-import Stats from '~/components/homepage/Stats.astro';
-import Projects from '~/components/homepage/Projects.astro';
-import Testimonials from '~/components/homepage/Testimonials.astro';
 import BannerMerch from '~/components/homepage/BannerMerch.astro';
-import Timeline from '~/components/timeline/home/TimelineHome.svelte';
+import Hero from '~/components/homepage/Hero.astro';
+import Projects from '~/components/homepage/Projects.astro';
+import Stats from '~/components/homepage/Stats.astro';
 import Supports from '~/components/homepage/Supports.astro';
-import Button from '~/components/Button.astro';
+import Testimonials from '~/components/homepage/Testimonials.astro';
+import WhoWeAre from '~/components/homepage/WhoWeAre.astro';
+import Timeline from '~/components/timeline/home/TimelineHome.svelte';
+import Layout from '~/layouts/HomepageLayout.astro';
 ---
 
 <Layout title="Dyne.org">
@@ -37,7 +36,9 @@ import Button from '~/components/Button.astro';
 			<Section id="timeline" title="What we did" contentPadding={false}>
 				<Timeline client:only />
 				<div class="p-8 lg:p-12 flex justify-end">
-					<Button text="View full timeline" href="/timeline" />
+					<a href="/timeline">
+						<dyne-button>View full timeline</dyne-button>
+					</a>
 				</div>
 			</Section>
 		</div>

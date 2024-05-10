@@ -1,19 +1,29 @@
 ---
 import * as copy from '../../content/hero/index.md';
-import Button from '~/components/atoms/NewButton.astro';
 import Caffuda from '../Caffuda.astro';
-import ButtonsGroup from '../ButtonsGroup.astro';
 ---
 
 <div class="flex flex-col lg:flex-row items-center space-y-20 lg:space-y-0 px-10 lg:py-36">
 	<div class="flex flex-col w-full space-y-8 tracking-tight">
 		<div class="text-6xl text-saccent" set:html={copy.compiledContent()} />
 		<p class="max-w-3xl text-2xl font-inter text-saccent">{copy.frontmatter.welcome}</p>
-		<ButtonsGroup>
-			<Button href={copy.frontmatter.url}>{copy.frontmatter.CTA}</Button>
-			<Button href={copy.frontmatter.url1} outline={true}>{copy.frontmatter.CTA1}</Button>
-			<Button href={copy.frontmatter.url2} outline={true}>{copy.frontmatter.CTA2}</Button>
-		</ButtonsGroup>
+		<dyne-inline>
+			<a href={copy.frontmatter.url}>
+				<dyne-button emphasis="high">
+					{copy.frontmatter.CTA}
+				</dyne-button>
+			</a>
+			<a href={copy.frontmatter.url1}>
+				<dyne-button>
+					{copy.frontmatter.CTA1}
+				</dyne-button>
+			</a>
+			<a href={copy.frontmatter.url2}>
+				<dyne-button>
+					{copy.frontmatter.CTA2}
+				</dyne-button>
+			</a>
+		</dyne-inline>
 	</div>
 	<Caffuda />
 </div>

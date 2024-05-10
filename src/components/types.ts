@@ -1,6 +1,6 @@
 type Size = 'large' | 'medium' | 'small';
 
-type Color = 'neutral' | 'black' | 'green' | 'orange' | 'purple' | 'random';
+type Color = 'primary' | 'secondary' | 'tertiary';
 
 interface CTA {
 	text: string;

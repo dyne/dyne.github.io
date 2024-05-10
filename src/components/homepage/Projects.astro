@@ -1,5 +1,4 @@
 ---
-import Button from 'A/NewButton.astro';
 import SoftwareCard from 'M/SoftwareCard.astro';
 
 const projects = await Astro.glob('~/content/homepage/projects/*.md');
@@ -27,6 +26,8 @@ const uri = (u) => {
 		}
 	</div>
 	<div class="text-center">
-		<Button href="/software">Learn more…</Button>
+		<a href="/software">
+			<dyne-button>Learn more...</dyne-button>
+		</a>
 	</div>
 </div>

@@ -1,6 +1,5 @@
 ---
 import * as copy from '~/content/supports/index.md';
-import Button from '~/components/Button.astro';
 const { description, CTA, href } = copy.frontmatter;
 ---
 
@@ -10,7 +9,9 @@ const { description, CTA, href } = copy.frontmatter;
 	>
 		<div class="text-4xl md:text-5xl lg:text-6xl text-saccent" set:html={copy.compiledContent()} />
 		<p class="max-w-2 text-2xl text-inter text-saccent">{description}</p>
-		<Button href={href} text={CTA} />
+		<dyne-button>
+			<a href={href}>{CTA}</a>
+		</dyne-button>
 	</div>
 	<div
 		class="bg-[url('/images/illustrations/manincula.png')] opacity-40 bg-contain bg-no-repeat h-full w-full hidden md:block"

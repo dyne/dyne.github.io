@@ -1,7 +1,6 @@
 ---
 import Heading from 'A/Heading.astro';
 import Card from 'M/Card.astro';
-import NewButton from '../atoms/NewButton.astro';
 
 interface Props {
 	title: string;
@@ -21,6 +20,8 @@ const { author, title, color, href } = Astro.props;
 		<p class="text-base">
 			by {author}
 		</p>
-		<NewButton size="small" color="black" outline={true} href={href}>Read it now</NewButton>
+		<a href={href}>
+			<dyne-button size="small">Read it now</dyne-button>
+		</a>
 	</div>
 </Card>

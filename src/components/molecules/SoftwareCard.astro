@@ -1,6 +1,5 @@
 ---
 import Heading from 'A/Heading.astro';
-import Button from 'A/NewButton.astro';
 import Card from 'M/Card.astro';
 
 interface Props {
@@ -34,16 +33,20 @@ const { picture, title, date, color, href, download } = Astro.props;
 		<div class="flex gap-4 flex-col md:flex-row">
 			{
 				download && (
-					<Button size="small" color="black" icon={true} href={download.href}>
-						Download
-					</Button>
+					<a href={download.href}>
+						<dyne-button size="small" emphasis="high">
+							Download
+						</dyne-button>
+					</a>
 				)
 			}
 			{
 				href && (
-					<Button slot="CTA2" size="small" color="black" outline={true} href={href.href}>
-						Learn more...
-					</Button>
+					<a href={href.href}>
+						<dyne-button size="small" emphasis="low">
+							Learn more...
+						</dyne-button>
+					</a>
 				)
 			}
 		</div>

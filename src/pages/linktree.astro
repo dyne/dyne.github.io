@@ -1,10 +1,9 @@
 ---
+import Heading from 'A/Heading.astro';
+import Card from 'M/Card.astro';
 import Layout from '~/layouts/Layout.astro';
 import links from '../content/social/linktree.json';
 import quicklinks from '../content/social/quicklinks.json';
-import Button from '~/components/Button.astro';
-import Heading from 'A/Heading.astro';
-import Card from 'M/Card.astro';
 ---
 
 <Layout
@@ -17,7 +16,13 @@ import Card from 'M/Card.astro';
 	<hr />
 	<Card class="w-full">
 		<div class="grid md:grid-cols-3 gap-8">
-			{quicklinks.map((ql) => <Button text={ql.cta} href={ql.link} cls="no-underline" />)}
+			{
+				quicklinks.map((ql) => (
+					<a href={ql.link}>
+						<dyne-button>{ql.cta}</dyne-button>
+					</a>
+				))
+			}
 		</div>
 	</Card>
 	<div class="grid grid-cols-1">
@@ -44,7 +49,9 @@ import Card from 'M/Card.astro';
 								<div>
 									<div class="w-72 text-saccent text-4xl font-medium font-['Syne'] leading-10">{link.name}</div>
 									<div class="w-72 text-saccent text-xl font-normal leading-7 mb-6 mt-2">{link.tagline}</div>
-									<Button text={link.cta || 'Join'} href={link.link} cls="no-underline" inverted={!link.main} />
+									<a href={link.link}>
+										<dyne-button emphasis={link.main ? 'high' : 'medium'}>{link.cta || 'Join'}</dyne-button>
+									</a>
 								</div>
 							))}
 						</div>
