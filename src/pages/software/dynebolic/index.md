@@ -1,6 +1,5 @@
-
 ---
-layout: ../../../layouts/redirect.astro
+layout: ~/layouts/redirect.astro
 title: "Dynebolic :: Free & Live Creative Multimedia"
 destination: "https://dyne.org/dynebolic"
 description: |
