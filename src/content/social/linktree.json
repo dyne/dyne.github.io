@@ -83,18 +83,6 @@
     ]
   },
   {
-    "group_name": "SimpleX",
-    "icon": "https://logo.dyne.org/logo",
-    "description": "Dyne channel on secure & anonymous Simplex.",
-    "links": [
-      {
-        "name": "DyneX",
-        "link": "https://socials.dyne.org/simplex",
-        "tagline": "Reach the Dyne community through SimpleX."
-      }
-    ]
-  },
-  {
     "group_name": "Socials",
     "icon": "https://logo.dyne.org/logo",
     "description": "Social Media properties of dyne.",
