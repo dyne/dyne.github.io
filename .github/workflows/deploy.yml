@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: withastro/action@v2
         with:
-          pnpm-version: package-manager
+          package-manager: pnpm@latest
 
   deploy:
     needs: build
