@@ -1,6 +1,7 @@
 ﻿---
-layout: ../../layouts/Layout.astro
+layout: ~/layouts/redirect.astro
 title: "Tomb :: Folder Encryption on GNU/Linux"
+destination: "https://dyne.org/tomb"
 description: "Tomb is a system to make strong encryption easy for everyday use. A tomb is like a locked folder that can be safely transported and hidden in a filesystem."
 cover: "https://dyne.org/social/tomb.png"
 ---
