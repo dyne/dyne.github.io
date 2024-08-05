@@ -16,18 +16,18 @@ This content is licensed as Creative Commons "BY-SA" 4.0 in the jurisdiction of 
 ### Logotype
 
 ![Logotype, white](/images/logos/white-Logotype.png)
-Logotype, white. [Donwload SVG](/images/logos/white-Logotype.svg)
+Logotype, white. [Download SVG](/images/logos/white-Logotype.svg)
 
 ![Logotype, Black](/images/logos/black-Logotype.png)
-Logotype, black. [Donwload SVG](/images/logos/black-Logotype.svg)
+Logotype, black. [Download SVG](/images/logos/black-Logotype.svg)
 
 ### Logo
 
 ![Logo, transparent](/images/logos/black-transparent-Icon.png)
-Logo, black transparent. [Donwload SVG](/images/logos/black-transparent-Icon.svg)
+Logo, black transparent. [Download SVG](/images/logos/black-transparent-Icon.svg)
 
 ![Logo, Black](/images/logos/border-white-Icon.png)
-Logo, black with white border. [Donwload SVG](/images/logos/border-white-Icon.svg)
+Logo, black with white border. [Download SVG](/images/logos/border-white-Icon.svg)
 
 <!--
 ## Software section (one per software)
