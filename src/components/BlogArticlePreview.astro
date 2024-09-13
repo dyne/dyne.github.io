@@ -3,12 +3,17 @@ import Button from './Button.astro';
 
 const { creator, title, link } = Astro.props;
 const snippet = Astro.props['content:encodedSnippet'];
+const media = Astro.props['media:content'];
 ---
 
 <div
 	class="transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent hover:border-accent hover:shadow-none hover:bg-white hover:bg-opacity-50 rounded-3xl p-7"
 >
 	<div class="w-full p-4 h-full flex flex-col justify-between">
+	  <figure>
+	    <img src={media['$'].url} />
+	  </figure>
+	  <div>
 		<a href={link} class="text-3xl font-bold font-sans no-underline">{title}</a>
 		<div class="py-4">
 			by <span class="font-medium">{creator}</span>
@@ -17,6 +22,7 @@ const snippet = Astro.props['content:encodedSnippet'];
 		<p class="text-gray-800 text-sm font-medium mb-2 text-clip overflow-hidden max-h-20">
 			{snippet}
 		</p>
+		</div>
 		<Button href={link} text="Read all" inverted={true} cls="mt-4 text-base no-underline" />
 	</div>
 </div>
