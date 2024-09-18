@@ -1,4 +1,3 @@
-
 ---
 layout: ../layouts/redirect.astro
 title: "Shop at House of Dyne :: the best fashion from the future"
