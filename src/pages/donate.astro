@@ -37,21 +37,35 @@ const wallets = [
 ];
 
 const tiers = [
+  { 
+		amount: '2$)',
+		text: 'Let the dyne Hack, Get yourself an art pack!',
+		url: 'https://socials.dyne.org/kofi',
+	},
 	{
-		amount: '50$',
-		text: 'Get a shoutout on Twitter or Mastodon linking to your user and a link of your choice.',
+		amount: '3-70$',
+		text: 'Look good in the hood, buy the swag.',
+		url: 'https://dyne.org/shop',
+	},
+	{
+		amount: '70$',
+		text: 'Get a shoutout on our website and social-media, mentioning your user with a link to your website.',
+		url: 'https://news.dyne.org/#/portal/support',
 	},
 	{
 		amount: '350$',
 		text: 'We will dedicate 1 hour to advise you about a technical topic of your choice.',
+		url: 'mailto:info+support@dyne.org',
 	},
 	{
 		amount: '600$',
 		text: 'We will run a 2h on-line workshop for you and your team',
+		url: 'mailto:info+support@dyne.org',
 	},
 	{
 		amount: '3.000$',
 		text: 'Jaromil will give a professional keynote talk at your conference',
+		url: 'mailto:info+support@dyne.org',
 	},
 ];
 ---
@@ -106,23 +120,25 @@ const tiers = [
 			</div>
 
 			<div class="p-6 bg-black text-white rounded-3xl">
-				<h1 class="text-3xl underline decoration-primary decoration-4">What can you get:</h1>
+				<h1 class="text-3xl underline decoration-primary decoration-4">What can you give?</h1>
 				<ul class="list-disc px-6 pt-2">
-					<li>Technical support</li>
-					<li>Dedicated training</li>
-					<li>Prioritized issues on GitHub</li>
+					<li>Time and good energy in the community forums</li>
+					<li>Dedicated trainings</li>
+					<li>Code contribution</li>
 					<li>Special mentions</li>
 				</ul>
-				<p class="pt-2">...and much more!</p>
+				
 			</div>
-
-			<p class="text-center px-6">
-				We accept both <Link href="#onetime">one-time donations</Link> (also with <strong>crypto</strong>!) and <Link
+			<div class="space-y-6 px-6 text-center">
+			<h2 class="text-3xl lg:text-4xl">Another currency is money!</h2>
+			<p class="pt-2">
+				We accept both <Link href="#onetime">one-time donations</Link> and <Link
 					href="#recurring"
 				>
 					recurring donations
 				</Link>
 			</p>
+			</div>
 		</div>
 
 		<!-- Column 2 -->
@@ -130,22 +146,29 @@ const tiers = [
 			<div id="recurring" class="p-6 bg-primary rounded-3xl space-y-4">
 				<h1 class="text-xl font-bold">Recurring donations on:</h1>
 				<div class="space-y-2">
-<!--					<SponsorLink href="https://opencollective.com/dyneorg" text="Open Collective"><Opencollective size={36} /></SponsorLink> -->
+					<SponsorLink href="https://news.dyne.org/#/portal/signup" text="Dyne Newsletter"><Opencollective size={36} /></SponsorLink>
 					<SponsorLink href="https://ko-fi.com/dyneorg" text="ko-fi"><Opencollective size={36} /></SponsorLink>
 					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={36} /></SponsorLink>
 					<SponsorLink href="https://patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink>
 <!--					<SponsorLink href="https://www.patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink> -->
 				</div>
-				<p class="leading-6">Donations can also give you benefits!</p>
+				<p class="leading-6"><strong>If it fits it sits.</strong> Donations give you benefits including but not limited to no less then</p>
+				<ul class="list-disc px-6 pt-2">
+					<li>Blessings of the giant spaghetti monster.</li>
+					<li>Sacrifice of any given bad computer in sustainable fashion.</li>
+					<li>Invitations to a special servers with elevated privs, good music and goot root beer, where the resident Dynes also hang out.</li>
+					<li>Mentions of you on the Dyne.org home page.</li>
+				</ul>
+
 			</div>
 
 			<div id="onetime" class="p-6 bg-primary rounded-3xl space-y-4">
-				<h1 class="text-xl font-bold">Optional benefits we offer:</h1>
+				<h1 class="text-xl font-bold">One time support</h1>
 				<ul class="text-base space-y-4">
 					{
 						tiers.map((tier) => (
 							<li class="flex flex-row flex-nowrap items-center bg-primary-60 rounded-2xl overflow-hidden">
-								<a href="https://github.com/sponsors/dyne" text="GitHub">
+								<a href="{tier.url}" text="GitHub">
 									<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center self-stretch">
 										<p class="text-center">{tier.amount}</p>
 									</div>
