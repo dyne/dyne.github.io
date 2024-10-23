@@ -11,6 +11,7 @@ import SponsorLink from '~/components/SponsorLink.astro';
 import Bitcoin from '~/components/icons/donations/bitcoin.astro';
 import Monero from '~/components/icons/donations/monero.astro';
 import Ethereum from '~/components/icons/donations/ethereum.astro';
+import Cafuda from '~/components/icons/donations/cafuda.astro';
 
 const meta = { title: 'Dyne.org :: Donations' };
 
@@ -38,34 +39,34 @@ const wallets = [
 
 const tiers = [
   { 
-		amount: '2$)',
-		text: 'Let the dyne Hack, Get yourself an art pack!',
-		url: 'https://socials.dyne.org/kofi',
+		amount: '2€',
+		text: 'Get yourself an art pack, so a dyne can hack!',
+		url: 'https://ko-fi.com/s/e011a091f2',
 	},
 	{
-		amount: '3-70$',
+		amount: '3-70€',
 		text: 'Look good in the hood, buy the swag.',
 		url: 'https://dyne.org/shop',
 	},
 	{
-		amount: '70$',
+		amount: '70€',
 		text: 'Get a shoutout on our website and social-media, mentioning your user with a link to your website.',
-		url: 'https://news.dyne.org/#/portal/support',
+		url: 'https://buy.stripe.com/5kA8xj6oY0zh53ydQR',
 	},
 	{
-		amount: '350$',
+		amount: '350€',
 		text: 'We will dedicate 1 hour to advise you about a technical topic of your choice.',
-		url: 'mailto:info+support@dyne.org',
+		url: 'https://buy.stripe.com/dR6dRD5kU81J0NieUW',
 	},
 	{
-		amount: '600$',
+		amount: '600€',
 		text: 'We will run a 2h on-line workshop for you and your team',
-		url: 'mailto:info+support@dyne.org',
+		url: 'https://buy.stripe.com/5kAfZL14E4PxfIc4gj',
 	},
 	{
-		amount: '3.000$',
+		amount: '3.000€',
 		text: 'Jaromil will give a professional keynote talk at your conference',
-		url: 'mailto:info+support@dyne.org',
+		url: 'https://buy.stripe.com/aEU00N6oYchZfIccMQ',
 	},
 ];
 ---
@@ -120,17 +121,17 @@ const tiers = [
 			</div>
 
 			<div class="p-6 bg-black text-white rounded-3xl">
-				<h1 class="text-3xl underline decoration-primary decoration-4">What can you give?</h1>
+				<h1 class="text-3xl decoration-primary decoration-4">What can you give?</h1>
 				<ul class="list-disc px-6 pt-2">
 					<li>Time and good energy in the community forums</li>
 					<li>Dedicated trainings</li>
 					<li>Code contribution</li>
 					<li>Special mentions</li>
-				</ul>
-				
+				</ul><br />
+				<h2 class="text-3xl underline decoration-primary decoration-4">Another currency is money!</h2>
 			</div>
 			<div class="space-y-6 px-6 text-center">
-			<h2 class="text-3xl lg:text-4xl">Another currency is money!</h2>
+			
 			<p class="pt-2">
 				We accept both <Link href="#onetime">one-time donations</Link> and <Link
 					href="#recurring"
@@ -146,11 +147,10 @@ const tiers = [
 			<div id="recurring" class="p-6 bg-primary rounded-3xl space-y-4">
 				<h1 class="text-xl font-bold">Recurring donations on:</h1>
 				<div class="space-y-2">
-					<SponsorLink href="https://news.dyne.org/#/portal/signup" text="Dyne Newsletter"><Opencollective size={36} /></SponsorLink>
+					<SponsorLink href="https://news.dyne.org/#/portal/signup" text="Planet Dyne"><Cafuda size={36} /></SponsorLink>
 					<SponsorLink href="https://ko-fi.com/dyneorg" text="ko-fi"><Opencollective size={36} /></SponsorLink>
 					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={36} /></SponsorLink>
 					<SponsorLink href="https://patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink>
-<!--					<SponsorLink href="https://www.patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink> -->
 				</div>
 				<p class="leading-6"><strong>If it fits it sits:</strong> Donations give you benefits, including but not limited to no less then</p>
 				<ul class="list-disc px-6 pt-2">
@@ -169,7 +169,7 @@ const tiers = [
 					{
 						tiers.map((tier) => (
 							<li class="flex flex-row flex-nowrap items-center bg-primary-60 rounded-2xl overflow-hidden">
-								<a href="{tier.url}" text="GitHub">
+								<a href={tier.url} text="GitHub">
 									<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center self-stretch">
 										<p class="text-center">{tier.amount}</p>
 									</div>
@@ -193,18 +193,16 @@ const tiers = [
 
 						<Fragment slot="panel-2">
 							<div class="space-y-4">
-								<p class="leading-6">(Donations via PayPal)</p>
-								<div class="grid grid-cols-2 gap-2">
-									{
-										tiers.map((tier) => (
+								<p class="leading-6">(Donations via Stripe)</p>
+								<div class="grid grid-cols-1 gap-2">
+									
 											<a
-												href={`https://www.paypal.me/dyneorg/${tier.amount}USD`}
+												href="https://buy.stripe.com/9AQbJv3cM5TBcw0149"
 												class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
 											>
-												{tier.amount}
+												💸 Pay What you want
 											</a>
-										))
-									}
+										
 								</div>
 							</div>
 						</Fragment>
