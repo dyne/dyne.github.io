@@ -9,7 +9,8 @@ description: "Here you can find all licensed logos of Dyne.org and our software 
 ### [CC-BY-SA NL 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.nl)
 
 This content is licensed as Creative Commons "BY-SA" 4.0 in the jurisdiction of the Netherlands: it is free to be copied, quoted and remixed by providing correct attribution to its author(s), while all derivative works must adopt the same license. Different licensing conditions can be arranged, those interested can write to [Dyne.org](mailto:info@dyne.org)
-[![CC-BY-SA NL 4.0](/images/social_icons/Creative-Commons-Attribution-ShareAlike-badge.webp)](https://creativecommons.org/licenses/by-sa/4.0/deed.nl)
+
+
 
 ## Dyne.org logos
 
@@ -28,6 +29,15 @@ Logo, black transparent. [Download SVG](/images/logos/black-transparent-Icon.svg
 
 ![Logo, Black](/images/logos/border-white-Icon.png)
 Logo, black with white border. [Download SVG](/images/logos/border-white-Icon.svg)
+
+
+
+## Style sheet
+
+Find Atoms, Colors, Molecules and more inspiration here:
+
+#### [Pagina 899 del televideo](https://delta.dyne.org/899)
+
 
 <!--
 ## Software section (one per software)
