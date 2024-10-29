@@ -10,7 +10,19 @@ description: "Here you can find all licensed logos of Dyne.org and our software 
 
 This content is licensed as Creative Commons "BY-SA" 4.0 in the jurisdiction of the Netherlands: it is free to be copied, quoted and remixed by providing correct attribution to its author(s), while all derivative works must adopt the same license. Different licensing conditions can be arranged, those interested can write to [Dyne.org](mailto:info@dyne.org)
 
+## Style sheet
 
+Find Atoms, Colors, Molecules and more inspiration here:
+
+### [Pagina 899 del televideo](https://delta.dyne.org/899)
+
+### Dyne.org design components
+
+Include this in your `<head>...</head>`
+```html
+<script async type="module" src="https://cdn.jsdelivr.net/npm/@dyne/components@latest/dist/dyne-components/dyne-components.esm.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dyne/components@latest/dist/dyne-components/dyne-components.css">
+```
 
 ## Dyne.org logos
 
@@ -29,14 +41,6 @@ Logo, black transparent. [Download SVG](/images/logos/black-transparent-Icon.svg
 
 ![Logo, Black](/images/logos/border-white-Icon.png)
 Logo, black with white border. [Download SVG](/images/logos/border-white-Icon.svg)
-
-
-
-## Style sheet
-
-Find Atoms, Colors, Molecules and more inspiration here:
-
-#### [Pagina 899 del televideo](https://delta.dyne.org/899)
 
 
 <!--
