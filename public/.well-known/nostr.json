@@ -4,5 +4,31 @@
     "jaromil": "731682fdd89c916e03f4fbb1f4e44ad04fa992fe85e68e82bad4fbe9dd9b11c7",
     "puria": "ab5a8c11caab3a46dc76a553250c4e464b143f78236eb5e92c71e06d76a37437",
     "hackers": "801f76a467f4b2ae13118f58f583d1c523287488819617fab62dc1f6e7683d47"    
+  },
+  "relays": {
+    "3f11abb2e235da2d4dda5d6deb2f123173476a745a3ca56895a1d0f632a42f40": [
+      "wss://relay.basspistol.org",
+      "wss://nos.lol",
+      "wss://relay.damus.io",
+      "wss://purplerelay.com"
+    ],
+    "731682fdd89c916e03f4fbb1f4e44ad04fa992fe85e68e82bad4fbe9dd9b11c7": [
+      "wss://relay.basspistol.org",
+      "wss://nos.lol",
+      "wss://relay.damus.io",
+      "wss://purplerelay.com"
+    ],
+    "ab5a8c11caab3a46dc76a553250c4e464b143f78236eb5e92c71e06d76a37437": [
+      "wss://relay.basspistol.org",
+      "wss://nos.lol",
+      "wss://relay.damus.io",
+      "wss://purplerelay.com"
+    ],
+    "801f76a467f4b2ae13118f58f583d1c523287488819617fab62dc1f6e7683d47": [
+      "wss://relay.basspistol.org",
+      "wss://nos.lol",
+      "wss://relay.damus.io",
+      "wss://purplerelay.com"
+    ],
   }
 }
