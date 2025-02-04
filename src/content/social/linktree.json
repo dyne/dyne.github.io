@@ -1,5 +1,42 @@
 [
   {
+    "group_name": "Sovereign Channels",
+    "icon": "https://logo.dyne.org/logo",
+    "description": "Channels that are self-hosted by dyne, or aligned with Dyne's values",
+    "links": [
+      {
+        "name": "Dyne Matrix Space",
+        "link": "https://socials.dyne.org/matrix",
+        "tagline": "Collection of chat channels related to dyne and it's many projects.",
+        "cta": "Chat"
+      },
+      {
+        "name": "Lemmy",
+        "link": "https://fed.dyne.org",
+        "tagline": "A federated billboard.",
+        "cta": "Updoot"
+      },
+      {
+        "name": "Dyne TV",
+        "link": "https://socials.dyne.org/peertube",
+        "tagline": "Watch videos and live-streams on Dyne's Peertube.",
+        "cta": "Browse"
+      },
+      {
+        "name": "Mastodon",
+        "link": "https://socials.dyne.org/mastodon",
+        "tagline": "Follow dyne on Mastodon.",
+        "cta": "Follow"
+      },
+      {
+        "name": "Nostr",
+        "link": "https://socials.dyne.org/nostr",
+        "tagline": "Follow Dyne on Nostr.",
+        "cta": "Connect"
+      }
+    ]
+  },
+  {
     "group_name": "Telegram",
     "icon": "https://logo.dyne.org/logo",
     "description": "Dyne's Telegram channels",
@@ -56,7 +93,8 @@
       {
         "name": "Dyne Space",
         "link": "https://socials.dyne.org/matrix",
-        "tagline": "Collection of channels related to dyne and it's many projects."
+        "tagline": "Collection of channels related to dyne and it's many projects.",
+        "main": true
       },
       {
         "name": "Interfacer Space",
@@ -90,7 +128,7 @@
       {
         "name": "Lemmy",
         "link": "https://fed.dyne.org",
-        "tagline": "Join the Federation",
+        "tagline": "Join the Federation.",
         "cta": "Updoot"
       },
       {
@@ -134,6 +172,12 @@
         "link": "https://socials.dyne.org/substack",
         "tagline": "Subscribe to Dyne newsletter on Substack.",
         "cta": "Subscribe"
+      },
+      {
+        "name": "Bluesky",
+        "link": "https://socials.dyne.org/bluesky",
+        "tagline": "Follow Dyne on Bluesky.",
+        "cta": "Follow"
       },
       {
         "name": "Twitter",
