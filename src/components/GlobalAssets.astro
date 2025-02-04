@@ -28,7 +28,7 @@
 			});
 		}
 	}
-	window.addEventListener('DOMContentLoaded', (event) => {
+	const randomColor = () => {
 		const choose = (choices) => {
 			const index = Math.floor(Math.random() * choices.length);
 			return choices[index];
@@ -43,7 +43,9 @@
 		document.documentElement.style.setProperty('--secondary-accent-color', secondary);
 		document.documentElement.style.setProperty('--bg-color', bg);
 		document.documentElement.style.setProperty('--bg-accent-color', bg_accent);
-	});
+	};
+	window.addEventListener('astro:after-swap', randomColor);
+	randomColor();
 
 	window.onload = function () {
 		attachEvent('[data-aw-toggle-menu]', 'click', function (elem) {
