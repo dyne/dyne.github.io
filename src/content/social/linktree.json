@@ -33,6 +33,12 @@
         "link": "https://socials.dyne.org/nostr",
         "tagline": "Follow Dyne on Nostr.",
         "cta": "Connect"
+      },
+      {
+        "name": "IRC",
+        "link": "https://irc.dyne.org",
+        "tagline": "Connect to Dyne's IRC server.",
+        "cta": "Chat"
       }
     ]
   },
