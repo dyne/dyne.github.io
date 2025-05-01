@@ -9,7 +9,7 @@ const { description, CTA, href } = copy.frontmatter;
 		class="col-span-2 flex flex-col text-center items-center md:text-left md:items-start space-y-12 md:space-y-8 tracking-tight"
 	>
 		<div class="text-4xl md:text-5xl lg:text-6xl text-saccent" set:html={copy.compiledContent()} />
-		<p class="max-w-2 text-2xl text-inter text-saccent">{description}</p>
+		<p class="text-2xl text-inter text-saccent">{description}</p>
 		<Button href={href} text={CTA} />
 	</div>
 	<div
