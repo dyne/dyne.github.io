@@ -1,0 +1,124 @@
+---
+import 'swiper/css';
+import { ViewTransitions } from 'astro:transitions';
+
+const slideAnim = {
+	old: {
+		name: 'slideDown',
+		duration: '0.3s',
+		easing: 'ease-out',
+		fillMode: 'backwards',
+	},
+	new: {
+		name: 'slideUp',
+		duration: '0.3s',
+		easing: 'ease-out',
+		fillMode: 'backwards',
+	},
+};
+const verticalSlide = {
+	forwards: slideAnim,
+	backwards: slideAnim,
+};
+---
+
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<ViewTransitions />
+	</head>
+
+	<body transition:animate={verticalSlide}>
+		<div class="swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<video src="/video0.mp4" muted></video>
+				</div>
+				<div class="swiper-slide">
+					<video src="/video1.mp4"></video>
+				</div>
+				<div class="swiper-slide">
+					<video src="/video2.mp4"></video>
+				</div>
+				<div class="swiper-slide">
+					<video src="/video3.mp4"></video>
+				</div>
+				<div class="swiper-slide">
+					<video src="/video4.mp4"></video>
+				</div>
+				<div class="swiper-slide"></div>
+			</div>
+		</div>
+		<style>
+			html,
+			body {
+				position: relative;
+				height: 100%;
+			}
+
+			body {
+				background: #f00;
+				color: #eee;
+				margin: 0;
+				padding: 0;
+			}
+
+			.swiper {
+				width: 100%;
+				height: 100%;
+			}
+
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #000;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.swiper-slide img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			video {
+				height: 100%;
+				width: auto;
+				object-fit: cover;
+			}
+		</style>
+
+		<script>
+			import { navigate } from 'astro/transitions/router';
+			import Swiper from 'swiper';
+
+			new Swiper('.swiper', {
+				direction: 'vertical',
+				autoplay: false,
+				on: {
+					init: function () {
+						let activeSlide = this.slides[this.activeIndex];
+						let video = activeSlide.querySelector('video');
+						if (video) video.play();
+					},
+					slideChange: function () {
+						document.querySelectorAll('video').forEach((video) => {
+							video.pause();
+							video.currentTime = 0;
+						});
+						let activeSlide = this.slides[this.activeIndex];
+						let video = activeSlide.querySelector('video');
+						if (video) video.play();
+					},
+					reachEnd: function () {
+						navigate('/');
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
