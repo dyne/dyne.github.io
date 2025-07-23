@@ -7,23 +7,31 @@ interface Props {
 const { intro, href } = Astro.props;
 ---
 
-
-	<div class="flex flex-col gap-y-8 py-8">
-		<div class="grid grid-cols lg:grid-cols-1 gap-6 px-8">
-			<div
-				class="transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent hover:border-accent hover:shadow-none hover:bg-white hover:bg-opacity-50 rounded-[40px] p-7 space-y-4"
-			>
-				<div class="text-4xl md:text-5xl lg:text-6xl text-saccent">
-					<p><strong>Planet Dyne</strong></p>
-				</div>
-				{intro && <p class="text-3xl text-inter !text-saccent">{intro}</p>}
-					<div class="flex flex-wrap gap-4">
-					<a href={href} class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-2 px-4 rounded-full w-fit text-2xl whitespace-nowrap ">Get the newsletter</a> <a href="/linktree" class="text-accent cursor-pointer border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-2 px-4 rounded-full w-fit text-2xl whitespace-nowrap ">Join our community</a>
-					</div>
-				<div>
-					<slot />
-				</div>
+<div class="flex flex-col gap-y-8 py-8">
+	<div class="grid grid-cols lg:grid-cols-1 gap-6 px-8">
+		<div
+			class="transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent hover:border-accent hover:shadow-none hover:bg-white hover:bg-opacity-50 rounded-[40px] p-7 space-y-4"
+		>
+			<div class="text-4xl md:text-5xl lg:text-6xl text-saccent">
+				<p><strong>Planet Dyne</strong></p>
+			</div>
+			{intro && <p class="text-3xl text-inter !text-saccent">{intro}</p>}
+			<div class="flex flex-wrap gap-4 items-center">
+				<a
+					href={href}
+					class="text-white cursor-pointer bg-accent border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-2 px-4 rounded-full w-fit text-2xl whitespace-nowrap"
+					>Get the newsletter</a
+				>
+				<a
+					href="/linktree"
+					class="text-accent cursor-pointer border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-2 px-4 rounded-full w-fit text-2xl whitespace-nowrap"
+					>Join our community</a
+				>
+				<p class="text-3xl text-inter !text-saccent">Latest issue:</p>
+			</div>
+			<div>
+				<slot />
 			</div>
 		</div>
 	</div>
-</a>
+</div>
