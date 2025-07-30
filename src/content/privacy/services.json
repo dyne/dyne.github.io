@@ -1,0 +1,57 @@
+[
+  {
+    "group_name": "Dyne.org privacy tech",
+    "icon": "https://dyne.org/images/logos/border-white-Icon.png",
+    "description": "Here are all the privacy applications and components we develop ourselves and offer online..",
+    "links": [
+      {
+        "name": "Zenroom",
+        "link": "https://zenroom.org",
+        "tagline": "Makes it easy to build all sort of encryption protocols for your own application.",
+        "cta": "No-Code"
+      },
+      {
+        "name": "Tomb",
+        "link": "/tomb",
+        "tagline": "Encrypt terabytes of files and folders in secret volumes, guaranteed to work in 20 years from now.",
+        "cta": "Store"
+      },
+      {
+        "name": "Secrets",
+        "link": "https://secrets.dyne.org",
+        "tagline": "Split a secret text into shares. Shares can be later combined (some, or all) to retrieve the secret text.",
+        "cta": "Split"
+      },
+      {
+        "name": "Jaromail",
+        "link": "/software/jaro-mail",
+        "tagline": "Suite of console tools to read, download, archive and search e-mails without storing them online.",
+        "cta": "E-Mail"
+      },
+      {
+        "name": "Tinfoil",
+        "link": "https://github.com/dyne/tinfoil",
+        "tagline": "Minimalist launch wrapper to manage multiple isolated profiles for web browsers on GNU/Linux desktop.",
+        "cta": "Browse"
+      },
+      {
+        "name": "Binnit",
+        "link": "https://github.com/dyne/binnit",
+        "tagline": "Self-hosted, minimal, no-fuss pastebin service clone in golang.",
+        "cta": "Paste"
+      },
+      {
+        "name": "DNSCrypt-proxy v2",
+        "link": "https://github.com/dyne/dnscrypt-proxy",
+        "tagline": "DNSCrypt-Proxy v2 client-server originally written in C++.",
+        "cta": "DNS"
+      },
+      {
+        "name": "DOHD",
+        "link": "https://dyne.org/dohd",
+        "tagline": "DNS-over-HTTPS proxy in C for self-hosting: super fast and keeps no logs",
+        "cta": "DNS"
+      }
+    ]
+  }
+]
