@@ -1,0 +1,28 @@
+---
+// src/components/ConspireChat.astro
+---
+<script>
+  // Function to redirect to the public reception lobby
+  function startLobby() {
+    window.location.href = 'https://conspire.dyne.org:8443/room/lobby';
+  }
+
+  // Function to generate a random room name and redirect
+  function startPrivateRoom() {
+    const randomRoom = Math.random().toString(36).substring(2, 15);
+    window.location.href = `https://conspire.dyne.org:8443/room/${randomRoom}`;
+  }
+
+  // Add event listeners to the buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    const lobbyButton = document.querySelector('input[value="Public Reception"]');
+    if (lobbyButton) {
+      lobbyButton.addEventListener('click', startLobby);
+    }
+
+    const privateRoomButton = document.querySelector('input[value="New Private Room"]');
+    if (privateRoomButton) {
+      privateRoomButton.addEventListener('click', startPrivateRoom);
+    }
+  });
+</script>
