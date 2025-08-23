@@ -13,10 +13,63 @@ import Button from '~/components/Button.astro';
     window.location.href = 'https://conspire.dyne.org:8443/room/lobby';
   }
 
-  // Function to generate a random room name and redirect
-  function startPrivateRoom() {
-    const randomRoom = Math.random().toString(36).substring(2, 15);
-    window.location.href = `https://conspire.dyne.org:8443/room/${randomRoom}`;
+  /**
+   * Encodes a buffer into a Base58 string.
+   * @param {Uint8Array} buffer - The buffer to encode.
+   * @returns {string} The Base58 encoded string.
+   */
+  function encodeBase58(buffer) {
+    const ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+    if (buffer.length === 0) return '';
+
+    let digits = [0];
+    for (let i = 0; i < buffer.length; i++) {
+      for (let j = 0; j < digits.length; j++) {
+        digits[j] <<= 8;
+      }
+      digits[0] += buffer[i];
+      let carry = 0;
+      for (let j = 0; j < digits.length; j++) {
+        digits[j] += carry;
+        carry = (digits[j] / 58) | 0;
+        digits[j] %= 58;
+      }
+      while (carry > 0) {
+        digits.push(carry % 58);
+        carry = (carry / 58) | 0;
+      }
+    }
+
+    // Deal with leading zeros
+    for (let i = 0; i < buffer.length && buffer[i] === 0; i++) {
+      digits.push(0);
+    }
+
+    return digits.reverse().map(digit => ALPHABET[digit]).join('');
+  }
+
+  // Function to generate a secure random room name and redirect
+  async function startPrivateRoom() {
+    try {
+      // 1. Gather 256 bytes of high-entropy random data
+      const randomBytes = new Uint8Array(256);
+      window.crypto.getRandomValues(randomBytes);
+
+      // 2. Use SHA256 to hash the bytes
+      const hashBuffer = await window.crypto.subtle.digest('SHA-256', randomBytes);
+      const hashArray = new Uint8Array(hashBuffer);
+
+      // 3. Encode the result with Base58
+      const roomName = encodeBase58(hashArray);
+
+      // Redirect to the new private room
+      window.location.href = `https://conspire.dyne.org:8443/room/${roomName}`;
+    } catch (error) {
+      console.error('Failed to generate secure room name:', error);
+      // Fallback to the old method in case of a crypto error
+      const randomRoom = Math.random().toString(36).substring(2, 15);
+      window.location.href = `https://conspire.dyne.org:8443/room/${randomRoom}`;
+    }
   }
 
   // Add event listeners to the buttons
