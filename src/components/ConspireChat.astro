@@ -10,7 +10,7 @@ import Button from '~/components/Button.astro';
 <script>
   // Function to redirect to the public reception lobby
   function startLobby() {
-    window.location.href = 'https://conspire.dyne.org:8443/room/lobby';
+    window.open('https://conspire.dyne.org:8443/room/lobby', '_blank');
   }
 
   /**
@@ -63,12 +63,12 @@ import Button from '~/components/Button.astro';
       const roomName = encodeBase58(hashArray);
 
       // Redirect to the new private room
-      window.location.href = `https://conspire.dyne.org:8443/room/${roomName}`;
+      window.open(`https://conspire.dyne.org:8443/room/${roomName}`, '_blank');
     } catch (error) {
       console.error('Failed to generate secure room name:', error);
       // Fallback to the old method in case of a crypto error
       const randomRoom = Math.random().toString(36).substring(2, 15);
-      window.location.href = `https://conspire.dyne.org:8443/room/${randomRoom}`;
+      window.open(`https://conspire.dyne.org:8443/room/${randomRoom}`, '_blank');
     }
   }
 
