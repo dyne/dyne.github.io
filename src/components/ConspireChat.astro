@@ -1,6 +1,12 @@
 ---
-// src/components/ConspireChat.astro
+import Button from '~/components/Button.astro';
 ---
+
+<div class="flex flex-col sm:flex-row gap-4">
+    <Button as="button" text="Public Reception" id="lobby-btn" />
+    <Button as="button" text="New Private Room" id="private-room-btn" inverted={true} />
+</div>
+
 <script>
   // Function to redirect to the public reception lobby
   function startLobby() {
@@ -14,15 +20,6 @@
   }
 
   // Add event listeners to the buttons
-  document.addEventListener('DOMContentLoaded', () => {
-    const lobbyButton = document.querySelector('input[value="Public Reception"]');
-    if (lobbyButton) {
-      lobbyButton.addEventListener('click', startLobby);
-    }
-
-    const privateRoomButton = document.querySelector('input[value="New Private Room"]');
-    if (privateRoomButton) {
-      privateRoomButton.addEventListener('click', startPrivateRoom);
-    }
-  });
+  document.getElementById('lobby-btn')?.addEventListener('click', startLobby);
+  document.getElementById('private-room-btn')?.addEventListener('click', startPrivateRoom);
 </script>

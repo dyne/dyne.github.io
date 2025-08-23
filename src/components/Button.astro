@@ -1,21 +1,24 @@
 ---
-const { href, text, inverted, cls = '', id = '', onclick = undefined } = Astro.props;
-let { color = 'accent' } = Astro.props;
-let textColor = 'white';
-let bg = color;
+const { href, text, inverted = false, cls = '', id = '', as: Tag = 'a', type = 'button' } = Astro.props;
 
-if (inverted) {
-	bg = 'transparent';
-	color = 'accent';
-	textColor = 'saccent';
-}
+const styles = {
+    base: 'cursor-pointer border-2 py-2 px-4 rounded-full w-fit text-2xl whitespace-nowrap',
+    normal: 'text-white bg-accent border-accent hover:bg-saccent hover:border-saccent',
+    inverted: 'text-saccent bg-transparent border-accent hover:bg-saccent hover:text-white'
+};
+
+const buttonClasses = [
+    styles.base,
+    inverted ? styles.inverted : styles.normal,
+    cls
+];
 ---
 
-<a
-	id={id}
-	href={href}
-	onclick={onclick}
-	class={`text-${textColor} cursor-pointer bg-${bg} border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-2 px-4 rounded-full w-fit text-2xl whitespace-nowrap ${cls}`}
+<Tag
+    id={id}
+    href={Tag === 'a' ? href : undefined}
+    type={Tag === 'button' ? type : undefined}
+    class:list={buttonClasses}
 >
-	{text}
-</a>
+    {text}
+</Tag>
