@@ -4,11 +4,11 @@
     "cta": "Pad for co-writing"
   },
   {
-    "link": "https://dyne.org/tomb",
+    "link": "/tomb",
     "cta": "Private data storage"
   },
   {
-    "link": "https://forkbombeu.github.io/pqspread/",
-    "cta": "Post-Quantum encryption"
+    "link": "/conspire",
+    "cta": "Anonymous Chat"
   }
 ]

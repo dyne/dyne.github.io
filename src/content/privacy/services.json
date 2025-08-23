@@ -5,6 +5,12 @@
     "description": "Here are all the privacy applications and components we develop ourselves and offer online..",
     "links": [
       {
+        "name": "Conspire",
+        "link": "/conspire",
+        "tagline": "Anonymous, end-to-end encrypted chat rooms. No account needed, no data stored.",
+        "cta": "Chat"
+      },
+      {
         "name": "Zenroom",
         "link": "https://zenroom.org",
         "tagline": "Makes it easy to build all sort of encryption protocols for your own application.",
