@@ -1,11 +1,17 @@
-# Welcome to [Astro](https://astro.build)
+# Welcome to the [Dyne.org](https://dyne.org) website made in [Astro](https://astro.build)
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
 
 > 🧑‍🚀 **Seasoned astronaut?** Skip this file. Have fun!
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+## 🧩 Custom components
 
+Any component below can be used inline inside markdown extended (.mdx files)
+ 
+Standalone button:
+```
+<Button text="Click Me" href="#" /> 
+```
 
 ## 🚀 Project Structure
 
@@ -21,7 +27,9 @@ Inside of your Astro project, you'll see the following folders and files:
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
-│       └── index.astro
+│       └── page.md
+│       └── page.mdx (<- markdown + html)
+│       └── page/index.astro
 └── package.json
 ```
 
