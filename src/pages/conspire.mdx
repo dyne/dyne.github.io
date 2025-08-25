@@ -1,0 +1,49 @@
+---
+layout: '~/layouts/Layout.astro'
+title: 'Conspire Chat'
+description: "Web-based chat for radical exchange: ephemeral, anonymous, synchronous and free."
+---
+import ConspireChat from '~/components/ConspireChat.astro';
+import Button from '~/components/Button.astro';
+
+<ConspireChat />
+
+Instant rooms where voices and files move peer-to-peer, leaving no
+footprints. Built for privacy and digital autonomy, and
+[against #chatcontrol](https://stopchatcontrol.eu/)
+
+![Conspire text black](/images/logos/conspire_text_black.svg)
+
+## Enter room 🚪🏃
+
+Join the public reception or create a private, ephemeral room. Rooms are anonymous and self-destruct when empty — share private room URLs only with trusted participants. Create your own `/room/$(NAME)` url or use the buttons below:
+
+<ConspireChat />
+
+### 📜 Rules
+
+Conspire is an ephemeral, URL-based chat. Each room is identified by a unique URL — anyone with that URL can join. Long random URLs are private rooms, share them only with trusted participants.
+
+- **Ephemeral rooms:** Rooms are created when the first participant joins and are deleted automatically when the last participant leaves. No room data survives after deletion.
+- **Access control:** Possession of the room URL grants access. Treat URLs like keys and avoid posting them publicly.
+- **History limits:** Chat history is available to newly joined participants but is limited to 100 previous messages and is removed when the room is deleted. No data is stored permanently on our server.
+
+### 💾 File sharing
+
+Share one or multiple files directly with other participants. Files are streamed peer-to-peer from the host's browser to recipients — the server does not receive, inspect, or store file contents.
+
+- **How it works:** The host announces a file, peers request chunks, and data is streamed in small pieces to avoid large memory spikes.
+- **Availability:** Files remain accessible only while the host keeps sharing. If the host cancels sharing or leaves the room, the files become unavailable.
+- **Browser behavior:** Your browser will prompt you to pick files to share and to save incoming files. Sizes and speeds depend on network conditions and peer bandwidth.
+
+Safety tip: only accept files from people you trust and verify file names and sizes before opening downloads.
+
+### 🐃 Sourcecode
+
+Conspire is 100% free and open source software running as a single binary, written in C++ and based on the Oat++ framework. Our source-code is a fork of "can-chat" available on [git dyne/conspire](https://github.com/dyne/conspire).
+
+May the source be always with you!
+
+# Conspire Chat
+
+This is a Markdown page with Astro components embedded directly.
