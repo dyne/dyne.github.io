@@ -1,9 +1,8 @@
 [
-  { "name": "Who we are", "href": "/#who-we-are" },
   { "name": "Software", "href": "/software" },
   { "name": "Books", "href": "/books" },
-  { "name": "Timeline", "href": "/timeline" },
-  { "name": "Reach us", "href": "/linktree" },
-  { "name": "Articles", "href": "/blog" },
+  { "name": "Videos", "href": "https://tv.dyne.org" },
+  { "name": "News", "href": "/blog" },
+  { "name": "About us", "href": "/#who-we-are" },
   { "name": "Donate", "href": "/donate" }
 ]
