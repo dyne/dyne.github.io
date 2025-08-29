@@ -161,72 +161,71 @@ const tiers = [
 				</ul>
 
 			</div>
+		</div>
 
-			<div id="onetime" class="p-6 bg-primary rounded-3xl space-y-4">
-				<h1 class="text-xl font-bold">One time support.</h1>
-				<p class="leading-6">Not ready to commit on the long term, yet? </p>
-				<ul class="text-base space-y-4">
-					{
-						tiers.map((tier) => (
-							<li class="flex flex-row flex-nowrap items-center bg-primary-60 rounded-2xl overflow-hidden">
-								<a href={tier.url} text="GitHub">
-									<div class="w-20 p-2 shrink-0 bg-primary-40 flex items-center justify-center self-stretch">
-										<p class="text-center">{tier.amount}</p>
-									</div>
-									<p class="p-3">{tier.text}</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-
-				<div class="space-y-10 lg:col-span-2">
-					<Tabs>
-						<Fragment slot="tab-2">
-							<p>Use money</p>
-							<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" /> -->
-						</Fragment>
-						<Fragment slot="tab-1">
-							<p>Use crypto</p>
-							<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" /> -->
-						</Fragment>
-
-						<Fragment slot="panel-2">
-							<div class="space-y-4">
-								<p class="leading-6">(Donations via Stripe)</p>
-								<div class="grid grid-cols-1 gap-2">
-									
-											<a
-												href="https://buy.stripe.com/9AQbJv3cM5TBcw0149"
-												class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
-											>
-												💸 Pay What you want
-											</a>
-										
-								</div>
+		<!-- One-time donations block placed as a grid sibling so it can span both columns -->
+		<div id="onetime" class="p-6 bg-primary rounded-3xl space-y-4 md:col-span-2 max-w-4xl mx-auto">
+			<h1 class="text-xl font-bold">One time support.</h1>
+			<p class="leading-6">Not ready to commit on the long term, yet? </p>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				{
+					tiers.map((tier) => (
+						<a href={tier.url} class="bg-primary-60 rounded-2xl overflow-hidden p-4 flex flex-col">
+							<div class="text-left">
+								<span class="inline-block text-xl md:text-2xl font-bold px-3 py-1 rounded-full bg-transparent text-current">{tier.amount}</span>
 							</div>
-						</Fragment>
+							<div class="mt-2 text-base">{tier.text}</div>
+						</a>
+					))
+				}
+			</div>
 
-						<Fragment slot="panel-1">
-							<div class="space-y-4">
-								<p class="leading-6">Contact us with the transaction ID to redeem the benefits.</p>
-								<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
-									{
-										wallets.map((w) => (
-											<button id={w.name} class="bg-sustainability p-4 rounded-3xl ">
-												<p class="font-bold text-2xl text-white">{`${w.name} wallet`}</p>
-												<p id={`${w.name}-address`} class="text-xs w-72 break-words hidden text-gray-400">
-													{w.address} <br />
-													✔︎ Successfully copied to clipboard
-												</p>
+			<div class="space-y-10 lg:col-span-2">
+				<Tabs>
+					<Fragment slot="tab-2">
+						<p>Use money</p>
+						<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" /> -->
+					</Fragment>
+					<Fragment slot="tab-1">
+						<p>Use crypto</p>
+						<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" /> -->
+					</Fragment>
+
+					<Fragment slot="panel-2">
+						<div class="space-y-4">
+							<p class="leading-6">(Donations via Stripe)</p>
+							<div class="grid grid-cols-1 gap-2">
+								
+									<a
+										href="https://buy.stripe.com/9AQbJv3cM5TBcw0149"
+										class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
+										>
+											💸 Pay What you want
+										</a>
+									
+								</div>
+						</div>
+					</Fragment>
+
+					<Fragment slot="panel-1">
+						<div class="space-y-4">
+							<p class="leading-6">Contact us with the transaction ID to redeem the benefits.</p>
+							<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
+								{
+									wallets.map((w) => (
+										<button id={w.name} class="bg-sustainability p-4 rounded-3xl ">
+											<p class="font-bold text-2xl text-white">{`${w.name} wallet`}</p>
+											<p id={`${w.name}-address`} class="text-xs w-72 break-words hidden text-gray-400">
+												{w.address} <br />
+												✔︎ Successfully copied to clipboard
+											</p>
 											</button>
 										))
-									}
-								</div>
+								}
 							</div>
-						</Fragment>
-					</Tabs>
-				</div>
+						</div>
+					</Fragment>
+				</Tabs>
 			</div>
 		</div>
 	</div>
