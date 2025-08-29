@@ -1,12 +1,19 @@
 ---
 import * as copy from '../../content/hero/index.md';
+import Button from '~/components/Button.astro';
 import Caffuda from '../Caffuda.astro';
+import ButtonsGroup from '../ButtonsGroup.astro';
 ---
 
-<div class="flex flex-col lg:flex-row items-center space-y-20 lg:space-y-0 px-10 lg:py-12">
+<div class="flex flex-col lg:flex-row items-center space-y-20 lg:space-y-0 px-10 lg:py-36">
 	<div class="flex flex-col w-full space-y-8 tracking-tight">
 		<div class="text-6xl text-saccent" set:html={copy.compiledContent()} />
 		<p class="max-w-3xl text-2xl font-inter text-saccent">{copy.frontmatter.welcome}</p>
+		<ButtonsGroup>
+			<Button href={copy.frontmatter.url} text={copy.frontmatter.CTA} />
+			<Button href={copy.frontmatter.url1} text={copy.frontmatter.CTA1} inverted={true} />
+			<Button href={copy.frontmatter.url2} text={copy.frontmatter.CTA2} inverted={true} />
+		</ButtonsGroup>
 	</div>
 	<Caffuda />
 </div>
