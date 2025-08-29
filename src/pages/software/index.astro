@@ -1,6 +1,9 @@
 ---
 import ProjectCard from '~/components/ProjectCard.astro';
 import Layout from '~/layouts/Layout.astro';
+import softwareList from '~/content/software.json';
+// Page-specific list of software ids to render on this index page
+const pageSoftwareIds = ['dynebolic', 'freej', 'tomb'];
 const softwares = await Astro.glob('~/pages/software/*.md');
 const github_fetch = await fetch('https://api.github.com/orgs/dyne/repos?per_page=100&type=sources');
 const github = await github_fetch.json();
@@ -13,6 +16,16 @@ const github = await github_fetch.json();
 	}}
 >
 	<div class="grid md:grid-cols-2 gap-8">
+		{
+			// entries from central JSON specifically selected for this page
+			softwareList
+				.filter((s) => pageSoftwareIds.includes(s.id))
+				.map((s) => (
+					<ProjectCard url={s.url} title={s.title}>
+						{s.description}
+					</ProjectCard>
+				))
+		}
 		{
 			softwares.map((software) => (
 				<ProjectCard url={software.url} title={software.frontmatter.title}>
