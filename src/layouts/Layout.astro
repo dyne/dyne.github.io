@@ -27,7 +27,10 @@ const meta = {
 				<span set:html={content.description} />
 			</span>
 		</div>
-		<slot />
+		<div class="max-w-7xl mx-auto">
+			<slot />
+		</div>
+		<div class="mt-16"></div>
+		<Footer />
 	</div>
-	<Footer />
 </BaseLayout>
