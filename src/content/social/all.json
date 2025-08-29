@@ -1,0 +1,13 @@
+[
+  { "name": "twitter", "href": "https://socials.dyne.org/twitter" },
+  { "name": "telegram", "href": "https://socials.dyne.org/telegram" },
+  { "name": "github", "href": "https://socials.dyne.org/github" },
+  { "name": "linkedin", "href": "https://socials.dyne.org/linkedin" },
+  { "name": "instagram", "href": "https://socials.dyne.org/instagram" },
+  { "name": "facebook", "href": "https://socials.dyne.org/facebook" },
+  { "name": "youtube", "href": "https://socials.dyne.org/youtube" },
+  { "name": "mastodon", "href": "https://socials.dyne.org/mastodon" },
+  { "name": "medium", "href": "https://socials.dyne.org/medium" },
+  { "name": "discord", "href": "https://socials.dyne.org/discord" },
+  { "name": "matrix", "href": "https://socials.dyne.org/matrix" }
+]
