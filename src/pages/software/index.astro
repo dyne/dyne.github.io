@@ -3,10 +3,15 @@ import ProjectCard from '~/components/ProjectCard.astro';
 import Layout from '~/layouts/Layout.astro';
 import softwareList from '~/content/software.json';
 // Page-specific list of software ids to render on this index page
-const pageSoftwareIds = ['dynebolic', 'freej', 'tomb'];
+const pageSoftwareIds = ['dynebolic', 'devuan', 'freej', 'tomb'];
 const softwares = await Astro.glob('~/pages/software/*.md');
 const github_fetch = await fetch('https://api.github.com/orgs/dyne/repos?per_page=100&type=sources');
 const github = await github_fetch.json();
+
+// ids already rendered from the central JSON for this page (prevent duplicates)
+const displayedIds = new Set(
+	softwareList.filter((s) => pageSoftwareIds.includes(s.id)).map((s) => s.id)
+);
 ---
 
 <Layout
@@ -27,24 +32,37 @@ const github = await github_fetch.json();
 				))
 		}
 		{
-			softwares.map((software) => (
-				<ProjectCard url={software.url} title={software.frontmatter.title}>
-					{software.frontmatter.description}
-				</ProjectCard>
-			))
+			softwares
+				.filter((software) => {
+					// derive id from the markdown page url, e.g. '/software/dynebolic' -> 'dynebolic'
+					const parts = (software.url || '').split('/').filter(Boolean);
+					const id = parts.length ? parts[parts.length - 1] : null;
+					return !id || !displayedIds.has(id);
+				})
+				.map((software) => (
+					<ProjectCard url={software.url} title={software.frontmatter.title}>
+						{software.frontmatter.description}
+					</ProjectCard>
+				))
 		}
 		{
-			github.map((software) => (
-				<div>
-					<ProjectCard
-						url={software.homepage ? software.homepage : software.html_url}
-						title={software.name}
-						download={software.homepage ? software.html_url : false}
-					>
-						{software.description}
-					</ProjectCard>
-				</div>
-			))
+			github
+				.filter((repo) => {
+					// exclude GitHub repos whose name matches an id already displayed
+					const nameId = (repo.name || '').toLowerCase();
+					return !displayedIds.has(nameId);
+				})
+				.map((software) => (
+					<div>
+						<ProjectCard
+							url={software.homepage ? software.homepage : software.html_url}
+							title={software.name}
+							download={software.homepage ? software.html_url : false}
+						>
+							{software.description}
+						</ProjectCard>
+					</div>
+				))
 		}
 	</div>
 </Layout>
