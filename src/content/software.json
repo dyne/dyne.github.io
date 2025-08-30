@@ -1,7 +1,21 @@
 [
+
+  {
+    "id": "conspire",
+  "title": "Conspire",
+  "subtitle": "Encrypted, decentralized chat and file sharing",
+    "description": "Conspire is a free and open-source application for encrypted, decentralized chat and file sharing.",
+    "url": "/software/conspire",
+    "logo": "https://conspire.dyne.org/images/conspire-logo.png",
+    "tags": [
+      "privacy",
+      "chat"
+    ]
+  },
   {
     "id": "darkfi",
-    "title": "DarkFi :: Free and open-source anonymous P2P ecosystem",
+  "title": "DarkFi",
+  "subtitle": "Free and open-source anonymous P2P ecosystem",
     "description": "",
     "url": "/software/darkfi",
     "tags": [
@@ -10,7 +24,8 @@
   },
   {
     "id": "darkice",
-    "title": "Darkice :: live audio streamer for GNU/Linux",
+  "title": "Darkice",
+  "subtitle": "live audio streamer for GNU/Linux",
     "description": "Darkice records audio from an audio interface, encodes it and sends it to a streaming server.",
     "url": "/software/darkice",
     "tags": [
@@ -19,7 +34,8 @@
   },
   {
     "id": "devuan",
-    "title": "Devuan :: freedom, privacy, minimalism and resource optimization",
+  "title": "Devuan",
+  "subtitle": "freedom, privacy, minimalism and resource optimization",
     "description": "",
     "url": "/software/devuan",
     "tags": [],
@@ -27,7 +43,8 @@
   },
   {
     "id": "dowse",
-    "title": "Dowse :: Network Awareness",
+  "title": "Dowse",
+  "subtitle": "Network Awareness",
     "description": "",
     "url": "/software/dowse",
     "tags": [],
@@ -35,7 +52,8 @@
   },
   {
     "id": "dynebolic",
-    "title": "Dynebolic :: Free & Live Creative Multimedia",
+  "title": "Dynebolic",
+  "subtitle": "Free & Live Creative Multimedia",
     "description": "Dynebolic is a 100% Free Software Operating System for multimedia production, recommended by the Free Software Foundation.",
     "url": "/software/dynebolic",
     "tags": [
@@ -46,7 +64,8 @@
   },
   {
     "id": "freej",
-    "title": "FreeJ :: Free Video Mixer",
+  "title": "FreeJ",
+  "subtitle": "Free Video Mixer",
     "description": "",
     "url": "/software/freej",
     "tags": [
@@ -56,7 +75,8 @@
   },
   {
     "id": "frei0r",
-    "title": "Frei0r :: Free Video Effect Plugins",
+  "title": "Frei0r",
+  "subtitle": "Free Video Effect Plugins",
     "description": "",
     "url": "/software/frei0r",
     "tags": [],
@@ -64,7 +84,8 @@
   },
   {
     "id": "gitzone",
-    "title": "GitZone :: Git manage DNS zones",
+  "title": "GitZone",
+  "subtitle": "Git manage DNS zones",
     "description": "",
     "url": "/software/gitzone",
     "tags": [],
@@ -72,42 +93,49 @@
   },
   {
     "id": "harvest",
-    "title": "Harvest :: manage large collections of files and dirs",
+  "title": "Harvest",
+  "subtitle": "manage large collections of files and dirs",
     "description": "",
     "url": "/software/harvest",
     "tags": []
   },
   {
     "id": "hasciicam",
-    "title": "HasciiCam :: ASCII art for the masses",
+  "title": "HasciiCam",
+  "subtitle": "ASCII art for the masses",
     "description": "HasciiCam makes it possible to have live ASCII art videos on the web.",
     "url": "/software/hasciicam",
     "tags": []
   },
   {
-    "id": "jaro-mail",
-    "title": "Jaro Mail :: The Electronic Postman",
-    "description": "Jaro Mail is a suite of console email tools to archive mails without storing them online.",
-    "url": "/software/jaro-mail",
+    "id": "jaromail",
+  "title": "Jaromail",
+  "subtitle": "The Electronic Postman",
+    "description": "Jaro Mail is a suite of console email tools to archive mails without storing them online. Built following reliable open source standards.",
+    "logo": "/wp-content/uploads/2012/06/jaromail-diagram.png",
+    "url": "/jaromail",
     "tags": []
   },
   {
     "id": "mactomb",
-    "title": "MacTomb :: File Encryption on Mac OS X",
+  "title": "MacTomb",
+  "subtitle": "File Encryption on Mac OS X",
     "description": "",
     "url": "/software/mactomb",
     "tags": []
   },
   {
     "id": "muse",
-    "title": "MuSE :: Stream Internet Radio",
+  "title": "MuSE",
+  "subtitle": "Stream Internet Radio",
     "description": "",
     "url": "/software/muse",
     "tags": []
   },
   {
     "id": "socialwallet",
-    "title": "Social Wallet :: Design and manage currencies in a simple and secure way.",
+  "title": "Social Wallet",
+  "subtitle": "Design and manage currencies in a simple and secure way.",
     "description": "",
     "url": "/software/socialwallet",
     "tags": [],
@@ -115,21 +143,24 @@
   },
   {
     "id": "sup",
-    "title": "sup :: A “small is beautiful” tool for unix privilege escalation",
+  "title": "sup",
+  "subtitle": "A “small is beautiful” tool for unix privilege escalation",
     "description": "",
     "url": "/software/sup",
     "tags": []
   },
   {
     "id": "tbt",
-    "title": "TBT :: Time Based Text",
+  "title": "TBT",
+  "subtitle": "Time Based Text",
     "description": "",
     "url": "/software/tbt",
     "tags": []
   },
   {
     "id": "tomb",
-    "title": "Tomb :: Folder Encryption on GNU/Linux",
+  "title": "Tomb",
+  "subtitle": "Folder Encryption on GNU/Linux",
     "description": "Tomb is a system to make strong encryption easy for everyday use.",
     "url": "/software/tomb",
     "tags": [
@@ -140,21 +171,24 @@
   },
   {
     "id": "webnomad",
-    "title": "WebNomad :: simple web design software",
+  "title": "WebNomad",
+  "subtitle": "simple web design software",
     "description": "",
     "url": "/software/webnomad",
     "tags": []
   },
   {
     "id": "yubiswitch",
-    "title": "Yubiswitch :: OSX status bar app to quickly enable/disable a Yubikey Nano",
+  "title": "Yubiswitch",
+  "subtitle": "OSX status bar app to quickly enable/disable a Yubikey Nano",
     "description": "",
     "url": "/software/yubiswitch",
     "tags": []
   },
   {
     "id": "zenbridge",
-    "title": "Zenbridge :: blockchain multi-layer interop",
+  "title": "Zenbridge",
+  "subtitle": "blockchain multi-layer interop",
     "description": "Blockchain interop layer: Zenbridge lets you command and control a swarm of Oracles.",
     "url": "/software/zenbridge",
     "tags": [],
@@ -162,7 +196,8 @@
   },
   {
     "id": "zenroom",
-    "title": "Zenroom :: portable crypto engine for smart contracts",
+  "title": "Zenroom",
+  "subtitle": "portable crypto engine for smart contracts",
     "description": "Crypto VM for database and blockchain: Zenroom is a tiny and portable virtual machine.",
     "url": "/software/zenroom",
     "tags": [],
@@ -170,7 +205,8 @@
   },
   {
     "id": "zshaolin",
-    "title": "ZShaolin :: GNU/Linux Android terminal",
+  "title": "ZShaolin",
+  "subtitle": "GNU/Linux Android terminal",
     "description": "",
     "url": "/software/zshaolin",
     "tags": []
