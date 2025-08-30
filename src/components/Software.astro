@@ -34,9 +34,16 @@ const initials = (title || '')
   .toUpperCase();
 
 const altText = propAlt || (title ? `${title} logo` : 'logo');
+
+// compute a safe slug for use as an element id so anchors can target it
+// prefix with `software-` to avoid collisions and ensure it doesn't start with a digit
+const slug = softwareId
+  ? `${String(softwareId).toLowerCase().replace(/[^a-z0-9-_:.]/g, '-')}`
+  : undefined;
+
 ---
 
-<section class="rounded-2xl p-8 md:p-12">
+<section class="rounded-2xl p-8 md:p-12" id={slug}>
   <div class="max-w-6xl mx-auto flex flex-row items-start gap-6 md:gap-10">    <div class="flex-shrink-0">
       {
         logo ? (
@@ -68,7 +75,7 @@ const altText = propAlt || (title ? `${title} logo` : 'logo');
           <span class="mt-2 sm:mt-0 text-lg sm:text-xl md:text-2xl font-semibold sm:ml-4 sm:text-right">{subtitle}</span>
         )}
       </h1>
-      {desc && <p class="text-base md:text-lg max-w-3xl mt-2">{desc}</p>}
+  {desc && <p class="text-base md:text-lg max-w-3xl mt-2" set:html={desc}></p>}
     </div>
   </div>
 </section>

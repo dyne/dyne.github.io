@@ -4,12 +4,32 @@ import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import '@fontsource/jetbrains-mono';
 import '@fontsource-variable/inter';
+import softwareList from '~/content/software.json';
 
 const { content, cls } = Astro.props;
+
+// If the page specifies `software: <id>` in its frontmatter, pull that entry
+// from `src/content/software.json`. Page/frontmatter values override software.json.
+let softwareMeta = {};
+const _normalize = (v) => (v == null ? undefined : String(v).trim().toLowerCase());
+if (content?.software) {
+	const target = _normalize(content.software);
+	const s = softwareList.find((x) => _normalize(x.id) === target);
+	if (s) {
+		softwareMeta = { ...s };
+	}
+}
+
+// Merge: software.json base, overridden by explicit page frontmatter fields
+const merged = { ...softwareMeta, ...(content || {}) };
+
 const meta = {
-	title: 'Dyne.org :: ' + content?.title || undefined,
-	description: content?.description || undefined,
-	cover: content?.cover || undefined,
+	title: merged.title || undefined,
+	description: merged.description || undefined,
+	// prefer an explicit cover, then a software logo if available
+	cover: merged.cover || merged.logo || undefined,
+	// include other merged fields for downstream use if needed
+	...merged,
 };
 ---
 
@@ -18,15 +38,31 @@ const meta = {
 	<div
 		class={`pb-14 p-4 lg:p-0 mx-auto w-full prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent prose-headings:font-sans font-prose prose-strong:text-accent prose-strong:font-medium ${cls}`}
 	>
-		<div class="grid grid-rows-1 justify-between items-center md:grid-cols-2 pb-8">
-			<h1 class="font-bold mb-0">{content.title}</h1>
+			<div class="grid grid-cols-1 lg:grid-cols-2 items-start lg:items-center gap-6 pb-8">
+				<!-- left: logo + title -->
+				<div class="flex flex-col items-center lg:flex-row lg:items-center lg:gap-4">
+					{meta?.logo ? (
+						<img src={meta.logo} alt={meta.title ? `${meta.title} logo` : 'logo'}
+							class="w-64 h-64 sm:w-64 sm:h-64 lg:w-32 lg:h-32 object-contain rounded-lg lg:mr-2"
+						/>
+					) : null}
+					<div class="flex flex-col items-center lg:items-start">
+						<h1 class="font-bold mb-2 text-center md:text-left">{meta.title}</h1>
+						{meta?.subtitle ? (
+							<p class="text-lg font-semibold text-neutral-700 mt-1 text-center mx-auto">
+								{meta.subtitle}</p>
+						) : null}
+					</div>
+				</div>
 
-			<span class="text-lg">
-				<span class="text-accent font-medium">We are hackers.</span>
-				<br class="hidden md:block" />
-				<span set:html={content.description} />
-			</span>
-		</div>
+				<!-- right: tagline / description (separate column to avoid overlap) -->
+				<div class="text-lg mt-2 lg:mt-0 lg:flex lg:items-center">
+					<div>
+						<span class="text-accent font-medium">We are hackers.</span>
+						<span set:html={meta.description} class="ml-2 max-w-xl" />
+					</div>
+				</div>
+			</div>
 		<div class="max-w-7xl mx-auto">
 			<slot />
 		</div>
