@@ -66,9 +66,9 @@
     "id": "freej",
   "title": "FreeJ",
   "subtitle": "Free Video Mixer",
-    "description": "Video mixer for live video manipulation in dance theater, veejaying, medical visualization and TV. Developed in 2001 by Jaromil, used in many performances around the world, it was the first free and open source live-coding software. It also gave birth to <a href='#frei0r'>frei0r</a>.",
-    "url": "/software/freej",
-    "logo": "/wp-content/uploads/2011/12/ipernav-trans.png",
+    "description": "Video mixer for live video manipulation in dance theater, veejaying, medical visualization and TV. Developed in 2001 by Jaromil, used in many performances around the world, it was the first free and open source live-coding software.",
+    "url": "/freej",
+    "logo": "/images/logos/ipernav-trans.png",
     "tags": [
       "multimedia",
       "video"
