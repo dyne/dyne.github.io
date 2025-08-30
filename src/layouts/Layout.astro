@@ -36,14 +36,17 @@ const meta = {
 <BaseLayout meta={meta}>
 	<Header />
 	<div
-		class={`pb-14 p-4 lg:p-0 mx-auto w-full prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent prose-headings:font-sans font-prose prose-strong:text-accent prose-strong:font-medium ${cls}`}
+		class={`pb-14 p-4 lg:p-0 mx-auto w-full
+		prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic
+		prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent
+		prose-headings:font-sans font-prose prose-strong:text-accent prose-strong:font-medium ${cls}`}
 	>
-			<div class="grid grid-cols-1 lg:grid-cols-2 items-start lg:items-center gap-6 pb-8">
+			<div class="mt-2 mb-2 grid grid-cols-1 lg:grid-cols-2 items-start lg:items-center gap-6 pb-8">
 				<!-- left: logo + title -->
 				<div class="flex flex-col items-center lg:flex-row lg:items-center lg:gap-4">
 					{meta?.logo ? (
 						<img src={meta.logo} alt={meta.title ? `${meta.title} logo` : 'logo'}
-							class="w-64 h-64 sm:w-64 sm:h-64 lg:w-32 lg:h-32 object-contain rounded-lg lg:mr-2"
+							class="w-64 h-64 sm:w-64 sm:h-64 lg:w-48 lg:h-48 object-contain rounded-lg lg:mr-2"
 						/>
 					) : null}
 					<div class="flex flex-col items-center lg:items-start">
@@ -56,10 +59,10 @@ const meta = {
 				</div>
 
 				<!-- right: tagline / description (separate column to avoid overlap) -->
-				<div class="text-lg mt-2 lg:mt-0 lg:flex lg:items-center">
+				<div class="text-lg mt-2 lg:mt-0 lg:ml-12 flex-col lg:items-center">
 					<div>
 						<span class="text-accent font-medium">We are hackers.</span>
-						<span set:html={meta.description} class="ml-2 max-w-xl" />
+						<span set:html={meta.description} class="ml-2" />
 					</div>
 				</div>
 			</div>
