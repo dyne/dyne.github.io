@@ -2,8 +2,10 @@
 import ProjectCard from '~/components/ProjectCard.astro';
 import Layout from '~/layouts/Layout.astro';
 import softwareList from '~/content/software.json';
+import Software from '~/components/Software.astro';
+
 // Page-specific list of software ids to render on this index page
-const pageSoftwareIds = ['dynebolic', 'devuan', 'freej', 'tomb'];
+const pageSoftwareIds = ['dynebolic', 'devuan', 'freej', 'tomb', 'jaromail', 'frei0r'];
 const softwares = await Astro.glob('~/pages/software/*.md');
 const github_fetch = await fetch('https://api.github.com/orgs/dyne/repos?per_page=100&type=sources');
 const github = await github_fetch.json();
@@ -17,20 +19,21 @@ const displayedIds = new Set(
 <Layout
 	content={{
 		title: 'Software',
-		description: "Dive into the code ocean<br/>Dyne's collective toolbox for hackers, makers, and dreamers",
+		description: "We've written a lot of code, here is an overview on our collective toolbox for hackers, makers, and dreamers",
 	}}
 >
-	<div class="grid md:grid-cols-2 gap-8">
+	<div>
 		{
 			// entries from central JSON specifically selected for this page
 			softwareList
 				.filter((s) => pageSoftwareIds.includes(s.id))
-				.map((s) => (
-					<ProjectCard url={s.url} title={s.title}>
-						{s.description}
-					</ProjectCard>
+								.map((s) => (
+									<Software id={s.id} />
 				))
 		}
+	</div>
+	<div class="grid md:grid-cols-2 gap-8">
+
 		{
 			softwares
 				.filter((software) => {
