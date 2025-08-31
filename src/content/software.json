@@ -1,143 +1,137 @@
 [
+  { "id": "sailfish-pool",
+    "title": "Sailfish pool",
+    "subtitle": "Secure and fast memory pool in C",
+    "description": "lightweight pool manager for small memory allocations in C, optimized for data privacy and speed.",
+    "url": "/sailfish-pool",
+    "logo": "/images/logos/sailfish-pool_logo.jpg",
+    "tags": ["devel"]
+  },
   {
     "id": "conspire",
-  "title": "Conspire",
-  "subtitle": "Encrypted, decentralized chat and file sharing",
+    "title": "Conspire",
+    "subtitle": "Encrypted, decentralized chat and file sharing",
     "description": "Conspire is a free and open-source application for encrypted, decentralized chat and file sharing.",
     "url": "/software/conspire",
     "logo": "https://conspire.dyne.org/images/conspire-logo.png",
-    "tags": [
-      "privacy",
-      "chat"
-    ]
+    "tags": ["privacy"]
   },
   {
     "id": "darkfi",
-  "title": "DarkFi",
-  "subtitle": "Free and open-source anonymous P2P ecosystem",
+    "title": "DarkFi",
+    "subtitle": "Free and open-source anonymous P2P ecosystem",
     "description": "",
     "url": "/software/darkfi",
-    "tags": [
-      "friends"
-    ]
+    "tags": ["privacy","friends"]
   },
   {
     "id": "darkice",
-  "title": "Darkice",
-  "subtitle": "live audio streamer for GNU/Linux",
+    "title": "Darkice",
+    "subtitle": "live audio streamer for GNU/Linux",
     "description": "Darkice records audio from an audio interface, encodes it and sends it to a streaming server.",
     "url": "/software/darkice",
-    "tags": [
-      "friends"
-    ]
+    "tags": ["media","friends"]
   },
   {
     "id": "devuan",
-  "title": "Devuan",
-  "subtitle": "GNU Linux distribution",
-    "description": "Debian fork without systemd bugs: stable, secure, simple and fast. Regular updates since 2016 thanks to steady community driven development.",
+    "title": "Devuan",
+    "subtitle": "GNU Linux",
+    "description": "Operating system distribution based on <b>Debian</b>, without systemd bugs: stable, secure, simple and fast. <b>Less CVEs, more inits</b> to chose: sysvinit, openrc, runit... regular updates since 2016 thanks to steady <b>community driven development</b>.",
     "url": "https://devuan.org",
-    "tags": [
-      "distro"
-    ],
+    "download": "https://files.devuan.org",
+    "tags": ["distro"],
     "logo": "/images/logos/devuan-emblem.svg"
   },
   {
     "id": "dowse",
-  "title": "Dowse",
-  "subtitle": "Network Awareness",
+    "title": "Dowse",
+    "subtitle": "Network Awareness",
     "description": "",
     "url": "/software/dowse",
-    "tags": [],
+    "tags": ["privacy"],
     "logo": "https://www.dyne.org/wp-content/uploads/2013/07/dowse_title.png"
   },
   {
     "id": "dynebolic",
-  "title": "Dynebolic",
-  "subtitle": "Free & Live Creative Multimedia",
-    "description": "Dynebolic is a 100% Free Software Operating System for multimedia production, recommended by the Free Software Foundation.",
+    "title": "Dynebolic",
+    "subtitle": "GNU Live CD",
+    "description": "Dynebolic is a <b>100% free live OS</b>: no need to install! It is made for media activists, <a href='https://www.gnu.org/distros/free-distros.html' target='_blank'>recommended by the GNU project</a> and the Free Software Foundation because it ships without proprietary programs and <b>clean from spyware</b> normally present in other Linux distros.",
     "url": "/software/dynebolic",
-    "tags": [
-      "os",
-      "multimedia"
-    ],
+    "tags": ["distro"],
     "logo": "https://dyne.org/wp-content/uploads/2015/01/Dyne-bolic-141-logo.png"
   },
   {
     "id": "freej",
-  "title": "FreeJ",
-  "subtitle": "Free Video Mixer",
-    "description": "Video mixer for live video manipulation in dance theater, veejaying, medical visualization and TV. Developed in 2001 by Jaromil, used in many performances around the world, it was the first free and open source live-coding software.",
+    "title": "FreeJ",
+    "subtitle": "Live Video Coding",
+    "description": "Video mixer for live video manipulation in dance theater, veejaying, medical visualization and TV. Developed in 2001 by <a href='https://jaromil.dyne.org' target='_blank'>Jaromil</a>, used in many performances around the world, historically the <b>first live-coding software on GNU/Linux</b>.",
     "url": "/freej",
     "logo": "/images/logos/ipernav-trans.png",
-    "tags": [
-      "multimedia",
-      "video"
-    ]
+    "tags": ["media"]
   },
   {
     "id": "frei0r",
-  "title": "Frei0r",
-  "subtitle": "Free Video Effect Plugins",
-    "description": "",
+    "title": "Frei0r",
+    "subtitle": "Video plugins",
+    "description": "Our free and <b>open source plugin collection</b> for video effects. Many applications use its API to embed more than 100 video filters, sources and mixers, including FFMpeg, KDEnlive, Pure Data and more.",
     "url": "/software/frei0r",
-    "tags": [],
+    "tags": ["media"],
     "logo": "https://frei0r.dyne.org/pics/frei0r.png"
   },
   {
     "id": "gitzone",
-  "title": "GitZone",
-  "subtitle": "Git manage DNS zones",
+    "title": "GitZone",
+    "subtitle": "Git manage DNS zones",
     "description": "",
     "url": "/software/gitzone",
-    "tags": [],
+    "tags": ["tool"],
     "logo": "https://www.dyne.org/wp-content/uploads/2013/10/octocat_spider.png"
   },
   {
     "id": "harvest",
-  "title": "Harvest",
-  "subtitle": "manage large collections of files and dirs",
+    "title": "Harvest",
+    "subtitle": "manage large collections of files and dirs",
     "description": "",
     "url": "/software/harvest",
-    "tags": []
+    "tags": ["tool"]
   },
   {
     "id": "hasciicam",
-  "title": "HasciiCam",
-  "subtitle": "ASCII art for the masses",
+    "title": "HasciiCam",
+    "subtitle": "ASCII art for the masses",
     "description": "HasciiCam makes it possible to have live ASCII art videos on the web.",
     "url": "/software/hasciicam",
-    "tags": []
+    "tags": ["media"]
   },
   {
     "id": "jaromail",
-  "title": "Jaromail",
-  "subtitle": "The Electronic Postman",
+    "title": "Jaromail",
+    "subtitle": "Local-first email",
     "description": "Jaro Mail is a suite of console email tools to archive mails without storing them online. Built following reliable open source standards.",
     "logo": "/images/logos/jaromail_nyan.png",
     "url": "/jaromail",
-    "tags": []
+    "tags": ["privacy","tool"]
   },
   {
     "id": "mactomb",
-  "title": "MacTomb",
-  "subtitle": "File Encryption on Mac OS X",
+    "title": "MacTomb",
+    "subtitle": "OSX private folders",
     "description": "",
     "url": "/software/mactomb",
-    "tags": []
+    "tags": ["privacy","tool"]
   },
   {
     "id": "muse",
-  "title": "MuSE",
-  "subtitle": "Stream Internet Radio",
+    "title": "MuSE",
+    "subtitle": "Radio streaming",
     "description": "",
     "url": "/software/muse",
-    "tags": []
+    "tags": ["media"]
   },
   {
     "id": "socialwallet",
-  "title": "Social Wallet",
-  "subtitle": "Design and manage currencies in a simple and secure way.",
+    "title": "Social Wallet",
+    "subtitle": "Design and manage currencies in a simple and secure way.",
     "description": "",
     "url": "/software/socialwallet",
     "tags": [],
@@ -145,52 +139,49 @@
   },
   {
     "id": "sup",
-  "title": "sup",
-  "subtitle": "A “small is beautiful” tool for unix privilege escalation",
-    "description": "",
+    "title": "sup",
+    "subtitle": "UNIX privilege escalation",
+    "description": "Minimal and secure substitute of 'sudo' which can <b>hard-code paths and checksums</b> of binaries to be executed with super-user privileges. Useful for embedded systems that want to avoid complex privilege escalation tools and limit the attack surface.",
     "url": "/software/sup",
-    "tags": []
+    "tags": ["tool"]
   },
   {
     "id": "tbt",
-  "title": "TBT",
-  "subtitle": "Time Based Text",
+    "title": "TBT",
+    "subtitle": "Time Based Text",
     "description": "",
     "url": "/software/tbt",
-    "tags": []
+    "tags": ["media"]
   },
   {
     "id": "tomb",
-  "title": "Tomb",
-  "subtitle": "Folder Encryption on GNU/Linux",
-    "description": "Tomb is a system to make strong encryption easy for everyday use.",
+    "title": "Tomb",
+    "subtitle": "Linux private folders",
+    "description": "Tomb is our system to make <b>strong file encryption</b> easy for everyday use. It is a minimalistic command line that facilitates managing secret folders protected by strong encryption. It is based on Linux (LUKS) and guarantees <b>backward compatibility since 2007</b>.",
     "url": "/software/tomb",
-    "tags": [
-      "privacy",
-      "encryption"
-    ],
+    "tags": ["privacy","tool"],
     "logo": "https://www.dyne.org/wp-content/uploads/2011/10/tomb_n_bats.png"
   },
   {
     "id": "webnomad",
-  "title": "WebNomad",
-  "subtitle": "simple web design software",
+    "title": "WebNomad",
+    "subtitle": "simple web design software",
     "description": "",
     "url": "/software/webnomad",
-    "tags": []
+    "tags": ["media","devel"]
   },
   {
     "id": "yubiswitch",
-  "title": "Yubiswitch",
-  "subtitle": "OSX status bar app to quickly enable/disable a Yubikey Nano",
+    "title": "Yubiswitch",
+    "subtitle": "OSX status bar app to quickly enable/disable a Yubikey Nano",
     "description": "",
     "url": "/software/yubiswitch",
-    "tags": []
+    "tags": ["privacy","tool"]
   },
   {
     "id": "zenbridge",
-  "title": "Zenbridge",
-  "subtitle": "blockchain multi-layer interop",
+    "title": "Zenbridge",
+    "subtitle": "blockchain multi-layer interop",
     "description": "Blockchain interop layer: Zenbridge lets you command and control a swarm of Oracles.",
     "url": "/software/zenbridge",
     "tags": [],
@@ -198,17 +189,17 @@
   },
   {
     "id": "zenroom",
-  "title": "Zenroom",
-  "subtitle": "portable crypto engine for smart contracts",
-    "description": "Crypto VM for database and blockchain: Zenroom is a tiny and portable virtual machine.",
+    "title": "Zenroom",
+    "subtitle": "Secure execution VM",
+    "description": "Zenroom is our most powerful component for <b>cryptography</b>, fruit of passion and high craftmanship. It is tiny and fully isolated virtual machine that runs on any platform, even on a chip or a web page (WASM). It is programmable in the <b>no-code</b> English-like language <a href='https://dev.zenroom.org' target='_blank'>Zencode</a>.",
     "url": "/software/zenroom",
-    "tags": [],
+    "tags": ["devel"],
     "logo": "https://zenroom.org/wp-content/uploads/2020/09/zenroom_only-logo_padding.png"
   },
   {
     "id": "zshaolin",
-  "title": "ZShaolin",
-  "subtitle": "GNU/Linux Android terminal",
+    "title": "ZShaolin",
+    "subtitle": "GNU/Linux Android terminal",
     "description": "",
     "url": "/software/zshaolin",
     "tags": []
