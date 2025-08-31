@@ -18,7 +18,7 @@ const {
 <meta name="fediverse:creator" content="@dyne@toot.community" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="google-site-verification" content="rDWLpshyBbtXZr-9SYj1GMUoH-QTHQTc1i6RrBnSE-Q" />
-
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
 <AstroSeo
 	title={title}
 	description={description}
@@ -42,3 +42,10 @@ const {
 		cardType: 'summary_large_image',
 	}}
 />
+<script>
+// Simple frame-bust: move top window to this page if framed.
+if (window.top !== window.self) { try { // prefer replace to avoid history entry
+window.top.location.replace(window.location.href); } catch (e) {
+// if cross-origin prevents top navigation, fallback to break out by opening self
+window.self.open(location.href, '_top'); } }
+</script>
