@@ -1,5 +1,4 @@
 [
-
   {
     "id": "conspire",
   "title": "Conspire",
@@ -35,11 +34,13 @@
   {
     "id": "devuan",
   "title": "Devuan",
-  "subtitle": "freedom, privacy, minimalism and resource optimization",
-    "description": "",
-    "url": "/software/devuan",
-    "tags": [],
-    "logo": "software/devuan-emblem-150x150.png"
+  "subtitle": "GNU Linux distribution",
+    "description": "Debian fork without systemd bugs: stable, secure, simple and fast. Regular updates since 2016 thanks to steady community driven development.",
+    "url": "https://devuan.org",
+    "tags": [
+      "distro"
+    ],
+    "logo": "/images/logos/devuan-emblem.svg"
   },
   {
     "id": "dowse",
