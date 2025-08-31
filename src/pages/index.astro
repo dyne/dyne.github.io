@@ -32,18 +32,16 @@ const feed = await parser.parseURL('https://news.dyne.org/tag/planet-dyne/rss/')
 
 		<Section id="who-we-are" title="Who we are" cls="-mt-40 p-4 pt-40 lg:pt-14 -z-1">
 			<span slot="description">
-				Dyne.org is a vibrant think-and-do tank composed of passionate individuals, innovative projects, and dedicated
-				organisations. Together, we are committed to safeguarding and promoting civil liberties, decentralisation, free
-				and open-source software, and the natural environment. Think of us as a connected ecosystem that unites people,
-				communities, and technology, dismantling barriers and fostering collaboration across borders and tech platforms.
-				Our shared aim is to create a bright future where digital rights flourish and are well protected.
+				A think &do tank of passionate individuals, innovative projects, and dedicated
+				organisations. We safeguard and promote civil rights, decentralisation, free and open-source software, and the environment.
+				We are a connected ecosystem that unites people, communities, and technology, dismantling barriers and fostering collaboration across borders and tech platforms.
 			</span>
 			<WhoWeAre />
 		</Section>
 
 		<Stats />
 		<Newsletter
-			intro="Stay ahead of the curve: subscribe now to receive our latest updates. Don’t miss out on expert insights and trending innovations!"
+			intro="Stay ahead of the curve and subscribe with your email to receive our updates."
 			href="https://news.dyne.org/#/portal/signup"
 		>
 			<BlogArticlePreviewHome {...feed.items[0]} />
