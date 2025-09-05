@@ -4,13 +4,15 @@ import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import '@fontsource/jetbrains-mono';
 import '@fontsource-variable/inter';
+import TableOfContents from '../components/TableOfContents.astro';
 
-const { content, cls } = Astro.props;
+const { content, cls, headings = [] } = Astro.props;
 const meta = {
 	title: 'Dyne.org :: ' + content?.title || undefined,
 	description: content?.description || undefined,
 	cover: content?.cover || undefined,
 };
+const showSidebar = content.sidebar;
 ---
 
 <BaseLayout meta={meta}>
@@ -20,17 +22,69 @@ const meta = {
 	>
 		<div class="grid grid-rows-1 justify-between items-center md:grid-cols-2 pb-8">
 			<h1 class="font-bold mb-0">{content.title}</h1>
-
 			<span class="text-lg">
 				<span class="text-accent font-medium">We are hackers.</span>
 				<br class="hidden md:block" />
 				<span set:html={content.description} />
 			</span>
 		</div>
-		<div class="max-w-7xl mx-auto">
-			<slot />
-		</div>
+
+		{
+			showSidebar ? (
+				<div class="max-w-7xl mx-auto lg:flex lg:gap-8">
+					{/* Desktop sidebar */}
+					<aside class="hidden lg:block lg:w-64 lg:flex-shrink-0">
+						<div class="sticky top-4">
+							{headings.length > 0 ? (
+								<TableOfContents headings={headings} />
+							) : (
+								<div class="text-gray-500 dark:text-gray-400 text-sm">No headings found on the document</div>
+							)}
+						</div>
+					</aside>
+
+					{/* Mobile sidebar (overlay) */}
+					<aside
+						id="sidebar-mobile"
+						class="lg:hidden w-64 bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 fixed inset-y-0 left-0 z-50 transform -translate-x-full transition-transform duration-300"
+					>
+						<div class="flex flex-col h-full">
+							<div class="flex-1 p-4 overflow-y-auto">
+								{headings.length > 0 ? (
+									<TableOfContents headings={headings} />
+								) : (
+									<div class="text-gray-500 dark:text-gray-400 text-sm">No headings found on the document</div>
+								)}
+							</div>
+						</div>
+					</aside>
+
+					{/* Main content */}
+					<div class="lg:flex-1 lg:min-w-0">
+						<slot />
+					</div>
+				</div>
+			) : (
+				<div class="max-w-7xl mx-auto">
+					<slot />
+				</div>
+			)
+		}
+
 		<div class="mt-16"></div>
 		<Footer />
 	</div>
 </BaseLayout>
+
+<script>
+	// Toggle sidebar mobile
+	function toggleSidebar() {
+		const sidebar = document.getElementById('sidebar-mobile');
+		if (sidebar) {
+			sidebar.classList.toggle('-translate-x-full');
+		}
+	}
+
+	// Add event listener for toggle button
+	// document.getElementById('sidebar-toggle')?.addEventListener('click', toggleSidebar);
+</script>
