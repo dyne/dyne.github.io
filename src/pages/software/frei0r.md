@@ -2,6 +2,7 @@
 layout: ../../layouts/Layout.astro
 title: "Frei0r :: Free Video Effect Plugins"
 description: "Frei0r is free and open source plugin collection for video effects. Applications can use its API to embed more than 100 video filters, sources and mixers."
+sidebar: true
 ---
 
 # Frei0r :: Free Video Effect Plugins

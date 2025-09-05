@@ -9,6 +9,7 @@ import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -20,7 +21,7 @@ export default defineConfig({
     markdown: {
         drafts: true,
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeRaw],
+        rehypePlugins: [rehypeRaw, rehypeSlug ],
         shikiConfig: {
             theme: 'dracula',
         },
