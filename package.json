@@ -25,6 +25,8 @@
     "astro-tabs": "^0.1.8",
     "lodash": "^4.17.21",
     "papaparse": "^5.4.1",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1",
     "rss-parser": "^3.13.0",
     "sass": "^1.69.4",
     "svelte": "^5.38.3",
