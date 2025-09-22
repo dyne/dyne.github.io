@@ -18,15 +18,15 @@ const meta = {
 	<div
 		class={`pb-14 p-4 lg:p-0 mx-auto w-full prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent prose-headings:font-sans font-prose prose-strong:text-accent prose-strong:font-medium ${cls}`}
 	>
-		<div class="grid grid-rows-1 justify-between items-center md:grid-cols-2 pb-8">
-			<h1 class="font-bold mb-0">{content.title}</h1>
+<div class="pb-8">
+    <h1 class="font-bold mb-4 mt-6">{content.title}</h1>
 
-			<span class="text-lg">
-				<span class="text-accent font-medium">We are hackers.</span>
-				<br class="hidden md:block" />
-				<span set:html={content.description} />
-			</span>
-		</div>
+    <span class="text-lg block pb-2 mb-4">
+        <span class="text-accent font-medium">We are hackers.</span>
+        <br class="hidden md:block" />
+        <span set:html={content.description} />
+    </span>
+</div>
 		<div class="max-w-7xl mx-auto">
 			<slot />
 		</div>
