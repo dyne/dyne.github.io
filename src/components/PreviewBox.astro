@@ -1,13 +1,13 @@
 ---
 // Simple preview box used on homepage
 // Props: title, href, image (src), alt, url
-const { title: propTitle, href: propHref, image: propImage, alt: propAlt, url: propUrl } = Astro.props;
+const { title: propTitle, href: propHref, image: propImage, alt: propAlt, url: propUrl, desc: propDesc } = Astro.props;
 
 let title = propTitle;
 let href = propHref;
 let image = propImage;
 let alt = propAlt;
-let desc = undefined;
+let desc = propDesc;
 
 // At build-time, if a `url` is provided, fetch the page and try to extract Open Graph / meta tags.
 if (propUrl) {

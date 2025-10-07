@@ -3,6 +3,7 @@ import ProjectCard from '~/components/ProjectCard.astro';
 import Layout from '~/layouts/Layout.astro';
 import softwareList from '~/content/software.json';
 import Software from '~/components/Software.astro';
+import PreviewBox from '~/components/PreviewBox.astro';
 
 // Page-specific list of software ids to render on this index page
 const pageSoftwareIds = ['dynebolic', 'devuan', 'freej', 'tomb', 'jaromail', 'frei0r'];
@@ -22,6 +23,11 @@ const displayedIds = new Set(
 		description: "We've written a lot of code, here is an overview on our collective toolbox for hackers, makers, and dreamers",
 	}}
 >
+
+	<!--
+	<PreviewBox url="https://github.com/dyne" title="Git / Dyne">
+		-->
+
 	<div>
 		{
 			// entries from central JSON specifically selected for this page
