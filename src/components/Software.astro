@@ -44,24 +44,24 @@ const slug = softwareId
 ---
 
 <section class="rounded-2xl p-8 md:p-12" id={slug}>
-  <div class="max-w-6xl mx-auto flex flex-row items-start gap-6 md:gap-10">    <div class="flex-shrink-0">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 max-w-6xl mx-auto flex flex-row items-start gap-6 md:gap-10">
+    <div class="flex-shrink-0">
       {
         logo ? (
           <a href={url || '#'} class="block">
             <img
               src={logo}
               alt={altText}
-              class="w-28 md:w-[14vw] lg:w-[10vw] max-w-[320px] h-auto object-contain rounded-xl"
+              class="w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 h-auto flex items-center object-contain rounded-xl"
             />
           </a>
         ) : (
-          <div class="w-28 md:w-[14vw] lg:w-[10vw] max-w-[320px] h-auto flex items-center justify-center rounded-xl">
+          <div class="w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 h-auto flex items-center justify-center rounded-xl">
             <span class="font-bold text-2xl">{initials || 'SW'}</span>
           </div>
         )
       }
     </div>
-
     <div class="flex-1 text-left">
       <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
         <span class="flex-1">
