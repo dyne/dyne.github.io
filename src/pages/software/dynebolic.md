@@ -96,7 +96,7 @@ You are free to study, modify, redistribute and even sell this Operating System,
 
 ### Friendly To The Environment
 
-> Dynebolic is designed to run on copmuters with extremly low resources (Dynebolic III was benchmarked at Pentium2 processors with 256MB RAM). It can even run in ram: not even a harddisk is required.
+> Dynebolic is designed to run on computers with extremly low resources (Dynebolic III was benchmarked at Pentium2 processors with 256MB RAM). It can even run in ram: not even a harddisk is required.
 
 ![](/wp-content/uploads/2015/01/recycle-15172_1280-e1422457346278.jpg)
 
