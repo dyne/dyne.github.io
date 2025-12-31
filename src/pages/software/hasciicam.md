@@ -9,7 +9,7 @@ description: "HasciiCam makes it possible to have live ASCII art videos on the w
 
 # Introduction[![](https://dyne.org/wp-content/uploads/2011/12/jaromil-hascii-sm.png "jaromil-hascii-sm")](https://dyne.org/wp-content/uploads/2011/12/jaromil-hascii-sm.png)
 
-HasciiCam makes it possible to have live ascii video on the web. It captures video from a tv card and renders it into ascii letters, formatting the output into an html page with a refresh tag, or in a live ascii window, or in a simple text file. It gives the possiblity to anybody that has a bttv card, a unix box and a cheap modem line to show live (h)ascii video can be viewed without any need for extra applications, plugins, java etc.
+HasciiCam makes it possible to have live ascii video on the web. It captures video from a tv card and renders it into ascii letters, formatting the output into an html page with a refresh tag, or in a live ascii window, or in a simple text file. It gives the possibility to anybody that has a bttv card, a unix box and a cheap modem line to show live (h)ascii video can be viewed without any need for extra applications, plugins, java etc.
 
 ## Long live ASCII art (now even in HTML!)
 
@@ -31,7 +31,7 @@ HasciiCam makes it possible to have live ascii video on the web. It captures vid
 
 To run this software you need to have installed a working Free GNU/Linux system, like for instance [dyne:bolic](http://dynebolic.org/).
 
-You can compile HasciiCam from sourcecode or you can look into the list of packages for your GNU/Linux distribution if a compiled version is allready there. You also need to install [AA-lib](http://aa-project.sourceforge.net/aalib) on your system, it is an excellent library used to convert video in ascii letters.
+You can compile HasciiCam from sourcecode or you can look into the list of packages for your GNU/Linux distribution if a compiled version is already there. You also need to install [AA-lib](http://aa-project.sourceforge.net/aalib) on your system, it is an excellent library used to convert video in ascii letters.
 
 As hardware you need to have a webcam or a videocard supported by “video 4 linux”, most of the gear you can buy around should work well.
 

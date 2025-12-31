@@ -47,7 +47,7 @@ The preference window where you can set your global hotkey and the device Vendor
 
 #  Known issues
 
-*    This applicaiton only works with a single model of yubikey, the **\*YubiKey Nano\***. There is no need to deal with other yubikeys because their form factor doesn’t encourage the users to leave it always plugged in. The nano is the only the model that fits cleanly into your usb port. It has idVendor *0x1050* and idProduct *0x0010*.
+*    This application only works with a single model of yubikey, the **\*YubiKey Nano\***. There is no need to deal with other yubikeys because their form factor doesn’t encourage the users to leave it always plugged in. The nano is the only the model that fits cleanly into your usb port. It has idVendor *0x1050* and idProduct *0x0010*.
 *   This app only works with recent version of OSX because it relies on the Notification Centre. OSX 10.8.x and above would do it. Sorry about that
 
 # Future plans and TODO

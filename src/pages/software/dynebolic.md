@@ -96,7 +96,7 @@ You are free to study, modify, redistribute and even sell this Operating System,
 
 ### Friendly To The Environment
 
-> Dynebolic is designed to run on computers with extremly low resources (Dynebolic III was benchmarked at Pentium2 processors with 256MB RAM). It can even run in ram: not even a harddisk is required.
+> Dynebolic is designed to run on computers with extremely low resources (Dynebolic III was benchmarked at Pentium2 processors with 256MB RAM). It can even run in ram: not even a harddisk is required.
 
 ![](/wp-content/uploads/2015/01/recycle-15172_1280-e1422457346278.jpg)
 
@@ -104,7 +104,7 @@ Unleash the full potential of computers, including **second hand machines**. Let
 
 ### Digital Resistance
 
-The dynebolic Operating System is about resilience and digital resistance. In a reality where governments and corporation are excercising control by monitoring the way people communicate, hackers, creatives and citizens of the digital era have a common interest in keeping their computing sovereign. To accomplish this, sharing knowledge is paramount.
+The dynebolic Operating System is about resilience and digital resistance. In a reality where governments and corporation are exercising control by monitoring the way people communicate, hackers, creatives and citizens of the digital era have a common interest in keeping their computing sovereign. To accomplish this, sharing knowledge is paramount.
 
 [![lion-rastasoft](/images/projects/rastalion-transparenbackground.svg)](http://rastasoft.org)
 
