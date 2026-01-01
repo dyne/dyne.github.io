@@ -8,7 +8,7 @@ description: "This document is an open and collective expression about us as hac
 
 ![](https://www.dyne.org/wp-content/uploads/2011/11/weaver_birds_featured.jpg)
 
-Original document with Italian tranlation on [jaromil.dyne.org/journal/weaver_birds](https://jaromil.dyne.org/journal/weaver_birds.html).
+Original document with Italian translation on [jaromil.dyne.org/journal/weaver_birds](https://jaromil.dyne.org/journal/weaver_birds.html).
 
 
 ## Hackers spinning the Dharma wheel

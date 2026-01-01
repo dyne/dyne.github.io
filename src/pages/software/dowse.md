@@ -63,7 +63,7 @@ Dowse is a minimalistic script that can turn an old PC into a **transparent pro
 
 Dowse is a **transparent proxy** facilitating the awareness of ingoing and outgoing connections from and to a local area network.
 
-Dowse provides a **central point of soft control for all local traffic**: from ARP traffic (layer 2) to TCP/IP (layer 3) as well application space, by chaining a firewall setup to a trasparent proxy setup. A core feature for Dowse is that of **hiding all the complexity** of such a setup.
+Dowse provides a **central point of soft control for all local traffic**: from ARP traffic (layer 2) to TCP/IP (layer 3) as well application space, by chaining a firewall setup to a transparent proxy setup. A core feature for Dowse is that of **hiding all the complexity** of such a setup.
 
 Dowse commnicates with users in various ways: via a web interface, but also pushing messages via audio (synthesized speech), Bonjour and simple apps interfacing with personal mobile devices.
 
@@ -140,7 +140,7 @@ licenses. Their sources are the property of the respective authors and are used 
 
 ## Credits
 
-The Dowse network visualization shown in the exibition is designed and developed by Denis "Jaromil" Roio, who published it along with the Dowse Whitepaper in 2013.
+The Dowse network visualization shown in the exhibition is designed and developed by Denis "Jaromil" Roio, who published it along with the Dowse Whitepaper in 2013.
 
 Soon Jaromil was joined by Rob van Kranenburg who has woven the Dowse narrative to a wider perspective on the Internet of Things, and by Federico Bonelli who ran workshops in various schools using Dowse.
 

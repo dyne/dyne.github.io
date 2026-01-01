@@ -15,7 +15,7 @@ To be operated MuSE offers graphical interfaces and a documented commandline int
 
 [![](https://dyne.org/wp-content/uploads/2011/12/muse0.7.2-shot-300x225.jpg "muse0.7.2-shot")](https://dyne.org/wp-content/uploads/2011/12/muse0.7.2-shot.jpg)
 
-*   Mixes up to 6 channels + 1 soundcard input channel simultaniously
+*   Mixes up to 6 channels + 1 soundcard input channel simultaneously
 *   decodes and mixes both ogg and mp3, from files or network streams
 *   encodes at different bitrates and sends multiple mp3 or ogg streams to icecast, shoutcast and darwin servers.
 *   offers two different intuitive user interfaces and a documented command line interface
@@ -25,7 +25,7 @@ To be operated MuSE offers graphical interfaces and a documented commandline int
 
 ## Requirements
 
-> MuSE provides the free software community with a user friendly but powerful tool for network audio streaming, making life easier for indypendent free speech online radios.
+> MuSE provides the free software community with a user friendly but powerful tool for network audio streaming, making life easier for independent free speech online radios.
 
 You need a POSIX.1b OS, GNU/Linux and FreeBSD are well tested. An OSX binary has been released and is available in the download section below.\
 If you have success compiling MuSE on Win or Beos platforms let us know!
@@ -39,7 +39,7 @@ If you have success compiling MuSE on Win or Beos platforms let us know!
 
 [LAME](http://lame.sf.net) libraries, lame is the best mp3 encoder around and is free!\
 [OGGVORBIS](http://www.vorbis.com) libraries, Ogg is the future of free streaming!\
-[GTK+](http://www.gtk.org) libraries, a widget toolkit allready present in many systems\
+[GTK+](http://www.gtk.org) libraries, a widget toolkit already present in many systems\
 [NCURSES](http://dickey.his.com/ncurses/ncurses.html) libraries, an old school text console windowing library
 
 remember that if you compile from source using those libraries installed from the packages of your distribution, often you also need to install the -dev version of the libraries.
@@ -98,7 +98,7 @@ Some (quite old) already built binaries
 
 MuSE streamer also includes code by **Matteo “MoP” Nastasi** (resample and clip), **Woo-jae Jung** (mp3 decoder), **Jack Moffit** and **Chad Armstrong** (libshout), Mike Glover (cdk/ncurses) and modified code from **Scott Manley** (stream mixer) and **Charles Samuels** (buffered FIFO Pipe).
 
-The [fundaments](http://funda.ment.org/) of MuSE existance where set by **August Black** and **Markus Seidl**.
+The [fundaments](http://funda.ment.org/) of MuSE existence where set by **August Black** and **Markus Seidl**.
 
 Distribution packages are contributed by **Filippo Giunchedi** (.deb and man), **P\@sky Macchinista Fuochista** (.rpm), **Shining the Translucent** (.tgz)
 
