@@ -1,4 +1,8 @@
 [
+  { "id": "gestalt",
+    "logo": "/images/logos/gestalt_logo.svg",
+    "tags": ["devel"]
+  },
   { "id": "sailfish-pool",
     "title": "Sailfish pool",
     "subtitle": "Secure and fast memory pool in C",
