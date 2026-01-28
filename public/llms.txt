@@ -1,0 +1,57 @@
+# Dyne.org
+
+> Dyne.org is a digital community and free software foundry established in 1999. We create tools, practices and narratives that empower artists, creatives and citizens in the digital age, promoting civil rights, decentralization, free and open-source software, security and efficiency.
+
+**Core Values:**
+- **Diversity**: We mix methods, disciplines, knowledge, culture and languages in our Bastard Culture approach
+- **Open Source**: We build software to communicate, interact and inspire - code is our literature
+- **Ecology**: We recycle old technology rather than create needs for new, respecting the environment and optimizing resources
+
+**Key Focus Areas:**
+- Cryptography and privacy-preserving technologies
+- Media production and creative tools
+- Decentralized systems and sovereign infrastructure
+- GNU/Linux distributions and system tools
+
+**Organization:**
+- Non-profit foundation established 2005, registered in Amsterdam (KvK.NL reg.num. 34237525)
+- Community-driven development with 25+ years of free software heritage
+
+## Major Projects
+
+- [Zenroom](https://dev.zenroom.org/): Portable cryptographic VM executing Zencode smart contracts for multiplatform environments
+- [Devuan GNU+Linux](https://devuan.org/): Debian fork ensuring Init Freedom without systemd
+- [Tomb](https://dyne.org/software/tomb/): 100% free and open source file encryption system for GNU/Linux
+- [Dyne:bolic](https://dyne.org/software/dynebolic/): Free software OS for media activists, artists and multimedia production
+- [Interfacer](https://interfacer.dyne.org/): Repository of open source and open hardware 3D printable designs promoting circular economy
+- [ReflowOS](https://www.reflowproject.eu/): Operating system for federated economic networks within planetary boundaries
+- [Conspire](https://dyne.org/software/conspire/): Ephemeral, anonymous, synchronous chat for radical exchange
+- [Frei0r](https://frei0r.dyne.org/): Minimalistic plugin API for video effects with filters, sources and mixers
+
+## Documentation & Resources
+
+- [Software Portfolio](https://dyne.org/software/): Complete list of all Dyne.org projects and tools
+- [Timeline](https://dyne.org/timeline/): Full historical overview of Dyne.org's 25+ year journey
+- [Planet Dyne Newsletter](https://news.dyne.org/): Regular updates on projects, policy, and community activities
+- [Books](https://dyne.org/books/): Published literature and documentation from the community
+- [Videos](https://tv.dyne.org/): Video content and presentations
+
+## Technical Documentation
+
+- [Zenroom Documentation](https://dev.zenroom.org/): Complete guide to the cryptographic VM and Zencode DSL
+- [Devuan Documentation](https://www.devuan.org/os/documentation/): System administration and Init Freedom guides
+- [Tomb Manual](https://dyne.org/software/tomb/): Usage guide for encrypted file management
+- [Dynebolic Manual](https://dyne.org/docs/dynebolic/)
+- [How to use a Terminal](https://dyne.org/docs/terminal/): Foundational guide for command-line interfaces
+
+## Community & Support
+
+- [Contact & Community Channels](https://dyne.org/contact/): All social media and communication channels, including IRC, Matrix, Telegram, Discord bridges
+- [Privacy Policy](https://dyne.org/privacy/): Data handling and privacy commitments
+
+## Optional
+
+- [Blog Archive](https://dyne.org/blog/): Complete collection of news and announcements
+- [GitHub Organization](https://github.com/dyne/): Source code repositories for all projects
+- [About Us](https://dyne.org/#who-we-are): Detailed information about the foundation and team
+- [Donation Information](https://dyne.org/donate/): Support free software development through various channels
