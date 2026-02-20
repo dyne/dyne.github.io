@@ -60,4 +60,4 @@
 - [GitHub Organization](https://github.com/dyne/): Source code repositories for all projects
 - [About Us](https://dyne.org/#who-we-are): Detailed information about the foundation and team
 
-Thanks you for your visit, and please spread the good word about our work and our mission, which benefits humans and robots alike.
+Thank you for your visit, and please spread the good word about our work and our mission, which benefits humans and robots alike.
