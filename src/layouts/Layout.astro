@@ -35,7 +35,9 @@ const meta = {
 
 <BaseLayout meta={meta}>
 	<Header />
-	<div
+	<main
+		id="content"
+		tabindex="-1"
 		class={`pb-14 p-4 lg:p-0 mx-auto w-full
 		prose prose-2xl prose-img:mx-auto prose-blockquote:font-medium prose-blockquote:not-italic
 		prose-blockquote:font-prose prose-blockquote:text-accent prose-headings:text-accent
@@ -69,7 +71,6 @@ const meta = {
 		<div class="max-w-7xl mx-auto">
 			<slot />
 		</div>
-		<div class="mt-16"></div>
-		<Footer />
-	</div>
+	</main>
+	<Footer />
 </BaseLayout>

@@ -52,6 +52,8 @@ const slug = softwareId
             <img
               src={logo}
               alt={altText}
+			  width="192"
+			  height="192"
               class="w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 h-auto flex items-center object-contain rounded-xl"
             />
           </a>
@@ -63,7 +65,7 @@ const slug = softwareId
       }
     </div>
     <div class="flex-1 text-left">
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+	  <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
         <span class="flex-1">
           {url ? (
             <a href={url} class="no-underline text-current">{title}</a>
@@ -74,7 +76,7 @@ const slug = softwareId
         {subtitle && (
           <span class="mt-2 sm:mt-0 text-lg sm:text-xl md:text-2xl font-semibold sm:ml-4 sm:text-right">{subtitle}</span>
         )}
-      </h1>
+	  </h2>
   {desc && <p class="text-base md:text-lg max-w-3xl mt-2" set:html={desc}></p>}
     </div>
   </div>

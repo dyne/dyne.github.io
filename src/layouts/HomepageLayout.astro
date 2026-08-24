@@ -6,11 +6,11 @@ import BaseLayout from './BaseLayout.astro';
 
 <BaseLayout>
 	<Header />
-	<div class="max-w-full overflow-hidden">
+	<main id="content" tabindex="-1" class="max-w-full overflow-hidden">
 		<div class="max-w-7xl mx-auto">
 			<slot />
 		</div>
-	</div>
+	</main>
 	<div class="mt-16"></div>
 	<Footer />
 </BaseLayout>

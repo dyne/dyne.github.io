@@ -2,27 +2,37 @@
 const { slidesPerView = 1, id, delay = 2000, paginationClass = 'mt-0' } = Astro.props;
 ---
 
-<div class="swiper" id={id}>
+<section class="swiper" id={id} aria-roledescription="carousel" aria-label="Testimonials">
 	<div class="swiper-wrapper">
 		<slot />
 	</div>
-	<div class={`swiper-pagination ${paginationClass}`}></div>
-</div>
+	<div class={`swiper-pagination ${paginationClass}`} aria-label="Testimonial slides"></div>
+</section>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script is:inline define:vars={{ slidesPerView, id, delay }}>
-	new Swiper(`#${id}`, {
+	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	const slider = new Swiper(`#${id}`, {
 		loop: true,
 		autoplay: {
 			delay: delay,
-			disableOnInteraction: false,
+			disableOnInteraction: true,
 			pauseOnMouseEnter: true,
+			enabled: !reducedMotion,
 		},
 		slidesPerView: document.body.clientWidth < 1200 ? 1 : slidesPerView,
 		spaceBetween: 30,
 		pagination: { el: '.swiper-pagination', clickable: true },
 	});
+	const root = document.getElementById(id);
+	const updateSlides = () => root?.querySelectorAll('.swiper-slide').forEach((slide) => {
+		const active = slide.classList.contains('swiper-slide-active');
+		slide.setAttribute('aria-hidden', String(!active));
+		slide.querySelectorAll('a, button, input, select, textarea').forEach((element) => element.tabIndex = active ? 0 : -1);
+	});
+	slider.on('slideChange transitionEnd init', updateSlides);
+	updateSlides();
 </script>
 <style>
 	:root {
@@ -30,4 +40,5 @@ const { slidesPerView = 1, id, delay = 2000, paginationClass = 'mt-0' } = Astro.
 		--swiper-pagination-bullet-inactive-color: var(--accent-color);
 		--swiper-pagination-color: var(--accent-color);
 	}
+	:global(.swiper-pagination-bullet) { min-width: 24px; min-height: 24px; margin: 4px !important; }
 </style>

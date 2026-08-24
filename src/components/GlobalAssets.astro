@@ -29,15 +29,17 @@
 		}
 	}
 	window.addEventListener('DOMContentLoaded', (event) => {
-		const choose = (choices) => {
-			const index = Math.floor(Math.random() * choices.length);
-			return choices[index];
-		};
-		const [accent, text_accent, secondary, bg, bg_accent] = choose([
+		document.querySelectorAll('img:not([alt])').forEach((image) => image.setAttribute('alt', ''));
+		document.querySelectorAll('a').forEach((link) => {
+			if (!link.textContent.trim() && !link.getAttribute('aria-label')) link.setAttribute('aria-label', 'Linked image');
+		});
+		const palettes = [
 			['#423E8E', '#15142D', '#211F47', '#ECECF8', '#B5B3E5'],
 			['#36968C', '#15142D', '#0D2523', '#ECF8F7', '#B4E4DF'],
-			['#D77733 ', '#6B3815', '#2A1308', '#FBF1EA', '#F5DDCC'],
-		]);
+			['#A14F12', '#4A2108', '#2A1308', '#FBF1EA', '#F5DDCC'],
+		];
+		const paletteIndex = Number.parseInt(document.documentElement.dataset.palette || '0', 10);
+		const [accent, text_accent, secondary, bg, bg_accent] = palettes[Number.isInteger(paletteIndex) ? paletteIndex % palettes.length : 0];
 		document.documentElement.style.setProperty('--accent-color', accent);
 		document.documentElement.style.setProperty('--text-accent-color', text_accent);
 		document.documentElement.style.setProperty('--secondary-accent-color', secondary);
@@ -46,12 +48,32 @@
 	});
 
 	window.onload = function () {
-		attachEvent('[data-aw-toggle-menu]', 'click', function (elem) {
-			elem.classList.toggle('expanded');
-			document.body.classList.toggle('overflow-hidden');
-			document.getElementById('menu')?.classList.toggle('hidden');
-			// document.querySelector('header')?.classList.toggle('bg-black');
-		});
+		const trigger = document.querySelector('[data-aw-toggle-menu]');
+		const menu = document.getElementById('menu');
+		const pageContent = document.getElementById('content');
+		const closeMenu = ({ restoreFocus = true } = {}) => {
+			if (!trigger || !menu) return;
+			trigger.setAttribute('aria-expanded', 'false');
+			trigger.setAttribute('aria-label', 'Open navigation menu');
+			menu.hidden = true;
+			pageContent && (pageContent.inert = false);
+			document.querySelector('footer')?.removeAttribute('inert');
+			document.body.classList.remove('overflow-hidden');
+			if (restoreFocus) trigger.focus();
+		};
+		const openMenu = () => {
+			if (!trigger || !menu) return;
+			trigger.setAttribute('aria-expanded', 'true');
+			trigger.setAttribute('aria-label', 'Close navigation menu');
+			menu.hidden = false;
+			pageContent && (pageContent.inert = true);
+			document.querySelector('footer')?.setAttribute('inert', '');
+			document.body.classList.add('overflow-hidden');
+			menu.querySelector('a')?.focus();
+		};
+		trigger?.addEventListener('click', () => (trigger.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu()));
+		menu?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu({ restoreFocus: false }); });
+		document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !menu?.hidden) closeMenu(); });
 
 		// attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
 		// 	document.documentElement.classList.toggle('dark');
@@ -60,10 +82,9 @@
 	};
 	window.onpageshow = function () {
 		const elem = document.querySelector('[data-aw-toggle-menu]');
-		if (elem) {
-			elem.classList.remove('expanded');
-		}
+		if (elem) { elem.setAttribute('aria-expanded', 'false'); elem.setAttribute('aria-label', 'Open navigation menu'); }
 		document.body.classList.remove('overflow-hidden');
-		document.getElementById('menu')?.classList.add('hidden');
+		const menu = document.getElementById('menu');
+		if (menu) menu.hidden = true;
 	};
 </script>

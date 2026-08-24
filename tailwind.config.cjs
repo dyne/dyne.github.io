@@ -30,7 +30,7 @@ module.exports = {
 				background: 'var(--bg-color)',
 				saccent: 'var(--secondary-accent-color)',
 				baccent: 'var(--bg-accent-color)',
-				sustainability: '#69C9BF',
+				sustainability: '#16766F',
 				open_source: '#D77733',
 				interdisciplinarity: '#fff',
 				crypto: '#000000',

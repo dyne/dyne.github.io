@@ -1,6 +1,9 @@
 ---
-
+import BaseLayout from '~/layouts/BaseLayout.astro';
 ---
+
+<BaseLayout meta={{ title: 'Page not found | Dyne.org' }}>
+	<main id="content" tabindex="-1">
 
 <link rel="alternate" type="text/markdown" href="/404.md" title="Page-not-found recovery help" />
 
@@ -17,10 +20,13 @@
 		<a class="underline" href="/404.md" type="text/markdown">Markdown recovery help</a>
 	</nav>
 	<div class="gameboard box-content mx-auto"></div>
-	<p class="text-xs text-right text-primary">
+	<p class="text-xs text-right text-[#4A2108]">
 		kudos to <a href="https://github.com/kubowania/space-invaders">kubowania</a>
 	</p>
 </div>
+	</main>
+
+</BaseLayout>
 
 <script type="text/partytown">
 	const { href, search, pathname } = new URL(window.location.href);
