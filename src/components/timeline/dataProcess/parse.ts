@@ -1,4 +1,4 @@
-import { FetchedItem, FetchedItems } from './fetch';
+import type { FetchedItem, FetchedItems } from './fetch';
 
 /* General types */
 

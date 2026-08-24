@@ -1,14 +1,19 @@
 ---
 import Swiper from './Swiper.astro';
+import { getCollection, render } from 'astro:content';
 
-const testimonials = await Astro.glob('~/content/testimonial/*.md');
+const testimonials = await Promise.all(
+	(await getCollection('testimonial'))
+		.sort((left, right) => left.id.localeCompare(right.id))
+		.map(async (testimonial) => ({ ...testimonial, Content: (await render(testimonial)).Content })),
+);
 ---
 
 <div class="homepage-testimonials">
 	<Swiper id="testimonials-slider" delay={4000} class="flex align-middle">
 		{
 			testimonials.map((t) => {
-				const { pic } = t.frontmatter;
+				const { pic } = t.data;
 				const optimizedPic = pic.replace(/\.[^.]+$/, '.webp').replace('/testimonial/', '/testimonial/optimized/');
 				return (
 					<div class={`swiper-slide bg-baccent mx-auto lg:max-w-none rounded-4xl p-20 lg:p-28 my-24 max-w-[450px]`}>
@@ -17,7 +22,7 @@ const testimonials = await Astro.glob('~/content/testimonial/*.md');
 								<source type="image/webp" srcset={`${optimizedPic.replace('.webp', '-256.webp')} 256w, ${optimizedPic} 512w`} sizes="256px" />
 								<img src={pic} alt="Portrait of testimonial author" width="256" height="256" loading="lazy" decoding="async" class="w-64 aspect-square object-cover rounded-full" />
 							</picture>
-							<div set:html={t.compiledContent()} class="text-saccent text-xl lg:text-3xl" />
+							<div class="text-saccent text-xl lg:text-3xl"><t.Content /></div>
 						</div>
 					</div>
 				);

@@ -1,18 +1,23 @@
 ---
 import Button from '~/components/Button.astro';
 import ProjectCard from '../ProjectCard.astro';
+import { getCollection, render } from 'astro:content';
 
-const projects = await Astro.glob('~/content/what-we-do/*.md');
+const projects = await Promise.all(
+	(await getCollection('what-we-do'))
+		.sort((left, right) => left.id.localeCompare(right.id))
+		.map(async (project) => ({ ...project, Content: (await render(project)).Content })),
+);
 ---
 
 <div class="flex flex-col gap-y-8">
 	<div class="grid grid-cols lg:grid-cols-2 gap-6 px-8">
 		{
 			projects.map((p) => {
-				const { logo, name, link, download } = p.frontmatter;
+				const { logo, name, link, download } = p.data;
 				return (
 					<ProjectCard logo={logo} title={name} url={link} download={download}>
-						<div set:html={p.compiledContent()} />
+						<p.Content />
 					</ProjectCard>
 				);
 			})

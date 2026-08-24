@@ -8,7 +8,12 @@ import { loadGitHubRepositories } from '~/lib/remote-content.mjs';
 
 // Page-specific list of software ids to render on this index page
 const pageSoftwareIds = ['dynebolic', 'devuan', 'freej', 'tomb', 'jaromail', 'frei0r'];
-const softwares = await Astro.glob('~/pages/software/*.md');
+const softwares = Object.entries(import.meta.glob('/src/pages/software/*.md', { eager: true }))
+	.map(([path, module]) => ({
+		url: `/software/${path.split('/').pop()?.replace(/\.md$/, '')}/`,
+		frontmatter: (module as { frontmatter: { title: string; description: string } }).frontmatter,
+	}))
+	.sort((left, right) => left.url.localeCompare(right.url));
 const github = await loadGitHubRepositories();
 
 // ids already rendered from the central JSON for this page (prevent duplicates)

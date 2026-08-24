@@ -1,4 +1,4 @@
-import { TimelineItem } from './parse';
+import type { TimelineItem } from './parse';
 
 export function filterItems(items: Array<TimelineItem>, zoom: number | null): Array<TimelineItem> {
 	if (zoom === null) return items;

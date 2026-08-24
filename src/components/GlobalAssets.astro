@@ -47,7 +47,7 @@
 		document.documentElement.style.setProperty('--bg-accent-color', bg_accent);
 	});
 
-	window.onload = function () {
+	window.addEventListener('load', () => {
 		const trigger = document.querySelector('[data-aw-toggle-menu]');
 		const menu = document.getElementById('menu');
 		const pageContent = document.getElementById('content');
@@ -79,12 +79,12 @@
 		// 	document.documentElement.classList.toggle('dark');
 		// 	localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
 		// });
-	};
-	window.onpageshow = function () {
+	});
+	window.addEventListener('pageshow', () => {
 		const elem = document.querySelector('[data-aw-toggle-menu]');
 		if (elem) { elem.setAttribute('aria-expanded', 'false'); elem.setAttribute('aria-label', 'Open navigation menu'); }
 		document.body.classList.remove('overflow-hidden');
 		const menu = document.getElementById('menu');
 		if (menu) menu.hidden = true;
-	};
+	});
 </script>

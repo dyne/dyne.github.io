@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { TimelineItem } from './parse';
+import type { TimelineItem } from './parse';
 
 /* Types */
 
