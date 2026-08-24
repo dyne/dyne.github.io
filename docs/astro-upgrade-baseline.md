@@ -139,6 +139,27 @@ contract above to pass.
 
 ## Compatibility inventory and ownership
 
+## Astro 7 Markdown processor decision
+
+Use `@astrojs/markdown-remark` with `processor: unified()` for the Astro 7
+checkpoint. The site depends on `remark-gfm` tables/task lists and
+`rehype-raw` raw-HTML handling; those are explicit semantic contracts, not
+incidental byte-level output. Native Sätteri evaluation was not performed in
+this Astro 5 checkpoint: the repository's npm policy rejects project-scoped
+disposable installs with `EALLOWSCRIPTS`. That limitation is deterministic and
+does not alter the conservative choice: Sätteri must not be selected until an
+Astro 7 executor can reproduce these plugin-dependent fixtures without
+deprecated `remarkPlugins`/`rehypePlugins` configuration.
+
+The Astro 7 executor must replace the current top-level `markdown.remarkPlugins`
+and `markdown.rehypePlugins` settings with the supported Markdown Remark
+integration and `unified()` configuration in the same dependency change. Keep
+`remark-gfm`, `rehype-raw`, and the Dracula Shiki theme initially. The removal
+criterion is a future Sätteri evaluation where the semantic-DOM fixtures in
+`test/markdown-processor-contracts.test.mjs` pass with equivalent headings,
+raw HTML, links/images, code blocks, and visible text; only then may the Remark
+integration and its legacy plugins be removed in a dedicated reviewed change.
+
 | Surface | Current result | Later owner, test boundary, rollback symptom |
 | --- | --- | --- |
 | `Astro.glob` / legacy collection flags | absent | `finish-content-layer-compatibility`; inventory test; removed-API build error |
