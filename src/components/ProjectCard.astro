@@ -33,9 +33,9 @@ const { logo, title, url, tagline, download } = Astro.props;
 				<span class="font-medium">{tagline}</span>
 			</div>
 
-			<p class="text-gray-800 text-sm font-medium mb-2 text-clip overflow-hidden max-h-20">
+			<div class="text-gray-800 text-sm font-medium mb-2 text-clip overflow-hidden max-h-20">
 				<slot />
-			</p>
+			</div>
 			<div class="flex flex-row flex-wrap space-x-3 mt-4 no-underline">
 				<Button href={url} text="Learn more..." inverted={true} cls="text-sm no-underline" />
 				{download && <Button href={download} text="Download" cls={`text-sm no-underline`} />}

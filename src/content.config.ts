@@ -1,5 +1,6 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const markdown = (base: string, schema: ReturnType<typeof z.object>) =>
 	defineCollection({ loader: glob({ base, pattern: '**/*.md' }), schema });
