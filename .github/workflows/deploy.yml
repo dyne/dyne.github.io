@@ -1,38 +1,189 @@
-name: Github Pages Astro CI
+name: GitHub Pages quality gates
 
 on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
   pull_request:
-  
+  push:
+    branches: [main]
+  workflow_dispatch:
+
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref_name }}
+  # Keep pull-request runs isolated from the deployable main branch run.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
+
+env:
+  NODE_VERSION: 24.11.1
 
 jobs:
-  build:
+  workflow-contract:
+    name: Verify workflow policy
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v6
-      - uses: withastro/action@v5
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          package-manager: npm@latest
-          node-version: 24
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Assert immutable, read-only CI policy
+        run: |
+          node <<'NODE'
+          const { readFileSync } = require('node:fs');
+          const assert = require('node:assert/strict');
 
-  deploy:
+          const workflow = readFileSync('.github/workflows/deploy.yml', 'utf8');
+          const uses = [...workflow.matchAll(/^\s*-\s+uses:\s+[^@\s]+@([^\s#]+)/mg)];
+          const versionComments = [...workflow.matchAll(/^\s*-\s+uses:.*# v\d/mg)];
+          assert.ok(uses.length >= 7, 'expected action invocations');
+          assert.equal(versionComments.length, uses.length, 'every action must have a version comment');
+          for (const [, ref] of uses) {
+            assert.match(ref, /^[a-f0-9]{40}$/, `action is not SHA-pinned: ${ref}`);
+          }
+          assert.match(workflow, /npm ci/, 'installs must be lockfile-driven');
+          assert.match(workflow, /NODE_VERSION: 24\.11\.1/, 'Node policy must be pinned');
+          assert.match(workflow, /node-version: \$\{\{ env\.NODE_VERSION \}\}/, 'Node policy must be explicit');
+          const mutableSelectors = new RegExp(
+            `${['npm', 'latest'].join('@')}|${['withastro', 'action'].join('/')}`,
+          );
+          assert.doesNotMatch(workflow, mutableSelectors, 'package-manager selectors must be pinned');
+          assert.match(workflow, /cache-dependency-path: package-lock\.json/, 'npm cache must key from the lockfile');
+          assert.ok((workflow.match(/timeout-minutes:/g) ?? []).length >= 6, 'every job must be time-bounded');
+          assert.match(workflow, /needs: \[workflow-contract, build, browser-tests, pages-artifact\]/, 'deploy must require every gate');
+          assert.match(workflow, /github\.event_name == 'push' && github\.ref == 'refs\/heads\/main'/, 'only main pushes may deploy');
+          assert.match(workflow, /pages: write/, 'the deployment job needs Pages permission');
+          console.log('workflow policy is pinned, bounded, and deploys only a verified main artifact');
+          NODE
+
+  verify:
+    name: Install, audit, format, and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+      - name: Audit dependencies (approved Astro 5 exception)
+        run: |
+          set -Eeuo pipefail
+          npm audit --json > npm-audit.json || audit_status=$?
+          node <<'NODE'
+          const { readFileSync } = require('node:fs');
+          const assert = require('node:assert/strict');
+
+          const audit = JSON.parse(readFileSync('npm-audit.json', 'utf8'));
+          const vulnerabilities = audit.vulnerabilities ?? {};
+          const highOrCritical = Object.entries(vulnerabilities)
+            .filter(([, advisory]) => ['high', 'critical'].includes(advisory.severity))
+            .map(([name]) => name)
+            .sort();
+          assert.deepEqual(
+            highOrCritical,
+            ['astro', 'sharp'],
+            `unexpected high/critical advisories: ${highOrCritical.join(', ') || 'none'}`,
+          );
+          assert.equal(audit.metadata?.vulnerabilities?.critical ?? 0, 0, 'critical advisories are never accepted');
+          console.warn('Accepted Astro 5 audit exception: astro and its sharp dependency; see .gestalt/astro-major-upgrade.org.');
+          NODE
+          test "${audit_status:-0}" -eq 1
+      - run: npm exec prettier -- --check .github/workflows/deploy.yml
+      - run: npm test
+
+  build:
+    name: Build production artifact
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site-dist
+          path: dist
+          if-no-files-found: error
+          retention-days: 1
+
+  browser-tests:
+    name: Test the deployable Chromium artifact
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.ref_name == 'main' && github.event_name == 'push' }}
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+      - uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - run: npx playwright install --with-deps chromium
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-dist
+          path: dist
+      - run: npx playwright test
+      - name: Upload browser failure evidence
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: playwright-failures
+          path: output/playwright
+          if-no-files-found: ignore
+          retention-days: 7
+
+  pages-artifact:
+    name: Package verified Pages artifact
+    needs: [build, browser-tests]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-dist
+          path: dist
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy verified Pages artifact
+    needs: [workflow-contract, build, browser-tests, pages-artifact]
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: 📢 Deploy to GitHub Pages
+      - name: Deploy the tested artifact
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
