@@ -22,5 +22,8 @@ pnpm-debug.log*
 # astro specific
 .astro/**
 
+# Playwright test artifacts
+output/playwright/
+
 # local direnv
 .envrc

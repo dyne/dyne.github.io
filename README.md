@@ -54,6 +54,34 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
 | `npm run astro --help` | Get help using the Astro CLI                       |
 
+## Browser tests
+
+The browser suite always serves the generated production site through `astro preview`; it does not test the development server.
+
+```sh
+npm ci
+npx playwright install chromium
+npm test
+npm run test:e2e
+```
+
+Run one file or browser profile after building the site:
+
+```sh
+npm run build
+npx playwright test test/e2e/critical-routes.spec.ts --project=chromium-mobile
+```
+
+Playwright writes traces and screenshots only for failed tests, under the ignored `output/playwright/` directory. Inspect a failure with:
+
+```sh
+npx playwright show-trace output/playwright/test-results/<failure>/trace.zip
+```
+
+There are no approved visual snapshots yet. When a future test introduces one, review intentional changes before updating it with `npx playwright test --update-snapshots`.
+
+Browser assertions must be deterministic: do not require a live third-party feed, API, or newsletter. Mock those responses in the test or use a checked-in fixture/fallback.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
