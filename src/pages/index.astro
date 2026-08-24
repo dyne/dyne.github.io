@@ -16,14 +16,9 @@ import BlogArticlePreviewHome from '~/components/homepage/BlogArticlePreviewHome
 import Banner from '~/assets/dynebolic-banner.svg?raw';
 import Svg from '~/components/Svg.astro';
 
-import Parser from 'rss-parser';
+import { loadPlanetDyneFeed } from '~/lib/remote-content.mjs';
 
-const parser = new Parser({
-	customFields: {
-		item: ['media:content'],
-	},
-});
-const feed = await parser.parseURL('https://news.dyne.org/tag/planet-dyne/rss/');
+const feed = await loadPlanetDyneFeed();
 ---
 
 <Layout>
@@ -65,7 +60,8 @@ people, useful tech and respect for the natural environment.
 
 		<div class="my-10">
 			<Section id="timeline" title="What we did" contentPadding={false}>
-				<Timeline client:only />
+				<Timeline client:visible />
+				<p class="p-8 text-xl text-saccent">Browse the <a class="underline" href="/timeline">full Dyne timeline</a>.</p>
 				<div class="p-8 lg:p-12 flex justify-end">
 					<Button text="View full timeline" href="/timeline" />
 				</div>

@@ -4,12 +4,12 @@ import Layout from '~/layouts/Layout.astro';
 import softwareList from '~/content/software.json';
 import Software from '~/components/Software.astro';
 import PreviewBox from '~/components/PreviewBox.astro';
+import { loadGitHubRepositories } from '~/lib/remote-content.mjs';
 
 // Page-specific list of software ids to render on this index page
 const pageSoftwareIds = ['dynebolic', 'devuan', 'freej', 'tomb', 'jaromail', 'frei0r'];
 const softwares = await Astro.glob('~/pages/software/*.md');
-const github_fetch = await fetch('https://api.github.com/orgs/dyne/repos?per_page=100&type=sources');
-const github = await github_fetch.json();
+const github = await loadGitHubRepositories();
 
 // ids already rendered from the central JSON for this page (prevent duplicates)
 const displayedIds = new Set(

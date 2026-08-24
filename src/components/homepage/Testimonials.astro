@@ -4,15 +4,19 @@ import Swiper from './Swiper.astro';
 const testimonials = await Astro.glob('~/content/testimonial/*.md');
 ---
 
-<div>
+<div class="homepage-testimonials">
 	<Swiper id="testimonials-slider" delay={4000} class="flex align-middle">
 		{
 			testimonials.map((t) => {
 				const { pic } = t.frontmatter;
+				const optimizedPic = pic.replace(/\.[^.]+$/, '.webp').replace('/testimonial/', '/testimonial/optimized/');
 				return (
 					<div class={`swiper-slide bg-baccent mx-auto lg:max-w-none rounded-4xl p-20 lg:p-28 my-24 max-w-[450px]`}>
 						<div class="flex-col flex lg:flex-row gap-20 items-center justify-between">
-							<img src={pic} alt="Portrait of testimonial author" width="256" height="256" class="w-64 rounded-full" />
+							<picture>
+								<source type="image/webp" srcset={`${optimizedPic.replace('.webp', '-256.webp')} 256w, ${optimizedPic} 512w`} sizes="256px" />
+								<img src={pic} alt="Portrait of testimonial author" width="256" height="256" loading="lazy" decoding="async" class="w-64 aspect-square object-cover rounded-full" />
+							</picture>
 							<div set:html={t.compiledContent()} class="text-saccent text-xl lg:text-3xl" />
 						</div>
 					</div>
@@ -21,3 +25,11 @@ const testimonials = await Astro.glob('~/content/testimonial/*.md');
 		}
 	</Swiper>
 </div>
+
+<style>
+	/* This carousel is well below the initial viewport; reserve its observed space while deferring its rendering. */
+	.homepage-testimonials {
+		content-visibility: auto;
+		contain-intrinsic-size: auto 900px;
+	}
+</style>

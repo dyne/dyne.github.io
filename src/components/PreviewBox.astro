@@ -1,6 +1,7 @@
 ---
 // Simple preview box used on homepage
 // Props: title, href, image (src), alt, url
+import { fetchRemoteText } from '~/lib/remote-content.mjs';
 const { title: propTitle, href: propHref, image: propImage, alt: propAlt, url: propUrl, desc: propDesc } = Astro.props;
 
 let title = propTitle;
@@ -13,8 +14,7 @@ let desc = propDesc;
 if (propUrl) {
   try {
     // Use global fetch (Node 18+ / Astro server environment)
-    const res = await fetch(propUrl, { redirect: 'follow' });
-    const text = await res.text();
+    const text = await fetchRemoteText(propUrl);
     // quick parse for common meta tags
     const ogTitle = text.match(/<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["'][^>]*>/i)?.[1];
     const ogDesc = text.match(/<meta[^>]*property=["']og:description["'][^>]*content=["']([^"']+)["'][^>]*>/i)?.[1];

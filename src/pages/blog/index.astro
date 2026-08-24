@@ -1,14 +1,9 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import BlogArticlePreview from '~/components/BlogArticlePreview.astro';
-import Parser from 'rss-parser';
+import { loadPlanetDyneFeed } from '~/lib/remote-content.mjs';
 
-const parser = new Parser({
-	customFields: {
-		item: ['media:content']
-	}
-});
-const feed = await parser.parseURL('https://news.dyne.org/tag/planet-dyne/rss/');
+const feed = await loadPlanetDyneFeed();
 ---
 
 <Layout

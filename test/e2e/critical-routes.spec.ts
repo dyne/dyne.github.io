@@ -88,6 +88,7 @@ test('mobile navigation is a keyboard-operable disclosure', async ({ page }, tes
 test('testimonial carousel controls meet keyboard and target-size requirements', async ({ page }, testInfo) => {
 	await page.goto('/');
 	const carousel = page.getByRole('region', { name: 'Testimonials' });
+	await carousel.scrollIntoViewIfNeeded();
 	await expect(carousel).toBeVisible();
 	const control = carousel.locator('.swiper-pagination-bullet').first();
 	await expect(control).toBeVisible();

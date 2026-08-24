@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "title": "Planet Dyne",
+      "link": "https://news.dyne.org/",
+      "creator": "Dyne.org",
+      "content:encodedSnippet": "Read the latest news, research, and projects from Dyne.org.",
+      "media:content": {
+        "$": {
+          "url": "/wp-content/uploads/2021/05/round3.png"
+        }
+      }
+    }
+  ]
+}

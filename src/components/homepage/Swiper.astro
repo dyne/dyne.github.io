@@ -2,18 +2,32 @@
 const { slidesPerView = 1, id, delay = 2000, paginationClass = 'mt-0' } = Astro.props;
 ---
 
-<section class="swiper" id={id} aria-roledescription="carousel" aria-label="Testimonials">
+<section class="swiper" id={id} aria-roledescription="carousel" aria-label="Testimonials" data-swiper-deferred>
 	<div class="swiper-wrapper">
 		<slot />
 	</div>
-	<div class={`swiper-pagination ${paginationClass}`} aria-label="Testimonial slides"></div>
+	<div class={`swiper-pagination ${paginationClass}`} aria-label="Testimonial slides" hidden></div>
 </section>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script is:inline define:vars={{ slidesPerView, id, delay }}>
-	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-	const slider = new Swiper(`#${id}`, {
+	const root = document.getElementById(id);
+	const loadSwiper = () => new Promise((resolve, reject) => {
+		if (window.Swiper) return resolve(window.Swiper);
+		const stylesheet = document.createElement('link');
+		stylesheet.rel = 'stylesheet';
+		stylesheet.href = 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css';
+		document.head.append(stylesheet);
+		const script = document.createElement('script');
+		script.src = 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js';
+		script.onload = () => resolve(window.Swiper);
+		script.onerror = reject;
+		document.head.append(script);
+	});
+	const initialise = async () => {
+		if (!root || root.dataset.swiperReady) return;
+		const Swiper = await loadSwiper();
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const slider = new Swiper(`#${id}`, {
 		loop: true,
 		autoplay: {
 			delay: delay,
@@ -25,14 +39,23 @@ const { slidesPerView = 1, id, delay = 2000, paginationClass = 'mt-0' } = Astro.
 		spaceBetween: 30,
 		pagination: { el: '.swiper-pagination', clickable: true },
 	});
-	const root = document.getElementById(id);
-	const updateSlides = () => root?.querySelectorAll('.swiper-slide').forEach((slide) => {
+		const updateSlides = () => root?.querySelectorAll('.swiper-slide').forEach((slide) => {
 		const active = slide.classList.contains('swiper-slide-active');
 		slide.setAttribute('aria-hidden', String(!active));
 		slide.querySelectorAll('a, button, input, select, textarea').forEach((element) => element.tabIndex = active ? 0 : -1);
 	});
-	slider.on('slideChange transitionEnd init', updateSlides);
-	updateSlides();
+		slider.on('slideChange transitionEnd init', updateSlides);
+		root.dataset.swiperReady = 'true';
+		root.dataset.swiperAutoplay = String(!reducedMotion);
+		root.querySelector('.swiper-pagination')?.removeAttribute('hidden');
+		updateSlides();
+	};
+	if (root) new IntersectionObserver((entries, observer) => {
+		if (entries.some((entry) => entry.isIntersecting)) {
+			observer.disconnect();
+			initialise().catch(() => { root.dataset.swiperReady = 'failed'; });
+		}
+	}, { rootMargin: '200px' }).observe(root);
 </script>
 <style>
 	:root {

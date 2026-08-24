@@ -1,11 +1,12 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import { marked } from 'marked';
+import { fetchRemoteText } from '~/lib/remote-content.mjs';
 
 const { content } = Astro.props;
-const response = await fetch(content.destination);
 const sourceUrl = new URL(content.destination);
-const html = String(marked.parse(await response.text())).replace(
+const source = await fetchRemoteText(content.destination).catch(() => 'This embedded resource is temporarily unavailable.');
+const html = String(marked.parse(source)).replace(
 	/\b(src|href)="(?![a-z]+:|\/|#)([^"]+)"/gi,
 	(_, attribute, value) => `${attribute}="${new URL(value, sourceUrl).href}"`
 );
