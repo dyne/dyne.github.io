@@ -13,7 +13,7 @@ To be operated MuSE offers graphical interfaces and a documented commandline int
 
 # Features
 
-[![](https://dyne.org/wp-content/uploads/2011/12/muse0.7.2-shot-300x225.jpg "muse0.7.2-shot")](https://dyne.org/wp-content/uploads/2011/12/muse0.7.2-shot.jpg)
+[![](/wp-content/uploads/2011/12/muse0.7.2-shot.jpg "muse0.7.2-shot")](https://dyne.org/wp-content/uploads/2011/12/muse0.7.2-shot.jpg)
 
 *   Mixes up to 6 channels + 1 soundcard input channel simultaneously
 *   decodes and mixes both ogg and mp3, from files or network streams
@@ -74,7 +74,7 @@ Free downloads on [files.dyne.org/muse](http://files.dyne.org/muse)
 
 ## Binaries
 
-[![](https://dyne.org/wp-content/uploads/2011/12/osx-large-300x187.jpg "muse-osx-large")](https://dyne.org/wp-content/uploads/2011/12/osx-large.jpg)
+[![](/wp-content/uploads/2011/12/osx-large.jpg "muse-osx-large")](https://dyne.org/wp-content/uploads/2011/12/osx-large.jpg)
 
 Some (quite old) already built binaries
 
@@ -121,4 +121,3 @@ Of course you should already know [Icecast](http://icecast.org/). If you don’t
 The R.O.S.S project lists [more free radio tools](http://ross.sf.net/) and is yearly updated with good stuff.
 
 If you feel like scripting in Python, then you must surely think you are smart! try [Liquidsoap](http://savonet.sourceforge.net/)
-

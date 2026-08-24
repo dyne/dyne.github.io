@@ -3,6 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import path from 'path';
+import { readdirSync, readFileSync } from 'node:fs';
 import { SITE } from './src/config.mjs';
 import { fileURLToPath } from 'url';
 import svelte from '@astrojs/svelte';
@@ -11,6 +12,13 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const pagesDirectory = path.resolve(__dirname, './src/pages');
+const redirectRoutes = new Set(
+	readdirSync(pagesDirectory, { recursive: true })
+		.filter((entry) => /\.(md|mdx)$/.test(entry))
+		.filter((entry) => /layout:\s*.*redirect\.astro/.test(readFileSync(path.join(pagesDirectory, entry), 'utf8')))
+		.map((entry) => `/${entry.replace(/\.(md|mdx)$/, '')}/`)
+);
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +33,9 @@ export default defineConfig({
             theme: 'dracula',
         },
     },
-    integrations: [tailwind(), partytown(), sitemap(), svelte(), mdx()],
+    integrations: [tailwind(), partytown(), sitemap({
+        filter: (page) => !redirectRoutes.has(new URL(page).pathname),
+    }), svelte(), mdx()],
     vite: {
         resolve: {
             alias: {

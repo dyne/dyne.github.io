@@ -5,8 +5,9 @@ import Footer from '~/components/Footer.astro';
 import '@fontsource/jetbrains-mono';
 import '@fontsource-variable/inter';
 import softwareList from '~/content/software.json';
+import { SITE } from '~/config.mjs';
 
-const { content, cls } = Astro.props;
+const { content = {}, cls = '', meta: suppliedMeta = {} } = Astro.props;
 
 // If the page specifies `software: <id>` in its frontmatter, pull that entry
 // from `src/content/software.json`. Page/frontmatter values override software.json.
@@ -21,11 +22,14 @@ if (content?.software) {
 }
 
 // Merge: software.json base, overridden by explicit page frontmatter fields
-const merged = { ...softwareMeta, ...(content || {}) };
+const merged = { ...softwareMeta, ...content, ...suppliedMeta };
 
 const meta = {
-	title: merged.title || undefined,
-	description: merged.description || undefined,
+	title: typeof merged.title === 'string' && merged.title.trim() ? merged.title.trim() : SITE.title,
+	description:
+		typeof merged.description === 'string' && merged.description.trim()
+			? merged.description.trim()
+			: SITE.description,
 	// prefer an explicit cover, then a software logo if available
 	cover: merged.cover || merged.logo || undefined,
 	// include other merged fields for downstream use if needed

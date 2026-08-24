@@ -1,7 +1,7 @@
 ---
 layout: ~/layouts/redirect.astro
 title: "Dynebolic :: Free & Live Creative Multimedia"
-destination: "https://dyne.org/dynebolic"
+destination: "https://dynebolic.org/"
 description: |
   Dynebolic is a 100% Free Software Operating System for multimedia production, recommended by the Free Software Foundation. It is a live ISO that can run from a CD or Drive, without the need to install.
 ---

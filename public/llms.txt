@@ -46,6 +46,7 @@
 
 ## Machine-Readable Resources
 
+- [AI-readable site guide](https://dyne.org/llms.txt): This guide to Dyne.org content and discovery resources
 - [OpenAPI 3.1 description](https://dyne.org/openapi.json): The website's published machine-readable HTTP surface
 - [XML sitemap](https://dyne.org/sitemap-index.xml): Index of public website pages
 - [NIP-05 identity document](https://dyne.org/.well-known/nostr.json): Dyne.org names mapped to Nostr public keys

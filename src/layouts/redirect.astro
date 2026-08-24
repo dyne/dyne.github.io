@@ -1,12 +1,52 @@
 ---
+import { SITE } from '~/config.mjs';
+
 const { content } = Astro.props;
+const destinationUrl = new URL(content.destination, SITE.origin);
+if (destinationUrl.protocol === 'http:' && ['dyne.org', 'www.dyne.org'].includes(destinationUrl.hostname)) {
+	destinationUrl.protocol = 'https:';
+}
+const destination = destinationUrl.href;
+const destinationHref = destinationUrl.origin === SITE.origin
+	? `${destinationUrl.pathname}${destinationUrl.search}`
+	: destination;
+const title = typeof content.title === 'string' && content.title.trim() ? content.title.trim() : 'This page has moved';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta http-equiv="refresh" content=`0;url=${content.destination}` />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title} | Dyne.org</title>
+		<meta name="description" content={`This legacy Dyne.org page has moved to ${destination}.`} />
+		<meta name="robots" content="noindex, nofollow" />
+		<link rel="canonical" href={destination} />
+		<meta http-equiv="refresh" content={`0;url=${destinationHref}`} />
 	</head>
-
-
+	<body>
+		<main class="redirect-recovery">
+			<h1>{title}</h1>
+			<p>This legacy page has moved.</p>
+			<p><a href={destinationHref}>Continue to {destination}</a></p>
+			<noscript><p>JavaScript is not required: use the destination link above.</p></noscript>
+		</main>
+	</body>
 </html>
+
+<style>
+	:global(body) {
+		margin: 0;
+		background: #ffeedd;
+		color: #423e8e;
+		font-family: system-ui, sans-serif;
+	}
+	.redirect-recovery {
+		box-sizing: border-box;
+		max-width: 48rem;
+		min-height: 100vh;
+		margin: 0 auto;
+		padding: 4rem 2rem;
+	}
+	.redirect-recovery a { color: inherit; font-weight: 700; overflow-wrap: anywhere; }
+</style>

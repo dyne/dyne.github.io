@@ -15,6 +15,8 @@ const github = await github_fetch.json();
 const displayedIds = new Set(
 	softwareList.filter((s) => pageSoftwareIds.includes(s.id)).map((s) => s.id)
 );
+const projectUrl = (project) =>
+	project.homepage && !project.homepage.startsWith('https://dyne.org/') ? project.homepage : project.html_url;
 ---
 
 <Layout
@@ -64,9 +66,9 @@ const displayedIds = new Set(
 				.map((software) => (
 					<div>
 						<ProjectCard
-							url={software.homepage ? software.homepage : software.html_url}
+							url={projectUrl(software)}
 							title={software.name}
-							download={software.homepage ? software.html_url : false}
+							download={software.homepage && projectUrl(software) !== software.homepage ? false : software.html_url}
 						>
 							{software.description}
 						</ProjectCard>

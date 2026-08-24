@@ -3,14 +3,20 @@ import { AstroSeo } from '@astrolib/seo';
 import { SITE } from '~/config.mjs';
 
 const {
-	title = SITE.name,
-	description = SITE.description,
+	title: suppliedTitle,
+	description: suppliedDescription,
 	canonical = SITE.origin,
 	noindex = false,
 	nofollow = false,
 	ogType = 'website',
 	cover = 'https://dyne.org/social/facebook.jpg',
 } = Astro.props;
+
+const title = typeof suppliedTitle === 'string' && suppliedTitle.trim() ? suppliedTitle.trim() : SITE.title;
+const description =
+	typeof suppliedDescription === 'string' && suppliedDescription.trim()
+		? suppliedDescription.trim()
+		: SITE.description;
 ---
 
 <meta charset="UTF-8" />
@@ -19,6 +25,9 @@ const {
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="alternate" type="text/plain" href="/llms.txt" title="AI-readable site guide" />
 <link rel="service-desc" type="application/json" href="/openapi.json" title="OpenAPI service description" />
+<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" title="XML sitemap" />
+<link rel="alternate" type="application/nostr+json" href="/.well-known/nostr.json" title="NIP-05 identity document" />
+<link rel="alternate" type="text/markdown" href="/404.md" title="Page-not-found recovery help" />
 <meta name="google-site-verification" content="rDWLpshyBbtXZr-9SYj1GMUoH-QTHQTc1i6RrBnSE-Q" />
 <!-- `frame-ancestors` is enforced only as an HTTP response header. GitHub Pages
 	cannot supply it for this static site, so a meta CSP would only create console errors. -->

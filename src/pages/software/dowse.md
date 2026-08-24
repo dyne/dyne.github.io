@@ -1,7 +1,7 @@
 ---
 layout: ~/layouts/redirect.astro
 title: "Dowse :: Network Awareness"
-destination: "https://dyne.org/dowse"
+destination: "https://dowse.equipment/"
 description: "Dowse is a beautiful network visualization to make us privacy conscious in the Internet of Things era."
 ---
 

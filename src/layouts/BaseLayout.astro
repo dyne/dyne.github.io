@@ -1,17 +1,39 @@
 ---
 import GlobalAssets from '~/components/GlobalAssets.astro';
 import MetaTags from '~/components/MetaTags.astro';
+import { SITE } from '~/config.mjs';
 import '@fontsource/syne/400.css';
 import '@fontsource/syne/700.css';
 import '@fontsource/syne/800.css';
 
 const { meta = {} } = Astro.props;
+const routeCanonical = new URL(Astro.url.pathname, SITE.origin);
+
+// Pages normally identify themselves from their generated route.  An explicit
+// canonical is reserved for deliberate aliases (including static redirect
+// stubs), and is constrained to a web URL so malformed frontmatter cannot
+// produce an unsafe link element.
+const canonicalOverride = typeof meta.canonical === 'string' ? meta.canonical.trim() : '';
+let canonical = routeCanonical.href;
+if (canonicalOverride) {
+	try {
+		const candidate = new URL(canonicalOverride, SITE.origin);
+		if (candidate.protocol === 'https:' || candidate.protocol === 'http:') {
+			candidate.hash = '';
+			canonical = candidate.href;
+		}
+	} catch {
+		// Keep the route-derived canonical when an override is not a valid URL.
+	}
+}
+
+const pageMeta = { ...meta, canonical };
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<MetaTags {...meta} />
+		<MetaTags {...pageMeta} />
 	</head>
 
 	<body class="bg-background duration-500">

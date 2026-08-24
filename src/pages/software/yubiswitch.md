@@ -60,12 +60,11 @@ The preference window where you can set your global hotkey and the device Vendor
 
 Angelo “pallotron” Failla
 
-*   Github homepage:[ http://pallotron.github.io/](< http://pallotron.github.io/>)
+*   Github homepage: [http://pallotron.github.io/](http://pallotron.github.io/)
 *   Website: <http://www.pallotron.net>
-*   Blog:[ http://blog.angelofailla.com](< http://blog.angelofailla.com>)
-*   Facebook page:[ https://www.facebook.com/pallotron/](< https://www.facebook.com/pallotron/>)
+*   Blog: [http://blog.angelofailla.com](http://blog.angelofailla.com)
+*   Facebook page: [https://www.facebook.com/pallotron/](https://www.facebook.com/pallotron/)
 
 # Credits
 
 Credits to [Anton Tolchanov (@knyar)](https://github.com/knyar), he originally wrote this in Python using PyObjC bridge. I decided to port this into Objective-C to learn the language when I found out that Carbon Event Manager libs have been removed from Python3. See htt[p://docs.python.org/2/library/carbon.html](http://docs.python.org/2/library/carbon.html)
-

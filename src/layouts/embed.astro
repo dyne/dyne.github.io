@@ -4,7 +4,11 @@ import { marked } from 'marked';
 
 const { content } = Astro.props;
 const response = await fetch(content.destination);
-const html = marked.parse(await response.text());
+const sourceUrl = new URL(content.destination);
+const html = String(marked.parse(await response.text())).replace(
+	/\b(src|href)="(?![a-z]+:|\/|#)([^"]+)"/gi,
+	(_, attribute, value) => `${attribute}="${new URL(value, sourceUrl).href}"`
+);
 ---
 
 <Layout content={content}>

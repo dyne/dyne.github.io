@@ -19,6 +19,40 @@ for (const [path, status] of routes) {
 	});
 }
 
+test('representative pages expose route-derived canonical metadata', async ({ page }) => {
+	for (const [path, canonical] of [
+		['/', 'https://dyne.org/'],
+		['/software/', 'https://dyne.org/software/'],
+		['/donate/', 'https://dyne.org/donate/'],
+		['/awards/', 'https://dyne.org/awards/'],
+	] as const) {
+		await page.goto(path);
+		await expect(page).toHaveTitle(/\S/);
+		await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /\S/);
+		await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', canonical);
+		await expect(page.locator('h1')).toHaveCount(1);
+	}
+});
+
+test('homepage and recovery page expose machine-readable discovery links', async ({ page }) => {
+	for (const path of ['/', '/this-route-does-not-exist/']) {
+		await page.goto(path);
+		for (const href of ['/llms.txt', '/openapi.json', '/sitemap-index.xml', '/.well-known/nostr.json', '/404.md']) {
+			await expect(page.locator(`link[href="${href}"]`)).toHaveCount(1);
+		}
+	}
+});
+
+test('static redirect destination remains reachable when JavaScript is disabled', async ({ browser }, testInfo) => {
+	const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1440, height: 900 } });
+	const page = await context.newPage();
+	await page.goto('/tomb/');
+	await expect(page).toHaveURL(/\/software\/tomb\/?$/);
+	await expect(page.locator('h1').first()).toBeVisible();
+	await page.screenshot({ path: testInfo.outputPath('static-redirect-js-disabled.png') });
+	await context.close();
+});
+
 test('desktop navigation reaches the software index without leaving the site', async ({ page }, testInfo) => {
 	test.skip(
 		testInfo.project.name !== 'chromium-desktop',
