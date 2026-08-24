@@ -29,7 +29,6 @@
 		}
 	}
 	window.addEventListener('DOMContentLoaded', (event) => {
-		document.querySelectorAll('img:not([alt])').forEach((image) => image.setAttribute('alt', ''));
 		document.querySelectorAll('a').forEach((link) => {
 			if (!link.textContent.trim() && !link.getAttribute('aria-label')) link.setAttribute('aria-label', 'Linked image');
 		});
@@ -39,7 +38,8 @@
 			['#A14F12', '#4A2108', '#2A1308', '#FBF1EA', '#F5DDCC'],
 		];
 		const paletteIndex = Number.parseInt(document.documentElement.dataset.palette || '0', 10);
-		const [accent, text_accent, secondary, bg, bg_accent] = palettes[Number.isInteger(paletteIndex) ? paletteIndex % palettes.length : 0];
+		const [accent, text_accent, secondary, bg, bg_accent] =
+			palettes[Number.isInteger(paletteIndex) ? paletteIndex % palettes.length : 0];
 		document.documentElement.style.setProperty('--accent-color', accent);
 		document.documentElement.style.setProperty('--text-accent-color', text_accent);
 		document.documentElement.style.setProperty('--secondary-accent-color', secondary);
@@ -71,9 +71,15 @@
 			document.body.classList.add('overflow-hidden');
 			menu.querySelector('a')?.focus();
 		};
-		trigger?.addEventListener('click', () => (trigger.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu()));
-		menu?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu({ restoreFocus: false }); });
-		document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !menu?.hidden) closeMenu(); });
+		trigger?.addEventListener('click', () =>
+			trigger.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu()
+		);
+		menu?.addEventListener('click', (event) => {
+			if (event.target.closest('a')) closeMenu({ restoreFocus: false });
+		});
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && !menu?.hidden) closeMenu();
+		});
 
 		// attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
 		// 	document.documentElement.classList.toggle('dark');
@@ -82,7 +88,10 @@
 	});
 	window.addEventListener('pageshow', () => {
 		const elem = document.querySelector('[data-aw-toggle-menu]');
-		if (elem) { elem.setAttribute('aria-expanded', 'false'); elem.setAttribute('aria-label', 'Open navigation menu'); }
+		if (elem) {
+			elem.setAttribute('aria-expanded', 'false');
+			elem.setAttribute('aria-label', 'Open navigation menu');
+		}
 		document.body.classList.remove('overflow-hidden');
 		const menu = document.getElementById('menu');
 		if (menu) menu.hidden = true;

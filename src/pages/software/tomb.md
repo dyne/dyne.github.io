@@ -71,7 +71,7 @@ Will close immediately all open tombs, killing all applications using them.
 Here is a **lovely review made by the Linux Action Show guys** in August 2014, where they recommend Tomb as a replacement for Veracrypt
 
 <a href="https://www.youtube-nocookie.com/embed/CMLJmfjCaGM?si=HZX5rpKEVq_QWSg6">
-<img src="https://github.com/dyne/dyne.github.io/assets/148059/5635a613-8caf-4ebc-8ae0-9440a1a2bd5d" width="80%">
+<img src="https://github.com/dyne/dyne.github.io/assets/148059/5635a613-8caf-4ebc-8ae0-9440a1a2bd5d" alt="Linux Action Show review of Tomb" width="80%">
 </a>
 
 
@@ -118,7 +118,7 @@ Tomb also supports **deniable key storage** using steganography. One can `tomb b
 The command `tomb engrave` also allows to backup keys on paper by saving them as printable QR codes, to hide it between the pages of a book. To recover an engraved key, one can scan it with any phone and save the resulting plain text file as the tomb key.
 
 <a href="https://www.youtube-nocookie.com/embed/IgO19-3ffrY">
-<img src="https://github.com/dyne/dyne.github.io/assets/148059/183bd300-dfca-457d-b50b-2f8826dec187" width="80%">
+<img src="https://github.com/dyne/dyne.github.io/assets/148059/183bd300-dfca-457d-b50b-2f8826dec187" alt="Nerd on the Street video guide to Tomb" width="80%">
 </a>
 
 You can also watch this other video guide by Nerd on the Street.
@@ -184,7 +184,7 @@ The Internet offers plenty of free services; in most cases, **corporate or state
 
 **Tomb is ethical software that empowers everyone to protect their privacy**.
 
-<img src="https://www.dyne.org/wp-content/uploads/2012/06/foster_privacy.png">
+<img src="https://www.dyne.org/wp-content/uploads/2012/06/foster_privacy.png" alt="Illustration advocating privacy as essential to democracy">
 
 
 ## Aren't there enough encryption tools?
@@ -200,7 +200,7 @@ The encrypted home mechanism of most operating systems doesn’t make it easy to
 [EncFS](http://www.arg0.net/encfs) doesn’t need root access. But it has drawbacks: it implements weaker encryption, doesn't promote the separated storage of keys and exposes the size of each single file rather than hiding the structure of a folder.
 
 <a href="https://www.youtube-nocookie.com/embed/4VcJtj_oGqg">
-  <img src="https://github.com/dyne/dyne.github.io/assets/148059/05ae0f87-17c6-4937-a94d-a2549b00f45a">
+  <img src="https://github.com/dyne/dyne.github.io/assets/148059/05ae0f87-17c6-4937-a94d-a2549b00f45a" alt="Video comparing Tomb with other encryption tools">
 </a>
 
 Watch Tomb's development history in this infographic based on git commits.
@@ -240,7 +240,7 @@ access to ISO/IEC documents is limited.
 # Development
 
 <a href="https://github.com/dyne/Tomb">
-<img src="https://www.dyne.org/wp-content/uploads/2011/11/github_tomb.jpg">
+<img src="https://www.dyne.org/wp-content/uploads/2011/11/github_tomb.jpg" alt="Tomb source code and development on GitHub">
 Tomb is on GitHub</a>, where most of the community activity goes.
 
 Developers can interact with us via a discussion area, issues, or pull requests. The README is also a brief introduction for developers willing to engage.

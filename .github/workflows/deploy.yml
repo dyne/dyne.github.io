@@ -76,25 +76,12 @@ jobs:
         run: |
           set -Eeuo pipefail
           npm audit --json > npm-audit.json || audit_status=$?
-          node <<'NODE'
-          const { readFileSync } = require('node:fs');
-          const assert = require('node:assert/strict');
-
-          const audit = JSON.parse(readFileSync('npm-audit.json', 'utf8'));
-          const vulnerabilities = audit.vulnerabilities ?? {};
-          const highOrCritical = Object.entries(vulnerabilities)
-            .filter(([, advisory]) => ['high', 'critical'].includes(advisory.severity))
-            .map(([name]) => name)
-            .sort();
-          assert.deepEqual(
-            highOrCritical,
-            ['astro', 'sharp'],
-            `unexpected high/critical advisories: ${highOrCritical.join(', ') || 'none'}`,
-          );
-          assert.equal(audit.metadata?.vulnerabilities?.critical ?? 0, 0, 'critical advisories are never accepted');
-          console.warn('Accepted Astro 5 audit exception: astro and its sharp dependency; see .gestalt/astro-major-upgrade.org.');
-          NODE
-          test "${audit_status:-0}" -eq 1
+          # Approved packages, rationale, and removal criteria: docs/security-exceptions.md
+          node scripts/validate-npm-audit.mjs npm-audit.json
+          case "${audit_status:-0}" in
+            0|1) ;;
+            *) echo "npm audit failed with status ${audit_status}" >&2; exit "${audit_status}" ;;
+          esac
       - run: npm exec prettier -- --check .github/workflows/deploy.yml
       - run: npm test
 

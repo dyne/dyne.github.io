@@ -38,7 +38,7 @@ const wallets = [
 ];
 
 const tiers = [
-  { 
+	{
 		amount: '2€',
 		text: 'Get yourself an art pack, so a dyne can hack!',
 		url: 'https://ko-fi.com/s/e011a091f2',
@@ -131,14 +131,11 @@ const tiers = [
 				<h2 class="text-3xl underline decoration-primary decoration-4">Another currency is money!</h2>
 			</div>
 			<div class="space-y-6 px-6 text-center">
-			
-			<p class="pt-2">
-				We accept both <Link href="#onetime">one-time donations</Link> and <Link
-					href="#recurring"
-				>
-					recurring donations
-				</Link>
-			</p>
+				<p class="pt-2">
+					We accept both <Link href="#onetime">one-time donations</Link> and <Link href="#recurring">
+						recurring donations
+					</Link>
+				</p>
 			</div>
 		</div>
 
@@ -147,32 +144,40 @@ const tiers = [
 			<div id="recurring" class="p-6 bg-primary rounded-3xl space-y-4">
 				<h2 class="text-xl font-bold">Recurring donations on:</h2>
 				<div class="space-y-2">
-					<SponsorLink href="https://news.dyne.org/#/portal/signup" text="Planet Dyne"><Cafuda size={36} /></SponsorLink>
+					<SponsorLink href="https://news.dyne.org/#/portal/signup" text="Planet Dyne">
+						<Cafuda size={36} />
+					</SponsorLink>
 					<SponsorLink href="https://ko-fi.com/dyneorg" text="ko-fi"><Opencollective size={36} /></SponsorLink>
 					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={36} /></SponsorLink>
 					<SponsorLink href="https://patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink>
 				</div>
-				<p class="leading-6"><strong>If it fits it sits:</strong> Donations give you benefits, including but not limited to no less then</p>
+				<p class="leading-6">
+					<strong>If it fits it sits:</strong> Donations give you benefits, including but not limited to no less then
+				</p>
 				<ul class="list-disc px-6 pt-2">
 					<li>Blessings of the giant spaghetti monster.</li>
 					<li>Sacrifice of any given bad computer in sustainable manners.</li>
-					<li>Invitations to a special servers with elevated privs, good music and root beer, where the resident Dynes also hang out.</li>
+					<li>
+						Invitations to a special servers with elevated privs, good music and root beer, where the resident Dynes
+						also hang out.
+					</li>
 					<li>Mentions of you on the Dyne.org home page.</li>
 				</ul>
-
 			</div>
 		</div>
 
 		<!-- One-time donations block placed as a grid sibling so it can span both columns -->
 		<div id="onetime" class="p-6 bg-primary rounded-3xl space-y-4 md:col-span-2 max-w-4xl mx-auto">
 			<h2 class="text-xl font-bold">One time support.</h2>
-			<p class="leading-6">Not ready to commit on the long term, yet? </p>
+			<p class="leading-6">Not ready to commit on the long term, yet?</p>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 				{
 					tiers.map((tier) => (
 						<a href={tier.url} class="bg-primary-60 rounded-2xl overflow-hidden p-4 flex flex-col">
 							<div class="text-left">
-								<span class="inline-block text-xl md:text-2xl font-bold px-3 py-1 rounded-full bg-transparent text-current">{tier.amount}</span>
+								<span class="inline-block text-xl md:text-2xl font-bold px-3 py-1 rounded-full bg-transparent text-current">
+									{tier.amount}
+								</span>
 							</div>
 							<div class="mt-2 text-base">{tier.text}</div>
 						</a>
@@ -195,15 +200,13 @@ const tiers = [
 						<div class="space-y-4">
 							<p class="leading-6">(Donations via Stripe)</p>
 							<div class="grid grid-cols-1 gap-2">
-								
-									<a
-										href="https://buy.stripe.com/9AQbJv3cM5TBcw0149"
-										class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
-										>
-											💸 Pay What you want
-										</a>
-									
-								</div>
+								<a
+									href="https://buy.stripe.com/9AQbJv3cM5TBcw0149"
+									class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
+								>
+									💸 Pay What you want
+								</a>
+							</div>
 						</div>
 					</Fragment>
 
@@ -213,13 +216,18 @@ const tiers = [
 							<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
 								{
 									wallets.map((w) => (
-										<button id={w.name} type="button" aria-describedby={`${w.name}-address`} class="bg-sustainability p-4 rounded-3xl ">
+										<button
+											id={w.name}
+											type="button"
+											aria-describedby={`${w.name}-address`}
+											class="bg-sustainability p-4 rounded-3xl "
+										>
 											<p class="font-bold text-2xl text-white">{`${w.name} wallet`}</p>
 											<p id={`${w.name}-address`} class="text-xs w-72 break-words text-white">
 												{w.address}
 											</p>
-											</button>
-										))
+										</button>
+									))
 								}
 							</div>
 						</div>
@@ -228,20 +236,19 @@ const tiers = [
 			</div>
 		</div>
 	</div>
+	<p id="wallet-copy-status" class="sr-only" aria-live="polite" role="status"></p>
+
+	<script is:inline define:vars={{ wallets }}>
+		const status = document.querySelector('#wallet-copy-status');
+		for (const wallet of wallets) {
+			document.querySelector(`#${wallet.name}`)?.addEventListener('click', async () => {
+				try {
+					await window.navigator.clipboard.writeText(wallet.address);
+					status.textContent = `${wallet.name} wallet address copied to clipboard.`;
+				} catch {
+					status.textContent = `Could not copy the ${wallet.name} wallet address. Please copy it manually.`;
+				}
+			});
+		}
+	</script>
 </Layout>
-
-<p id="wallet-copy-status" class="sr-only" aria-live="polite" role="status"></p>
-
-<script is:inline define:vars={{ wallets }}>
-	for (const w of wallets) {
-		attachEvent(`#${w.name}`, 'click', (e) => {
-			if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
-				window.navigator.clipboard.writeText(w.address).then(() => {
-					document.querySelector('#wallet-copy-status').textContent = `${w.name} wallet address copied to clipboard.`;
-				}).catch(() => {
-					document.querySelector('#wallet-copy-status').textContent = `Could not copy the ${w.name} wallet address. Please copy it manually.`;
-				});
-			}
-		});
-	}
-</script>
