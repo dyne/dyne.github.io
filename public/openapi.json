@@ -1,0 +1,79 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Dyne.org Machine-Readable Endpoints",
+    "version": "1.0.0",
+    "description": "The public machine-readable HTTP surface published by the Dyne.org website. The website does not expose a general-purpose application API.",
+    "license": {
+      "name": "GNU Affero General Public License v3.0 or later",
+      "identifier": "AGPL-3.0-or-later"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://dyne.org",
+      "description": "Production"
+    }
+  ],
+  "security": [],
+  "tags": [
+    {
+      "name": "Well-known metadata",
+      "description": "Standards-based metadata discovery endpoints."
+    }
+  ],
+  "paths": {
+    "/.well-known/nostr.json": {
+      "get": {
+        "operationId": "getNostrNames",
+        "summary": "Resolve Dyne.org Nostr identities",
+        "description": "Returns the NIP-05 mapping from local Dyne.org names to lowercase hexadecimal Nostr public keys.",
+        "tags": ["Well-known metadata"],
+        "responses": {
+          "200": {
+            "description": "NIP-05 identity mapping",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "The identity document is readable cross-origin.",
+                "schema": {
+                  "type": "string",
+                  "const": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Nip05Document"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Nip05Document": {
+        "type": "object",
+        "required": ["names"],
+        "properties": {
+          "names": {
+            "type": "object",
+            "description": "Map from local names to 32-byte Nostr public keys encoded as 64 lowercase hexadecimal characters.",
+            "propertyNames": {
+              "type": "string",
+              "minLength": 1
+            },
+            "additionalProperties": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}

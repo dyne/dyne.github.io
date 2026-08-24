@@ -44,6 +44,13 @@
 - [Dynebolic Manual](https://dyne.org/docs/dynebolic/)
 - [How to use a Terminal](https://dyne.org/docs/terminal/): Foundational guide for command-line interfaces
 
+## Machine-Readable Resources
+
+- [OpenAPI 3.1 description](https://dyne.org/openapi.json): The website's published machine-readable HTTP surface
+- [XML sitemap](https://dyne.org/sitemap-index.xml): Index of public website pages
+- [NIP-05 identity document](https://dyne.org/.well-known/nostr.json): Dyne.org names mapped to Nostr public keys
+- [Page-not-found recovery guide](https://dyne.org/404.md): Concise navigation help for missing resources
+
 ## Community & Support
 
 - [Contact & Community Channels](https://dyne.org/contact/): All social media and communication channels, including IRC, Matrix, Telegram, Discord bridges
