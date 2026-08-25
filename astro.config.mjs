@@ -10,6 +10,7 @@ import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import { unified } from '@astrojs/markdown-remark';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const pagesDirectory = path.resolve(__dirname, './src/pages');
@@ -22,26 +23,35 @@ const redirectRoutes = new Set(
 
 // https://astro.build/config
 export default defineConfig({
-    site: SITE.origin,
-    base: SITE.basePathname,
-    output: 'static',
-    markdown: {
-        drafts: true,
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeRaw],
-        shikiConfig: {
-            theme: 'dracula',
-        },
-    },
-    integrations: [partytown(), sitemap({
-        filter: (page) => !redirectRoutes.has(new URL(page).pathname),
-    }), svelte(), mdx()],
-    vite: {
+	site: SITE.origin,
+	base: SITE.basePathname,
+	output: 'static',
+	markdown: {
+		drafts: true,
+		// Astro 7 defaults to Sätteri. Retain the selected remark/rehype path
+		// until its semantic Markdown fixtures prove an equivalent migration.
+		processor: unified({
+			remarkPlugins: [remarkGfm],
+			rehypePlugins: [rehypeRaw],
+		}),
+		shikiConfig: {
+			theme: 'dracula',
+		},
+	},
+	integrations: [
+		partytown(),
+		sitemap({
+			filter: (page) => !redirectRoutes.has(new URL(page).pathname),
+		}),
+		svelte(),
+		mdx(),
+	],
+	vite: {
 		plugins: [tailwindcss()],
-        resolve: {
-            alias: {
-                '~': path.resolve(__dirname, './src'),
-            },
-        },
-    },
+		resolve: {
+			alias: {
+				'~': path.resolve(__dirname, './src'),
+			},
+		},
+	},
 });

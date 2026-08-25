@@ -36,15 +36,7 @@ test('Astro upgrade inventory classifies removed APIs and compatibility surfaces
 	assert.doesNotMatch(whoWeAre, /bg-\$\{/, 'dynamic Tailwind construction is removed for Tailwind 4 scanning');
 	assert.match(whoWeAre, /keywordColorClasses/, 'keyword colors use explicit scanned utility mappings');
 	assert.match(whoWeAre, /rotationClasses/, 'keyword rotations use explicit scanned utility mappings');
-	for (const version of [
-		'`6.4.8`',
-		'`7.2.6`',
-		'resolved `7.3.6`',
-		'resolved `8.2.2`',
-		'GHSA-2pvr-wf23-7pc7',
-		'GHSA-8hv8-536x-4wqp',
-		'GHSA-f88m-g3jw-g9cj',
-	]) {
+	for (const version of ['`6.4.8`', '`7.2.6`', 'resolved `7.3.6`', 'resolved `8.2.2`']) {
 		assert.ok(inventory.includes(version), `${version} remains an explicit upgrade/audit contract`);
 	}
 });

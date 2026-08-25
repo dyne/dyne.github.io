@@ -121,21 +121,11 @@ and [Vite migration](https://vite.dev/guide/migration) as the governing
 compatibility references. Each boundary rolls back by reverting only its
 accepted checkpoint commit.
 
-`npm audit --json` currently exits 1 with 2 high, 5 low, and 0 critical
-findings. The high-path evidence is: direct `astro@5.18.2` at
-`node_modules/astro`, affecting MDX, Svelte, Tailwind, and SEO integrations,
-with `GHSA-2pvr-wf23-7pc7` (`<6.4.6`) and `GHSA-8hv8-536x-4wqp` (`<6.3.3`);
-and transitive `sharp` at `node_modules/sharp`, via Astro, with
-`GHSA-f88m-g3jw-g9cj` (`<0.35.0`). The static-only deployment has no SSR or
-server-island runtime, but this is exposure reduction rather than an audit
-exception: the fixed-version evidence is Astro `>=6.4.6` / `>=6.3.3` and Sharp
-`>=0.35.0`. Astro 7.2.6 is outside every current Astro advisory range.
-
-The temporary `scripts/validate-npm-audit.mjs` policy covers only the three
-high IDs above. The final Astro 7 resolved tree must have **zero high and
-critical advisories**, with no new allowlist entry. Audit acceptance also
-requires `npm test`, `npm run test:e2e`, online/offline builds, and the static
-contract above to pass.
+The Astro 7 lockfile pins Sharp `0.35.0` alongside Astro `7.2.6`, and the
+former temporary audit exceptions have expired. The audit validator now accepts
+only a report with **zero high and critical advisories**; it contains no
+allowlist. Audit acceptance also requires `npm test`, `npm run test:e2e`,
+online/offline builds, and the static contract above to pass.
 
 ## Compatibility inventory and ownership
 
@@ -159,6 +149,22 @@ criterion is a future Sätteri evaluation where the semantic-DOM fixtures in
 `test/markdown-processor-contracts.test.mjs` pass with equivalent headings,
 raw HTML, links/images, code blocks, and visible text; only then may the Remark
 integration and its legacy plugins be removed in a dedicated reviewed change.
+
+## Astro 7 compiler, whitespace, and routing decisions
+
+Astro 7 uses its Rust compiler and defaults `compressHTML` to `'jsx'`. This
+checkpoint deliberately retains that default: the generated-HTML structural
+test and its navigation/metadata word-separation fixtures pass against the
+Astro 7 artifact, so no compatibility override is warranted. If a future
+fixture demonstrates a user-visible joined-word regression, the narrowly
+scoped fallback is `compressHTML: true`; it must name the failing fixture and
+be removed once the affected template has explicit text spacing.
+
+The repository inventory confirms that `src/fetch.*` is absent and that the
+site uses no advanced-routing feature. `fetchFile: null` is therefore not set:
+there is no reserved-name conflict or unwanted advanced-routing behavior to
+disable. Static output, the GitHub Pages base URL, and the existing Vite alias
+remain unchanged.
 
 | Surface | Current result | Later owner, test boundary, rollback symptom |
 | --- | --- | --- |

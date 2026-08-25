@@ -72,7 +72,7 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
       - run: npm ci
-      - name: Audit dependencies (approved Astro 5 exception)
+      - name: Audit dependencies (zero high/critical policy)
         run: |
           set -Eeuo pipefail
           npm audit --json > npm-audit.json || audit_status=$?
