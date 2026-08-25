@@ -158,7 +158,29 @@ for (const fontScale of [100, 200]) {
 	});
 }
 
-for (const path of ['/', '/software/', '/donate/', '/this-route-does-not-exist/']) {
+for (const [path, name] of [
+	['/', 'home'],
+	['/software/', 'software'],
+	['/donate/', 'donate'],
+	['/timeline/', 'timeline'],
+	['/software/tomb/', 'tomb'],
+	['/this-route-does-not-exist/', '404'],
+] as const) {
+	for (const fontScale of [100, 200]) {
+		test(`${name} retains a reachable layout at ${fontScale}% font scale`, async ({ page }, testInfo) => {
+			await page.goto(path);
+			await page.locator('html').evaluate((element, scale) => {
+				element.style.fontSize = `${scale}%`;
+			}, fontScale);
+			await expect(page.locator('h1').first()).toBeVisible();
+			expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+			const viewport = testInfo.project.name === 'chromium-mobile' ? '390x844' : '1440x900';
+			await page.screenshot({ path: testInfo.outputPath(`${name}-${viewport}-${fontScale}.png`) });
+		});
+	}
+}
+
+for (const path of ['/', '/software/', '/donate/', '/timeline/', '/software/tomb/', '/this-route-does-not-exist/']) {
 	test(`${path} has no serious or critical axe violations`, async ({ page }) => {
 		await page.goto(path);
 		const results = await new AxeBuilder({ page }).analyze();

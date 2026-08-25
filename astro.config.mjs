@@ -1,5 +1,5 @@
 import partytown from '@astrojs/partytown';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import path from 'path';
@@ -33,10 +33,11 @@ export default defineConfig({
             theme: 'dracula',
         },
     },
-    integrations: [tailwind(), partytown(), sitemap({
+    integrations: [partytown(), sitemap({
         filter: (page) => !redirectRoutes.has(new URL(page).pathname),
     }), svelte(), mdx()],
     vite: {
+		plugins: [tailwindcss()],
         resolve: {
             alias: {
                 '~': path.resolve(__dirname, './src'),

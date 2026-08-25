@@ -1,5 +1,4 @@
 ---
-import { AstroSeo } from '@astrolib/seo';
 import { SITE } from '~/config.mjs';
 
 const {
@@ -17,6 +16,7 @@ const description =
 	typeof suppliedDescription === 'string' && suppliedDescription.trim()
 		? suppliedDescription.trim()
 		: SITE.description;
+const robots = [noindex ? 'noindex' : '', nofollow ? 'nofollow' : ''].filter(Boolean).join(', ');
 ---
 
 <meta charset="UTF-8" />
@@ -31,29 +31,21 @@ const description =
 <meta name="google-site-verification" content="rDWLpshyBbtXZr-9SYj1GMUoH-QTHQTc1i6RrBnSE-Q" />
 <!-- `frame-ancestors` is enforced only as an HTTP response header. GitHub Pages
 	cannot supply it for this static site, so a meta CSP would only create console errors. -->
-<AstroSeo
-	title={title}
-	description={description}
-	canonical={canonical}
-	noindex={noindex}
-	nofollow={nofollow}
-	facebook={{
-		appId: '140650172370',
-	}}
-	openGraph={{
-		url: canonical,
-		title: title,
-		description: description,
-		type: ogType,
-		images: [{ url: cover, alt: title }],
-		site_name: 'Dyne.org',
-	}}
-	twitter={{
-		handle: '@DyneOrg',
-		site: '@DyneOrg',
-		cardType: 'summary_large_image',
-	}}
-/>
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{robots && <meta name="robots" content={robots} />}
+<meta property="fb:app_id" content="140650172370" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={ogType} />
+<meta property="og:image" content={cover} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content="Dyne.org" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@DyneOrg" />
+<meta name="twitter:creator" content="@DyneOrg" />
 <script>
 	// Simple frame-bust: move top window to this page if framed.
 	if (window.top !== window.self) {

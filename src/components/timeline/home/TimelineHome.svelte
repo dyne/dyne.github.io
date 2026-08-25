@@ -4,7 +4,7 @@
 	import { filterItems } from '../dataProcess/filter';
 
 	// Components
-	import { SyncLoader } from 'svelte-loading-spinners';
+	import SyncLoader from '../SyncLoader.svelte';
 	import TimelineGroup from './TimelineHomeGroup.svelte';
 
 	//
