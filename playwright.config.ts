@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
-const previewPort = 4321;
+const previewPort = Number(process.env.PLAYWRIGHT_PREVIEW_PORT ?? 4321);
 
 export default defineConfig({
 	testDir: './test/e2e',

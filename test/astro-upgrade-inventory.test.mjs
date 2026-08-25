@@ -33,7 +33,9 @@ test('Astro upgrade inventory classifies removed APIs and compatibility surfaces
 	);
 	assert.match(content, /from 'astro:content'/, 'content APIs have an explicit owner');
 	assert.match(software, /import\.meta\.glob\(/, 'supported Vite glob is inventoried');
-	assert.match(whoWeAre, /bg-\$\{/, 'dynamic Tailwind construction remains owned');
+	assert.doesNotMatch(whoWeAre, /bg-\$\{/, 'dynamic Tailwind construction is removed for Tailwind 4 scanning');
+	assert.match(whoWeAre, /keywordColorClasses/, 'keyword colors use explicit scanned utility mappings');
+	assert.match(whoWeAre, /rotationClasses/, 'keyword rotations use explicit scanned utility mappings');
 	for (const version of [
 		'`6.4.8`',
 		'`7.2.6`',

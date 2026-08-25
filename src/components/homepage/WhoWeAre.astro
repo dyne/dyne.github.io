@@ -6,14 +6,30 @@ const keywords = await Promise.all(
 		.sort((left, right) => left.id.localeCompare(right.id))
 		.map(async (keyword) => ({ ...keyword, Content: (await render(keyword)).Content })),
 );
+
+const keywordColorClasses = {
+	sustainability: 'bg-sustainability',
+	open_source: 'bg-open_source',
+	crypto: 'bg-crypto',
+	interdisciplinarity: 'bg-interdisciplinarity',
+	cybersecurity: 'bg-cybersecurity',
+};
+
+const rotationClasses = {
+	'rotate-2': 'rotate-2',
+	'-rotate-1': '-rotate-1',
+};
 ---
 
 <ul class="lg:px-12 px-0">
 	{
-		keywords.map((kw) => (
+		keywords.map((kw) => {
+			const colorClass = keywordColorClasses[kw.data.color] ?? 'bg-white';
+			const rotationClass = rotationClasses[kw.data.rotation] ?? '';
+			return (
 			<>
 				<li
-					class={`flipper text-black bg-${kw.data.color} ${kw.data.rotation} rounded-[22px] lg:rounded-3xl lg:px-12 min-h-max`}
+					class={`flipper text-black ${colorClass} ${rotationClass} rounded-[22px] lg:rounded-3xl lg:px-12 min-h-max`}
 				>
 					<h2
 						class={`front py-3 tracking-tighter top-0 left-0 font-semibold text-[1.9rem] md:text-[3.4rem] lg:text-mega whitespace-nowrap`}
@@ -26,7 +42,8 @@ const keywords = await Promise.all(
 				</li>
 				<li class="block md:hidden py-4"><kw.Content /></li>
 			</>
-		))
+			);
+		})
 	}
 </ul>
 <style>
@@ -45,7 +62,7 @@ const keywords = await Promise.all(
 		}
 	}
 	.flipper:hover .back {
-		@apply translate-x-0;
+		transform: translateX(0);
 	}
 
 	.front {

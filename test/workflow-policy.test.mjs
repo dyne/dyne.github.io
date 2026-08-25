@@ -25,6 +25,24 @@ test('the audit policy accepts a clean report and approved advisory subsets', ()
 				{
 					astro: {
 						severity: 'high',
+						via: [
+							advisory('GHSA-f48w-9m4c-m7f5', 'moderate'),
+							advisory('GHSA-7pw4-f3q4-r2p2', 'low'),
+							advisory('GHSA-4g3v-8h47-v7g6', 'moderate'),
+						],
+					},
+				},
+				{ high: 1 }
+			)
+		),
+		['astro']
+	);
+	assert.deepEqual(
+		validateAudit(
+			audit(
+				{
+					astro: {
+						severity: 'high',
 						via: [advisory('GHSA-2pvr-wf23-7pc7'), advisory('GHSA-8hv8-536x-4wqp')],
 					},
 					sharp: { severity: 'high', via: [advisory('GHSA-f88m-g3jw-g9cj')] },
@@ -39,6 +57,16 @@ test('the audit policy accepts a clean report and approved advisory subsets', ()
 test('the audit policy rejects unapproved high and all critical advisories', () => {
 	assert.throws(
 		() => validateAudit(audit({ astro: { severity: 'high', via: [advisory('GHSA-new-advisory')] } }, { high: 1 })),
+		/unexpected high\/critical advisories: astro:GHSA-new-advisory/
+	);
+	assert.throws(
+		() =>
+			validateAudit(
+				audit(
+					{ astro: { severity: 'high', via: [advisory('GHSA-f48w-9m4c-m7f5', 'moderate'), advisory('GHSA-new-advisory', 'low')] } },
+					{ high: 1 }
+				)
+			),
 		/unexpected high\/critical advisories: astro:GHSA-new-advisory/
 	);
 	assert.throws(

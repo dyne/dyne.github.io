@@ -7,6 +7,9 @@ export const APPROVED_HIGH_ADVISORY_IDS = new Set([
 	'GHSA-2pvr-wf23-7pc7',
 	'GHSA-8hv8-536x-4wqp',
 	'GHSA-f88m-g3jw-g9cj',
+	'GHSA-f48w-9m4c-m7f5',
+	'GHSA-7pw4-f3q4-r2p2',
+	'GHSA-4g3v-8h47-v7g6',
 ]);
 
 function advisoryId(advisory) {
@@ -22,9 +25,10 @@ export function validateAudit(audit) {
 		.filter(([, advisory]) => ['high', 'critical'].includes(advisory.severity))
 		.sort(([left], [right]) => left.localeCompare(right));
 	const unexpected = highOrCritical.flatMap(([name, vulnerability]) => {
-		const advisories = (vulnerability.via ?? []).filter(
-			(advisory) => typeof advisory === 'object' && ['high', 'critical'].includes(advisory.severity)
-		);
+		// npm may aggregate a high-severity package finding from lower-severity
+		// advisory objects. Once the package itself is high/critical, every named
+		// advisory on that path must be recognized by the bounded exception policy.
+		const advisories = (vulnerability.via ?? []).filter((advisory) => typeof advisory === 'object');
 		if (!advisories.length) return [`${name}:unidentified`];
 		return advisories
 			.map(advisoryId)

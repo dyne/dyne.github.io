@@ -2,7 +2,6 @@
 import Button from '~/components/Button.astro';
 import Layout from '~/layouts/HomepageLayout.astro';
 import Link from '~/components/Link.astro';
-import { Tabs } from 'astro-tabs';
 // Icons
 import Opencollective from '~/components/icons/donations/opencollective.astro';
 import Patreon from '~/components/icons/donations/patreon.astro';
@@ -72,13 +71,13 @@ const tiers = [
 ---
 
 <style is:global>
-	.tabs nav {
+	.tabs [role='tablist'] {
 		margin-top: -12px;
 		justify-content: space-between;
 		padding-bottom: 12px;
 	}
 
-	.tabs nav > * + * {
+	.tabs [role='tablist'] > * + * {
 		margin-left: 8px;
 	}
 
@@ -94,12 +93,12 @@ const tiers = [
 		flex-grow: 1;
 	}
 
-	.tab-selector:checked ~ .tab {
+	.tab[aria-selected='true'] {
 		color: white;
 		background: black;
 	}
 
-	.tab-selector:not(:checked) ~ .tab {
+	.tab[aria-selected='false'] {
 		color: black;
 		background: transparent;
 		border: 1px solid black;
@@ -186,31 +185,17 @@ const tiers = [
 			</div>
 
 			<div class="space-y-10 lg:col-span-2">
-				<Tabs>
-					<Fragment slot="tab-2">
-						<p>Use money</p>
-						<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate money" id="money" /> -->
-					</Fragment>
-					<Fragment slot="tab-1">
-						<p>Use crypto</p>
-						<!-- <Button cls="text-lg text-black bg-[#FFEEDD] border-2 border-black" text="Donate crypto" id="crypto" /> -->
-					</Fragment>
+				<div class="tabs">
+					<div role="tablist" aria-label="Donation method">
+						<button class="tab" id="crypto-tab" type="button" role="tab" aria-selected="true" aria-controls="crypto-panel">
+							Use crypto
+						</button>
+						<button class="tab" id="money-tab" type="button" role="tab" aria-selected="false" aria-controls="money-panel" tabindex="-1">
+							Use money
+						</button>
+					</div>
 
-					<Fragment slot="panel-2">
-						<div class="space-y-4">
-							<p class="leading-6">(Donations via Stripe)</p>
-							<div class="grid grid-cols-1 gap-2">
-								<a
-									href="https://buy.stripe.com/9AQbJv3cM5TBcw0149"
-									class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
-								>
-									💸 Pay What you want
-								</a>
-							</div>
-						</div>
-					</Fragment>
-
-					<Fragment slot="panel-1">
+					<div id="crypto-panel" role="tabpanel" aria-labelledby="crypto-tab" class="space-y-4">
 						<div class="space-y-4">
 							<p class="leading-6">Contact us with the transaction ID to redeem the benefits.</p>
 							<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
@@ -231,14 +216,49 @@ const tiers = [
 								}
 							</div>
 						</div>
-					</Fragment>
-				</Tabs>
+					</div>
+
+					<div id="money-panel" role="tabpanel" aria-labelledby="money-tab" class="space-y-4" hidden>
+						<div class="space-y-4">
+							<p class="leading-6">(Donations via Stripe)</p>
+							<div class="grid grid-cols-1 gap-2">
+								<a
+									href="https://buy.stripe.com/9AQbJv3cM5TBcw0149"
+									class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
+								>
+									💸 Pay What you want
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<p id="wallet-copy-status" class="sr-only" aria-live="polite" role="status"></p>
 
 	<script is:inline define:vars={{ wallets }}>
+		const tabs = [...document.querySelectorAll('[role="tab"]')];
+		const panels = [...document.querySelectorAll('[role="tabpanel"]')];
+		const selectTab = (tab) => {
+			tabs.forEach((candidate) => {
+				const selected = candidate === tab;
+				candidate.setAttribute('aria-selected', String(selected));
+				candidate.tabIndex = selected ? 0 : -1;
+				document.querySelector(`#${candidate.getAttribute('aria-controls')}`).hidden = !selected;
+			});
+		};
+		tabs.forEach((tab, index) => {
+			tab.addEventListener('click', () => selectTab(tab));
+			tab.addEventListener('keydown', (event) => {
+				if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+				event.preventDefault();
+				const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+				tabs[nextIndex].focus();
+				selectTab(tabs[nextIndex]);
+			});
+		});
+
 		const status = document.querySelector('#wallet-copy-status');
 		for (const wallet of wallets) {
 			document.querySelector(`#${wallet.name}`)?.addEventListener('click', async () => {
