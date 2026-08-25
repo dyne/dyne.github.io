@@ -41,11 +41,31 @@ test('machine documents and HTML discovery links agree', async () => {
 	]);
 
 	assert.equal(JSON.parse(openapi).openapi, '3.1.0');
-	assert.ok(JSON.parse(nip05).names && typeof JSON.parse(nip05).names === 'object');
+	const nip05Document = JSON.parse(nip05);
+	assert.ok(nip05Document.names && typeof nip05Document.names === 'object');
+	assert.equal(
+		nip05,
+		JSON.stringify({
+			names: Object.fromEntries(
+				Object.entries(nip05Document.names).sort(([left], [right]) => left.localeCompare(right))
+			),
+		}),
+		'NIP-05 output is deterministic even when the upstream changes its key order'
+	);
 	for (const [href, type] of discovery) {
 		assert.match(guide, new RegExp(`https://dyne\\.org${escapeRegex(href)}`));
-		for (const [name, html] of [['homepage', homepage], ['404', notFound]]) {
-			assert.match(html, new RegExp(`<link\\b[^>]*href="${escapeRegex(href)}"[^>]*type="${escapeRegex(type)}"|<link\\b[^>]*type="${escapeRegex(type)}"[^>]*href="${escapeRegex(href)}"`, 'i'), `${name} advertises ${href}`);
+		for (const [name, html] of [
+			['homepage', homepage],
+			['404', notFound],
+		]) {
+			assert.match(
+				html,
+				new RegExp(
+					`<link\\b[^>]*href="${escapeRegex(href)}"[^>]*type="${escapeRegex(type)}"|<link\\b[^>]*type="${escapeRegex(type)}"[^>]*href="${escapeRegex(href)}"`,
+					'i'
+				),
+				`${name} advertises ${href}`
+			);
 		}
 	}
 });

@@ -35,7 +35,9 @@ export default defineConfig({
 		},
 	],
 	webServer: {
-		command: `npm run preview -- --host 127.0.0.1 --port ${previewPort}`,
+		// Astro 7 backgrounds previews when it detects an agent process. Playwright
+		// requires this command to remain attached for the duration of the suite.
+		command: `ASTRO_PREVIEW_BACKGROUND=0 npm run preview -- --host 127.0.0.1 --port ${previewPort}`,
 		url: `http://127.0.0.1:${previewPort}`,
 		reuseExistingServer: !process.env.CI,
 		timeout: 30_000,

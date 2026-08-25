@@ -82,6 +82,12 @@ There are no approved visual snapshots yet. When a future test introduces one, r
 
 Browser assertions must be deterministic: do not require a live third-party feed, API, or newsletter. Mock those responses in the test or use a checked-in fixture/fallback.
 
+## Astro migration and release rollback
+
+The supported Astro/Vite/Node matrix, clean-room release gates, GitHub Pages
+artifact boundary, and non-destructive rollback commands are in
+[`docs/astro-migration-and-rollback.md`](docs/astro-migration-and-rollback.md).
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
