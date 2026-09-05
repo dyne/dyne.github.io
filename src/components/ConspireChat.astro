@@ -3,14 +3,23 @@ import Button from '~/components/Button.astro';
 ---
 
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-    <Button as="button" text="Public Reception" id="lobby-btn" />
+    <Button as="button" text="Public Channel" id="lobby-btn" />
     <Button as="button" text="New Private Room" id="private-room-btn" inverted={true} />
+    <Button as="button" text="Tor Hidden Service" id="tor-btn" inverted={true} />
+    <Button as="button" text="Stats Dashboard" id="stats-btn" inverted={true} />
+
 </div>
 
 <script>
   // Function to redirect to the public reception lobby
   function startLobby() {
     window.open('https://conspire.dyne.org:8443/room/lobby', '_blank');
+  }
+  function startTorHiddenService() {
+    window.open('http://l64b4okzmfsqiifoktbmakpsyiy7u5n7evgaxeqz7jnqvyspubzqxkid.onion:9443/', '_blank');
+  }
+  function startDashboard() {
+    window.open('https://conspire.dyne.org:8443/dashboard', '_blank');
   }
 
   /**
@@ -75,4 +84,7 @@ import Button from '~/components/Button.astro';
   // Add event listeners to the buttons
   document.getElementById('lobby-btn')?.addEventListener('click', startLobby);
   document.getElementById('private-room-btn')?.addEventListener('click', startPrivateRoom);
+  document.getElementById('tor-btn')?.addEventListener('click', startTorHiddenService);
+  document.getElementById('stats-btn')?.addEventListener('click', startDashboard);
+
 </script>
