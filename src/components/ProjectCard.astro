@@ -1,7 +1,7 @@
 ---
 import Button from './Button.astro';
 
-const { logo, title, url, tagline, download } = Astro.props;
+const { logo, title, url, download } = Astro.props;
 ---
 
 <div
@@ -29,11 +29,7 @@ const { logo, title, url, tagline, download } = Astro.props;
 					)
 				}
 			</div>
-			<div class="py-4">
-				<span class="font-medium">{tagline}</span>
-			</div>
-
-			<div class="text-gray-800 text-sm font-medium mb-2 text-clip overflow-hidden max-h-20">
+			<div class="text-gray-800 text-base font-prose leading-relaxed mt-2 mb-2">
 				<slot />
 			</div>
 			<div class="flex flex-row flex-wrap space-x-3 mt-4 no-underline">
