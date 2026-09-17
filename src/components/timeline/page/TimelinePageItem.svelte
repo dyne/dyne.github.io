@@ -47,7 +47,7 @@
 		class={`flex flex-col space-y-5 text-primary-60 rounded-2xl ${isMilestone ? `p-4 border-4 ${border} ${bg}` : ''}`}
 	>
 		<!-- Base content -->
-		<h3 class="text-3xl font-bold text-primary-light font-sans">
+		<h3 class="text-3xl font-bold text-primary-light font-display leading-heading">
 			{item.title}
 		</h3>
 		{#if item.restOfDate}
@@ -59,7 +59,7 @@
 			<img src={item.imageUrl} class={`bg-primary-light border-4 ${border} w-full rounded-lg`} alt={item.title} />
 		{/if}
 		{#if item.description}
-			<p class="text-xl mb-2">{item.description}</p>
+			<p class="text-xl mb-2 font-body leading-body">{item.description}</p>
 		{/if}
 		{#if item.location}
 			<div class="flex items-center">

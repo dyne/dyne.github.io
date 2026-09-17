@@ -26,8 +26,12 @@
 	--color-primary-5: #fefcfa;
 	--font-sans: Syne, sans;
 	--font-serif: 'Syne Tactile', cursive;
-	--font-prose: 'Inter Variable', sans-serif, sans;
+	--font-display: Syne, sans;
+	--font-prose: 'Plus Jakarta Sans Variable', sans-serif, sans;
+	--font-body: 'Plus Jakarta Sans Variable', sans-serif, sans;
 	--font-mono: 'JetBrains Mono', monospace;
+	--leading-heading: 1.2;
+	--leading-body: 1.4;
 	--text-mega: 7.65rem;
 	--text-mega--line-height: 13.625rem;
 	--tracking-normal: -0.2rem;

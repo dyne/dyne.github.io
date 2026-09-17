@@ -3,7 +3,6 @@ import BaseLayout from './BaseLayout.astro';
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import '@fontsource/jetbrains-mono';
-import '@fontsource-variable/inter';
 import softwareList from '~/content/software.json';
 import { SITE } from '~/config.mjs';
 
@@ -56,7 +55,7 @@ const meta = {
 						/>
 					) : null}
 					<div class="flex flex-col items-center lg:items-start">
-						<h1 class="font-bold mb-2 text-center md:text-left">{meta.title}</h1>
+						<h1 class="font-display font-extrabold leading-heading mb-2 text-center md:text-left">{meta.title}</h1>
 						{meta?.subtitle ? (
 							<p class="text-lg font-semibold text-neutral-700 mt-1 text-center mx-auto">
 								{meta.subtitle}</p>

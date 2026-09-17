@@ -15,7 +15,7 @@ test('Tailwind 4 emits the migrated Dyne theme and Typography utilities', async 
 
 	for (const expected of [
 		'--color-primary-60:#f8e0c4',
-		'--font-prose:"Inter Variable", sans-serif, sans',
+		'--font-prose:"Plus Jakarta Sans Variable", sans-serif, sans',
 		'--radius-3xl:60px',
 		'.bg-sustainability{',
 		'.rounded-3xl{',

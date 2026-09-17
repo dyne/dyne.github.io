@@ -7,7 +7,7 @@
 
 <div class="">
 	<div class="sticky top-0 z-10 font-sans">
-		<h2 class="text-white text-7xl bg-black py-2">{group.year}</h2>
+		<h2 class="text-white text-7xl bg-black py-2 font-display font-bold leading-heading">{group.year}</h2>
 	</div>
 
 	<div class="pl-8">

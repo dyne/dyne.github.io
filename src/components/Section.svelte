@@ -13,11 +13,11 @@
 -->
 	<div class="bg-saccent rounded-3xl md:py-12 text-white space-y-8 md:space-y-20 {cls}">
 		<div class="flex flex-col items-center md:items-start space-y-8 md:space-y-0">
-			<h2 class="font-semibold text-5xl whitespace-nowrap px-8 pt-4 md:pt-0 md:px-12">
+			<h2 class="font-display font-bold leading-heading text-5xl whitespace-nowrap px-8 pt-4 md:pt-0 md:px-12">
 				{title}
 			</h2>
 			{#if $$slots.description}
-				<div class="text-center md:text-start md:px-12 text-xl font-prose md:w-3/5 leading-relaxed pt-4">
+				<div class="text-center md:text-start md:px-12 text-xl font-body leading-body md:w-3/5 pt-4">
 					<slot name="description" />
 				</div>
 			{/if}
