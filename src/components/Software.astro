@@ -2,7 +2,11 @@
 import softwareList from '~/content/software.json';
 
 // accept either `id` (new) or `software` (legacy) prop names
-const { title: propTitle, subtitle: propSubtitle, desc: propDesc, logo: propLogo, url: propUrl, id: propId, software: propSoftware, alt: propAlt } = Astro.props;
+const { title: propTitle, subtitle: propSubtitle, desc: propDesc, logo: propLogo, url: propUrl, id: propId, software: propSoftware, alt: propAlt, headingLevel = 2 } = Astro.props;
+
+// heading tag defaults to h2 (previous fixed behavior); callers can nest it
+// correctly under their own document outline by passing headingLevel.
+const Heading = `h${Math.min(Math.max(Number(headingLevel) || 2, 1), 6)}`;
 
 let title = propTitle;
 let subtitle = propSubtitle;
@@ -65,7 +69,7 @@ const slug = softwareId
       }
     </div>
     <div class="flex-1 text-left">
-	  <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+	  <Heading class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
         <span class="flex-1">
           {url ? (
             <a href={url} class="no-underline text-current">{title}</a>
@@ -76,7 +80,7 @@ const slug = softwareId
         {subtitle && (
           <span class="mt-2 sm:mt-0 text-lg sm:text-xl md:text-2xl font-semibold sm:ml-4 sm:text-right">{subtitle}</span>
         )}
-	  </h2>
+	  </Heading>
   {desc && <p class="text-base md:text-lg max-w-3xl mt-2" set:html={desc}></p>}
     </div>
   </div>
