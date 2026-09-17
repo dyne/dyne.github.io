@@ -31,13 +31,13 @@ const rotationClasses = {
 				<li
 					class={`flipper text-black ${colorClass} ${rotationClass} rounded-[22px] lg:rounded-3xl lg:px-12 min-h-max`}
 				>
-					<h2
-						class={`front py-3 tracking-tighter top-0 left-0 font-display font-bold leading-heading text-[1.9rem] md:text-[3.4rem] lg:text-mega whitespace-nowrap`}
-					>
-						{kw.data.word}
-					</h2>
+		<h2
+	class={`front absolute inset-0 flex items-center pl-8 lg:pl-12 py-3 tracking-tighter font-display font-bold leading-heading text-[1.9rem] md:text-[3.4rem] lg:text-8xl whitespace-nowrap`}
+>
+	{kw.data.word}
+</h2>
 					<div
-						class="back absolute top-0 left-0 p-2 text-xs md:text-lg md:p-5 lg:p-20 lg:text-3xl md:w-[80%] min-h-fit hidden md:block font-body leading-body"
+						class="back absolute top-0 bottom-0 left-0 p-2 text-xs md:text-lg md:p-5 lg:p-12 lg:text-xl md:w-[80%] hidden md:flex md:flex-col md:justify-center font-body leading-body"
 					><kw.Content /></div>
 				</li>
 				<li class="block md:hidden py-4 font-body leading-body"><kw.Content /></li>
@@ -54,6 +54,21 @@ const rotationClasses = {
 		padding-left: 10%;
 		margin-left: -10%;
 		width: 120%;
+		position: relative;
+	}
+
+	/* The card's height is otherwise driven only by the front word; ensure it
+	   also has room for the back panel's text once flipped, so hover content
+	   isn't clipped by the overflow:hidden above. */
+	@media screen and (min-width: 768px) {
+		.flipper {
+			min-height: 140px;
+		}
+	}
+	@media screen and (min-width: 1024px) {
+		.flipper {
+			min-height: 220px;
+		}
 	}
 
 	@media screen and (min-width: 768px) {

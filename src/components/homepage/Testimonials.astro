@@ -18,11 +18,11 @@ const testimonials = await Promise.all(
 				return (
 					<div class={`swiper-slide bg-baccent mx-auto lg:max-w-none rounded-4xl p-20 lg:p-28 my-24 max-w-[450px]`}>
 						<div class="flex-col flex lg:flex-row gap-20 items-center justify-between">
-							<picture>
+							<picture class="flex-shrink-0">
 								<source type="image/webp" srcset={`${optimizedPic.replace('.webp', '-256.webp')} 256w, ${optimizedPic} 512w`} sizes="256px" />
-								<img src={pic} alt="Portrait of testimonial author" width="256" height="256" loading="lazy" decoding="async" class="w-64 aspect-square object-cover rounded-full" />
+								<img src={pic} alt="Portrait of testimonial author" width="256" height="256" loading="lazy" decoding="async" class="w-64 h-64 flex-shrink-0 object-cover rounded-full" />
 							</picture>
-							<div class="text-saccent text-xl lg:text-3xl font-body leading-body"><t.Content /></div>
+							<div class="text-saccent text-xl lg:text-3xl font-body leading-body min-w-0"><t.Content /></div>
 						</div>
 					</div>
 				);
