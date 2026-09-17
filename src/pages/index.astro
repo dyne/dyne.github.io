@@ -37,26 +37,30 @@ people, useful tech and respect for the natural environment.
 			<WhoWeAre />
 		</Section>
 
-		<Stats />
-		<Newsletter
-			intro="Stay ahead of the curve and subscribe with your email to receive our updates."
-			href="https://news.dyne.org/#/portal/signup"
-		>
-			<BlogArticlePreviewHome {...feed.items[0]} />
-		</Newsletter>
+		<Section id="projects" title="Our projects" contentPadding={false}>
+			<span slot="description">
+				These are free software projects and open technologies designed, developed and
+				maintained by Dyne.org.
+			</span>
+			<Projects />
+		</Section>
 
 		<SoftwareAnnouncement
-			intro="Dyne.org foundation is proud to announce a new RASTASOFT production:"
+			intro="A new free software production from Dyne.org:"
 			href="https://dynebolic.org"
 		>
 			<Svg content={Banner} />
 		</SoftwareAnnouncement>
 
-		<Projects />
+		<Section id="testimonials" title="What people say about Dyne.org" contentPadding={false}>
+			<span slot="description">
+				Voices from the community, collaborators and people who have worked with us over
+				the years.
+			</span>
+			<Testimonials />
+		</Section>
 
-		<Testimonials />
-
-		<Supports />
+		<Stats />
 
 		<div class="my-10">
 			<Section id="timeline" title="What we did" contentPadding={false}>
@@ -67,5 +71,14 @@ people, useful tech and respect for the natural environment.
 				</div>
 			</Section>
 		</div>
+
+		<Newsletter
+			intro="Stay ahead of the curve and subscribe with your email to receive our updates."
+			href="https://news.dyne.org/#/portal/signup"
+		>
+			<BlogArticlePreviewHome {...feed.items[0]} />
+		</Newsletter>
+
+		<Supports />
 	</div>
 </Layout>
