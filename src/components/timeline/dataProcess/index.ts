@@ -1,7 +1,8 @@
 import { cleanFetchedItems } from './clean';
 import { fetchTimelineCSV } from './fetch';
-import { TimelineGroup } from './group';
-import { resultsToItems, TimelineItem } from './parse';
+import type { TimelineGroup } from './group';
+import { resultsToItems } from './parse';
+import type { TimelineItem } from './parse';
 
 //
 

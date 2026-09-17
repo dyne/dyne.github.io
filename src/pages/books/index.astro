@@ -15,7 +15,7 @@ import books from '../../content/books/books.json';
 				<div class="group relative">
 					<div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-80">
 						<a href={b.url}>
-							<img src={b.image} alt={b.title} class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+							{b.image !== 'not available' ? <img src={b.image} alt={b.title} class="h-full w-full object-cover object-center lg:h-full lg:w-full" /> : <span class="sr-only">No cover available</span>}
 						</a>
 					</div>
 					<div>

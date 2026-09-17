@@ -6,7 +6,7 @@
 </script>
 
 <section {id}>
-	<div class="bg-saccent rounded-3xl md:py-12 text-saccent text-white space-y-8 md:space-y-20 {cls}" {id}>
+	<div class="bg-saccent rounded-3xl md:py-12 text-saccent text-white space-y-8 md:space-y-20 {cls}">
 		<div class="flex flex-col items-center md:items-start space-y-8 md:space-y-0">
 			<div class="font-semibold text-5xl whitespace-nowrap px-8 pt-4 md:pt-0 md:px-12">
 				{title}

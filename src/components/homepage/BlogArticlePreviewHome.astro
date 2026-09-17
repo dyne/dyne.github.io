@@ -7,7 +7,7 @@ const media = Astro.props['media:content'];
 <div class="pb-4 flex flex-col">
 	<a href={link}>
 		<figure class="mb-4">
-			<img class="w-full" src={media['$'].url} />
+			<img class="w-full aspect-video object-cover" src={media['$'].url} alt="" width="1200" height="675" loading="lazy" decoding="async" />
 		</figure>
 	</a>
 	<div>

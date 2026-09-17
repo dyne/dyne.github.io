@@ -18,3 +18,12 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# astro specific
+.astro/**
+
+# Playwright test artifacts
+output/playwright/
+
+# local direnv
+.envrc

@@ -1,0 +1,138 @@
+---
+layout: '~/layouts/Layout.astro'
+title: 'Promptline'
+subtitle: Single-binary Go terminal for LLM chats, built-in tools, no system execution calls, ultra portable.
+description: "This is our straight‑shot terminal client for OpenAI‑compatible LLMs: batch or streaming, tool calls, sane permissions, no deps, no system exec."
+---
+import Button from '~/components/Button.astro';
+
+
+Terminal interface for streaming chat with OpenAI-compatible APIs. Written in
+Go.  No exec. No deps. Just a single binary that works over SSH.
+
+Get started → build, run, configure and hack in minutes.
+
+
+## What it does
+
+  - Streams OpenAI-compatible chat directly to your terminal.
+  - Supports tool-calling with strict allow/ask/deny permissions.
+  - Runs in interactive mode or batch/pipe mode.
+  - Ships with Go-native tools, never calls system binaries.
+
+## Downloads 
+
+Latest releases on [dyne/promptline](https://github.com/dyne/promptline) - direct links:
+
+<Button text="Linux" href="https://github.com/dyne/promptline/releases/latest/download/promptline-linux-amd64" />
+<Button text="macOS" href="https://github.com/dyne/promptline/releases/latest/download/promptline-darwin-arm64" />
+<Button text="Windows" href="https://github.com/dyne/promptline/releases/latestdownload/promptline-windows-amd64" />
+
+## Features
+
+  - Streaming: real-time response chunks in the console.
+  - Permissions: allow/ask/deny per tool, default is ask.
+  - Batch mode: pipe queries in, get output out.
+  - Portable: single binary, SSH-friendly, no GUI dependencies.
+  - Fully configurable: one JSON in current folder.
+  - Zero dependency: add tools in Go, no shelling out.
+
+## Quick start
+
+Have Go installed to build on your machine
+```
+  make build
+```
+
+Or just download the latest release and run
+```
+  ./promptline
+```
+
+  Batch mode:
+```
+  echo "write hello world in hello.txt" | ./promptline -
+```
+
+## Tools included
+
+####  Core
+
+  - get_current_datetime, read_file, write_file, ls
+
+####  File operations
+
+  - cat, cp, mv, rm, ln, touch, truncate, readlink, realpath
+
+####  Directory operations
+
+  - mkdir, pwd, dirname, basename
+
+####  Text processing
+
+  - grep, head, tail, sort, uniq, wc, tr, tee, comm, strings, more
+
+####  File viewing / analysis
+
+  - hexdump, cmp, md5sum, shasum, base64
+
+####  System info
+
+  - uname, hostname, uptime, free, df, du, ps, pidof, id
+
+####  Misc safe
+
+  - echo, seq, printenv, tty, which, mkfifo, mktemp, find, chmod, date
+
+
+## Technical details
+
+  - API: OpenAI-compatible (api_url configurable).
+  - No exec: tools are native ([u-root](https://u-root.org/)), no exec.Command.
+  - Portable: just one executable, available for GNU/Linux, macOS and Win
+  - Secure: defends host from malevolent LLM agents.
+  - Permissions: allow/ask/deny per tool (default ask).
+  - Limits: file size, directory depth, directory entries.
+  - Throttling limits: per-tool and global, with cooldowns.
+  - Timeouts: global default and per-tool overrides.
+
+
+## Config
+
+  config.json or environment variables.
+```json
+  {
+    "api_key": "sk-...",
+    "api_url": "https://api.openai.com/v1",
+    "model": "gpt-4o-mini",
+    "tools": {
+      "allow": ["read_file", "ls"],
+      "ask": ["write_file"]
+    },
+    "tool_limits": {
+      "max_file_size_bytes": 10485760,
+      "max_directory_depth": 8,
+      "max_directory_entries": 2000
+    },
+    "tool_rate_limits": {
+      "default_per_minute": 60,
+      "per_tool": {},
+      "cooldown_seconds": {}
+    },
+    "tool_timeouts": {
+      "default_seconds": 0,
+      "per_tool_seconds": {}
+    }
+  }
+```
+
+## License
+
+  GNU AGPLv3+ — free as in freedom.
+
+### 🐃 Sourcecode
+
+Promptline is 100% free and open source software running as a single binary, written in Go language. Our source-code is available on [dyne/promptline](https://github.com/dyne/promptline).
+
+🧙 May the source be always with you!<br/>
+🧑‍🏫 for professional support contact: [The Forkbomb Company](https://forkbomb.solutions)

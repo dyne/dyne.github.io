@@ -18,7 +18,7 @@
       },
       {
         "name": "Tomb",
-        "link": "/tomb",
+        "link": "/software/tomb/",
         "tagline": "Encrypt terabytes of files and folders in secret volumes, guaranteed to work in 20 years from now.",
         "cta": "Store"
       },
@@ -54,7 +54,7 @@
       },
       {
         "name": "DOHD",
-        "link": "https://dyne.org/dohd",
+        "link": "https://github.com/dyne/dohd",
         "tagline": "DNS-over-HTTPS proxy in C for self-hosting: super fast and keeps no logs",
         "cta": "DNS"
       }

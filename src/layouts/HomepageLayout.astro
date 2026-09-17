@@ -2,15 +2,18 @@
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import BaseLayout from './BaseLayout.astro';
+
+const { title, description, canonical, ...meta } = Astro.props;
+const pageMeta = { ...meta, title, description, canonical };
 ---
 
-<BaseLayout>
+<BaseLayout meta={pageMeta}>
 	<Header />
-	<div class="max-w-full overflow-hidden">
+	<main id="content" tabindex="-1" class="max-w-full overflow-hidden">
 		<div class="max-w-7xl mx-auto">
 			<slot />
 		</div>
-	</div>
+	</main>
 	<div class="mt-16"></div>
 	<Footer />
 </BaseLayout>

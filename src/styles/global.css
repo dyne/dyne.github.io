@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@source inline('bg-white bg-sustainability bg-open_source bg-crypto bg-interdisciplinarity bg-cybersecurity bg-primary bg-accent bg-saccent bg-taccent bg-baccent rotate-2 -rotate-1');
+
+@theme {
+	--color-dyne-orange: #d77733;
+	--color-dyne-green: #36968c;
+	--color-dyne-purple: #423e8e;
+	--color-accent: var(--accent-color);
+	--color-taccent: var(--text-accent-color);
+	--color-background: var(--bg-color);
+	--color-saccent: var(--secondary-accent-color);
+	--color-baccent: var(--bg-accent-color);
+	--color-sustainability: #16766f;
+	--color-open_source: #d77733;
+	--color-interdisciplinarity: #fff;
+	--color-crypto: #000;
+	--color-cybersecurity: #8980f5;
+	--color-primary: #f4cc9c;
+	--color-primary-light: #fefbf6;
+	--color-primary-80: #f6d6b0;
+	--color-primary-60: #f8e0c4;
+	--color-primary-40: #fbebd7;
+	--color-primary-20: #fdf5eb;
+	--color-primary-10: #fefaf5;
+	--color-primary-5: #fefcfa;
+	--font-sans: Syne, sans;
+	--font-serif: 'Syne Tactile', cursive;
+	--font-prose: 'Inter Variable', sans-serif, sans;
+	--font-mono: 'JetBrains Mono', monospace;
+	--text-mega: 7.65rem;
+	--text-mega--line-height: 13.625rem;
+	--tracking-normal: -0.2rem;
+	--radius-3xl: 60px;
+	--radius-4xl: 120px;
+}
+
+.prose :where(em):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+	font-family: Syne, sans;
+	font-style: italic;
+}

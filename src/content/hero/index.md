@@ -6,7 +6,9 @@ url: "#timeline"
 CTA1: Software
 url1: "/software"
 CTA2: Community
-url2: "/linktree"
+url2: "/contact"
+CTA3: Privacy
+url3: "/privacy"
 ---
 
 Free to share code.

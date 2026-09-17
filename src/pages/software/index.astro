@@ -1,37 +1,84 @@
 ---
 import ProjectCard from '~/components/ProjectCard.astro';
 import Layout from '~/layouts/Layout.astro';
-const softwares = await Astro.glob('~/pages/software/*.md');
-const github_fetch = await fetch('https://api.github.com/orgs/dyne/repos?per_page=100&type=sources');
-const github = await github_fetch.json();
+import softwareList from '~/content/software.json';
+import Software from '~/components/Software.astro';
+import PreviewBox from '~/components/PreviewBox.astro';
+import { loadGitHubRepositories } from '~/lib/remote-content.mjs';
+
+// Page-specific list of software ids to render on this index page
+const pageSoftwareIds = ['dynebolic', 'devuan', 'freej', 'tomb', 'jaromail', 'frei0r'];
+const softwares = Object.entries(import.meta.glob('/src/pages/software/*.md', { eager: true }))
+	.map(([path, module]) => ({
+		url: `/software/${path.split('/').pop()?.replace(/\.md$/, '')}/`,
+		frontmatter: (module as { frontmatter: { title: string; description: string } }).frontmatter,
+	}))
+	.sort((left, right) => left.url.localeCompare(right.url));
+const github = await loadGitHubRepositories();
+
+// ids already rendered from the central JSON for this page (prevent duplicates)
+const displayedIds = new Set(
+	softwareList.filter((s) => pageSoftwareIds.includes(s.id)).map((s) => s.id)
+);
+const projectUrl = (project) =>
+	project.homepage && !project.homepage.startsWith('https://dyne.org/') ? project.homepage : project.html_url;
 ---
 
 <Layout
 	content={{
 		title: 'Software',
-		description: "Dive into the code ocean<br/>Dyne's collective toolbox for hackers, makers, and dreamers",
+		description: "We've written a lot of code, here is an overview on our collective toolbox for hackers, makers, and dreamers",
 	}}
 >
-	<div class="grid md:grid-cols-2 gap-8">
+
+	<!--
+	<PreviewBox url="https://github.com/dyne" title="Git / Dyne">
+		-->
+
+	<div>
 		{
-			softwares.map((software) => (
-				<ProjectCard url={software.url} title={software.frontmatter.title}>
-					{software.frontmatter.description}
-				</ProjectCard>
-			))
+			// entries from central JSON specifically selected for this page
+			softwareList
+				.filter((s) => pageSoftwareIds.includes(s.id))
+								.map((s) => (
+									<Software id={s.id} />
+				))
+		}
+	</div>
+	<div class="grid md:grid-cols-2 gap-8">
+
+		{
+			softwares
+				.filter((software) => {
+					// derive id from the markdown page url, e.g. '/software/dynebolic' -> 'dynebolic'
+					const parts = (software.url || '').split('/').filter(Boolean);
+					const id = parts.length ? parts[parts.length - 1] : null;
+					return !id || !displayedIds.has(id);
+				})
+				.map((software) => (
+					<ProjectCard url={software.url} title={software.frontmatter.title}>
+						{software.frontmatter.description}
+					</ProjectCard>
+				))
 		}
 		{
-			github.map((software) => (
-				<div>
-					<ProjectCard
-						url={software.homepage ? software.homepage : software.html_url}
-						title={software.name}
-						download={software.homepage ? software.html_url : false}
-					>
-						{software.description}
-					</ProjectCard>
-				</div>
-			))
+			github
+				.filter((repo) => {
+					// exclude GitHub repos whose name matches an id already displayed
+					const nameId = (repo.name || '').toLowerCase();
+					return !displayedIds.has(nameId);
+				})
+				.map((software) => (
+					<div>
+						<ProjectCard
+							url={projectUrl(software)}
+							title={software.name}
+							download={software.homepage && projectUrl(software) !== software.homepage ? false : software.html_url}
+						>
+							{software.description}
+						</ProjectCard>
+					</div>
+				))
 		}
 	</div>
 </Layout>

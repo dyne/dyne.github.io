@@ -93,10 +93,10 @@ Graph of internals
     * Size
     + Size(width, height)
     - width
-    - heigth
+    - height
 
     * Rect
-    + Rect(x, y, widht, height)
+    + Rect(x, y, width, height)
     - x
     - y
     - width
