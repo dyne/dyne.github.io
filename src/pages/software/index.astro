@@ -3,7 +3,6 @@ import ProjectCard from '~/components/ProjectCard.astro';
 import Layout from '~/layouts/Layout.astro';
 import softwareList from '~/content/software.json';
 import Software from '~/components/Software.astro';
-import PreviewBox from '~/components/PreviewBox.astro';
 import { loadGitHubRepositories } from '~/lib/remote-content.mjs';
 
 // Page-specific list of software ids to render on this index page
@@ -27,58 +26,69 @@ const projectUrl = (project) =>
 <Layout
 	content={{
 		title: 'Software',
-		description: "We've written a lot of code, here is an overview on our collective toolbox for hackers, makers, and dreamers",
+		description:
+			"Free and open-source software from Dyne.org: our flagship projects, plus the full catalogue of tools and experiments we maintain.",
 	}}
 >
+	<p class="text-xl">
+		For more than two decades, Dyne.org has been creating and maintaining free software and open technologies for digital autonomy. Below are the projects we
+		consider our flagship work, followed by the full catalogue of everything else we've
+		built, maintained or contributed to.
+	</p>
 
-	<!--
-	<PreviewBox url="https://github.com/dyne" title="Git / Dyne">
-		-->
+	<section aria-labelledby="featured-projects-heading">
+		<h2 id="featured-projects-heading">Featured projects</h2>
+		<p>A curated selection of the projects we actively maintain and consider most representative of our work.</p>
+		<div>
+			{
+				// entries from central JSON specifically selected for this page
+				softwareList
+					.filter((s) => pageSoftwareIds.includes(s.id))
+									.map((s) => (
+										<Software id={s.id} headingLevel={3} />
+					))
+			}
+		</div>
+	</section>
 
-	<div>
-		{
-			// entries from central JSON specifically selected for this page
-			softwareList
-				.filter((s) => pageSoftwareIds.includes(s.id))
-								.map((s) => (
-									<Software id={s.id} />
-				))
-		}
-	</div>
-	<div class="grid md:grid-cols-2 gap-8">
+	<section aria-labelledby="full-catalogue-heading">
+		<h2 id="full-catalogue-heading">Full catalogue</h2>
+		<p>Every other tool, library and experiment we've published, including software with its own dedicated page and our public GitHub repositories.</p>
+		<div class="grid md:grid-cols-2 gap-8">
 
-		{
-			softwares
-				.filter((software) => {
-					// derive id from the markdown page url, e.g. '/software/dynebolic' -> 'dynebolic'
-					const parts = (software.url || '').split('/').filter(Boolean);
-					const id = parts.length ? parts[parts.length - 1] : null;
-					return !id || !displayedIds.has(id);
-				})
-				.map((software) => (
-					<ProjectCard url={software.url} title={software.frontmatter.title}>
-						{software.frontmatter.description}
-					</ProjectCard>
-				))
-		}
-		{
-			github
-				.filter((repo) => {
-					// exclude GitHub repos whose name matches an id already displayed
-					const nameId = (repo.name || '').toLowerCase();
-					return !displayedIds.has(nameId);
-				})
-				.map((software) => (
-					<div>
-						<ProjectCard
-							url={projectUrl(software)}
-							title={software.name}
-							download={software.homepage && projectUrl(software) !== software.homepage ? false : software.html_url}
-						>
-							{software.description}
+			{
+				softwares
+					.filter((software) => {
+						// derive id from the markdown page url, e.g. '/software/dynebolic' -> 'dynebolic'
+						const parts = (software.url || '').split('/').filter(Boolean);
+						const id = parts.length ? parts[parts.length - 1] : null;
+						return !id || !displayedIds.has(id);
+					})
+					.map((software) => (
+						<ProjectCard url={software.url} title={software.frontmatter.title}>
+							{software.frontmatter.description}
 						</ProjectCard>
-					</div>
-				))
-		}
-	</div>
+					))
+			}
+			{
+				github
+					.filter((repo) => {
+						// exclude GitHub repos whose name matches an id already displayed
+						const nameId = (repo.name || '').toLowerCase();
+						return !displayedIds.has(nameId);
+					})
+					.map((software) => (
+						<div>
+							<ProjectCard
+								url={projectUrl(software)}
+								title={software.name}
+								download={software.homepage && projectUrl(software) !== software.homepage ? false : software.html_url}
+							>
+								{software.description}
+							</ProjectCard>
+						</div>
+					))
+			}
+		</div>
+	</section>
 </Layout>
