@@ -30,6 +30,8 @@
 
 ## Documentation & Resources
 
+- [About Dyne.org](https://dyne.org/about/): Who we are and our identity as a digital community and free software foundry
+- [Services](https://dyne.org/services/): What we build and maintain, an overview of Dyne.org's software projects
 - [Software Portfolio](https://dyne.org/software/): Complete list of all Dyne.org projects and tools
 - [Timeline](https://dyne.org/timeline/): Full historical overview of Dyne.org's 25+ year journey
 - [Planet Dyne Newsletter](https://news.dyne.org/): Regular updates on projects, policy, and community activities
@@ -66,6 +68,5 @@
 
 - [Blog Archive](https://dyne.org/blog/): Complete collection of news and announcements
 - [GitHub Organization](https://github.com/dyne/): Source code repositories for all projects
-- [About Us](https://dyne.org/#who-we-are): Detailed information about the foundation and team
 
 Thank you for your visit, and please spread the good word about our work and our mission, which benefits humans and robots alike.

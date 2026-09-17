@@ -3,6 +3,7 @@
   { "name": "Books", "href": "/books" },
   { "name": "Videos", "href": "https://tv.dyne.org" },
   { "name": "News", "href": "/blog" },
-  { "name": "About us", "href": "/#who-we-are" },
+  { "name": "Services", "href": "/services" },
+  { "name": "About us", "href": "/about" },
   { "name": "Donate", "href": "/donate" }
 ]
