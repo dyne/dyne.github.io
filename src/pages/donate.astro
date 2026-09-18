@@ -2,273 +2,170 @@
 import Button from '~/components/Button.astro';
 import Layout from '~/layouts/HomepageLayout.astro';
 import Link from '~/components/Link.astro';
+import Section from '~/components/Section.svelte';
+import DonationOption from '~/components/donate/DonationOption.astro';
+import WalletCard from '~/components/donate/WalletCard.astro';
 // Icons
-import Opencollective from '~/components/icons/donations/opencollective.astro';
+import Kofi from '~/components/icons/donations/kofi.astro';
 import Patreon from '~/components/icons/donations/patreon.astro';
 import Github from '~/components/icons/donations/github.astro';
 import SponsorLink from '~/components/SponsorLink.astro';
 import Bitcoin from '~/components/icons/donations/bitcoin.astro';
 import Monero from '~/components/icons/donations/monero.astro';
 import Ethereum from '~/components/icons/donations/ethereum.astro';
-import Cafuda from '~/components/icons/donations/cafuda.astro';
 
 const meta = { title: 'Dyne.org :: Donations' };
 
+// TODO: replace with the real PayPal donation link once available.
+// Kept as a single named constant so it's easy to wire up later.
+const PAYPAL_DONATE_URL = '';
+
+// Suggested amounts are UI-only: there is no separate checkout per amount,
+// they all lead to the single PayPal CTA below.
+// Custom is listed first and marked as featured so it stays visually dominant;
+// 5€ and 25€ remain secondary, smaller options.
+const oneTimeOptions = [
+	{
+		amount: 'Custom',
+		label: 'Choose your amount',
+		description: 'Every contribution matters, whatever the size.',
+		featured: true,
+	},
+	{
+		amount: '5€',
+		label: 'Small gesture',
+		description: 'A simple way to support our daily work.',
+	},
+	{
+		amount: '25€',
+		label: 'Keep things running',
+		description: 'Help us maintain servers, tools and free software projects.',
+	},
+];
+
 const wallets = [
 	{
-		name: 'bitcoin',
+		name: 'Bitcoin',
 		address: 'bc1qz9wz2f9swcefra2tfrhk4fx49evqsv03m9nx4l',
 		icon: Bitcoin,
 	},
-	{ name: 'ethereum', address: '0x9b8aF04912c462b39bB4f26FeA22E7a70e3b8677', icon: Ethereum },
+	{ name: 'Ethereum', address: '0x9b8aF04912c462b39bB4f26FeA22E7a70e3b8677', icon: Ethereum },
 	{
-		name: 'monero',
+		name: 'Monero',
 		href: 'monero://49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE?tx_message=donation%20to%20dyne.org',
 		address: '49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE',
 		icon: Monero,
 	},
-	// { ltc: 'ltc1qspwm0zgexgc57udx5449pa3rwsdpj3jcp8cmdl' },
-	// { etc: '0xCd914718eEb90FEF028d957d691E15aaa98f9fc3' },
-	// { bch: 'bitcoincash:qzntsmfkth6drm2a42gj39snkemhtyax65n4esp8m0' },
-	// { dash: 'Xfx6BCCffkDzjTefwpBkRiC5kXS8sNsdJw' },
-	// { doge: 'DJ1ujhCsaGGTKKennQQUhwJZY7QWd9BBda' },
-	// { nmc: 'NC53CzNRZ7C1F8UYXqEXSorj367sZ2WQ3k' },
-	// { zec: 't1ZThp1gXGYNB93tj66Fa5LnYtxnR6ASKpG' },
-];
-
-const tiers = [
-	{
-		amount: '2€',
-		text: 'Get yourself an art pack, so a dyne can hack!',
-		url: 'https://ko-fi.com/s/e011a091f2',
-	},
-	{
-		amount: '3-70€',
-		text: 'Look good in the hood, buy the swag.',
-		url: 'https://dyne.org/shop',
-	},
-	{
-		amount: '70€',
-		text: 'Get a shoutout on our website and social-media, mentioning your user with a link to your website.',
-		url: 'https://buy.stripe.com/5kA8xj6oY0zh53ydQR',
-	},
-	{
-		amount: '350€',
-		text: 'We will dedicate 1 hour to advise you about a technical topic of your choice.',
-		url: 'https://buy.stripe.com/dR6dRD5kU81J0NieUW',
-	},
-	{
-		amount: '600€',
-		text: 'We will run a 2h on-line workshop for you and your team',
-		url: 'https://buy.stripe.com/5kAfZL14E4PxfIc4gj',
-	},
-	{
-		amount: '3.000€',
-		text: 'Jaromil will give a professional keynote talk at your conference',
-		url: 'https://buy.stripe.com/aEU00N6oYchZfIccMQ',
-	},
 ];
 ---
 
-<style is:global>
-	.tabs [role='tablist'] {
-		margin-top: -12px;
-		justify-content: space-between;
-		padding-bottom: 12px;
-	}
-
-	.tabs [role='tablist'] > * + * {
-		margin-left: 8px;
-	}
-
-	.tab {
-		border-radius: 16px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 8px;
-	}
-
-	.tab-wrapper {
-		flex-grow: 1;
-	}
-
-	.tab[aria-selected='true'] {
-		color: white;
-		background: black;
-	}
-
-	.tab[aria-selected='false'] {
-		color: black;
-		background: transparent;
-		border: 1px solid black;
-	}
-</style>
-
 <Layout meta={meta}>
-	<div class="pt-8 md:pt-16 md:px-8 text-lg mx-auto w-fit md:grid md:grid-cols-2 md:gap-8 max-w-4xl">
-		<!-- Column 1 -->
-		<div class="space-y-8 max-w-lg md:sticky md:top-8 self-start">
-			<div class="space-y-6 px-6 text-center">
-				<h1 class="text-3xl lg:text-4xl">
+	<div class="flex flex-col lg:space-y-20 pt-8 md:pt-16">
+		<div class="space-y-8 lg:space-y-12">
+		<!-- Hero + One-time support -->
+		<div class="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+			<!-- Hero -->
+			<div class="space-y-6 px-6 md:px-12 text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
+				<h1 class="font-display font-extrabold leading-heading text-4xl lg:text-5xl text-saccent">
 					Help making an impact by <em class="bg-primary">supporting</em> our work
 				</h1>
-				<p>
+				<p class="text-xl">
 					Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
 					worldwide to inspire, communicate, share and create.
 				</p>
-			</div>
-
-			<div class="p-6 bg-black text-white rounded-3xl">
-				<h2 class="text-3xl decoration-primary decoration-4">What can you give?</h2>
-				<ul class="list-disc px-6 pt-2">
-					<li>Time and good energy in the community forums</li>
-					<li>Dedicated trainings</li>
-					<li>Code contribution</li>
-					<li>Special mentions</li>
-				</ul><br />
-				<h2 class="text-3xl underline decoration-primary decoration-4">Another currency is money!</h2>
-			</div>
-			<div class="space-y-6 px-6 text-center">
-				<p class="pt-2">
-					We accept both <Link href="#onetime">one-time donations</Link> and <Link href="#recurring">
-						recurring donations
-					</Link>
+				<p class="text-lg">
+					Choose how you'd like to support us:
+					<Link href="#one-time">one-time donation</Link>, <Link href="#recurring">recurring support</Link> or <Link href="#crypto">crypto</Link>.
 				</p>
 			</div>
-		</div>
 
-		<!-- Column 2 -->
-		<div class="space-y-8 max-w-lg pt-8 md:pt-0">
-			<div id="recurring" class="p-6 bg-primary rounded-3xl space-y-4">
-				<h2 class="text-xl font-bold">Recurring donations on:</h2>
-				<div class="space-y-2">
-					<SponsorLink href="https://news.dyne.org/#/portal/signup" text="Planet Dyne">
-						<Cafuda size={36} />
-					</SponsorLink>
-					<SponsorLink href="https://ko-fi.com/dyneorg" text="ko-fi"><Opencollective size={36} /></SponsorLink>
-					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={36} /></SponsorLink>
-					<SponsorLink href="https://patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink>
+			<!-- One-time support -->
+			<Section id="one-time" title="One-time support">
+
+				<div class="space-y-8 max-w-4xl mx-auto">
+					<div>
+						<p class="text-white/70 text-sm mb-4 text-center sm:text-left">
+							Suggested amounts — choose any amount you like via PayPal.
+						</p>
+						<div class="space-y-4">
+							{oneTimeOptions.filter((option) => option.featured).map((option) => <DonationOption {...option} />)}
+							<div class="grid grid-cols-2 gap-4">
+								{oneTimeOptions.filter((option) => !option.featured).map((option) => <DonationOption {...option} />)}
+							</div>
+						</div>
+					</div>
+
+					<div class="flex justify-center">
+						<Button
+							href={PAYPAL_DONATE_URL || '#'}
+							text="Donate with PayPal"
+							cls="text-3xl px-10 py-3"
+						/>
+					</div>
 				</div>
-				<p class="leading-6">
-					<strong>If it fits it sits:</strong> Donations give you benefits, including but not limited to no less then
-				</p>
-				<ul class="list-disc px-6 pt-2">
-					<li>Blessings of the giant spaghetti monster.</li>
-					<li>Sacrifice of any given bad computer in sustainable manners.</li>
-					<li>
-						Invitations to a special servers with elevated privs, good music and root beer, where the resident Dynes
-						also hang out.
-					</li>
-					<li>Mentions of you on the Dyne.org home page.</li>
-				</ul>
-			</div>
+			</Section>
 		</div>
 
-		<!-- One-time donations block placed as a grid sibling so it can span both columns -->
-		<div id="onetime" class="p-6 bg-primary rounded-3xl space-y-4 md:col-span-2 max-w-4xl mx-auto">
-			<h2 class="text-xl font-bold">One time support.</h2>
-			<p class="leading-6">Not ready to commit on the long term, yet?</p>
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+		<!-- Navigation bridge: surface the alternatives right at the one-time decision point -->
+		<div class="max-w-4xl mx-auto px-6 md:px-12 lg:px-0 w-full">
+			<div class="bg-primary-40 rounded-3xl p-6 text-center text-saccent">
+				<p class="text-lg">
+					Prefer something else? Explore <Link href="#recurring">recurring support</Link> or
+					<Link href="#crypto">crypto support</Link>.
+				</p>
+			</div>
+		</div>
+		</div>
+
+		<!-- Recurring support -->
+		<Section id="recurring" title="Recurring support">
+			<span slot="description">
+				Support Dyne.org regularly and become part of our community of sustainers. Choose the platform that works
+				best for you.
+			</span>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto items-stretch">
+				<div class="flex flex-col gap-3 bg-primary-40 rounded-3xl p-6">
+					<span class="self-start text-xs font-bold uppercase tracking-wide bg-accent text-white rounded-full px-3 py-1">
+						Recommended
+					</span>
+					<p class="font-display font-bold text-xl text-saccent">Ko-fi</p>
+					<p class="text-saccent text-sm">The easiest way to support our work and join our community.</p>
+					<SponsorLink href="https://ko-fi.com/dyneorg" text="Ko-fi"><Kofi size={32} /></SponsorLink>
+				</div>
+
+				<div class="flex flex-col gap-3 bg-primary-40 rounded-3xl p-6">
+					<p class="font-display font-bold text-xl text-saccent">Patreon</p>
+					<p class="text-saccent text-sm">Support Dyne.org through recurring memberships and community support.</p>
+					<SponsorLink href="https://patreon.com/dyneorg" text="Patreon"><Patreon size={32} /></SponsorLink>
+				</div>
+
+				<div class="flex flex-col gap-3 bg-primary-40 rounded-3xl p-6">
+					<p class="font-display font-bold text-xl text-saccent">GitHub Sponsors</p>
+					<p class="text-saccent text-sm">Support the code and tools we build in the open.</p>
+					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={32} /></SponsorLink>
+				</div>
+			</div>
+		</Section>
+
+		<!-- Crypto support -->
+		<Section id="crypto" title="Crypto support">
+			<span slot="description">Support with cryptocurrency by sending a donation directly to one of our wallets.</span>
+
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
 				{
-					tiers.map((tier) => (
-						<a href={tier.url} class="bg-primary-60 rounded-2xl overflow-hidden p-4 flex flex-col">
-							<div class="text-left">
-								<span class="inline-block text-xl md:text-2xl font-bold px-3 py-1 rounded-full bg-transparent text-current">
-									{tier.amount}
-								</span>
-							</div>
-							<div class="mt-2 text-base">{tier.text}</div>
-						</a>
-					))
+					wallets.map((wallet) => {
+						const Icon = wallet.icon;
+						return (
+							<WalletCard name={wallet.name} address={wallet.address} href={wallet.href}>
+								<Icon size={32} slot="icon" />
+							</WalletCard>
+						);
+					})
 				}
 			</div>
-
-			<div class="space-y-10 lg:col-span-2">
-				<div class="tabs">
-					<div role="tablist" aria-label="Donation method">
-						<button class="tab" id="crypto-tab" type="button" role="tab" aria-selected="true" aria-controls="crypto-panel">
-							Use crypto
-						</button>
-						<button class="tab" id="money-tab" type="button" role="tab" aria-selected="false" aria-controls="money-panel" tabindex="-1">
-							Use money
-						</button>
-					</div>
-
-					<div id="crypto-panel" role="tabpanel" aria-labelledby="crypto-tab" class="space-y-4">
-						<div class="space-y-4">
-							<p class="leading-6">Contact us with the transaction ID to redeem the benefits.</p>
-							<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
-								{
-									wallets.map((w) => (
-										<button
-											id={w.name}
-											type="button"
-											aria-describedby={`${w.name}-address`}
-											class="bg-sustainability p-4 rounded-3xl "
-										>
-											<p class="font-bold text-2xl text-white">{`${w.name} wallet`}</p>
-											<p id={`${w.name}-address`} class="text-xs w-72 break-words text-white">
-												{w.address}
-											</p>
-										</button>
-									))
-								}
-							</div>
-						</div>
-					</div>
-
-					<div id="money-panel" role="tabpanel" aria-labelledby="money-tab" class="space-y-4" hidden>
-						<div class="space-y-4">
-							<p class="leading-6">(Donations via Stripe)</p>
-							<div class="grid grid-cols-1 gap-2">
-								<a
-									href="https://buy.stripe.com/9AQbJv3cM5TBcw0149"
-									class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
-								>
-									💸 Pay What you want
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		</Section>
 	</div>
+
 	<p id="wallet-copy-status" class="sr-only" aria-live="polite" role="status"></p>
-
-	<script is:inline define:vars={{ wallets }}>
-		const tabs = [...document.querySelectorAll('[role="tab"]')];
-		const panels = [...document.querySelectorAll('[role="tabpanel"]')];
-		const selectTab = (tab) => {
-			tabs.forEach((candidate) => {
-				const selected = candidate === tab;
-				candidate.setAttribute('aria-selected', String(selected));
-				candidate.tabIndex = selected ? 0 : -1;
-				document.querySelector(`#${candidate.getAttribute('aria-controls')}`).hidden = !selected;
-			});
-		};
-		tabs.forEach((tab, index) => {
-			tab.addEventListener('click', () => selectTab(tab));
-			tab.addEventListener('keydown', (event) => {
-				if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-				event.preventDefault();
-				const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
-				tabs[nextIndex].focus();
-				selectTab(tabs[nextIndex]);
-			});
-		});
-
-		const status = document.querySelector('#wallet-copy-status');
-		for (const wallet of wallets) {
-			document.querySelector(`#${wallet.name}`)?.addEventListener('click', async () => {
-				try {
-					await window.navigator.clipboard.writeText(wallet.address);
-					status.textContent = `${wallet.name} wallet address copied to clipboard.`;
-				} catch {
-					status.textContent = `Could not copy the ${wallet.name} wallet address. Please copy it manually.`;
-				}
-			});
-		}
-	</script>
 </Layout>
