@@ -25,7 +25,7 @@ const feed = await loadPlanetDyneFeed();
 	<div class="flex flex-col lg:space-y-28">
 		<Hero />
 
-		<Section id="who-we-are" title="Who we are" cls="-mt-40 p-4 pt-40 lg:pt-14 -z-1">
+		<Section id="who-we-are" title="Who we are" cls="-mt-40 pt-40 lg:pt-14 -z-1">
 			<span slot="description">
 
 Think &do tank made of passionate individuals and innovative projects.  For
@@ -52,7 +52,7 @@ people, useful tech and respect for the natural environment.
 			<Svg content={Banner} />
 		</SoftwareAnnouncement>
 
-		<Section id="testimonials" title="What people say about Dyne.org">
+		<Section id="testimonials" title="What people say about Dyne.org" contentMargin={false}>
 			<span slot="description">
 				Voices from the community, collaborators and people who have worked with us over
 				the years.
@@ -62,11 +62,11 @@ people, useful tech and respect for the natural environment.
 
 		<Stats />
 
-		<div class="my-10">
+		<div>
 			<Section id="timeline" title="What we did" contentPadding={false}>
 				<Timeline client:visible />
 				<p class="p-8 text-xl text-white">Browse the <a class="underline" href="/timeline">full Dyne timeline</a>.</p>
-				<div class="p-8 lg:p-12 flex justify-end">
+				<div class="px-12 flex justify-end">
 					<Button text="View full timeline" href="/timeline" />
 				</div>
 			</Section>
