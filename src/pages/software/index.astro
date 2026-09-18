@@ -3,6 +3,7 @@ import ProjectCard from '~/components/ProjectCard.astro';
 import Layout from '~/layouts/Layout.astro';
 import softwareList from '~/content/software.json';
 import Software from '~/components/Software.astro';
+import Section from '~/components/Section.svelte';
 import { loadGitHubRepositories } from '~/lib/remote-content.mjs';
 
 // Page-specific list of software ids to render on this index page
@@ -15,12 +16,30 @@ const softwares = Object.entries(import.meta.glob('/src/pages/software/*.md', { 
 	.sort((left, right) => left.url.localeCompare(right.url));
 const github = await loadGitHubRepositories();
 
+// Ids are compared with punctuation stripped so equivalent slugs (e.g. the
+// 'jaromail' entry in software.json vs. the 'jaro-mail' page filename) match
+// instead of silently rendering the same project twice.
+const normalizeId = (value: unknown) => String(value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+// central JSON entries, keyed for logo lookups from the pages/repos below
+const softwareByNormalizedId = new Map(softwareList.map((s) => [normalizeId(s.id), s]));
+
 // ids already rendered from the central JSON for this page (prevent duplicates)
 const displayedIds = new Set(
-	softwareList.filter((s) => pageSoftwareIds.includes(s.id)).map((s) => s.id)
+	softwareList.filter((s) => pageSoftwareIds.includes(s.id)).map((s) => normalizeId(s.id))
 );
+
 const projectUrl = (project) =>
 	project.homepage && !project.homepage.startsWith('https://dyne.org/') ? project.homepage : project.html_url;
+
+// Central JSON entries with no featured slot and no dedicated page would
+// otherwise never appear anywhere on the site (e.g. Interfacer and Reflow,
+// which are shown on the homepage but were missing from software.json
+// entirely until now). Scoped to an explicit id list, rather than "any
+// unmatched entry", since other unused software.json rows (e.g. Conspire,
+// Sailfish pool) carry stale urls that don't resolve to a real page.
+const catalogueOnlyIds = ['interfacer', 'reflow'];
+const orphanSoftware = softwareList.filter((s) => catalogueOnlyIds.includes(s.id));
 ---
 
 <Layout
@@ -30,26 +49,27 @@ const projectUrl = (project) =>
 			"Free and open-source software from Dyne.org: our flagship projects, plus the full catalogue of tools and experiments we maintain.",
 	}}
 >
-	<p class="text-xl">
+	<p class="text-xl mb-12 max-w-3xl">
 		For more than two decades, Dyne.org has been creating and maintaining free software and open technologies for digital autonomy. Below are the projects we
 		consider our flagship work, followed by the full catalogue of everything else we've
 		built, maintained or contributed to.
 	</p>
 
-	<section aria-labelledby="featured-projects-heading">
-		<h2 id="featured-projects-heading">Featured projects</h2>
-		<p>A curated selection of the projects we actively maintain and consider most representative of our work.</p>
-		<div>
+	<Section id="featured-projects" title="Featured projects">
+	<span slot="description">
+		A curated selection of the projects we actively maintain and consider most representative of our work.
+	</span>
+
+	<div class="flex flex-col gap-y-8">
 			{
-				// entries from central JSON specifically selected for this page
 				softwareList
 					.filter((s) => pageSoftwareIds.includes(s.id))
-									.map((s) => (
-										<Software id={s.id} headingLevel={3} />
+					.map((s) => (
+						<Software id={s.id} headingLevel={3} />
 					))
 			}
-		</div>
-	</section>
+	</div>
+</Section>
 
 	<section aria-labelledby="full-catalogue-heading">
 		<h2 id="full-catalogue-heading">Full catalogue</h2>
@@ -61,33 +81,51 @@ const projectUrl = (project) =>
 					.filter((software) => {
 						// derive id from the markdown page url, e.g. '/software/dynebolic' -> 'dynebolic'
 						const parts = (software.url || '').split('/').filter(Boolean);
-						const id = parts.length ? parts[parts.length - 1] : null;
+						const id = normalizeId(parts.length ? parts[parts.length - 1] : '');
 						return !id || !displayedIds.has(id);
 					})
-					.map((software) => (
-						<ProjectCard url={software.url} title={software.frontmatter.title}>
-							{software.frontmatter.description}
-						</ProjectCard>
-					))
+					.map((software) => {
+						const parts = (software.url || '').split('/').filter(Boolean);
+						const id = normalizeId(parts.length ? parts[parts.length - 1] : '');
+						const matched = softwareByNormalizedId.get(id);
+						return (
+							<ProjectCard url={software.url} title={software.frontmatter.title} logo={matched?.logo}>
+								{software.frontmatter.description}
+							</ProjectCard>
+						);
+					})
 			}
 			{
 				github
 					.filter((repo) => {
 						// exclude GitHub repos whose name matches an id already displayed
-						const nameId = (repo.name || '').toLowerCase();
+						const nameId = normalizeId(repo.name);
 						return !displayedIds.has(nameId);
 					})
-					.map((software) => (
-						<div>
-							<ProjectCard
-								url={projectUrl(software)}
-								title={software.name}
-								download={software.homepage && projectUrl(software) !== software.homepage ? false : software.html_url}
-							>
-								{software.description}
-							</ProjectCard>
-						</div>
-					))
+					.map((software) => {
+						const matched = softwareByNormalizedId.get(normalizeId(software.name));
+						return (
+							<div>
+								<ProjectCard
+									url={projectUrl(software)}
+									title={software.name}
+									logo={matched?.logo}
+									download={software.homepage && projectUrl(software) !== software.homepage ? false : software.html_url}
+								>
+									{software.description}
+								</ProjectCard>
+							</div>
+						);
+					})
+			}
+			{
+				// central JSON entries with no dedicated page or matching repo
+				// (e.g. Interfacer, Reflow) still belong in the full catalogue
+				orphanSoftware.map((s) => (
+					<ProjectCard url={s.url} title={s.title} logo={s.logo} download={s.download}>
+						{s.description}
+					</ProjectCard>
+				))
 			}
 		</div>
 	</section>

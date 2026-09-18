@@ -1,18 +1,16 @@
 ---
 import softwareList from '~/content/software.json';
+import ProjectCard from './ProjectCard.astro';
 
 // accept either `id` (new) or `software` (legacy) prop names
-const { title: propTitle, subtitle: propSubtitle, desc: propDesc, logo: propLogo, url: propUrl, id: propId, software: propSoftware, alt: propAlt, headingLevel = 2 } = Astro.props;
-
-// heading tag defaults to h2 (previous fixed behavior); callers can nest it
-// correctly under their own document outline by passing headingLevel.
-const Heading = `h${Math.min(Math.max(Number(headingLevel) || 2, 1), 6)}`;
+const { title: propTitle, subtitle: propSubtitle, desc: propDesc, logo: propLogo, url: propUrl, id: propId, software: propSoftware, headingLevel = 2 } = Astro.props;
 
 let title = propTitle;
 let subtitle = propSubtitle;
 let desc = propDesc;
 let logo = propLogo;
 let url = propUrl;
+let download;
 
 // prefer `id` prop, fall back to legacy `software`
 let softwareId = propId || propSoftware;
@@ -25,63 +23,19 @@ if (softwareId) {
     desc = desc || s.description;
     logo = logo || s.logo;
     url = url || s.url;
+    download = s.download;
   }
 }
-
-// fallback initials for when no logo is available
-const initials = (title || '')
-  .split(/\s+/)
-  .filter(Boolean)
-  .slice(0, 2)
-  .map((w) => w[0])
-  .join('')
-  .toUpperCase();
-
-const altText = propAlt || (title ? `${title} logo` : 'logo');
 
 // compute a safe slug for use as an element id so anchors can target it
 // prefix with `software-` to avoid collisions and ensure it doesn't start with a digit
 const slug = softwareId
   ? `${String(softwareId).toLowerCase().replace(/[^a-z0-9-_:.]/g, '-')}`
   : undefined;
-
 ---
 
-<section class="rounded-2xl p-8 md:p-12" id={slug}>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 max-w-6xl mx-auto flex flex-row items-start gap-6 md:gap-10">
-    <div class="flex-shrink-0">
-      {
-        logo ? (
-          <a href={url || '#'} class="block">
-            <img
-              src={logo}
-              alt={altText}
-			  width="192"
-			  height="192"
-              class="w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 h-auto flex items-center object-contain rounded-xl"
-            />
-          </a>
-        ) : (
-          <div class="w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 h-auto flex items-center justify-center rounded-xl">
-            <span class="font-bold text-2xl">{initials || 'SW'}</span>
-          </div>
-        )
-      }
-    </div>
-    <div class="flex-1 text-left">
-	  <Heading class="text-2xl sm:text-3xl md:text-4xl font-display font-bold leading-heading mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
-        <span class="flex-1">
-          {url ? (
-            <a href={url} class="no-underline text-current">{title}</a>
-          ) : (
-            <span>{title}</span>
-          )}
-        </span>
-        {subtitle && (
-          <span class="mt-2 sm:mt-0 text-lg sm:text-xl md:text-2xl font-semibold sm:ml-4 sm:text-right">{subtitle}</span>
-        )}
-	  </Heading>
-  {desc && <p class="text-lg font-body leading-body max-w-3xl mt-2" set:html={desc}></p>}
-    </div>
-  </div>
-</section>
+<div id={slug}>
+	<ProjectCard variant="featured" logo={logo} title={title} subtitle={subtitle} url={url} download={download} headingLevel={headingLevel}>
+		{desc && <Fragment set:html={desc} />}
+	</ProjectCard>
+</div>

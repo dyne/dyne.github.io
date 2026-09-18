@@ -92,6 +92,24 @@
     "logo": "https://www.dyne.org/wp-content/uploads/2013/10/octocat_spider.png"
   },
   {
+    "id": "interfacer",
+    "title": "Interfacer",
+    "subtitle": "Open hardware commons for circular production",
+    "description": "Large versioned repository of open source and open hardware 3D printable designs. Our vision is to promote a circular, resilient, and digitally-based mode of production. We support collaboratively developed and globally shared data as commons on the web.",
+    "url": "https://interfacer.dyne.org",
+    "logo": "https://interfacer.dyne.org/logo.svg",
+    "tags": ["tool"]
+  },
+  {
+    "id": "reflow",
+    "title": "Reflow",
+    "subtitle": "Operating system for federated economic networks",
+    "description": "ReflowOS is an operating system for communities who want to create federated and secure economic networks to foster the creation of distributed value chains, satisfying human needs without exceeding planetary boundaries.",
+    "url": "https://www.reflowproject.eu/",
+    "logo": "https://openresearch.amsterdam/image/2022/1/18/760e51023ed7a2c19958fd31006d6e01b6c778fc.png%28mediaclass-landscape-.747a6d7db92d8047c72b69ceaf28ab759523e2f1%29.jpg",
+    "tags": ["tool"]
+  },
+  {
     "id": "harvest",
     "title": "Harvest",
     "subtitle": "manage large collections of files and dirs",
