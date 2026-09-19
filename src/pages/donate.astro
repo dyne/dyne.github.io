@@ -78,10 +78,8 @@ const wallets = [
 					<Link href="#one-time">one-time donation</Link>, <Link href="#recurring">recurring support</Link> or <Link href="#crypto">crypto</Link>.
 				</p>
 			</div>
-
-			<!-- One-time support -->
-			<Section id="one-time" title="One-time support">
-
+			<!-- One-time support (kept, PayPal temporarily unavailable so it's no longer the primary flow) -->
+<!-- 			<Section id="one-time" title="One-time support">
 				<div class="space-y-8 max-w-4xl mx-auto">
 					<div>
 						<p class="text-white/70 text-sm mb-4 text-center sm:text-left">
@@ -103,6 +101,33 @@ const wallets = [
 						/>
 					</div>
 				</div>
+			</Section> -->
+
+			<!-- Recurring support (featured hero flow, while PayPal one-time is unavailable) -->
+			<Section id="recurring-hero" title="Recurring support">
+				<div class="space-y-6 max-w-4xl mx-auto">
+					<div class="flex flex-col gap-3 bg-accent text-white rounded-3xl p-8">
+						<span class="self-start text-xs font-bold uppercase tracking-wide bg-white text-accent rounded-full px-3 py-1">
+							Recommended
+						</span>
+						<p class="font-display font-bold text-2xl">Ko-fi</p>
+						<p class="text-white/90">The easiest way to support our work and join our community.</p>
+						<SponsorLink href="https://ko-fi.com/dyneorg" text="Ko-fi"><Kofi size={32} /></SponsorLink>
+					</div>
+
+					<div class="grid grid-cols-2 gap-4">
+						<div class="flex flex-col gap-2 bg-white text-saccent rounded-3xl p-6">
+							<p class="font-display font-bold text-lg">Patreon</p>
+							<p class="text-sm opacity-80">Support Dyne.org through recurring memberships and community support.</p>
+							<SponsorLink href="https://patreon.com/dyneorg" text="Patreon"><Patreon size={28} /></SponsorLink>
+						</div>
+						<div class="flex flex-col gap-2 bg-white text-saccent rounded-3xl p-6">
+							<p class="font-display font-bold text-lg">GitHub Sponsors</p>
+							<p class="text-sm opacity-80">Support the code and tools we build in the open.</p>
+							<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={28} /></SponsorLink>
+						</div>
+					</div>
+				</div>
 			</Section>
 		</div>
 
@@ -118,7 +143,7 @@ const wallets = [
 		</div>
 
 		<!-- Recurring support -->
-		<Section id="recurring" title="Recurring support">
+<!-- 		<Section id="recurring" title="Recurring support">
 			<span slot="description">
 				Support Dyne.org regularly and become part of our community of sustainers. Choose the platform that works
 				best for you.
@@ -146,7 +171,7 @@ const wallets = [
 					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={32} /></SponsorLink>
 				</div>
 			</div>
-		</Section>
+		</Section> -->
 
 		<!-- Crypto support -->
 		<Section id="crypto" title="Crypto support">
