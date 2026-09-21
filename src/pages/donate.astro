@@ -13,8 +13,57 @@ import SponsorLink from '~/components/SponsorLink.astro';
 import Bitcoin from '~/components/icons/donations/bitcoin.astro';
 import Monero from '~/components/icons/donations/monero.astro';
 import Ethereum from '~/components/icons/donations/ethereum.astro';
+import ButtonsGroup from '~/components/ButtonsGroup.astro';
+import Testimonials from '~/components/homepage/Testimonials.astro';
+// Existing copy blocks, reused as-is (see src/content/{heritage,supports}/index.md)
+import * as heritageCopy from '~/content/heritage/index.md';
+import * as supportsCopy from '~/content/supports/index.md';
 
 const meta = { title: 'Dyne.org :: Donations' };
+
+const {
+	title: heritageTitle,
+	description: heritageDescription,
+	CTA: heritageCTA,
+	href: heritageHref,
+	secondaryCTA: heritageSecondaryCTA,
+	secondaryHref: heritageSecondaryHref,
+} = heritageCopy.frontmatter;
+const { description: supportsDescription } = supportsCopy.frontmatter;
+
+// Representative selection of current Ko-fi membership tiers (not the full list).
+// Benefits and prices come verbatim from the currently published Ko-fi page; do
+// not reword or extend them here.
+const kofiTiers = [
+	{
+		name: 'Dyne Buono',
+		price: '€2.50 per month',
+		benefits: [
+			'Discord access',
+			'blessings of the giant spaghetti monster',
+			'invitation to Discord with elevated privileges where resident Dynes also hang out',
+		],
+	},
+	{
+		name: 'Dyne Bello',
+		price: '€10 per month',
+		benefits: [
+			'Discord access',
+			'blessings of the giant spaghetti monster',
+			'invitation to Discord with elevated privileges where resident Dynes also hang out',
+		],
+	},
+	{
+		name: 'Dyne Pilastro',
+		price: '€19.50 per month',
+		benefits: [
+			'Discord access',
+			'blessings of the giant spaghetti monster',
+			'invitation to Discord with elevated privileges where resident Dynes also hang out',
+			'mention on the Dyne.org homepage',
+		],
+	},
+];
 
 // TODO: replace with the real PayPal donation link once available.
 // Kept as a single named constant so it's easy to wire up later.
@@ -73,10 +122,6 @@ const wallets = [
 					Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
 					worldwide to inspire, communicate, share and create.
 				</p>
-				<p class="text-lg">
-					Choose how you'd like to support us:
-					<Link href="#one-time">one-time donation</Link>, <Link href="#recurring">recurring support</Link> or <Link href="#crypto">crypto</Link>.
-				</p>
 			</div>
 			<!-- One-time support (kept, PayPal temporarily unavailable so it's no longer the primary flow) -->
 <!-- 			<Section id="one-time" title="One-time support">
@@ -104,7 +149,7 @@ const wallets = [
 			</Section> -->
 
 			<!-- Recurring support (featured hero flow, while PayPal one-time is unavailable) -->
-			<Section id="recurring-hero" title="Recurring support">
+			<Section id="recurring-hero" title="Recurring donations">
 				<div class="space-y-6 max-w-4xl mx-auto">
 					<div class="flex flex-col gap-3 bg-accent text-white rounded-3xl p-8">
 						<span class="self-start text-xs font-bold uppercase tracking-wide bg-white text-accent rounded-full px-3 py-1">
@@ -135,12 +180,63 @@ const wallets = [
 		<div class="max-w-4xl mx-auto px-6 md:px-12 lg:px-0 w-full">
 			<div class="bg-primary-40 rounded-3xl p-6 text-center text-saccent">
 				<p class="text-lg">
-					Prefer something else? Explore <Link href="#recurring">recurring support</Link> or
-					<Link href="#crypto">crypto support</Link>.
+					Prefer something else? Explore <Link href="#crypto">crypto support</Link>.
 				</p>
 			</div>
 		</div>
 		</div>
+
+		<!-- What supporting Dyne.org makes possible: same outer width as the surrounding
+		     Section containers (no max-w wrapper, exactly like <Section> itself), and the
+		     same bg-baccent background/token already used by the testimonial card below,
+		     combining heritage + supports copy verbatim. -->
+		<div id="impact" class="p-8 md:p-12">
+			<div class="grid grid-cols-1 md:grid-cols-3 md:items-center gap-8 md:gap-4">
+				<div class="flex flex-col col-span-2 space-y-6 md:space-y-8 text-left">
+					<h2 class="font-display font-extrabold leading-heading text-4xl md:text-5xl text-saccent">{heritageTitle}</h2>
+					<p class="text-xl md:text-2xl font-body leading-body text-saccent">{heritageDescription}</p>
+					<p class="text-lg font-body leading-body text-saccent">{supportsDescription}</p>
+					<ButtonsGroup>
+						<Button href={heritageSecondaryHref} text={heritageSecondaryCTA} inverted={true} />
+						<Button href={heritageHref} text={heritageCTA} />
+					</ButtonsGroup>
+				</div>
+				<div
+					class="bg-[url('/images/illustrations/manincula.png')] opacity-40 bg-contain bg-no-repeat bg-center h-full w-full hidden md:block"
+				>
+				</div>
+			</div>
+		</div>
+
+		<!-- Ko-fi membership levels: a representative selection, not the full list -->
+		<Section id="tiers" title="Ko-fi membership levels">
+			<div class="space-y-8 max-w-4xl mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+					{
+						kofiTiers.map((tier) => (
+							<div class="flex flex-col gap-3 bg-primary-40 rounded-3xl p-6">
+								<p class="font-display font-bold text-xl text-saccent">{tier.name}</p>
+								<p class="text-saccent text-sm font-semibold">{tier.price}</p>
+								<ul class="text-saccent text-sm opacity-80 list-disc list-inside space-y-1">
+									{tier.benefits.map((benefit) => <li>{benefit}</li>)}
+								</ul>
+								<SponsorLink href="https://ko-fi.com/dyneorg" text="Ko-fi"><Kofi size={20} /></SponsorLink>
+							</div>
+						))
+					}
+				</div>
+				<div class="text-center">
+					<Link href="https://ko-fi.com/dyneorg">See all membership levels on Ko-fi</Link>
+				</div>
+			</div>
+		</Section>
+
+		<!-- Proof/credibility: same component the homepage uses for testimonials
+		     (components/homepage/Testimonials.astro), scoped to the existing Amir
+		     Taaki entry instead of the full homepage carousel. No extra width wrapper,
+		     so its outer edges align with the Section containers around it, exactly
+		     like <Section> itself has no outer width wrapper. -->
+		<Testimonials ids={['03_amir']} />
 
 		<!-- Recurring support -->
 <!-- 		<Section id="recurring" title="Recurring support">
@@ -173,23 +269,40 @@ const wallets = [
 			</div>
 		</Section> -->
 
-		<!-- Crypto support -->
-		<Section id="crypto" title="Crypto support">
-			<span slot="description">Support with cryptocurrency by sending a donation directly to one of our wallets.</span>
-
-			<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-				{
-					wallets.map((wallet) => {
-						const Icon = wallet.icon;
-						return (
-							<WalletCard name={wallet.name} address={wallet.address} href={wallet.href}>
-								<Icon size={32} slot="icon" />
-							</WalletCard>
-						);
-					})
-				}
+		<!-- Crypto support: same compositional logic as the Hero + Recurring support pair
+		     above (plain-background text column + a single dark Section card), instead of
+		     one large dark Section containing a two-column grid. -->
+		<div class="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+				<Section id="crypto" title="Support via Crypto">
+				<div class="flex flex-col gap-6 max-w-4xl mx-auto">
+					{
+						wallets.map((wallet) => {
+							const Icon = wallet.icon;
+							return (
+								<WalletCard name={wallet.name} address={wallet.address} href={wallet.href}>
+									<Icon size={32} slot="icon" />
+								</WalletCard>
+							);
+						})
+					}
+				</div>
+			</Section>
+<div class="space-y-6 px-6 md:px-12 text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
+				<h2 class="font-display font-extrabold leading-heading text-3xl lg:text-4xl text-saccent">
+					Crypto donations are <em class="bg-primary">a great way</em> to support us directly.
+				</h2>
+				<p class="text-xl">
+					Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
+					worldwide to inspire, communicate, share and create.
+				</p>
+				<p class="text-lg">
+					Looking for traditional payments?
+					Explore <Link href="#recurring">recurring support</Link> instead.
+				</p>
 			</div>
-		</Section>
+
+		
+		</div>
 	</div>
 
 	<p id="wallet-copy-status" class="sr-only" aria-live="polite" role="status"></p>

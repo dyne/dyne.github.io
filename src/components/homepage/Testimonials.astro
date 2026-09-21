@@ -2,8 +2,15 @@
 import Swiper from './Swiper.astro';
 import { getCollection, render } from 'astro:content';
 
+// Optional allowlist of testimonial entry ids (e.g. '03_amir'). Omitted/undefined
+// keeps the default homepage behaviour of showing every entry in the collection.
+interface Props {
+	ids?: string[];
+}
+const { ids }: Props = Astro.props;
+
 const testimonials = await Promise.all(
-	(await getCollection('testimonial'))
+	(await getCollection('testimonial', ({ id }) => !ids || ids.includes(id)))
 		.sort((left, right) => left.id.localeCompare(right.id))
 		.map(async (testimonial) => ({ ...testimonial, Content: (await render(testimonial)).Content })),
 );
