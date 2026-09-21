@@ -12,14 +12,15 @@
 	--color-theme-secondary (that is the site's Secondary brand hue, not a
 	"dark structural surface" role) nor the reactive --color-theme-surface-base
 	(which turns near-white in Light mode). The background below is the
-	Design Library's already-approved Dark Surface Base value (#100d09),
-	applied as a fixed value instead of var(...) precisely because this
-	component must stay dark in both themes for now. How Section eventually
-	participates in Light/Dark is an open decision (see migration report).
+	Design Library's approved Dark structural surface value (#211f47, Dyne
+	dark purple — updated from the near-black #100d09 in Step 8), applied as
+	a fixed value instead of var(...) precisely because this component must
+	stay dark in both themes for now. How Section eventually participates in
+	Light/Dark is an open decision (see migration report).
 	Avoid using text-saccent or inverted buttons directly here, as they rely
 	on the light page background for contrast.
 -->
-	<div class="bg-[#100d09] rounded-3xl md:py-12 text-white space-y-8 pb-24 md:space-y-20 {cls}">
+	<div class="bg-[#15142D] rounded-3xl md:py-12 text-white space-y-8 pb-24 md:space-y-20 {cls}">
 		<div class="flex flex-col items-center md:items-start space-y-8 md:space-y-12">
 			<h2 class="not-prose !text-white text-center md:text-start font-display font-bold leading-heading text-4xl md:text-5xl whitespace-normal md:align-cente px-8 md:px-12 mt-12">
 				{title}

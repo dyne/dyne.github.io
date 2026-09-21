@@ -40,6 +40,17 @@
 	--color-theme-state-layer-on-primary: #ffffff;
 	--color-theme-state-layer-on-secondary: #ffffff;
 
+	/* Tertiary (Dyne Orange), added in Step 6 to give Secondary/Tertiary a
+	   controlled visual presence instead of leaving the theme monochromatic.
+	   Same already-approved Figma values as Primary/Secondary, same shape
+	   (base + on, no Container roles introduced — keep the architecture as
+	   small as what is actually used).
+	   On Tertiary Light is #211f47, not white (Step 8, WCAG fix): white on
+	   #d77733 is ~3.19:1, below AA for normal text; #211f47 on #d77733 is
+	   ~4.87:1, passing AA. #d77733 itself is unchanged. */
+	--color-theme-tertiary: #d77733;
+	--color-theme-on-tertiary: #100D09;
+
 	--font-sans: Syne, sans;
 	--font-serif: 'Syne Tactile', cursive;
 	--font-display: Syne, sans;
@@ -69,6 +80,8 @@ html.dark {
 	--color-theme-on-surface-variant: #cac4d0;
 	--color-theme-state-layer-on-primary: #211f47;
 	--color-theme-state-layer-on-secondary: #1b4b46;
+	--color-theme-tertiary: #eebeaa;
+	--color-theme-on-tertiary: #552511;
 }
 
 /* TEMPORARY LEGACY ALIAS — compatibility layer.

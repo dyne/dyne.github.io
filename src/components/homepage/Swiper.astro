@@ -61,7 +61,10 @@ const { slidesPerView = 1, id, delay = 2000, paginationClass = 'mt-0' } = Astro.
 	:root {
 		--swiper-pagination-bullet-inactive-opacity: 0.28;
 		--swiper-pagination-bullet-inactive-color: var(--accent-color);
-		--swiper-pagination-color: var(--accent-color);
+		/* Active/selected slide indicator: a "selected UI element" accent per
+		   Secondary's design intent, distinct from the Primary-tinted inactive
+		   dots above. */
+		--swiper-pagination-color: var(--color-theme-secondary);
 	}
 	:global(.swiper-pagination-bullet) { min-width: 24px; min-height: 24px; margin: 4px !important; }
 </style>

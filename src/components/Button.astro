@@ -1,10 +1,22 @@
 ---
 const { href, text, inverted = false, cls = '', id = '', as: Tag = 'a', type = 'button' } = Astro.props;
 
+// Action hierarchy (Step 7): --color-theme-primary stays Dyne Purple, the
+// Design Library's brand-identity color (logo, headings, structural
+// surfaces) — it is deliberately NOT used for the button's own action color.
+// normal = the primary ACTION color (Orange / theme-tertiary), distinct from
+// brand Purple. Hover stays in the same Orange family (brightness dimming),
+// never swaps hue.
+// inverted = a neutral/on-surface secondary action — communicates "another
+// available action" rather than "another brand-colour CTA". Hover is a
+// subtle on-surface wash (existing --color-theme-on-surface at low opacity,
+// the same state-layer technique used for `normal`'s brightness dimming),
+// not a color swap. Green (--color-theme-secondary) is intentionally NOT
+// used here — it stays reserved for accents elsewhere.
 const styles = {
     base: 'cursor-pointer border-2 py-2 px-4 rounded-full w-fit text-2xl whitespace-nowrap',
-    normal: 'text-white bg-accent border-accent hover:bg-saccent hover:border-saccent',
-    inverted: 'text-saccent bg-transparent border-accent hover:bg-saccent hover:text-white'
+    normal: 'text-theme-on-tertiary bg-theme-tertiary border-theme-tertiary hover:brightness-90',
+    inverted: 'text-theme-on-surface bg-transparent border-theme-on-surface-variant hover:bg-theme-on-surface/10'
 };
 
 const buttonClasses = [
