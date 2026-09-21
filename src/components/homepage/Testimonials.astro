@@ -29,7 +29,7 @@ const testimonials = await Promise.all(
 								<source type="image/webp" srcset={`${optimizedPic.replace('.webp', '-256.webp')} 256w, ${optimizedPic} 512w`} sizes="256px" />
 								<img src={pic} alt="Portrait of testimonial author" width="256" height="256" loading="lazy" decoding="async" class="w-64 h-64 flex-shrink-0 object-cover rounded-full" />
 							</picture>
-							<div class="text-saccent text-xl lg:text-3xl font-body leading-body min-w-0"><t.Content /></div>
+							<div class="text-theme-on-surface-variant text-xl lg:text-3xl font-body leading-body min-w-0"><t.Content /></div>
 						</div>
 					</div>
 				);

@@ -28,8 +28,8 @@ import links from '../content/menu/menu.json';
 					<path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5Z" fill="currentColor" />
 				</svg>
 			</button>
-			<Socials size={30} />
-			<div class="space-x-5 font-medium text-2xl text-black flex" id="d-link-container">
+			<Socials size={30} cls="fill-theme-on-surface" />
+			<div class="space-x-5 font-medium text-2xl text-theme-on-surface flex" id="d-link-container">
 				{links.map((link) => <a href={link.href}>{link.name}</a>)}
 			</div>
 		</nav>

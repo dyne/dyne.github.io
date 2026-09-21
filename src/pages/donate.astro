@@ -115,10 +115,10 @@ const wallets = [
 		<div class="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
 			<!-- Hero -->
 			<div class="space-y-6 px-6 md:px-12 text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
-				<h1 class="font-display font-extrabold leading-heading text-4xl lg:text-5xl text-saccent">
-					Help making an impact by <em class="bg-primary">supporting</em> our work
+				<h1 class="font-display font-extrabold leading-heading text-4xl lg:text-5xl text-theme-on-surface">
+					Help making an impact by <em class="highlight-tertiary">supporting</em> our work
 				</h1>
-				<p class="text-xl">
+				<p class="text-xl text-theme-on-surface font-prose">
 					Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
 					worldwide to inspire, communicate, share and create.
 				</p>
@@ -149,26 +149,26 @@ const wallets = [
 			</Section> -->
 
 			<!-- Recurring support (featured hero flow, while PayPal one-time is unavailable) -->
-			<Section id="recurring-hero" title="Recurring donations">
+			<Section id="recurring-hero" title="Recurring donations" variant="structural">
 				<div class="space-y-6 max-w-4xl mx-auto">
 					<div class="flex flex-col gap-3 bg-theme-primary text-theme-on-primary rounded-3xl p-8">
-						<span class="self-start text-xs font-bold uppercase tracking-wide bg-theme-tertiary text-theme-on-tertiary rounded-full px-3 py-1">
+						<span class="self-start text-xs font-bold uppercase tracking-wide bg-theme-tertiary-container text-theme-on-tertiary-container rounded-full px-3 py-1">
 							Recommended
 						</span>
 						<p class="font-display font-bold text-2xl">Ko-fi</p>
-						<p class="text-theme-on-primary/90">The easiest way to support our work and join our community.</p>
+						<p class="font-prose text-theme-on-primary/90">The easiest way to support our work and join our community.</p>
 						<SponsorLink href="https://ko-fi.com/dyneorg" text="Ko-fi"><Kofi size={32} /></SponsorLink>
 					</div>
 
 					<div class="grid grid-cols-2 gap-4">
-						<div class="flex flex-col gap-2 bg-white text-saccent rounded-3xl p-6">
+						<div class="flex flex-col gap-2 bg-theme-surface-base text-theme-on-surface rounded-3xl p-6">
 							<p class="font-display font-bold text-lg">Patreon</p>
-							<p class="text-sm opacity-80">Support Dyne.org through recurring memberships and community support.</p>
+							<p class="font-prose text-sm opacity-80">Support Dyne.org through recurring memberships and community support.</p>
 							<SponsorLink href="https://patreon.com/dyneorg" text="Patreon"><Patreon size={28} /></SponsorLink>
 						</div>
-						<div class="flex flex-col gap-2 bg-white text-saccent rounded-3xl p-6">
+						<div class="flex flex-col gap-2 bg-theme-surface-base text-theme-on-surface rounded-3xl p-6">
 							<p class="font-display font-bold text-lg">GitHub Sponsors</p>
-							<p class="text-sm opacity-80">Support the code and tools we build in the open.</p>
+							<p class="font-prose text-sm opacity-80">Support the code and tools we build in the open.</p>
 							<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={28} /></SponsorLink>
 						</div>
 					</div>
@@ -178,8 +178,8 @@ const wallets = [
 
 		<!-- Navigation bridge: surface the alternatives right at the one-time decision point -->
 		<div class="max-w-4xl mx-auto px-6 md:px-12 lg:px-0 w-full">
-			<div class="bg-primary-40 rounded-3xl p-6 text-center text-saccent">
-				<p class="text-lg">
+			<div class="bg-theme-surface-variant rounded-3xl p-6 text-center text-theme-on-surface-variant">
+				<p class="text-lg font-prose">
 					Prefer something else? Explore <Link href="#crypto">crypto support</Link>.
 				</p>
 			</div>
@@ -193,9 +193,9 @@ const wallets = [
 		<div id="impact" class="p-8 md:p-12">
 			<div class="grid grid-cols-1 md:grid-cols-3 md:items-center gap-8 md:gap-4">
 				<div class="flex flex-col col-span-2 space-y-6 md:space-y-8 text-left">
-					<h2 class="font-display font-extrabold leading-heading text-4xl md:text-5xl text-saccent">{heritageTitle}</h2>
-					<p class="text-xl md:text-2xl font-body leading-body text-saccent">{heritageDescription}</p>
-					<p class="text-lg font-body leading-body text-saccent">{supportsDescription}</p>
+					<h2 class="font-display font-extrabold leading-heading text-4xl md:text-5xl text-theme-on-surface">{heritageTitle}</h2>
+					<p class="text-xl md:text-2xl font-body leading-body text-theme-on-surface">{heritageDescription}</p>
+					<p class="text-lg font-body leading-body text-theme-on-surface">{supportsDescription}</p>
 					<ButtonsGroup>
 						<Button href={heritageSecondaryHref} text={heritageSecondaryCTA} inverted={true} />
 						<Button href={heritageHref} text={heritageCTA} />
@@ -209,15 +209,15 @@ const wallets = [
 		</div>
 
 		<!-- Ko-fi membership levels: a representative selection, not the full list -->
-		<Section id="tiers" title="Ko-fi membership levels">
+		<Section id="tiers" title="Ko-fi membership levels" variant="primary">
 			<div class="space-y-8 max-w-4xl mx-auto">
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
 					{
 						kofiTiers.map((tier) => (
-							<div class="flex flex-col gap-3 bg-primary-40 rounded-3xl p-6">
-								<p class="font-display font-bold text-xl text-saccent">{tier.name}</p>
-								<p class="text-saccent text-sm font-semibold">{tier.price}</p>
-								<ul class="text-saccent text-sm opacity-80 list-disc list-inside space-y-1">
+							<div class="flex flex-col gap-3 bg-theme-surface-variant rounded-3xl p-6">
+								<p class="font-display font-bold text-xl text-theme-on-surface-variant">{tier.name}</p>
+								<p class="text-theme-on-surface-variant text-sm font-semibold">{tier.price}</p>
+								<ul class="text-theme-on-surface-variant text-sm opacity-80 list-disc list-inside space-y-1">
 									{tier.benefits.map((benefit) => <li>{benefit}</li>)}
 								</ul>
 								<SponsorLink href="https://ko-fi.com/dyneorg" text="Ko-fi"><Kofi size={20} /></SponsorLink>
@@ -273,7 +273,7 @@ const wallets = [
 		     above (plain-background text column + a single dark Section card), instead of
 		     one large dark Section containing a two-column grid. -->
 		<div class="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
-				<Section id="crypto" title="Support via Crypto">
+				<Section id="crypto" title="Support via Crypto" variant="secondary">
 				<div class="flex flex-col gap-6 max-w-4xl mx-auto">
 					{
 						wallets.map((wallet) => {
@@ -288,14 +288,14 @@ const wallets = [
 				</div>
 			</Section>
 <div class="space-y-6 px-6 md:px-12 text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
-				<h2 class="font-display font-extrabold leading-heading text-3xl lg:text-4xl text-saccent">
-					Crypto donations are <em class="bg-primary">a great way</em> to support us directly.
+				<h2 class="font-display font-extrabold leading-heading text-3xl lg:text-4xl text-theme-on-surface">
+					Crypto donations are <em class="highlight-tertiary">a great way</em> to support us directly.
 				</h2>
-				<p class="text-xl">
+				<p class="text-xl text-theme-on-surface font-prose">
 					Year after year, Dyne.org produces free, safe and easy to use technologies that are used by millions of users
 					worldwide to inspire, communicate, share and create.
 				</p>
-				<p class="text-lg">
+				<p class="text-lg text-theme-on-surface font-prose">
 					Looking for traditional payments?
 					Explore <Link href="#recurring">recurring support</Link> instead.
 				</p>

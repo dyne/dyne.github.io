@@ -1,6 +1,18 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @source inline('bg-white bg-sustainability bg-open_source bg-crypto bg-interdisciplinarity bg-cybersecurity bg-primary bg-accent bg-saccent bg-taccent bg-baccent rotate-2 -rotate-1');
+/* Force-generate the Container/state-layer theme utilities even though no
+   component uses them yet (Step 9B prepares the token set ahead of
+   component migration). Without this, Tailwind v4 only emits a @theme
+   token's LIGHT value into :root when its utility class is detected in
+   scanned source — the html.dark override is plain CSS and always survives,
+   so an unused token would silently work in Dark but not in Light. */
+@source inline('bg-theme-primary-container text-theme-primary-container text-theme-on-primary-container bg-theme-secondary-container text-theme-secondary-container text-theme-on-secondary-container bg-theme-tertiary-container text-theme-tertiary-container text-theme-on-tertiary-container bg-theme-state-layer-on-primary bg-theme-state-layer-on-secondary bg-theme-structural-surface');
+/* Same reason as above: force-generate the highlight-primary/-secondary
+   utilities (Step 18) even though only highlight-tertiary has a live consumer
+   today — without this Tailwind only emits their Light value, not the
+   html.dark override, since Tailwind can't see them used in scanned source. */
+@source inline('highlight-primary highlight-secondary highlight-tertiary');
 
 @theme {
 	--color-dyne-orange: #d77733;
@@ -26,30 +38,70 @@
 	--color-primary-5: #fefcfa;
 
 	/* Semantic Light/Dark theme tokens (Figma "semantic theme collection").
-	   These are the only 10 approved roles for this phase — do not add more
-	   without a design decision. Values below are the LIGHT defaults; the
-	   html.dark block further down overrides them with the Dark values. */
+	   Values below are the LIGHT defaults; the html.dark block further down
+	   overrides them with the Dark values. Grouped by family (Step 9B). */
+
+	/* Primary (Dyne Purple) — brand identity, headings, primary brand
+	   emphasis. Base + On verified since Step 4. Container Light (Step 16):
+	   was #dad9f2, near-indistinguishable from Surface Base Light (#fffbfe,
+	   ~1.36:1) per the Step 14 audit. Reuses #b6b3e5 — the already-approved
+	   Primary Dark base value — for a real ~1.94:1 separation while staying
+	   in the same purple family; On Primary Container Light still contrasts
+	   it at ~9.5:1. See Step 15 calibration report. */
 	--color-theme-primary: #423e8e;
 	--color-theme-on-primary: #ffffff;
+	--color-theme-primary-container: #b6b3e5;
+	--color-theme-on-primary-container: #100f23;
+
+	/* Secondary (Dyne Green) — supporting brand accent, selected/supporting
+	   UI elements. Base + On verified since Step 4. Container Light (Step 16):
+	   was #daf1ef (~1.15:1 vs Surface Base, the weakest of the three). Reuses
+	   #b4e4df — the already-approved Secondary Dark base value — for
+	   ~1.36:1 separation; On Secondary Container Light still contrasts it at
+	   ~11.6:1. See Step 15 calibration report. */
 	--color-theme-secondary: #36968c;
 	--color-theme-on-secondary: #ffffff;
-	--color-theme-surface-base: #fefcfb;
+	--color-theme-secondary-container: #b4e4df;
+	--color-theme-on-secondary-container: #0d2523;
+
+	/* Tertiary (Dyne Orange) — the site's primary ACTION color (see
+	   Button.astro's `normal` variant), distinct from brand-identity Purple.
+	   On Tertiary Light is #100d09, not the Figma-nominal #ffffff: white on
+	   #d77733 is ~3.19:1 (fails AA); #100d09 on #d77733 is ~6.07:1 (passes
+	   AA with margin) — a deliberate WCAG override (Step 8/9B), not an
+	   oversight. See migration report for this Figma-vs-implementation
+	   discrepancy. Container/On Container added in Step 9B. */
+	--color-theme-tertiary: #d77733;
+	--color-theme-on-tertiary: #100d09;
+	/* Tertiary Container Light (Step 16): was #f7dfd4 (~1.24:1 vs Surface
+	   Base). Reuses #eebeaa — the already-approved Tertiary Dark base value
+	   — for ~1.63:1 separation while staying clearly distinct from the solid
+	   CTA orange (#d77733); On Tertiary Container Light still contrasts it
+	   at ~10.5:1. See Step 15 calibration report. */
+	--color-theme-tertiary-container: #eebeaa;
+	--color-theme-on-tertiary-container: #2a1308;
+
+	/* Surface family — neutral structural roles (page background, cards).
+	   Surface Base updated to the Figma-confirmed #fffbfe (was #fefcfb). */
+	--color-theme-surface-base: #fffbfe;
 	--color-theme-surface-variant: #e7e0ec;
 	--color-theme-on-surface: #100d09;
 	--color-theme-on-surface-variant: #49454f;
+
+	/* State layers (hover/press overlays) — Primary/Secondary only. Tertiary
+	   has no state layer token: Button's Orange hover uses a brightness
+	   adjustment instead (see Button.astro), so none was ever needed. */
 	--color-theme-state-layer-on-primary: #ffffff;
 	--color-theme-state-layer-on-secondary: #ffffff;
 
-	/* Tertiary (Dyne Orange), added in Step 6 to give Secondary/Tertiary a
-	   controlled visual presence instead of leaving the theme monochromatic.
-	   Same already-approved Figma values as Primary/Secondary, same shape
-	   (base + on, no Container roles introduced — keep the architecture as
-	   small as what is actually used).
-	   On Tertiary Light is #211f47, not white (Step 8, WCAG fix): white on
-	   #d77733 is ~3.19:1, below AA for normal text; #211f47 on #d77733 is
-	   ~4.87:1, passing AA. #d77733 itself is unchanged. */
-	--color-theme-tertiary: #d77733;
-	--color-theme-on-tertiary: #100D09;
+	/* Structural surface — NOT one of the 16 roles requested for this step;
+	   no Primary/Secondary/Tertiary/Surface role can stay dark in BOTH
+	   themes by construction (every role in a coherent Light/Dark system is
+	   designed to flip lightness with the theme). Section.svelte needs a
+	   bold panel that reads as dark in both themes, so this reuses two
+	   already-verified Dyne Purple scale steps (Purple/800 Light, Purple/700
+	   Dark) instead of inventing a new color. See migration report. */
+	--color-theme-structural-surface: #211f47;
 
 	--font-sans: Syne, sans;
 	--font-serif: 'Syne Tactile', cursive;
@@ -66,22 +118,75 @@
 	--radius-4xl: 120px;
 }
 
+/* Text highlight utilities (Step 18) — semantic inline emphasis (a color band
+   behind a word, e.g. <em class="highlight-tertiary">). Each variant always
+   pairs a Container background with its matching On Container foreground so
+   a consumer can never apply one without the other — this coupling is what
+   the old `bg-primary` (legacy, non-theme-reactive, ~1.09:1 in Dark) was
+   missing. Built with @utility (not @theme) since these compose two CSS
+   properties, not a single design token; they inherit Light/Dark automatically
+   through the same --color-theme-*-container custom properties Section.svelte
+   uses, no new hex introduced. No Base (bg-theme-primary etc.) variant exists
+   on purpose — highlights use Container/On Container only. */
+@utility highlight-primary {
+	background-color: var(--color-theme-primary-container);
+	color: var(--color-theme-on-primary-container);
+}
+@utility highlight-secondary {
+	background-color: var(--color-theme-secondary-container);
+	color: var(--color-theme-on-secondary-container);
+}
+@utility highlight-tertiary {
+	background-color: var(--color-theme-tertiary-container);
+	color: var(--color-theme-on-tertiary-container);
+}
+
 /* html.dark override: same 10 semantic roles, Dark values. Plain (unlayered)
    rules beat @theme's @layer theme regardless of source order, so this wins
    whenever <html> carries the "dark" class. */
 html.dark {
 	--color-theme-primary: #b6b3e5;
 	--color-theme-on-primary: #211f47;
+	--color-theme-primary-container: #4f378b;
+	--color-theme-on-primary-container: #dad9f2;
+
 	--color-theme-secondary: #b4e4df;
 	--color-theme-on-secondary: #1b4b46;
-	--color-theme-surface-base: #100d09;
-	--color-theme-surface-variant: #49454f;
-	--color-theme-on-surface: #f6e5d5;
-	--color-theme-on-surface-variant: #cac4d0;
-	--color-theme-state-layer-on-primary: #211f47;
-	--color-theme-state-layer-on-secondary: #1b4b46;
+	--color-theme-secondary-container: #297069;
+	--color-theme-on-secondary-container: #daf1ef;
+
 	--color-theme-tertiary: #eebeaa;
 	--color-theme-on-tertiary: #552511;
+	--color-theme-tertiary-container: #803819;
+	--color-theme-on-tertiary-container: #f7dfd4;
+
+	/* Surface Base Dark: #1c1b1f, the Figma-confirmed global Dark surface
+	   value. This supersedes the Step 9B choice of Purple/900 (#110f24) —
+	   that was an inferred value in the absence of a confirmed Figma swatch;
+	   #1c1b1f is now given directly. Section.svelte's dark panel is
+	   unaffected: it uses the separate --color-theme-structural-surface
+	   token precisely so it wouldn't need to change when this one does. */
+	--color-theme-surface-base: #1c1b1f;
+	--color-theme-surface-variant: #49454f;
+	/* On Surface Dark (Step 12): was #f6e5d5, a beige/light-orange value that
+	   contradicted the decision to keep Dark's On Surface in the cool
+	   purple/neutral family. No Figma-approved On Surface Dark swatch is on
+	   file, so rather than invent one, this reuses #dad9f2 — the already
+	   Figma-verified On Primary Container Dark value (Step 9B) — since it is
+	   a light, cool, purple-family tone with no orange/cream cast, and it
+	   stays lighter than On Surface Variant Dark (#cac4d0) as required by the
+	   Light theme's own On Surface/On Surface Variant contrast ordering.
+	   Contrast vs Surface Base Dark (#1c1b1f): ~12.4:1 (passes WCAG AAA). */
+	--color-theme-on-surface: #dad9f2;
+	--color-theme-on-surface-variant: #cac4d0;
+
+	--color-theme-state-layer-on-primary: #211f47;
+	--color-theme-state-layer-on-secondary: #1b4b46;
+
+	/* Purple/700 — one step lighter than Surface Base Dark's Purple/900, so
+	   Section still reads as a distinguishable elevated panel rather than
+	   blending into the page background. See migration report. */
+	--color-theme-structural-surface: #2b2772;
 }
 
 /* TEMPORARY LEGACY ALIAS — compatibility layer.

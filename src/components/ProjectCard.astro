@@ -21,7 +21,7 @@ const Heading = headingLevel ? `h${Math.min(Math.max(Number(headingLevel) || 2, 
 ---
 
 <div
-	class={`transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent bg-primary-light text-taccent hover:border-accent hover:shadow-none hover:bg-white rounded-[40px] ${isFeatured ? 'p-10 md:p-12' : 'p-7'}`}
+	class={`transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent bg-theme-surface-base text-theme-on-surface hover:border-accent hover:shadow-none hover:bg-theme-on-surface/5 rounded-[40px] ${isFeatured ? 'p-10 md:p-12' : 'p-7'}`}
 >
 	<div class={`w-full h-full flex p-4 ${isFeatured ? 'gap-10' : 'gap-8'}`}>
 		<div
@@ -30,7 +30,7 @@ const Heading = headingLevel ? `h${Math.min(Math.max(Number(headingLevel) || 2, 
 			role={logo ? 'img' : undefined}
 			aria-label={logo ? logoAltText : undefined}
 		>
-			{!logo && <span class="font-bold text-taccent" aria-hidden="true">{initials || 'SW'}</span>}
+			{!logo && <span class="font-bold text-theme-on-surface" aria-hidden="true">{initials || 'SW'}</span>}
 		</div>
 		<div>
 			<div class="flex flex-row items-center gap-4 flex-wrap">
@@ -49,10 +49,10 @@ const Heading = headingLevel ? `h${Math.min(Math.max(Number(headingLevel) || 2, 
 					role={logo ? 'img' : undefined}
 					aria-label={logo ? logoAltText : undefined}
 				>
-					{!logo && <span class="font-bold text-xs text-taccent" aria-hidden="true">{initials || 'SW'}</span>}
+					{!logo && <span class="font-bold text-xs text-theme-on-surface" aria-hidden="true">{initials || 'SW'}</span>}
 				</div>
 			</div>
-			<div class={`text-gray-800 font-body leading-body mt-4 mb-10 ${isFeatured ? 'text-xl' : 'text-lg'}`}>
+			<div class={`text-theme-on-surface font-body leading-body mt-4 mb-10 ${isFeatured ? 'text-xl' : 'text-lg'}`}>
 				<slot />
 			</div>
 			<div class="flex flex-row flex-wrap space-x-3 mt-4 no-underline">
