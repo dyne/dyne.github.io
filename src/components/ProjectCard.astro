@@ -39,7 +39,7 @@ const Heading = headingLevel ? `h${Math.min(Math.max(Number(headingLevel) || 2, 
 						<a href={url} class="no-underline text-current">{title}</a>
 					</Heading>
 				) : (
-					<a href={url} class={`font-display font-bold leading-heading no-underline ${isFeatured ? 'text-4xl' : 'text-2xl'}`}>{title}</a>
+					<a href={url} class={`text-current font-display font-bold leading-heading no-underline ${isFeatured ? 'text-4xl' : 'text-2xl'}`}>{title}</a>
 				)}
 				{subtitle && <span class={`font-semibold ${isFeatured ? 'text-xl' : 'text-lg'}`}>{subtitle}</span>}
 

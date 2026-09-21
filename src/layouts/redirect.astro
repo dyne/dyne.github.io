@@ -24,7 +24,7 @@ const title = typeof content.title === 'string' && content.title.trim() ? conten
 		<link rel="canonical" href={destination} />
 		<meta http-equiv="refresh" content={`0;url=${destinationHref}`} />
 	</head>
-	<body>
+	<body class="redirect-page">
 		<main class="redirect-recovery">
 			<h1>{title}</h1>
 			<p>This legacy page has moved.</p>
@@ -35,7 +35,7 @@ const title = typeof content.title === 'string' && content.title.trim() ? conten
 </html>
 
 <style>
-	:global(body) {
+	.redirect-page {
 		margin: 0;
 		background: #ffeedd;
 		color: #423e8e;
