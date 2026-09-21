@@ -12,6 +12,22 @@ import links from '../content/menu/menu.json';
 
 		<!-- Desktop: links -->
 		<nav class="hidden lg:visible lg:flex flex-col items-end space-y-4" aria-label="Main navigation">
+			<button
+				type="button"
+				class="theme-toggle inline-flex items-center justify-center w-10 h-10 rounded-full text-theme-on-surface hover:bg-theme-on-surface/10"
+				data-theme-toggle
+				aria-label="Toggle dark theme"
+				aria-pressed="false"
+				title="Toggle dark theme"
+			>
+				<svg class="theme-toggle-sun" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<circle cx="10" cy="10" r="4" fill="currentColor" />
+					<path d="M10 0v3M10 17v3M20 10h-3M3 10H0M17.07 2.93l-2.12 2.12M5.05 14.95l-2.12 2.12M17.07 17.07l-2.12-2.12M5.05 5.05L2.93 2.93" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+				</svg>
+				<svg class="theme-toggle-moon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5Z" fill="currentColor" />
+				</svg>
+			</button>
 			<Socials size={30} />
 			<div class="space-x-5 font-medium text-2xl text-black flex" id="d-link-container">
 				{links.map((link) => <a href={link.href}>{link.name}</a>)}
@@ -57,6 +73,25 @@ import links from '../content/menu/menu.json';
 				}
 			</ul>
 
+			<div class="flex justify-end">
+				<button
+					type="button"
+					class="theme-toggle inline-flex items-center justify-center w-10 h-10 rounded-full text-white hover:bg-white/10"
+					data-theme-toggle
+					aria-label="Toggle dark theme"
+					aria-pressed="false"
+					title="Toggle dark theme"
+				>
+					<svg class="theme-toggle-sun" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<circle cx="10" cy="10" r="4" fill="currentColor" />
+						<path d="M10 0v3M10 17v3M20 10h-3M3 10H0M17.07 2.93l-2.12 2.12M5.05 14.95l-2.12 2.12M17.07 17.07l-2.12-2.12M5.05 5.05L2.93 2.93" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+					</svg>
+					<svg class="theme-toggle-moon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5Z" fill="currentColor" />
+					</svg>
+				</button>
+			</div>
+
 			<Socials size={30} cls="fill-white" />
 		</div>
 	</nav>
@@ -66,4 +101,45 @@ import links from '../content/menu/menu.json';
 	#d-link-container a:last-child {
 		color: var(--accent-color);
 	}
+
+	/* Theme toggle: pure-CSS icon swap driven by the existing html.dark class
+	   (set by BaseLayout.astro's pre-paint script), so the icon is correct
+	   from the very first frame with no extra JS/state needed to render it. */
+	.theme-toggle-moon {
+		display: none;
+	}
+	:global(html.dark) .theme-toggle-sun {
+		display: none;
+	}
+	:global(html.dark) .theme-toggle-moon {
+		display: block;
+	}
 </style>
+
+<script>
+	// Theme toggle: the single source of truth is document.documentElement's
+	// "dark" class (already resolved pre-paint by BaseLayout.astro) plus
+	// localStorage.theme. This script only flips that existing state — it
+	// does not re-derive the theme from prefers-color-scheme and does not
+	// duplicate BaseLayout's resolution logic.
+	const toggles = document.querySelectorAll('[data-theme-toggle]');
+
+	const syncPressedState = () => {
+		const isDark = document.documentElement.classList.contains('dark');
+		toggles.forEach((toggle) => toggle.setAttribute('aria-pressed', String(isDark)));
+	};
+
+	toggles.forEach((toggle) => {
+		toggle.addEventListener('click', () => {
+			const isDark = document.documentElement.classList.contains('dark');
+			const next = isDark ? 'light' : 'dark';
+			document.documentElement.classList.toggle('dark', next === 'dark');
+			try {
+				localStorage.setItem('theme', next);
+			} catch (e) {}
+			syncPressedState();
+		});
+	});
+
+	syncPressedState();
+</script>
