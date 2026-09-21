@@ -11,40 +11,10 @@
 	}
 </style>
 <script is:inline>
-	if (
-		localStorage.theme === 'dark' ||
-		(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-	) {
-		document.documentElement.classList.add('dark');
-	} else {
-		document.documentElement.classList.remove('dark');
-	}
-
-	function attachEvent(selector, event, fn) {
-		const matches = document.querySelectorAll(selector);
-		if (matches && matches.length) {
-			matches.forEach((elem) => {
-				elem.addEventListener(event, () => fn(elem), false);
-			});
-		}
-	}
 	window.addEventListener('DOMContentLoaded', (event) => {
 		document.querySelectorAll('a').forEach((link) => {
 			if (!link.textContent.trim() && !link.getAttribute('aria-label')) link.setAttribute('aria-label', 'Linked image');
 		});
-		const palettes = [
-			['#423E8E', '#15142D', '#211F47', '#ECECF8', '#B5B3E5'],
-			['#36968C', '#15142D', '#0D2523', '#ECF8F7', '#B4E4DF'],
-			['#A14F12', '#4A2108', '#2A1308', '#FBF1EA', '#F5DDCC'],
-		];
-		const paletteIndex = Number.parseInt(document.documentElement.dataset.palette || '0', 10);
-		const [accent, text_accent, secondary, bg, bg_accent] =
-			palettes[Number.isInteger(paletteIndex) ? paletteIndex % palettes.length : 0];
-		document.documentElement.style.setProperty('--accent-color', accent);
-		document.documentElement.style.setProperty('--text-accent-color', text_accent);
-		document.documentElement.style.setProperty('--secondary-accent-color', secondary);
-		document.documentElement.style.setProperty('--bg-color', bg);
-		document.documentElement.style.setProperty('--bg-accent-color', bg_accent);
 	});
 
 	window.addEventListener('load', () => {
@@ -80,11 +50,6 @@
 		document.addEventListener('keydown', (event) => {
 			if (event.key === 'Escape' && !menu?.hidden) closeMenu();
 		});
-
-		// attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
-		// 	document.documentElement.classList.toggle('dark');
-		// 	localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-		// });
 	});
 	window.addEventListener('pageshow', () => {
 		const elem = document.querySelector('[data-aw-toggle-menu]');

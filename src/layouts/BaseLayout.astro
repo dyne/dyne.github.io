@@ -35,6 +35,33 @@ const pageMeta = { ...meta, canonical };
 <!doctype html>
 <html lang="en">
 	<head>
+		<!--
+			Theme must be resolved before first paint to avoid a flash of the wrong
+			theme. This is intentionally the first thing in <head>, is:inline (so
+			Astro leaves it as a plain synchronous script, not a deferred module),
+			and self-contained (no imports, no dependency on GlobalAssets.astro,
+			which now only handles non-theme DOM wiring further down the page).
+
+			First visit: use the saved preference if any, otherwise
+			prefers-color-scheme, otherwise Light. Every visit persists the
+			resolved theme, so later visits keep it even if the OS-level
+			preference changes afterwards.
+		-->
+		<script is:inline>
+			(function () {
+				try {
+					var stored = localStorage.getItem('theme');
+					var theme =
+						stored === 'dark' || stored === 'light'
+							? stored
+							: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+								? 'dark'
+								: 'light';
+					document.documentElement.classList.toggle('dark', theme === 'dark');
+					localStorage.setItem('theme', theme);
+				} catch (e) {}
+			})();
+		</script>
 		<MetaTags {...pageMeta} />
 	</head>
 

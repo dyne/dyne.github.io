@@ -24,6 +24,22 @@
 	--color-primary-20: #fdf5eb;
 	--color-primary-10: #fefaf5;
 	--color-primary-5: #fefcfa;
+
+	/* Semantic Light/Dark theme tokens (Figma "semantic theme collection").
+	   These are the only 10 approved roles for this phase — do not add more
+	   without a design decision. Values below are the LIGHT defaults; the
+	   html.dark block further down overrides them with the Dark values. */
+	--color-theme-primary: #423e8e;
+	--color-theme-on-primary: #ffffff;
+	--color-theme-secondary: #36968c;
+	--color-theme-on-secondary: #ffffff;
+	--color-theme-surface-base: #fefcfb;
+	--color-theme-surface-variant: #e7e0ec;
+	--color-theme-on-surface: #100d09;
+	--color-theme-on-surface-variant: #49454f;
+	--color-theme-state-layer-on-primary: #ffffff;
+	--color-theme-state-layer-on-secondary: #ffffff;
+
 	--font-sans: Syne, sans;
 	--font-serif: 'Syne Tactile', cursive;
 	--font-display: Syne, sans;
@@ -37,6 +53,62 @@
 	--tracking-normal: -0.2rem;
 	--radius-3xl: 60px;
 	--radius-4xl: 120px;
+}
+
+/* html.dark override: same 10 semantic roles, Dark values. Plain (unlayered)
+   rules beat @theme's @layer theme regardless of source order, so this wins
+   whenever <html> carries the "dark" class. */
+html.dark {
+	--color-theme-primary: #b6b3e5;
+	--color-theme-on-primary: #211f47;
+	--color-theme-secondary: #b4e4df;
+	--color-theme-on-secondary: #1b4b46;
+	--color-theme-surface-base: #100d09;
+	--color-theme-surface-variant: #49454f;
+	--color-theme-on-surface: #f6e5d5;
+	--color-theme-on-surface-variant: #cac4d0;
+	--color-theme-state-layer-on-primary: #211f47;
+	--color-theme-state-layer-on-secondary: #1b4b46;
+}
+
+/* TEMPORARY LEGACY ALIAS — compatibility layer.
+   These custom properties used to be written at runtime by
+   GlobalAssets.astro's palette switcher (now removed). Components across the
+   codebase still use the derived Tailwind classes (bg-accent, text-saccent,
+   bg-baccent, bg-background, ...) declared in the @theme block above via
+   var(--accent-color) etc. Rather than touch every component now, these are
+   kept as static aliases onto the new semantic tokens, so existing markup
+   keeps working unchanged and automatically follows Light/Dark.
+   Only the mappings with a single, unambiguous real-world usage are aliased
+   to a semantic role:
+     legacy accent           -> semantic primary
+     legacy bg (background)  -> semantic surface/base
+     legacy bg-accent        -> semantic surface/variant
+   Do not extend this list without a design decision — see migration report.
+   Remove each alias only once every component using it has migrated to the
+   --color-theme-* tokens directly. */
+:root {
+	--accent-color: var(--color-theme-primary);
+	--bg-color: var(--color-theme-surface-base);
+	--bg-accent-color: var(--color-theme-surface-variant);
+
+	/* --secondary-accent-color (legacy "saccent") is intentionally NOT
+	   aliased to --color-theme-secondary. The audit found it covers several
+	   incompatible real uses at once (reading text, Section.svelte's dark
+	   structural surface, CTA hover, borders, a decorative ring) — aliasing
+	   it globally to Secondary is what turned large parts of the site green.
+	   Frozen at its historical always-active value (the only palette ever
+	   live in production) so every not-yet-migrated consumer keeps rendering
+	   exactly as before, until each usage is reassigned individually based on
+	   its real function. See migration report for the current dependents. */
+	--secondary-accent-color: #211f47;
+
+	/* --text-accent-color has NO established mapping to a new semantic role
+	   (it was a hybrid/ambiguous token per the migration analysis). Frozen at
+	   its historical always-active value (the only palette ever live in
+	   production) so ProjectCard.astro keeps rendering exactly as before; it
+	   intentionally does NOT react to Light/Dark yet. */
+	--text-accent-color: #15142d;
 }
 
 .prose :where(em):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
