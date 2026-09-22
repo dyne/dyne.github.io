@@ -4,7 +4,7 @@ import Socials from './Socials.astro';
 import links from '../content/menu/menu.json';
 ---
 
-<header class="w-full">
+<header class="w-full sticky top-0 z-50 bg-theme-surface-base">
 	<div class="p-6 lg:px-8 mx-auto w-full max-w-7xl lg:flex lg:justify-between items-center">
 		<a href="/" class="inline-block">
 			<Logo />
@@ -29,8 +29,16 @@ import links from '../content/menu/menu.json';
 				</svg>
 			</button>
 			<Socials size={30} cls="fill-theme-on-surface" />
-			<div class="space-x-5 font-medium text-2xl text-theme-on-surface flex" id="d-link-container">
-				{links.map((link) => <a href={link.href}>{link.name}</a>)}
+			<div class="space-x-5 font-medium text-2xl text-theme-on-surface flex items-center" id="d-link-container">
+				{links.map((link) =>
+					link.name === 'Donate' ? (
+						<a href={link.href} class="rounded-full px-5 py-1.5 highlight-tertiary hover:brightness-90">
+							{link.name}
+						</a>
+					) : (
+						<a href={link.href}>{link.name}</a>
+					)
+				)}
 			</div>
 		</nav>
 	</div>
@@ -63,13 +71,21 @@ import links from '../content/menu/menu.json';
 
 			<ul class="lg:hidden text-2xl text-[#FFEEDD] w-full text-right">
 				{
-					links.map((pl) => (
-						<li class="pb-6">
-							<a href={pl.href} class="block py-4 px-2 lg:px-4">
-								{pl.name}
-							</a>
-						</li>
-					))
+					links.map((pl) =>
+						pl.name === 'Donate' ? (
+							<li class="pb-6">
+								<a href={pl.href} class="inline-block py-3 px-6 rounded-full highlight-tertiary hover:brightness-90">
+									{pl.name}
+								</a>
+							</li>
+						) : (
+							<li class="pb-6">
+								<a href={pl.href} class="block py-4 px-2 lg:px-4">
+									{pl.name}
+								</a>
+							</li>
+						)
+					)
 				}
 			</ul>
 
@@ -98,10 +114,6 @@ import links from '../content/menu/menu.json';
 </header>
 
 <style>
-	#d-link-container a:last-child {
-		color: var(--accent-color);
-	}
-
 	/* Theme toggle: pure-CSS icon swap driven by the existing html.dark class
 	   (set by BaseLayout.astro's pre-paint script), so the icon is correct
 	   from the very first frame with no extra JS/state needed to render it. */
