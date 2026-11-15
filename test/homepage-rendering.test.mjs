@@ -37,7 +37,7 @@ test('homepage actions explain their destinations and privacy remains in the foo
 	for (const id of ['who-we-are', 'timeline']) assert.ok(find(document, node => attrs(node).id === id).length, `${id} anchor remains`);
 });
 
-test('homepage leads with three authored projects before participation, news and history', async () => {
+test('homepage preserves the original section order with featured projects in the projects area', async () => {
 	const html = await readFile('dist/index.html', 'utf8');
 	const document = parse(html);
 	const highlights = find(document, node => 'data-project-highlights' in attrs(node))[0];
@@ -46,7 +46,7 @@ test('homepage leads with three authored projects before participation, news and
 		['Explore Zenroom', '/software/zenroom/'], ['Explore Devuan', '/software/devuan/'], ['Explore Tomb', '/software/tomb/'], ['Browse all software', '/software'],
 	]);
 	for (const purpose of ['cryptographic operations and smart contracts', 'Debian, without systemd', 'Encrypt and back up secret files']) assert.ok(text(highlights).includes(purpose));
-	const order = ['data-home-hero', 'data-project-highlights', 'data-home-participation', 'data-home-newsletter', 'id="who-we-are"', 'id="timeline"'].map(marker => html.indexOf(marker));
+	const order = ['data-home-hero', 'id="who-we-are"', 'heritage-action', 'data-home-newsletter', 'href="https://dynebolic.org"', 'data-home-projects', 'homepage-testimonials', 'data-home-participation', 'id="timeline"'].map(marker => html.indexOf(marker));
 	assert.ok(order.every((position, index) => position >= 0 && (index === 0 || position > order[index - 1])));
 	assert.deepEqual(find(document, node => node.tagName === 'h1').map(text), ['Free to share code.']);
 	assert.match(text(document), /Dyne:bolic, a RASTASOFT production/);

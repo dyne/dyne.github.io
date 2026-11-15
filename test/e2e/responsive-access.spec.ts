@@ -121,13 +121,16 @@ test('homepage support copy and action fit enlarged text', async ({ page }) => {
 	expect(defects.every(Boolean)).toBe(true);
 });
 
-test('enlarged mobile homepage sections do not cover the announcement or clip their titles', async ({ page }) => {
+test('enlarged mobile homepage sections keep their restored order without overlap or clipped titles', async ({ page }) => {
 	await page.setViewportSize({ width: 390, height: 844 }); await page.goto('/');
 	await page.locator('html').evaluate(element => { element.style.fontSize = '200%'; });
 	await page.evaluate(() => document.fonts.ready);
-	const announcement = await page.locator('a[href="https://dynebolic.org"]').boundingBox();
+	const hero = await page.locator('[data-home-hero]').boundingBox();
 	const background = await page.locator('#who-we-are > div').first().boundingBox();
-	expect(announcement!.y + announcement!.height).toBeLessThanOrEqual(background!.y + 1);
+	expect(hero!.y + hero!.height).toBeLessThanOrEqual(background!.y + 1);
+	const newsletter = await page.locator('[data-home-newsletter]').boundingBox();
+	const announcement = await page.locator('a[href="https://dynebolic.org"]').boundingBox();
+	expect(newsletter!.y + newsletter!.height).toBeLessThanOrEqual(announcement!.y + 1);
 	for (const id of ['who-we-are', 'timeline']) {
 		const title = page.locator(`#${id} > div > div > div`).first();
 		expect(await title.evaluate(element => {

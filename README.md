@@ -94,9 +94,10 @@ routes in sync when changing the selection. The build rejects a missing entry.
 Check each purpose statement against the authored project content and retain
 the full software-directory link and access to the remaining projects.
 
-`src/pages/index.astro` places these highlights before participation, the
-newsletter, news and history. Keep the hero's Explore software, Join the
-community and Our story destinations accurate. Preserve existing anchors,
+`src/pages/index.astro` preserves the original section order: hero, Who we are,
+heritage, newsletter, Dyne:bolic announcement, projects, testimonials, support
+and timeline. Keep the selected projects within the projects area. Keep the
+hero's Explore software, Join the community and Our story destinations accurate. Preserve existing anchors,
 source-backed claims and the newsletter/feed fallback. Homepage rendering and
 browser tests cover the selection, sequence, links and offline content.
 

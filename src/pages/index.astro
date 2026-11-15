@@ -25,11 +25,20 @@ const feed = await loadPlanetDyneFeed();
 <Layout>
 	<div class="flex flex-col lg:space-y-28">
 		<Hero />
-		<ProjectHighlights />
 
-		<div data-home-participation>
-			<Supports />
-		</div>
+		<Section id="who-we-are" title="Who we are" cls="md:-mt-40 p-4 pt-40 lg:pt-14 -z-1">
+			<span slot="description">
+
+Think &do tank made of passionate individuals and innovative projects.  For
+more than two decades we stand to promote civil rights, decentralisation, free
+and open-source software, security and efficiency. Here you'll find real
+people, useful tech and respect for the natural environment.
+
+			</span>
+			<WhoWeAre />
+		</Section>
+
+		<Stats />
 
 		<Newsletter
 			intro="Stay ahead of the curve and subscribe with your email to receive our updates."
@@ -45,22 +54,16 @@ const feed = await loadPlanetDyneFeed();
 			<Svg content={Banner} />
 		</SoftwareAnnouncement>
 
-		<Section id="who-we-are" title="Who we are" cls="md:-mt-40 p-4 pt-40 lg:pt-14 -z-1">
-			<span slot="description">
-
-Think &do tank made of passionate individuals and innovative projects.  For
-more than two decades we stand to promote civil rights, decentralisation, free
-and open-source software, security and efficiency. Here you'll find real
-people, useful tech and respect for the natural environment.
-
-			</span>
-			<WhoWeAre />
-		</Section>
-
-		<Stats />
-		<Projects />
+		<div data-home-projects>
+			<ProjectHighlights />
+			<Projects />
+		</div>
 
 		<Testimonials />
+
+		<div data-home-participation>
+			<Supports />
+		</div>
 
 		<div class="my-10">
 			<Section id="timeline" title="What we did" contentPadding={false}>

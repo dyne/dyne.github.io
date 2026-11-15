@@ -54,11 +54,14 @@ test('hero links reflow at 320px', async ({ page }) => {
 	}
 });
 
-test('project discovery precedes participation and news with a keyboard-accessible directory', async ({ page }) => {
+test('the homepage preserves its original section order and keyboard-accessible project directory', async ({ page }) => {
 	await page.goto('/');
 	const highlights = page.locator('[data-project-highlights]');
 	await expect(highlights.getByRole('heading', { level: 3 })).toHaveText(['Zenroom', 'Devuan', 'Tomb']);
-	expect(await highlights.evaluate(el => Boolean(el.compareDocumentPosition(document.querySelector('[data-home-newsletter]')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
+	expect(await page.evaluate(() => {
+		const sections = ['[data-home-hero]', '#who-we-are', '.heritage-action', '[data-home-newsletter]', 'a[href="https://dynebolic.org"]', '[data-home-projects]', '.homepage-testimonials', '[data-home-participation]', '#timeline'].map(selector => document.querySelector(selector));
+		return sections.every((section, index) => section && (index === 0 || Boolean(sections[index - 1]!.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_FOLLOWING)));
+	})).toBe(true);
 	await highlights.getByRole('link', { name: 'Explore Zenroom' }).focus();
 	await page.keyboard.press('Tab');
 	await expect(highlights.getByRole('link', { name: 'Explore Devuan' })).toBeFocused();
