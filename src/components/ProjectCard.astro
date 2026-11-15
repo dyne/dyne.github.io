@@ -1,10 +1,12 @@
 ---
 import Button from './Button.astro';
 
-const { logo, title, url, tagline, download } = Astro.props;
+const { logo, title, url, tagline, download, actions, catalogId, headingLevel } = Astro.props;
+const Title = headingLevel ? `h${headingLevel}` : 'div';
 ---
 
 <div
+	data-project-id={catalogId}
 	class="transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent hover:border-accent hover:shadow-none hover:bg-white hover:bg-opacity-50 rounded-[40px] p-7"
 >
 	<div class="w-full p-4 h-full flex gap-8">
@@ -17,8 +19,8 @@ const { logo, title, url, tagline, download } = Astro.props;
 			)
 		}
 		<div>
-			<div class="flex flex-row items-center gap-4">
-				<a href={url} class="text-2xl font-bold font-sans no-underline">{title}</a>
+			<Title class="flex flex-row items-center gap-4">
+				{url ? <a href={url} class="text-2xl font-bold font-sans no-underline">{title}</a> : <span class="text-2xl font-bold font-sans">{title}</span>}
 
 				{
 					logo && (
@@ -28,18 +30,27 @@ const { logo, title, url, tagline, download } = Astro.props;
 						/>
 					)
 				}
-			</div>
+			</Title>
 			<div class="py-4">
 				<span class="font-medium">{tagline}</span>
 			</div>
 
-			<div class="text-gray-800 text-sm font-medium mb-2 text-clip overflow-hidden max-h-20">
+			<div class:list={['text-gray-800 text-sm font-medium mb-2', !actions && 'text-clip overflow-hidden max-h-20']}>
 				<slot />
 			</div>
-			<div class="flex flex-row flex-wrap space-x-3 mt-4 no-underline">
+			{actions ? <div class="flex flex-wrap gap-3 mt-4">
+				{actions.map(action => <a href={action.href} class="underline underline-offset-4 font-bold">{action.label}</a>)}
+			</div> : <div class="flex flex-row flex-wrap space-x-3 mt-4 no-underline">
 				<Button href={url} text="Learn more..." inverted={true} cls="text-sm no-underline" />
 				{download && <Button href={download} text="Download" cls={`text-sm no-underline`} />}
-			</div>
+			</div>}
 		</div>
 	</div>
 </div>
+
+<style>
+	[data-project-id] { min-width: 0; }
+	[data-project-id] > div { padding: 0; }
+	[data-project-id] a { overflow-wrap: anywhere; }
+	[data-project-id] h3 { margin: 0; }
+</style>

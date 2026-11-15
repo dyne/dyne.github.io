@@ -1,5 +1,7 @@
 ---
 import softwareList from '~/content/software.json';
+const { actions, descIsHtml = true, headingLevel = 2 } = Astro.props;
+const Heading = `h${headingLevel}`;
 
 // accept either `id` (new) or `software` (legacy) prop names
 const { title: propTitle, subtitle: propSubtitle, desc: propDesc, logo: propLogo, url: propUrl, id: propId, software: propSoftware, alt: propAlt } = Astro.props;
@@ -43,7 +45,7 @@ const slug = softwareId
 
 ---
 
-<section class="rounded-2xl p-8 md:p-12" id={slug}>
+<section class="rounded-2xl p-8 md:p-12" id={slug} data-project-id={actions ? softwareId : undefined}>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 max-w-6xl mx-auto flex flex-row items-start gap-6 md:gap-10">
     <div class="flex-shrink-0">
       {
@@ -65,7 +67,7 @@ const slug = softwareId
       }
     </div>
     <div class="flex-1 text-left">
-	  <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+	  <Heading class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
         <span class="flex-1">
           {url ? (
             <a href={url} class="no-underline text-current">{title}</a>
@@ -76,8 +78,19 @@ const slug = softwareId
         {subtitle && (
           <span class="mt-2 sm:mt-0 text-lg sm:text-xl md:text-2xl font-semibold sm:ml-4 sm:text-right">{subtitle}</span>
         )}
-	  </h2>
-  {desc && <p class="text-base md:text-lg max-w-3xl mt-2" set:html={desc}></p>}
+	  </Heading>
+  {desc && (descIsHtml ? <p class="text-base md:text-lg max-w-3xl mt-2" set:html={desc}></p> : <p class="text-base md:text-lg max-w-3xl mt-2">{desc}</p>)}
+  {actions && <div class="mt-4 flex flex-wrap gap-3 catalog-actions">
+    {actions.map(action => <a href={action.href} class="underline underline-offset-4 font-bold">{action.label}</a>)}
+  </div>}
     </div>
   </div>
 </section>
+
+<style>
+  .catalog-actions a { overflow-wrap: anywhere; }
+  section[data-project-id] :is(h2, h3) { overflow-wrap: anywhere; flex-direction: column; align-items: flex-start; }
+  section[data-project-id] :is(h2, h3) > span { margin-left: 0; text-align: left; }
+  section[data-project-id] .flex-1 { min-width: 0; }
+  @media (max-width: 639px) { section[data-project-id] { padding: 1rem; } }
+</style>

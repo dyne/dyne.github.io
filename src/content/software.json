@@ -7,7 +7,7 @@
     "title": "Sailfish pool",
     "subtitle": "Secure and fast memory pool in C",
     "description": "lightweight pool manager for small memory allocations in C, optimized for data privacy and speed.",
-    "url": "/sailfish-pool",
+    "url": "https://github.com/dyne/sailfish-pool",
     "logo": "/images/logos/sailfish-pool_logo.jpg",
     "tags": ["devel"]
   },
@@ -16,7 +16,7 @@
     "title": "Conspire",
     "subtitle": "Encrypted, decentralized chat and file sharing",
     "description": "Conspire is a free and open-source application for encrypted, decentralized chat and file sharing.",
-    "url": "/software/conspire",
+    "url": "/conspire",
     "logo": "https://conspire.dyne.org/images/conspire-logo.png",
     "tags": ["privacy"]
   },
