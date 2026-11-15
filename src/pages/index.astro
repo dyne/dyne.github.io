@@ -5,6 +5,7 @@ import WhoWeAre from '~/components/homepage/WhoWeAre.astro';
 import Hero from '~/components/homepage/Hero.astro';
 import Stats from '~/components/homepage/Stats.astro';
 import Projects from '~/components/homepage/Projects.astro';
+import ProjectHighlights from '~/components/homepage/ProjectHighlights.astro';
 import Testimonials from '~/components/homepage/Testimonials.astro';
 import Timeline from '~/components/timeline/home/TimelineHome.svelte';
 import Supports from '~/components/homepage/Supports.astro';
@@ -24,6 +25,25 @@ const feed = await loadPlanetDyneFeed();
 <Layout>
 	<div class="flex flex-col lg:space-y-28">
 		<Hero />
+		<ProjectHighlights />
+
+		<div data-home-participation>
+			<Supports />
+		</div>
+
+		<Newsletter
+			intro="Stay ahead of the curve and subscribe with your email to receive our updates."
+			href="https://news.dyne.org/#/portal/signup"
+		>
+			<BlogArticlePreviewHome {...feed.items[0]} />
+		</Newsletter>
+
+		<SoftwareAnnouncement
+			intro="Dyne:bolic, a RASTASOFT production"
+			href="https://dynebolic.org"
+		>
+			<Svg content={Banner} />
+		</SoftwareAnnouncement>
 
 		<Section id="who-we-are" title="Who we are" cls="-mt-40 p-4 pt-40 lg:pt-14 -z-1">
 			<span slot="description">
@@ -38,25 +58,9 @@ people, useful tech and respect for the natural environment.
 		</Section>
 
 		<Stats />
-		<Newsletter
-			intro="Stay ahead of the curve and subscribe with your email to receive our updates."
-			href="https://news.dyne.org/#/portal/signup"
-		>
-			<BlogArticlePreviewHome {...feed.items[0]} />
-		</Newsletter>
-
-		<SoftwareAnnouncement
-			intro="Dyne.org foundation is proud to announce a new RASTASOFT production:"
-			href="https://dynebolic.org"
-		>
-			<Svg content={Banner} />
-		</SoftwareAnnouncement>
-
 		<Projects />
 
 		<Testimonials />
-
-		<Supports />
 
 		<div class="my-10">
 			<Section id="timeline" title="What we did" contentPadding={false}>

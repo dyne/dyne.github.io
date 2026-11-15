@@ -11,14 +11,12 @@ const media = Astro.props['media:content'];
 		</figure>
 	</a>
 	<div>
-		<div class="text-4xl md:text-5xl lg:text-6xl text-saccent">
-			<a href={link}><p><strong>{title}</strong></p></a>
-		</div>
+		<h3 class="article-title text-4xl md:text-5xl lg:text-6xl text-saccent font-bold"><a href={link}>{title}</a></h3>
 		<div class="py-4">
 			by <span class="font-medium">{creator}</span>
 		</div>
 
-		<p class="text-gray-800 mb-2 text-clip overflow-hidden max-h-20">
+		<p class="text-gray-800 mb-2">
 			{snippet}
 		</p>
 	</div>
@@ -28,3 +26,7 @@ const media = Astro.props['media:content'];
 		>More newsletter issues</a
 	>
 </div>
+
+<style>
+	.article-title { font-size: clamp(1.5rem, calc(1rem + 3vw), 3.75rem); overflow-wrap: anywhere; }
+</style>

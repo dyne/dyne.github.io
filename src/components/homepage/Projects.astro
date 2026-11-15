@@ -1,5 +1,4 @@
 ---
-import Button from '~/components/Button.astro';
 import ProjectCard from '../ProjectCard.astro';
 import { getCollection, render } from 'astro:content';
 
@@ -24,6 +23,6 @@ const projects = await Promise.all(
 		}
 	</div>
 	<div class="text-center">
-		<Button href="/software" text="Load more..." />
+		<a href="/software" class="inline-block max-w-full px-4 text-2xl text-saccent underline underline-offset-4">Browse all software</a>
 	</div>
 </div>

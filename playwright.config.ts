@@ -14,6 +14,18 @@ export default defineConfig({
 	outputDir: 'output/playwright/test-results',
 	use: {
 		baseURL: `http://127.0.0.1:${previewPort}`,
+		// Allow local verification with an installed browser; CI keeps bundled Chromium.
+		channel: process.env.PLAYWRIGHT_CHANNEL,
+		launchOptions: {
+			env: process.env.PLAYWRIGHT_BROWSER_TMPDIR ? {
+				...process.env,
+				TMPDIR: process.env.PLAYWRIGHT_BROWSER_TMPDIR,
+				TMP: process.env.PLAYWRIGHT_BROWSER_TMPDIR,
+				TEMP: process.env.PLAYWRIGHT_BROWSER_TMPDIR,
+				XDG_CONFIG_HOME: process.env.PLAYWRIGHT_BROWSER_CONFIG_HOME,
+				CHROME_CONFIG_HOME: process.env.PLAYWRIGHT_BROWSER_CONFIG_HOME,
+			} : undefined,
+		},
 		trace: 'retain-on-failure',
 		screenshot: 'only-on-failure',
 		video: 'off',

@@ -7,6 +7,87 @@ test('the production homepage loads with its primary landmark', async ({ page })
 	await expect(page.locator('main')).toBeVisible();
 });
 
+test('homepage actions predict their destination and follow the keyboard reading order', async ({ page }) => {
+	await page.goto('/');
+	const hero = page.locator('[data-home-hero]');
+	const software = hero.getByRole('link', { name: 'Explore software', exact: true });
+	const community = hero.getByRole('link', { name: 'Join the community', exact: true });
+	const story = hero.getByRole('link', { name: 'Our story', exact: true });
+	await expect(software).toHaveAttribute('href', '/software');
+	await expect(community).toHaveAttribute('href', '/contact');
+	await expect(story).toHaveAttribute('href', '#timeline');
+	expect(await software.evaluate(el => getComputedStyle(el).backgroundColor)).not.toBe(await community.evaluate(el => getComputedStyle(el).backgroundColor));
+	await page.keyboard.press('Tab');
+	await page.keyboard.press('Enter');
+	for (const link of [software, community, story]) {
+		await page.keyboard.press('Tab');
+		await expect(link).toBeFocused();
+		expect(await link.evaluate(el => getComputedStyle(el).outlineStyle)).not.toBe('none');
+	}
+	await page.keyboard.press('Enter');
+	await expect(page).toHaveURL(/#timeline$/);
+	await expect(page.locator('#timeline')).toBeVisible();
+});
+
+for (const scale of [100, 200]) {
+	test(`hero actions and slogan reflow at ${scale}% text scale`, async ({ page }) => {
+		await page.goto('/');
+		await page.locator('html').evaluate((el, value) => { el.style.fontSize = `${value}%`; }, scale);
+		const overflow = await page.locator('[data-home-hero]').evaluate(el => {
+			return [...el.querySelectorAll('p:not(.sr-only), a')].filter(node => {
+				const range = document.createRange(); range.selectNodeContents(node);
+				return [...range.getClientRects()].some(r => r.left < -1 || r.right > innerWidth + 1);
+			}).map(node => node.textContent);
+		});
+		expect(overflow).toEqual([]);
+	});
+}
+
+test('hero links reflow at 320px', async ({ page }) => {
+	await page.setViewportSize({ width: 320, height: 844 });
+	await page.goto('/');
+	for (const link of await page.locator('[data-home-hero] a').all()) {
+		const box = await link.boundingBox();
+		expect(box).not.toBeNull();
+		expect(box!.x).toBeGreaterThanOrEqual(0);
+		expect(box!.x + box!.width).toBeLessThanOrEqual(320);
+	}
+});
+
+test('project discovery precedes participation and news with a keyboard-accessible directory', async ({ page }) => {
+	await page.goto('/');
+	const highlights = page.locator('[data-project-highlights]');
+	await expect(highlights.getByRole('heading', { level: 3 })).toHaveText(['Zenroom', 'Devuan', 'Tomb']);
+	expect(await highlights.evaluate(el => Boolean(el.compareDocumentPosition(document.querySelector('[data-home-newsletter]')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
+	await highlights.getByRole('link', { name: 'Explore Zenroom' }).focus();
+	await page.keyboard.press('Tab');
+	await expect(highlights.getByRole('link', { name: 'Explore Devuan' })).toBeFocused();
+	const directory = highlights.getByRole('link', { name: 'Browse all software' });
+	await directory.focus();
+	await page.keyboard.press('Enter');
+	await expect(page).toHaveURL(/\/software\/?$/);
+});
+
+for (const scale of [100, 200]) {
+	test(`project highlights and newsletter reflow at ${scale}% text scale`, async ({ page }) => {
+		await page.goto('/');
+		await page.locator('html').evaluate((el, value) => { el.style.fontSize = `${value}%`; }, scale);
+		for (const selector of ['[data-project-highlights]', '[data-home-newsletter]']) {
+			const overflow = await page.locator(selector).evaluate(el => [...el.querySelectorAll('p,a,h2,h3')].filter(node => {
+				const range = document.createRange(); range.selectNodeContents(node);
+				return [...range.getClientRects()].some(r => r.left < -1 || r.right > innerWidth + 1);
+			}).map(node => node.textContent));
+			expect(overflow).toEqual([]);
+		}
+		const collisions = await page.locator('[data-project-highlights] li').evaluateAll(rows => rows.filter(row => {
+			const purpose = row.querySelector('p')!.getBoundingClientRect();
+			const action = row.querySelector('a')!.getBoundingClientRect();
+			return purpose.left < action.right && purpose.right > action.left && purpose.top < action.bottom && purpose.bottom > action.top;
+		}).map(row => row.querySelector('h3')!.textContent));
+		expect(collisions).toEqual([]);
+	});
+}
+
 test('the homepage keeps image delivery and layout within its initial-load budget', async ({ page }) => {
 	await page.addInitScript(() => {
 		(globalThis as typeof globalThis & { cumulativeLayoutShift: number }).cumulativeLayoutShift = 0;
@@ -72,5 +153,24 @@ test.describe('without JavaScript', () => {
 		await expect(page.locator('main')).toBeVisible();
 		await expect(page.getByText('Browse the full Dyne timeline')).toBeVisible();
 		await expect(page.getByRole('link', { name: 'full Dyne timeline' })).toHaveAttribute('href', '/timeline');
+		const hero = page.locator('[data-home-hero]');
+		await expect(hero.getByRole('link', { name: 'Explore software' })).toHaveAttribute('href', '/software');
+		await expect(hero.getByRole('link', { name: 'Join the community' })).toHaveAttribute('href', '/contact');
+		await expect(hero.getByRole('link', { name: 'Our story' })).toHaveAttribute('href', '#timeline');
+		await expect(page.locator('footer').getByRole('link', { name: 'Privacy policy' })).toHaveAttribute('href', '/privacy');
+		const originalViewport = page.viewportSize()!;
+		for (const [width, scale] of [[originalViewport.width, 100], [originalViewport.width, 200], [320, 100]]) {
+			await page.setViewportSize({ width, height: originalViewport.height });
+			await page.locator('html').evaluate((el, value) => { el.style.fontSize = `${value}%`; }, scale);
+			for (const link of await hero.getByRole('link').all()) {
+				await expect(link).toBeVisible();
+				const box = (await link.boundingBox())!;
+				expect(box.x).toBeGreaterThanOrEqual(0);
+				expect(box.x + box.width).toBeLessThanOrEqual(width);
+			}
+			const highlights = page.locator('[data-project-highlights]');
+			for (const name of ['Explore Zenroom', 'Explore Devuan', 'Explore Tomb', 'Browse all software']) await expect(highlights.getByRole('link', { name, exact: true })).toBeVisible();
+			await expect(page.locator('[data-home-newsletter]').getByRole('link', { name: 'Get the newsletter' })).toHaveAttribute('href', 'https://news.dyne.org/#/portal/signup');
+		}
 	});
 });

@@ -5,17 +5,23 @@ import Caffuda from '../Caffuda.astro';
 import ButtonsGroup from '../ButtonsGroup.astro';
 ---
 
-<div class="flex flex-col lg:flex-row items-center space-y-20 lg:space-y-0 px-10 lg:py-36">
+<div data-home-hero class="flex flex-col lg:flex-row items-center space-y-20 lg:space-y-0 px-4 sm:px-10 lg:py-36">
 	<div class="flex flex-col w-full space-y-8 tracking-tight">
 		<p class="sr-only">Dyne.org digital community and free software foundry</p>
-		<div class="text-6xl text-saccent" set:html={copy.compiledContent()} />
+		<div class="hero-slogan text-saccent" set:html={copy.compiledContent()} />
 		<p class="max-w-3xl text-2xl font-inter text-saccent">{copy.frontmatter.welcome}</p>
-		<ButtonsGroup>
-			<Button href={copy.frontmatter.url} text={copy.frontmatter.CTA} />
-			<Button href={copy.frontmatter.url1} text={copy.frontmatter.CTA1} inverted={true} />
-			<Button href={copy.frontmatter.url2} text={copy.frontmatter.CTA2} inverted={true} />
-			<Button href={copy.frontmatter.url3} text={copy.frontmatter.CTA3} inverted={true} />
-		</ButtonsGroup>
+		<div class="hero-actions">
+			<ButtonsGroup>
+				<Button href={copy.frontmatter.url} text={copy.frontmatter.CTA} />
+				<Button href={copy.frontmatter.url1} text={copy.frontmatter.CTA1} inverted={true} />
+			</ButtonsGroup>
+		</div>
+		<a href={copy.frontmatter.url2} class="w-fit text-xl text-saccent underline underline-offset-4">{copy.frontmatter.CTA2}</a>
 	</div>
 	<Caffuda />
 </div>
+
+<style>
+	.hero-slogan { font-size: clamp(2rem, calc(1rem + 8vw), 3.75rem); overflow-wrap: anywhere; }
+	.hero-actions :global(a) { max-width: 100%; white-space: normal; text-align: center; }
+</style>
