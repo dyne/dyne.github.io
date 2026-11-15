@@ -38,3 +38,18 @@ test('Astro 7 migration decision requires the supported Remark processor and an 
 	assert.match(decision, /EALLOWSCRIPTS/);
 	assert.match(decision, /removal\s+criterion/i);
 });
+
+test('MDX renders Markdown and imported Astro components through the configured processor', async () => {
+	const jaromail = parse(await readFile(path.join(dist, 'jaromail/index.html'), 'utf8'));
+	assert.ok(nodes(jaromail, node => node.tagName === 'strong' && text(node) === 'e-mail communication').length, 'MDX retains Markdown emphasis');
+	assert.ok(nodes(jaromail, node => node.tagName === 'h2' && text(node) === 'Features').length, 'MDX retains Markdown headings');
+	const tomb = nodes(jaromail, node => node.tagName === 'section' && attr(node, 'id') === 'tomb')[0];
+	assert.ok(tomb && /Tomb/.test(text(tomb)), 'MDX renders the imported Software Astro component with its id prop');
+	assert.ok(nodes(tomb, node => node.tagName === 'img').length, 'the imported component retains its image');
+
+	const conspire = parse(await readFile(path.join(dist, 'conspire/index.html'), 'utf8'));
+	for (const [id, label] of [['lobby-btn', 'Public Channel'], ['private-room-btn', 'New Private Room']]) {
+		assert.ok(nodes(conspire, node => node.tagName === 'button' && attr(node, 'id') === id && text(node) === label).length, `MDX renders the imported chat component's ${label} button`);
+	}
+	assert.ok(nodes(conspire, node => node.tagName === 'a' && attr(node, 'href') === 'https://fightchatcontrol.eu/').length, 'MDX retains Markdown links alongside Astro components');
+});
