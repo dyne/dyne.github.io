@@ -1,19 +1,11 @@
 import assert from 'node:assert/strict';
-import { readdir, readFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import { parse } from 'parse5';
+import { siteHtmlFiles } from './helpers/site-html.mjs';
 
 const dist = path.resolve('dist');
-
-async function htmlFiles(directory = dist, files = []) {
-	for (const entry of await readdir(directory, { withFileTypes: true })) {
-		const target = path.join(directory, entry.name);
-		if (entry.isDirectory()) await htmlFiles(target, files);
-		else if (entry.name.endsWith('.html')) files.push(target);
-	}
-	return files;
-}
 
 function collect(node, result = []) {
 	if (node.tagName) result.push(node);
@@ -26,7 +18,7 @@ function attr(node, name) {
 }
 
 test('generated HTML keeps document content inside body, unique IDs, and no nested paragraph blocks', async () => {
-	for (const file of await htmlFiles()) {
+	for (const file of await siteHtmlFiles(dist)) {
 		const html = await readFile(file, 'utf8');
 		assert.equal(html.slice(html.toLowerCase().lastIndexOf('</body>') + 7).trim(), '</html>', `${file} has no content after body`);
 		assert.doesNotMatch(html, /<p\b[^>]*>(?:(?!<\/p>)[\s\S])*?<(?:div|p|ul|ol|h[1-6])\b/i, `${file} has no block nested in a paragraph`);

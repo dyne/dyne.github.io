@@ -8,18 +8,32 @@ Astro 7; it is not an adapter or server-runtime migration.
 | Component | Final version or policy |
 | --- | --- |
 | Node in GitHub Actions | `24.11.1` |
-| Astro / resolved Vite | `7.2.6` / `8.2.2` |
-| MDX / Markdown Remark | `7.0.8` / `7.2.4` with `unified()` |
-| Partytown / Sitemap / Svelte integration | `2.1.7` / `3.7.3` / `9.0.1` |
+| Astro / resolved Vite | `7.4.12` / `8.3.8` |
+| MDX / Markdown Remark | `8.1.6` / `7.3.9` with `unified()` |
+| Partytown / Sitemap / Svelte integration | `2.1.9` / `3.7.5` / `9.1.6` |
 | Svelte | `5.56.10` |
 | Tailwind / Vite plugin | `4.3.3` / `4.3.3` |
 
-Astro 6 and 7 require Node `>=22.12.0`; the CI pin meets that requirement.
+The current Astro and MDX releases require Node `>=22.23.4`; the CI pin meets that requirement.
 The migration keeps the Content Layer (`src/content.config.ts`), static output,
 the GitHub Pages base/origin, and the existing Vite alias. Markdown deliberately
 uses `@astrojs/markdown-remark` with `unified()`, `remark-gfm`, and
 `rehype-raw`: the site relies on GFM and raw-HTML fixtures that have not yet
 been proven equivalent under native Sätteri.
+
+MDX 8 delegates MDX processing to the configured Markdown processor. Its
+[migration notes](https://github.com/withastro/astro/blob/main/packages/integrations/mdx/CHANGELOG.md#800)
+require Markdown Remark `>=7.3.0` when using `unified()`; the current version
+meets that requirement. The existing configuration keeps `remark-gfm` and
+`rehype-raw` active. Regression checks cover MDX headings, emphasis, links and
+imported Astro components with props, alongside the Markdown compatibility
+fixtures. No content or homepage changes are required for this upgrade.
+
+Partytown 2.1.9 also copies sandbox iframe HTML into `dist/~partytown/`.
+These third-party runtime documents are not authored site pages and do not
+carry the site's title, description, canonical or explicit-body conventions.
+Metadata and document-structure checks exclude only that root asset tree;
+all authored HTML, including redirects and error pages, remains covered.
 
 Astro 7 uses its Rust compiler and the default `compressHTML: 'jsx'` setting.
 The generated-HTML and text-spacing contracts pass without an override.
@@ -55,13 +69,16 @@ command explicitly sets `ASTRO_PREVIEW_BACKGROUND=0`; Astro 7 otherwise
 backgrounds a preview when it detects an agent process, which is incompatible
 with Playwright's attached web-server lifecycle.
 
-The production artifact must contain 77 HTML routes, 34 sitemap URLs, and the
+The production artifact must contain 77 site HTML routes, 34 sitemap URLs, and the
 machine resources `robots.txt`, `sitemap-index.xml`, `sitemap-0.xml`,
 `llms.txt`, and `openapi.json`. `/.well-known/nostr.json` is copied from the
 upstream identity service with sorted names so its serialized content is
 reproducible even if the upstream changes object-key order. See
 `docs/astro-upgrade-baseline.md` for baseline route, performance, and online /
 offline expectations.
+
+Third-party runtime HTML under `~partytown/` is additional to the site-route
+inventory; it is copied unchanged by the integration.
 
 There are no high- or critical-severity audit exceptions. Do not add an
 allowlist; update the affected dependency instead.
