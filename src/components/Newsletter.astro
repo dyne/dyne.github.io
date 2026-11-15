@@ -7,15 +7,13 @@ interface Props {
 const { intro, href } = Astro.props;
 ---
 
-<div class="flex flex-col gap-y-8 py-8">
+<section data-home-newsletter aria-labelledby="newsletter-title" class="homepage-newsletter flex flex-col gap-y-8 py-8">
 	<div class="px-8">
 		<div
 			class="transition duration-500 ease-in-out transform shadow-2xl border-4 border-baccent hover:border-accent hover:shadow-none hover:bg-white hover:bg-opacity-50 rounded-[40px] p-7 space-y-4"
 		>
-			<div class="text-4xl md:text-5xl lg:text-6xl text-saccent">
-				<p><strong>Planet Dyne</strong></p>
-			</div>
-			{intro && <p class="text-3xl text-inter !text-saccent">{intro}</p>}
+			<h2 id="newsletter-title" class="text-4xl md:text-5xl lg:text-6xl text-saccent font-bold">Planet Dyne</h2>
+			{intro && <p class="text-2xl md:text-3xl text-inter !text-saccent">{intro}</p>}
 			<div class="flex flex-wrap gap-4 items-center">
 				<a
 					href={href}
@@ -23,7 +21,7 @@ const { intro, href } = Astro.props;
 					>Get the newsletter</a
 				>
 				<a
-					href="/linktree"
+					href="/contact"
 					class="text-accent cursor-pointer border-2 border-accent hover:bg-saccent hover:text-white hover:border-saccent py-2 px-4 rounded-full w-fit text-2xl whitespace-nowrap"
 					>Join our community</a
 				>
@@ -33,4 +31,13 @@ const { intro, href } = Astro.props;
 			</div>
 		</div>
 	</div>
-</div>
+</section>
+
+<style>
+	.homepage-newsletter { overflow-wrap: anywhere; }
+	.homepage-newsletter > div { padding-inline: clamp(1rem, 3vw, 2rem); }
+	.homepage-newsletter > div > div { padding: clamp(1rem, 3vw, 1.75rem); }
+	h2 { font-size: clamp(1.75rem, calc(1rem + 3vw), 3.75rem); }
+	.homepage-newsletter :global(a) { max-width: 100%; white-space: normal; }
+	.homepage-newsletter :global(a.rounded-full) { font-size: 1.25rem; padding-inline: clamp(0.5rem, 2vw, 1rem); }
+</style>

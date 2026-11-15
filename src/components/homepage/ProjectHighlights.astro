@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+
+// Keep this editorial selection tied to authored projects and their local routes.
+const selection = [
+	{ id: '01_zenroom', href: '/software/zenroom/', purpose: 'Run cryptographic operations and smart contracts with a portable language interpreter.' },
+	{ id: '02_devuan', href: '/software/devuan/', purpose: 'A GNU+Linux operating system based on Debian, without systemd.' },
+	{ id: '09_tomb', href: '/software/tomb/', purpose: 'Encrypt and back up secret files on GNU/Linux.' },
+];
+const projects = await getCollection('what-we-do');
+const highlights = selection.map((entry) => {
+	const project = projects.find(project => project.id === entry.id);
+	if (!project) throw new Error(`Missing homepage project: ${entry.id}`);
+	return { ...entry, name: project.data.name };
+});
+---
+
+<section id="projects" data-project-highlights aria-labelledby="projects-title" class="px-4 sm:px-8 py-12 text-saccent">
+	<h2 id="projects-title" class="text-4xl lg:text-6xl font-bold">Software you can use</h2>
+	<ul class="mt-8 divide-y divide-accent">
+		{highlights.map(project => (
+			<li class="py-8 grid gap-4 lg:grid-cols-[minmax(10rem,1fr)_minmax(0,2fr)] lg:items-start lg:gap-8">
+				<h3 class="text-3xl font-bold">{project.name}</h3>
+				<div class="space-y-4">
+					<p class="text-xl max-w-prose">{project.purpose}</p>
+					<a href={project.href} class="inline-block text-xl underline underline-offset-4 w-fit">Explore {project.name}</a>
+				</div>
+			</li>
+		))}
+	</ul>
+	<a href="/software" class="inline-block mt-4 text-2xl font-bold underline underline-offset-4">Browse all software</a>
+</section>
+
+<style>
+	section { overflow-wrap: anywhere; }
+	h2 { font-size: clamp(1.75rem, calc(1rem + 3vw), 3.75rem); }
+</style>
