@@ -6,6 +6,9 @@
 	html {
 		scroll-behavior: smooth;
 	}
+	@media (prefers-reduced-motion: reduce) {
+		html { scroll-behavior: auto; }
+	}
 	strong {
 		font-weight: 700;
 	}
@@ -74,11 +77,36 @@
 		trigger?.addEventListener('click', () =>
 			trigger.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu()
 		);
+		// Match Header's Tailwind lg breakpoint, including the browser's rem basis.
+		const desktopNavigation = window.matchMedia('(min-width: 64rem)');
+		let lastFocusedElement = document.activeElement;
+		document.addEventListener('focusin', (event) => { lastFocusedElement = event.target; });
+		desktopNavigation.addEventListener('change', ({ matches }) => {
+			// CSS can blur a newly hidden link before this callback runs.
+			const activeElement = document.activeElement === document.body ? lastFocusedElement : document.activeElement;
+			if (matches && menu && !menu.hidden) {
+				const activeHref = activeElement?.getAttribute('href');
+				const desktopLinks = [...document.querySelectorAll('#d-link-container a')];
+				closeMenu({ restoreFocus: false });
+				(desktopLinks.find(link => link.getAttribute('href') === activeHref) || desktopLinks[0])?.focus();
+			} else if (!matches && document.querySelector('#d-link-container')?.contains(activeElement)) {
+				trigger?.focus();
+			}
+		});
 		menu?.addEventListener('click', (event) => {
 			if (event.target.closest('a')) closeMenu({ restoreFocus: false });
 		});
 		document.addEventListener('keydown', (event) => {
 			if (event.key === 'Escape' && !menu?.hidden) closeMenu();
+			if (event.key === 'Tab' && menu && !menu.hidden && trigger) {
+				const controls = [trigger, ...menu.querySelectorAll('a[href]')];
+				const index = controls.indexOf(document.activeElement);
+				if (event.shiftKey && index <= 0) {
+					event.preventDefault(); controls.at(-1)?.focus();
+				} else if (!event.shiftKey && (index === controls.length - 1 || index < 0)) {
+					event.preventDefault(); trigger.focus();
+				}
+			}
 		});
 
 		// attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {

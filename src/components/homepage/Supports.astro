@@ -6,14 +6,21 @@ const { description, CTA, href } = copy.frontmatter;
 
 <div class="grid grid-cols-1 md:grid-cols-3 place-items-center px-8">
 	<div
-		class="col-span-2 flex flex-col text-center items-center md:text-left md:items-start space-y-12 md:space-y-8 tracking-tight"
+		class="w-full min-w-0 md:col-span-2 flex flex-col text-center items-center md:text-left md:items-start space-y-12 md:space-y-8 tracking-tight"
 	>
 		<div class="text-4xl md:text-5xl lg:text-6xl text-saccent" set:html={copy.compiledContent()} />
 		<p class="text-2xl text-inter text-saccent">{description}</p>
-		<Button href={href} text={CTA} />
+		<Button href={href} text={CTA} cls="support-action" />
 	</div>
 	<div
 		class="bg-[url('/images/illustrations/manincula.png')] opacity-40 bg-contain bg-no-repeat h-full w-full hidden md:block"
 	>
 	</div>
 </div>
+
+<style>
+	div { min-width: 0; }
+	div > p, div > div { max-width: 100%; overflow-wrap: break-word; }
+	@media (max-width: 639px) { div > .text-4xl { font-size: 1.75rem; } }
+	:global(.support-action) { max-width: 100%; white-space: normal; text-align: center; overflow-wrap: break-word; }
+</style>

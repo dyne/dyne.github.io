@@ -45,7 +45,7 @@ const feed = await loadPlanetDyneFeed();
 			<Svg content={Banner} />
 		</SoftwareAnnouncement>
 
-		<Section id="who-we-are" title="Who we are" cls="-mt-40 p-4 pt-40 lg:pt-14 -z-1">
+		<Section id="who-we-are" title="Who we are" cls="md:-mt-40 p-4 pt-40 lg:pt-14 -z-1">
 			<span slot="description">
 
 Think &do tank made of passionate individuals and innovative projects.  For
@@ -67,9 +67,13 @@ people, useful tech and respect for the natural environment.
 				<Timeline client:visible />
 				<p class="p-8 text-xl text-saccent">Browse the <a class="underline" href="/timeline">full Dyne timeline</a>.</p>
 				<div class="p-8 lg:p-12 flex justify-end">
-					<Button text="View full timeline" href="/timeline" />
+					<Button text="View full timeline" href="/timeline" cls="timeline-action" />
 				</div>
 			</Section>
 		</div>
 	</div>
 </Layout>
+
+<style>
+	:global(.timeline-action) { max-width: 100%; white-space: normal; overflow-wrap: break-word; }
+</style>

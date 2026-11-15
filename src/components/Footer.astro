@@ -6,7 +6,7 @@ import Socials from './AllSocials.astro';
 <footer class="bg-black">
 	<div class="max-w-7xl mx-auto p-6 pt-10 lg:p-12">
 		<div class="flex flex-col items-end space-y-4 opacity-100">
-			<div class="self-start flex justify-between w-full">
+			<div class="footer-identities self-start flex flex-wrap gap-8 justify-between w-full">
 				<Logo color="#d1d5db" />
 				<Socials cls="fill-gray-300" size={30} />
 			</div>
@@ -34,3 +34,11 @@ import Socials from './AllSocials.astro';
 		</div>
 	</div>
 </footer>
+
+<style>
+	.footer-identities { align-items: flex-start; }
+	.footer-identities > :global(svg) { flex-shrink: 0; }
+	.footer-identities :global(div) { min-width: 0; max-width: 100%; flex-wrap: wrap; gap: 1rem; }
+	.footer-identities :global(a) { margin-inline-start: 0; }
+	@media (max-width: 639px) { .footer-identities { flex-direction: column; } }
+</style>

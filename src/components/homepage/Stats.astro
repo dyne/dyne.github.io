@@ -7,12 +7,12 @@ const { description, CTA, href, title, secondaryCTA, secondaryHref, feature1, fe
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-3 items-center p-8">
-	<div class="flex flex-col col-span-2 space-y-12 md:space-y-8 tracking-tight text-left">
+	<div class="min-w-0 w-full flex flex-col md:col-span-2 space-y-12 md:space-y-8 tracking-tight text-left">
 		<h2 class="text-4xl md:text-5xl lg:text-6xl !text-saccent text-semibold">{title}</h2>
 		<p class="text-2xl text-inter !text-saccent">{description}</p>
 		<ButtonsGroup>
-			<Button href={secondaryHref} text={secondaryCTA} inverted={true} />
-			<Button href={href} text={CTA} />
+			<Button href={secondaryHref} text={secondaryCTA} inverted={true} cls="heritage-action" />
+			<Button href={href} text={CTA} cls="heritage-action" />
 		</ButtonsGroup>
 	</div>
 	<div
@@ -20,3 +20,8 @@ const { description, CTA, href, title, secondaryCTA, secondaryHref, feature1, fe
 	>
 	</div>
 </div>
+
+<style>
+	p { overflow-wrap: break-word; }
+	:global(.heritage-action) { max-width: 100%; white-space: normal; overflow-wrap: break-word; }
+</style>
