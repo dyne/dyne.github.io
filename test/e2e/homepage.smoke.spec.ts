@@ -105,7 +105,7 @@ test('the homepage keeps image delivery and layout within its initial-load budge
 	const portraits = page.locator('img[alt="Portrait of testimonial author"]');
 	expect(await portraits.count()).toBeGreaterThanOrEqual(10);
 	await expect(portraits.first()).toHaveAttribute('loading', 'lazy');
-	await expect(portraits.first()).toHaveAttribute('width', '256');
+	await expect(portraits.first()).toHaveAttribute('width', '320');
 	await page.waitForTimeout(250);
 
 	const metrics = await page.evaluate(() => {
@@ -154,6 +154,30 @@ test('respects reduced motion when the deferred carousel becomes visible', async
 
 test.describe('without JavaScript', () => {
 	test.use({ javaScriptEnabled: false });
+
+	test('testimonial portraits stay larger and equal across every quote', async ({ page }) => {
+		await page.emulateMedia({ reducedMotion: 'reduce' });
+		for (const [width, scale, expectedSize] of [[390, 100, 256], [1440, 100, 320], [320, 200, null]] as const) {
+			await page.setViewportSize({ width, height: 900 });
+			await page.goto('/');
+			await page.locator('html').evaluate((element, value) => { element.style.fontSize = `${value}%`; }, scale);
+			await page.evaluate(() => document.fonts.ready);
+			await page.locator('#testimonials-slider').evaluate(element => element.scrollIntoView({ behavior: 'instant', block: 'start' }));
+			await expect.poll(() => page.locator('#testimonials-slider img').first().evaluate(image => image.getBoundingClientRect().width)).toBeGreaterThan(0);
+			const sizes = await page.locator('#testimonials-slider img').evaluateAll(images => images.map(image => {
+				const portrait = image.getBoundingClientRect();
+				const copy = image.closest('.swiper-slide')!.querySelector('.testimonial-copy')!.getBoundingClientRect();
+				return { width: portrait.width, height: portrait.height, overlap: portrait.left < copy.right && portrait.right > copy.left && portrait.top < copy.bottom && portrait.bottom > copy.top };
+			}));
+			expect(sizes).toHaveLength(10);
+			for (const size of sizes) {
+				expect(size.width).toBeCloseTo(expectedSize ?? sizes[0].width, 0);
+				expect(size.height).toBeCloseTo(size.width, 0);
+				expect(size.width).toBeGreaterThanOrEqual(200);
+				expect(size.overlap).toBe(false);
+			}
+		}
+	});
 
 	test('keeps homepage content and the timeline route available', async ({ page }) => {
 		await page.goto('/');
