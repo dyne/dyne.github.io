@@ -1,5 +1,4 @@
 ---
-import Button from '~/components/Button.astro';
 import Layout from '~/layouts/HomepageLayout.astro';
 import Link from '~/components/Link.astro';
 // Icons
@@ -10,7 +9,6 @@ import SponsorLink from '~/components/SponsorLink.astro';
 import Bitcoin from '~/components/icons/donations/bitcoin.astro';
 import Monero from '~/components/icons/donations/monero.astro';
 import Ethereum from '~/components/icons/donations/ethereum.astro';
-import Cafuda from '~/components/icons/donations/cafuda.astro';
 
 const meta = { title: 'Dyne.org :: Donations' };
 
@@ -68,6 +66,7 @@ const tiers = [
 		url: 'https://www.paypal.com/donate/?business=foundation%40dyne.org&currency_code=EUR&amount=3000',
 	},
 ];
+const offerLabels = ['Art pack via Ko-fi', 'Merchandise from the Dyne shop', 'Shoutout via PayPal', 'Technical advice via PayPal', 'Team workshop via PayPal', 'Keynote talk via PayPal'];
 ---
 
 <style is:global>
@@ -106,13 +105,18 @@ const tiers = [
 </style>
 
 <Layout meta={meta}>
-	<div class="pt-8 md:pt-16 md:px-8 text-lg mx-auto w-fit md:grid md:grid-cols-2 md:gap-8 max-w-4xl">
+	<div class="donation-layout pt-8 md:pt-16 text-lg mx-auto md:grid md:grid-cols-2 md:gap-8">
+		<h1 class="text-3xl lg:text-4xl text-center md:col-span-2">
+			Help making an impact by <em class="bg-primary">supporting</em> our work
+		</h1>
+		<nav aria-label="Support choices" class="donation-choices md:col-span-2">
+			<Link href="#onetime">One-time donations</Link>
+			<Link href="#recurring">Recurring support</Link>
+			<Link href="#support-offers">Merchandise and services</Link>
+		</nav>
 		<!-- Column 1 -->
-		<div class="space-y-8 max-w-lg md:sticky md:top-8 self-start">
+		<div class="space-y-8 self-start">
 			<div class="space-y-6 px-6 text-center">
-				<h1 class="text-3xl lg:text-4xl">
-					Help making an impact by <em class="bg-primary">supporting</em> our work
-				</h1>
 				<p>
 					Dyne.org is not a flag. We never ask anyone to pledge allegiance to an ideology, and we never try to fold everything into a single brand narrative. We're more like a mountain range. A set of peaks that are independent from each other, yet connected through shared values (valleys?) and open standards.
 					<br /><br/>
@@ -136,16 +140,18 @@ const tiers = [
 						recurring donations
 					</Link>
 				</p>
+				<p><Link href="#support-offers">Merchandise, recognition and services</Link> are listed separately below.</p>
 			</div>
 		</div>
 
 		<!-- Column 2 -->
 		<div class="space-y-8 max-w-lg pt-8 md:pt-0">
 			<div id="recurring" class="p-6 bg-primary rounded-3xl space-y-4">
-				<h2 class="text-xl font-bold">Recurring donations on:</h2>
+				<h2 class="text-xl font-bold">Recurring support</h2>
+				<p>Choose a provider to arrange recurring donations:</p>
 				<div class="space-y-2">
-					<SponsorLink href="https://ko-fi.com/dyneorg" text="ko-fi"><Opencollective size={36} /></SponsorLink>
-					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub"><Github size={36} /></SponsorLink>
+					<SponsorLink href="https://ko-fi.com/dyneorg" text="Ko-fi"><Opencollective size={36} /></SponsorLink>
+					<SponsorLink href="https://github.com/sponsors/dyne" text="GitHub Sponsors"><Github size={36} /></SponsorLink>
 					<SponsorLink href="https://patreon.com/dyneorg" text="Patreon"><Patreon size={36} /></SponsorLink>
 				</div>
 				<p class="leading-6">
@@ -165,75 +171,71 @@ const tiers = [
 
 		<!-- One-time donations block placed as a grid sibling so it can span both columns -->
 		<div id="onetime" class="p-6 bg-primary rounded-3xl space-y-4 md:col-span-2 max-w-4xl mx-auto">
-			<h2 class="text-xl font-bold">One time support.</h2>
-			<p class="leading-6">Not ready to commit on the long term, yet?</p>
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-				{
-					tiers.map((tier) => (
-						<a href={tier.url} class="bg-primary-60 rounded-2xl overflow-hidden p-4 flex flex-col">
-							<div class="text-left">
-								<span class="inline-block text-xl md:text-2xl font-bold px-3 py-1 rounded-full bg-transparent text-current">
-									{tier.amount}
-								</span>
-							</div>
-							<div class="mt-2 text-base">{tier.text}</div>
-						</a>
-					))
-				}
-			</div>
+			<h2 class="text-xl font-bold">One-time donations</h2>
+			<p class="leading-6">Choose a cryptocurrency wallet or continue to Stripe to choose your donation amount.</p>
 
 			<div class="space-y-10 lg:col-span-2">
 				<div class="tabs">
 					<div role="tablist" aria-label="Donation method">
 						<button class="tab" id="crypto-tab" type="button" role="tab" aria-selected="true" aria-controls="crypto-panel">
-							Use crypto
+							Cryptocurrency wallets
 						</button>
 						<button class="tab" id="money-tab" type="button" role="tab" aria-selected="false" aria-controls="money-panel" tabindex="-1">
-							Use money
+							Donate via Stripe
 						</button>
 					</div>
 
 					<div id="crypto-panel" role="tabpanel" aria-labelledby="crypto-tab" class="space-y-4">
 						<div class="space-y-4">
 							<p class="leading-6">Contact us with the transaction ID to redeem the benefits.</p>
+							<p>Select an address to copy it manually, or use its copy button.</p>
 							<div id="donate-crypto" class="flex flex-col items-stretch space-y-2">
 								{
 									wallets.map((w) => (
-										<button
-											id={w.name}
-											type="button"
-											aria-describedby={`${w.name}-address`}
-											class="bg-sustainability p-4 rounded-3xl "
-										>
-											<p class="font-bold text-2xl text-white">{`${w.name} wallet`}</p>
-											<p id={`${w.name}-address`} class="text-xs w-72 break-words text-white">
-												{w.address}
-											</p>
-										</button>
+										<div class="wallet bg-sustainability p-4 rounded-3xl text-white">
+											<h3 class="font-bold text-2xl">{`${w.name} wallet`}</h3>
+											<code id={`${w.name}-address`} tabindex="0" class="wallet-address">{w.address}</code>
+											<button id={w.name} type="button" aria-describedby={`${w.name}-address`} class="copy-wallet">Copy {w.name} address</button>
+											<p id={`${w.name}-copy-feedback`} class="wallet-feedback"></p>
+										</div>
 									))
 								}
 							</div>
 						</div>
 					</div>
 
-					<div id="money-panel" role="tabpanel" aria-labelledby="money-tab" class="space-y-4" hidden>
+					<div id="money-panel" role="tabpanel" aria-labelledby="money-tab" class="space-y-4">
 						<div class="space-y-4">
-							<p class="leading-6">(Donations via Stripe)</p>
+							<p class="leading-6">Make a one-time donation through Stripe. Choose the amount on Stripe's payment page.</p>
 							<div class="grid grid-cols-1 gap-2">
 								<a
 									href="https://buy.stripe.com/9AQbJv3cM5TBcw0149"
 									class="block text-center text-2xl bg-sustainability text-white rounded-3xl p-4"
 								>
-									💸 Pay What you want
+									Donate via Stripe
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<p id="wallet-copy-status" class="sr-only" aria-live="polite" role="status"></p>
 		</div>
+		<section id="support-offers" class="p-6 bg-primary rounded-3xl space-y-4 md:col-span-2">
+			<h2 class="text-xl font-bold">Merchandise, recognition and services</h2>
+			<p>Choose an offer below. These purchases and specific benefits are separate from general donations.</p>
+			<div class="offers-grid">
+				{tiers.map((tier, index) => (
+					<a href={tier.url} class="support-offer bg-primary-60 rounded-2xl p-4 flex flex-col">
+						<h3 class="font-bold text-xl">{offerLabels[index]}</h3>
+						<span class="text-xl font-bold">{tier.amount}</span>
+						<p class="mt-2 text-base">{tier.text}</p>
+					</a>
+				))}
+			</div>
+		</section>
 	</div>
-	<p id="wallet-copy-status" class="sr-only" aria-live="polite" role="status"></p>
+	<noscript><style>.tabs [role='tablist'], .copy-wallet { display: none; }</style><p class="text-center">Both donation methods and all wallet addresses are available above without JavaScript.</p></noscript>
 
 	<script is:inline define:vars={{ wallets }}>
 		const tabs = [...document.querySelectorAll('[role="tab"]')];
@@ -256,17 +258,39 @@ const tiers = [
 				selectTab(tabs[nextIndex]);
 			});
 		});
+		selectTab(tabs[0]);
 
 		const status = document.querySelector('#wallet-copy-status');
 		for (const wallet of wallets) {
 			document.querySelector(`#${wallet.name}`)?.addEventListener('click', async () => {
+				const feedback = document.querySelector(`#${wallet.name}-copy-feedback`);
 				try {
 					await window.navigator.clipboard.writeText(wallet.address);
 					status.textContent = `${wallet.name} wallet address copied to clipboard.`;
 				} catch {
 					status.textContent = `Could not copy the ${wallet.name} wallet address. Please copy it manually.`;
 				}
+				feedback.textContent = status.textContent;
 			});
 		}
 	</script>
 </Layout>
+
+<style>
+	.donation-layout { width: min(100%, 64rem); padding-inline: 1rem; overflow-wrap: anywhere; }
+	.donation-layout > div { min-width: 0; width: 100%; max-width: none; }
+	.donation-choices { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 1.5rem; margin-block: 1.5rem 2rem; }
+	.donation-layout :global(.tab) { flex: 1 1 12rem; min-width: 0; font-weight: 700; }
+	.donation-layout :global([role='tablist']) { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; }
+	.donation-layout :global([role='tablist'] > * + *) { margin-left: 0; }
+	.donation-layout :global(#recurring a) { min-width: 0; flex-wrap: wrap; gap: .5rem; padding-inline: .75rem; }
+	.donation-layout :global(#recurring a span) { flex: 1 1 10rem; min-width: 0; margin-left: 0; }
+	.donation-layout :global(#recurring a svg) { flex-shrink: 0; }
+	.wallet-address { display: block; font-size: .875rem; line-height: 1.7; overflow-wrap: anywhere; user-select: text; margin-block: .75rem; }
+	.copy-wallet { text-decoration: underline; text-underline-offset: .2em; padding-block: .5rem; text-align: start; }
+	.offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; }
+	.support-offer { min-width: 0; gap: .5rem; }
+	#recurring, #onetime, #support-offers { scroll-margin-top: 2rem; }
+	#recurring, #onetime, #support-offers { padding: clamp(.75rem, 3vw, 1.5rem); }
+	.wallet-feedback:not(:empty) { margin-top: .5rem; }
+</style>
