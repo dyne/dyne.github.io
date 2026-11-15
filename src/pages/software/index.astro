@@ -3,82 +3,53 @@ import ProjectCard from '~/components/ProjectCard.astro';
 import Layout from '~/layouts/Layout.astro';
 import softwareList from '~/content/software.json';
 import Software from '~/components/Software.astro';
-import PreviewBox from '~/components/PreviewBox.astro';
 import { loadGitHubRepositories } from '~/lib/remote-content.mjs';
+import { groupSoftwareCatalog, normalizeSoftwareCatalog } from '~/lib/software-catalog.mjs';
 
-// Page-specific list of software ids to render on this index page
-const pageSoftwareIds = ['dynebolic', 'devuan', 'freej', 'tomb', 'jaromail', 'frei0r'];
-const softwares = Object.entries(import.meta.glob('/src/pages/software/*.md', { eager: true }))
-	.map(([path, module]) => ({
-		url: `/software/${path.split('/').pop()?.replace(/\.md$/, '')}/`,
-		frontmatter: (module as { frontmatter: { title: string; description: string } }).frontmatter,
-	}))
-	.sort((left, right) => left.url.localeCompare(right.url));
-const github = await loadGitHubRepositories();
-
-// ids already rendered from the central JSON for this page (prevent duplicates)
-const displayedIds = new Set(
-	softwareList.filter((s) => pageSoftwareIds.includes(s.id)).map((s) => s.id)
-);
-const projectUrl = (project) =>
-	project.homepage && !project.homepage.startsWith('https://dyne.org/') ? project.homepage : project.html_url;
+const featuredIds = ['dynebolic', 'devuan', 'freej', 'tomb', 'jaromail', 'frei0r'];
+const pages = Object.entries(import.meta.glob('/src/pages/software/*.md', { eager: true }))
+	.map(([path, module]) => {
+		const id = path.split('/').pop()!.replace(/\.md$/, '');
+		return { id, url: `/software/${path.split('/').pop()?.replace(/\.md$/, '')}/`, frontmatter: (module as { frontmatter: Record<string, unknown> }).frontmatter };
+	});
+const catalog = normalizeSoftwareCatalog({ local: softwareList, pages, remote: await loadGitHubRepositories() });
+const groups = groupSoftwareCatalog(catalog);
 ---
 
-<Layout
-	content={{
-		title: 'Software',
-		description: "We've written a lot of code, here is an overview on our collective toolbox for hackers, makers, and dreamers",
-	}}
->
-
-	<!--
-	<PreviewBox url="https://github.com/dyne" title="Git / Dyne">
-		-->
-
-	<div>
-		{
-			// entries from central JSON specifically selected for this page
-			softwareList
-				.filter((s) => pageSoftwareIds.includes(s.id))
-								.map((s) => (
-									<Software id={s.id} />
-				))
-		}
-	</div>
-	<div class="grid md:grid-cols-2 gap-8">
-
-		{
-			softwares
-				.filter((software) => {
-					// derive id from the markdown page url, e.g. '/software/dynebolic' -> 'dynebolic'
-					const parts = (software.url || '').split('/').filter(Boolean);
-					const id = parts.length ? parts[parts.length - 1] : null;
-					return !id || !displayedIds.has(id);
-				})
-				.map((software) => (
-					<ProjectCard url={software.url} title={software.frontmatter.title}>
-						{software.frontmatter.description}
-					</ProjectCard>
-				))
-		}
-		{
-			github
-				.filter((repo) => {
-					// exclude GitHub repos whose name matches an id already displayed
-					const nameId = (repo.name || '').toLowerCase();
-					return !displayedIds.has(nameId);
-				})
-				.map((software) => (
-					<div>
-						<ProjectCard
-							url={projectUrl(software)}
-							title={software.name}
-							download={software.homepage && projectUrl(software) !== software.homepage ? false : software.html_url}
-						>
-							{software.description}
+<Layout cls="software-directory" content={{ title: 'Software', description: "We've written a lot of code, here is an overview on our collective toolbox for hackers, makers, and dreamers" }}>
+	<div data-software-catalog>
+		<div data-catalog-intro class="catalog-intro">
+			<p>Browse by purpose, or read through the complete catalog below.</p>
+			<nav aria-label="Software by purpose">
+				<ul class="catalog-jumps">
+					{groups.map(group => <li><a href={`#software-${group.id}`}>{group.title}</a></li>)}
+				</ul>
+			</nav>
+		</div>
+		{groups.map(group => (
+			<section id={`software-${group.id}`} aria-labelledby={`software-${group.id}-heading`} tabindex="-1" class="catalog-group">
+				<h2 id={`software-${group.id}-heading`}>{group.title}</h2>
+				{group.projects.filter(project => featuredIds.includes(project.id)).map(project => (
+					<Software headingLevel={3} id={project.id} title={project.title} subtitle={project.subtitle} desc={project.description} descIsHtml={project.descriptionIsHtml} logo={project.logo} url={project.url} actions={project.actions} />
+				))}
+				<div class="grid md:grid-cols-2 gap-8">
+					{group.projects.filter(project => !featuredIds.includes(project.id)).map(project => (
+						<ProjectCard headingLevel={3} title={project.title} url={project.url} actions={project.actions} catalogId={project.id}>
+							{project.descriptionIsHtml ? <Fragment set:html={project.description} /> : project.description}
 						</ProjectCard>
-					</div>
-				))
-		}
+					))}
+				</div>
+			</section>
+		))}
 	</div>
 </Layout>
+
+<style>
+	:global(.software-directory h1) { overflow-wrap: anywhere; max-width: 100%; }
+	.catalog-intro { margin-bottom: 3rem; }
+	.catalog-jumps { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+	.catalog-jumps li { margin: 0; padding: 0; }
+	.catalog-jumps a { display: inline-block; overflow-wrap: anywhere; text-underline-offset: 0.2em; }
+	.catalog-group { margin-block: 4rem; scroll-margin-block-start: 1rem; }
+	.catalog-group > h2 { margin-block: 0 1.5rem; overflow-wrap: anywhere; }
+</style>
