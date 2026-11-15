@@ -49,6 +49,14 @@ const Title = headingLevel ? `h${headingLevel}` : 'div';
 </div>
 
 <style>
+	div { min-width: 0; }
+	.items-center { flex-wrap: wrap; }
+	a, p { overflow-wrap: anywhere; }
+	@media (max-width: 639px) {
+		.p-7 { padding: 16px; }
+		.p-4 { padding: 0; }
+	}
+	@media (prefers-reduced-motion: reduce) { .transition { transition: none; } }
 	[data-project-id] { min-width: 0; }
 	[data-project-id] > div { padding: 0; }
 	[data-project-id] a { overflow-wrap: anywhere; }

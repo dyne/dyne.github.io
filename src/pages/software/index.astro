@@ -45,11 +45,15 @@ const groups = groupSoftwareCatalog(catalog);
 </Layout>
 
 <style>
-	:global(.software-directory h1) { overflow-wrap: anywhere; max-width: 100%; }
+	:global(.software-directory h1) { overflow-wrap: normal; hyphens: auto; max-width: 100%; font-size: 1.75rem; }
+	@media (max-width: 639px) { :global(.software-directory) { padding-inline: 16px; } }
+	@media (min-width: 640px) { :global(.software-directory h1) { font-size: 3rem; } }
 	.catalog-intro { margin-bottom: 3rem; }
 	.catalog-jumps { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; }
 	.catalog-jumps li { margin: 0; padding: 0; }
 	.catalog-jumps a { display: inline-block; overflow-wrap: anywhere; text-underline-offset: 0.2em; }
 	.catalog-group { margin-block: 4rem; scroll-margin-block-start: 1rem; }
-	.catalog-group > h2 { margin-block: 0 1.5rem; overflow-wrap: anywhere; }
+	.catalog-group > h2 { margin-block: 0 1.5rem; overflow-wrap: normal; hyphens: auto; font-size: 1.5rem; }
+	@media (min-width: 640px) { .catalog-group > h2 { font-size: 1.75rem; } }
+	:global(.software-directory [data-project-id] p) { overflow-wrap: anywhere; }
 </style>

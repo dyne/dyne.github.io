@@ -22,3 +22,9 @@ const { intro, href } = Astro.props;
 		</div>
 	</div>
 </a>
+
+<style>
+	p { overflow-wrap: anywhere; }
+	@media (max-width: 639px) { .p-7 { padding: 1rem; } }
+	@media (prefers-reduced-motion: reduce) { .transition { transition: none; } }
+</style>

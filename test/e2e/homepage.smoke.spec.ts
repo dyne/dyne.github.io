@@ -88,7 +88,7 @@ for (const scale of [100, 200]) {
 	});
 }
 
-test('the homepage keeps image delivery and layout within its initial-load budget', async ({ page }) => {
+test('the homepage keeps image delivery and layout within its initial-load budget', async ({ page }, testInfo) => {
 	await page.addInitScript(() => {
 		(globalThis as typeof globalThis & { cumulativeLayoutShift: number }).cumulativeLayoutShift = 0;
 		new PerformanceObserver((entries) => {
@@ -112,6 +112,10 @@ test('the homepage keeps image delivery and layout within its initial-load budge
 			requestCount: resources.length,
 			cls: globalThis.cumulativeLayoutShift,
 		};
+	});
+	await testInfo.attach('homepage-initial-load-metrics', {
+		body: Buffer.from(JSON.stringify(metrics, null, 2)),
+		contentType: 'application/json',
 	});
 
 	expect(metrics.transferBytes).toBeLessThanOrEqual(2.5 * 1024 * 1024);

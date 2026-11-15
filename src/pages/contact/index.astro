@@ -55,8 +55,9 @@ const [github, newsletter, history] = quicklinks;
 
 <style>
 	.participation { overflow-wrap: anywhere; }
-	:global(main#content h1) { overflow-wrap: anywhere; font-size: 1.75rem; line-height: 1.2; text-wrap: balance; }
+	:global(main#content h1) { overflow-wrap: normal; hyphens: auto; font-size: 1.5rem; line-height: 1.2; text-wrap: balance; }
 	@media (min-width: 640px) { :global(main#content h1) { font-size: 3rem; } }
+	@media (max-width: 359px) { :global(main#content h1) { font-size: 1.25rem; } }
 	.participation > section { margin-block: 3rem; scroll-margin-top: 2rem; }
 	.participation h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; }
 	.participation h3 { font-size: 1.75rem; line-height: 1.25; margin: 0; }
