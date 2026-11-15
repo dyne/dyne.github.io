@@ -1,0 +1,69 @@
+{
+  "sourceSha256": "e5942c2cae2b3d524d6658e8ac73737187b459567c9c39da31827f4588bb20d0",
+  "wallets": [
+    {
+      "name": "bitcoin",
+      "address": "bc1qz9wz2f9swcefra2tfrhk4fx49evqsv03m9nx4l"
+    },
+    {
+      "name": "ethereum",
+      "address": "0x9b8aF04912c462b39bB4f26FeA22E7a70e3b8677"
+    },
+    {
+      "name": "monero",
+      "href": "monero://49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE?tx_message=donation%20to%20dyne.org",
+      "address": "49GZLW2J65c9tNDFEjv6gVVVHFhQYwfzmZMQu4tSeYFbPXxD61nWvGU6cSkCBEyixFErrmSPxWFdN6djuQX8nXBiBS3hqWE"
+    }
+  ],
+  "tiers": [
+    {
+      "amount": "2€",
+      "text": "Get yourself an art pack, so a dyne can hack!",
+      "url": "https://ko-fi.com/s/e011a091f2"
+    },
+    {
+      "amount": "3-70€",
+      "text": "Look good in the hood, buy the swag.",
+      "url": "https://dyne.org/shop"
+    },
+    {
+      "amount": "70€",
+      "text": "Get a shoutout on our website and social-media, mentioning your user with a link to your website.",
+      "url": "https://www.paypal.com/donate/?business=foundation%40dyne.org&currency_code=EUR&amount=70"
+    },
+    {
+      "amount": "350€",
+      "text": "We will dedicate 1 hour to advise you about a technical topic of your choice.",
+      "url": "https://www.paypal.com/donate/?business=foundation%40dyne.org&currency_code=EUR&amount=350"
+    },
+    {
+      "amount": "600€",
+      "text": "We will run a 2h on-line workshop for you and your team",
+      "url": "https://www.paypal.com/donate/?business=foundation%40dyne.org&currency_code=EUR&amount=600"
+    },
+    {
+      "amount": "3.000€",
+      "text": "Jaromil will give a professional keynote talk at your conference",
+      "url": "https://www.paypal.com/donate/?business=foundation%40dyne.org&currency_code=EUR&amount=3000"
+    }
+  ],
+  "recurringPromises": [
+    "Blessings of the giant spaghetti monster.",
+    "Sacrifice of any given bad computer in sustainable manners.",
+    "Invitations to a special servers with elevated privs, good music and root beer, where the resident Dynes also hang out.",
+    "Mentions of you on the Dyne.org home page."
+  ],
+  "cryptoPromise": "Contact us with the transaction ID to redeem the benefits.",
+  "paymentDestinations": [
+    "https://ko-fi.com/dyneorg",
+    "https://github.com/sponsors/dyne",
+    "https://patreon.com/dyneorg",
+    "https://ko-fi.com/s/e011a091f2",
+    "https://dyne.org/shop",
+    "https://www.paypal.com/donate/?business=foundation%40dyne.org&currency_code=EUR&amount=70",
+    "https://www.paypal.com/donate/?business=foundation%40dyne.org&currency_code=EUR&amount=350",
+    "https://www.paypal.com/donate/?business=foundation%40dyne.org&currency_code=EUR&amount=600",
+    "https://www.paypal.com/donate/?business=foundation%40dyne.org&currency_code=EUR&amount=3000",
+    "https://buy.stripe.com/9AQbJv3cM5TBcw0149"
+  ]
+}

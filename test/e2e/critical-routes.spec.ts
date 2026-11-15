@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { readFileSync } from 'node:fs';
+const donationBaseline = JSON.parse(readFileSync(new URL('../fixtures/donation-baseline.json', import.meta.url), 'utf8'));
 
 const routes = [
 	['/', 200],
@@ -112,14 +114,112 @@ test('wallet copy announces success and failure', async ({ page }, testInfo) => 
 	await page.goto('/donate/');
 	await page.locator('#bitcoin').click();
 	await expect(page.locator('#wallet-copy-status')).toContainText('bitcoin wallet address copied');
+	await expect(page.locator('#bitcoin-copy-feedback')).toBeVisible();
+	await expect(page.locator('#bitcoin-copy-feedback')).toContainText('bitcoin wallet address copied');
 	await page.screenshot({ path: testInfo.outputPath('donation-crypto-panel.png') });
 });
 
-test('wallet copy announces clipboard denial', async ({ page }) => {
+test('wallet copy announces clipboard denial', async ({ page }, testInfo) => {
 	await page.addInitScript(() => Object.defineProperty(navigator, 'clipboard', { value: { writeText: () => Promise.reject(new Error('denied')) } }));
 	await page.goto('/donate/');
 	await page.locator('#bitcoin').click();
 	await expect(page.locator('#wallet-copy-status')).toContainText('Could not copy');
+	await expect(page.locator('#bitcoin-copy-feedback')).toBeVisible();
+	await expect(page.locator('#bitcoin-copy-feedback')).toContainText('Please copy it manually');
+	const address = page.locator('#bitcoin-address');
+	await expect(address).toHaveText(donationBaseline.wallets[0].address);
+	await address.focus();
+	await expect(address).toBeFocused();
+	const selected = await address.evaluate(element => {
+		const range = document.createRange(); range.selectNodeContents(element);
+		const selection = window.getSelection(); selection?.removeAllRanges(); selection?.addRange(range);
+		return selection?.toString();
+	});
+	expect(selected).toBe(donationBaseline.wallets[0].address);
+	await page.locator('#bitcoin-copy-feedback').scrollIntoViewIfNeeded();
+	await page.screenshot({ path: testInfo.outputPath('donation-copy-denial.png') });
+});
+
+test('donation tabs support arrow, Home and End keys with provider labels', async ({ page }) => {
+	await page.goto('/donate/');
+	const choices = page.getByRole('navigation', { name: 'Support choices' }).getByRole('link');
+	await choices.first().focus();
+	for (let index = 0; index < 3; index++) {
+		await expect(choices.nth(index)).toBeFocused();
+		expect(await choices.nth(index).evaluate(element => getComputedStyle(element).outlineStyle)).not.toBe('none');
+		if (index < 2) await page.keyboard.press('Tab');
+	}
+	const crypto = page.getByRole('tab', { name: 'Cryptocurrency wallets' });
+	const stripe = page.getByRole('tab', { name: 'Donate via Stripe' });
+	await crypto.focus();
+	for (const [key, selected, panel] of [
+		['ArrowRight', stripe, '#money-panel'], ['Home', crypto, '#crypto-panel'],
+		['End', stripe, '#money-panel'], ['ArrowRight', crypto, '#crypto-panel'],
+		['ArrowLeft', stripe, '#money-panel'],
+	] as const) {
+		await page.keyboard.press(key);
+		await expect(selected).toBeFocused();
+		await expect(selected).toHaveAttribute('aria-selected', 'true');
+		await expect(page.locator(panel)).toBeVisible();
+	}
+});
+
+test('donation providers and purchases preserve exact destinations and amounts without external navigation', async ({ page }) => {
+	const externalRequests: string[] = [];
+	await page.route('**/*', async route => {
+		if (new URL(route.request().url()).hostname === '127.0.0.1') return route.continue();
+		externalRequests.push(route.request().url());
+		await route.abort();
+	});
+	await page.goto('/donate/');
+	for (const href of donationBaseline.paymentDestinations) await expect(page.locator(`main a[href="${href}"]`)).toHaveCount(1);
+	for (const tier of donationBaseline.tiers) {
+		const offer = page.locator(`#support-offers a[href="${tier.url}"]`);
+		await expect(offer).toContainText(tier.amount);
+		await expect(offer).toContainText(tier.text);
+	}
+	for (const wallet of donationBaseline.wallets) await expect(page.locator(`#${wallet.name}-address`)).toHaveText(wallet.address);
+	await expect(page.getByRole('heading', { name: 'Recurring support' })).toBeVisible();
+	await expect(page.getByRole('heading', { name: 'One-time donations' })).toBeVisible();
+	await expect(page.getByRole('heading', { name: 'Merchandise, recognition and services' })).toBeVisible();
+	expect(externalRequests).toEqual([]);
+});
+
+test('donation methods remain available without JavaScript', async ({ browser }) => {
+	const context = await browser.newContext({ javaScriptEnabled: false, reducedMotion: 'reduce' });
+	try {
+		const page = await context.newPage();
+		await page.route('**/*', route => new URL(route.request().url()).hostname === '127.0.0.1' ? route.continue() : route.abort());
+		await page.goto('/donate/');
+		await expect(page.locator('#crypto-panel')).toBeVisible();
+		await expect(page.locator('#money-panel')).toBeVisible();
+		await expect(page.locator('#money-panel a')).toHaveAttribute('href', donationBaseline.paymentDestinations.at(-1)!);
+		for (const wallet of donationBaseline.wallets) await expect(page.locator(`#${wallet.name}-address`)).toHaveText(wallet.address);
+	} finally { await context.close(); }
+});
+
+for (const scale of [100, 200]) {
+	test(`donation methods and offers wrap at ${scale}% text scale`, async ({ page }, testInfo) => {
+		await page.emulateMedia({ reducedMotion: 'reduce' });
+		await page.goto('/donate/');
+		await page.locator('html').evaluate((element, value) => { element.style.fontSize = `${value}%`; }, scale);
+		for (const panel of ['crypto', 'money']) {
+			await page.locator(`#${panel}-tab`).click();
+			const overflow = await page.locator('.donation-layout').evaluate(root => [...root.querySelectorAll('h1,h2,h3,p,a,code,button')].filter(element => {
+				const box = element.getBoundingClientRect();
+				return box.width > 0 && (box.left < -1 || box.right > innerWidth + 1 || element.scrollWidth > element.clientWidth + 1);
+			}).map(element => element.textContent));
+			expect(overflow).toEqual([]);
+		}
+		await page.screenshot({ path: testInfo.outputPath(`donation-methods-${scale}.png`) });
+	});
+}
+
+test('donation wallet addresses and offers reflow at 320px', async ({ page }) => {
+	await page.setViewportSize({ width: 320, height: 844 });
+	await page.goto('/donate/');
+	expect(await page.locator('.donation-layout').evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+	for (const wallet of donationBaseline.wallets) await expect(page.locator(`#${wallet.name}-address`)).toHaveText(wallet.address);
 });
 
 test('deterministic palettes preserve visible keyboard focus without console errors', async ({ page }, testInfo) => {
