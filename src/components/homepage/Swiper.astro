@@ -11,18 +11,26 @@ const { slidesPerView = 1, id, delay = 2000, paginationClass = 'mt-0' } = Astro.
 
 <script is:inline define:vars={{ slidesPerView, id, delay }}>
 	const root = document.getElementById(id);
-	const loadSwiper = () => new Promise((resolve, reject) => {
-		if (window.Swiper) return resolve(window.Swiper);
-		const stylesheet = document.createElement('link');
-		stylesheet.rel = 'stylesheet';
-		stylesheet.href = 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css';
-		document.head.append(stylesheet);
-		const script = document.createElement('script');
-		script.src = 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js';
-		script.onload = () => resolve(window.Swiper);
-		script.onerror = reject;
-		document.head.append(script);
-	});
+	const loadSwiper = async () => {
+		if (window.Swiper) return window.Swiper;
+		const stylesheetReady = new Promise((resolve, reject) => {
+			const stylesheet = document.createElement('link');
+			stylesheet.rel = 'stylesheet';
+			stylesheet.href = 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css';
+			stylesheet.onload = resolve;
+			stylesheet.onerror = reject;
+			document.head.append(stylesheet);
+		});
+		const scriptReady = new Promise((resolve, reject) => {
+			const script = document.createElement('script');
+			script.src = 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js';
+			script.onload = resolve;
+			script.onerror = reject;
+			document.head.append(script);
+		});
+		await Promise.all([stylesheetReady, scriptReady]);
+		return window.Swiper;
+	};
 	const initialise = async () => {
 		if (!root || root.dataset.swiperReady) return;
 		const Swiper = await loadSwiper();

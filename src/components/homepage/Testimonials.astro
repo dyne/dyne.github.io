@@ -10,14 +10,14 @@ const testimonials = await Promise.all(
 ---
 
 <div class="homepage-testimonials">
-	<Swiper id="testimonials-slider" delay={4000} class="flex align-middle">
+	<Swiper id="testimonials-slider" delay={4000}>
 		{
 			testimonials.map((t) => {
 				const { pic } = t.data;
 				const optimizedPic = pic.replace(/\.[^.]+$/, '.webp').replace('/testimonial/', '/testimonial/optimized/');
 				return (
-					<div class={`swiper-slide bg-baccent mx-auto lg:max-w-none rounded-4xl p-6 sm:p-10 lg:p-20 my-24 max-w-[450px]`}>
-						<div class="flex-col flex lg:flex-row gap-8 lg:gap-12 items-center justify-between">
+					<div class="swiper-slide box-border px-[12px] py-24 lg:px-0">
+						<div class="testimonial-card mx-auto flex max-w-[450px] flex-col items-center justify-between gap-8 rounded-3xl bg-baccent p-6 sm:p-10 lg:max-w-none lg:flex-row lg:gap-12 lg:rounded-4xl lg:p-20">
 							<picture class="testimonial-portrait">
 								<source type="image/webp" srcset={`${optimizedPic.replace('.webp', '-256.webp')} 256w, ${optimizedPic} 512w`} sizes="(min-width: 1024px) 320px, 256px" />
 								<img src={pic} alt="Portrait of testimonial author" width="320" height="320" loading="lazy" decoding="async" class="block w-full aspect-square object-cover rounded-full" />

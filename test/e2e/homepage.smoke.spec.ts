@@ -54,6 +54,22 @@ test('hero links reflow at 320px', async ({ page }) => {
 	}
 });
 
+test('narrow homepage headings use the loaded Syne face independently of body text', async ({ page }) => {
+	await page.setViewportSize({ width: 320, height: 844 });
+	await page.goto('/');
+	await page.locator('body').evaluate(body => { body.style.fontFamily = 'monospace'; });
+	const load = await page.evaluate(async () => {
+		const files = await document.fonts.load('700 32px Syne');
+		return files.some(face => face.status === 'loaded');
+	});
+	expect(load).toBe(true);
+	const headline = page.getByRole('heading', { name: 'Free to share code.' });
+	await expect(headline).toHaveCSS('font-weight', '700');
+	for (const name of ['Free to share code.', 'Who we are', 'Planet Dyne', 'Software you can use']) {
+		await expect(page.getByRole('heading', { name, exact: true })).toHaveCSS('font-family', /^Syne, sans-serif$/);
+	}
+});
+
 test('the homepage preserves its original section order and keyboard-accessible project directory', async ({ page }) => {
 	await page.goto('/');
 	const highlights = page.locator('[data-project-highlights]');
@@ -128,16 +144,27 @@ test('the homepage keeps image delivery and layout within its initial-load budge
 
 test('defers the testimonial carousel dependency until its section is near the viewport', async ({ page }) => {
 	const swiperRequests: string[] = [];
+	let releaseStylesheet!: () => void;
+	const stylesheetReady = new Promise<void>(resolve => { releaseStylesheet = resolve; });
 	await page.route('**/swiper-bundle.min.js', async (route) => {
 		swiperRequests.push(route.request().url());
-		await route.fulfill({ contentType: 'application/javascript', body: 'window.Swiper = class { on() {} };' });
+		await route.fulfill({ contentType: 'application/javascript', body: 'window.Swiper = class { constructor(root) { document.querySelector(root).dataset.sliderCreated = "true"; } on() {} };' });
 	});
-	await page.route('**/swiper-bundle.min.css', (route) => route.fulfill({ contentType: 'text/css', body: '' }));
+	await page.route('**/swiper-bundle.min.css', async (route) => {
+		await stylesheetReady;
+		await route.fulfill({ contentType: 'text/css', body: '' });
+	});
 
-	await page.goto('/');
-	expect(swiperRequests).toHaveLength(0);
 	const carousel = page.locator('[data-swiper-deferred]');
-	await carousel.scrollIntoViewIfNeeded();
+	try {
+		await page.goto('/');
+		expect(swiperRequests).toHaveLength(0);
+		await carousel.scrollIntoViewIfNeeded();
+		await page.waitForFunction(() => 'Swiper' in window);
+		await expect(carousel).not.toHaveAttribute('data-slider-created', 'true');
+	} finally {
+		releaseStylesheet();
+	}
 	await expect(carousel).toHaveAttribute('data-swiper-ready', 'true');
 	expect(swiperRequests).toHaveLength(1);
 });
@@ -150,6 +177,40 @@ test('respects reduced motion when the deferred carousel becomes visible', async
 	const carousel = page.locator('[data-swiper-deferred]');
 	await carousel.scrollIntoViewIfNeeded();
 	await expect(carousel).toHaveAttribute('data-swiper-autoplay', 'false');
+});
+
+test('testimonial cards stay centered after scrolling and selecting slides on narrow screens', async ({ page }) => {
+	await page.emulateMedia({ reducedMotion: 'reduce' });
+	const carousel = page.getByRole('region', { name: 'Testimonials' });
+	const controls = carousel.locator('.swiper-pagination-bullet');
+	for (const width of [320, 390, 480, 768]) {
+		await page.setViewportSize({ width, height: 844 });
+		await page.goto('/');
+		await carousel.locator('.swiper-slide').first().scrollIntoViewIfNeeded();
+		await expect(carousel).toHaveAttribute('data-swiper-ready', 'true');
+
+		for (const control of [controls.first(), controls.last(), controls.nth(1)]) {
+			await control.click();
+			await expect(control).toHaveClass(/swiper-pagination-bullet-active/);
+			await expect.poll(() => carousel.evaluate(element => {
+				const bounds = element.getBoundingClientRect();
+				const cards = [...element.querySelectorAll('.swiper-slide > div')];
+				return cards.filter(card => {
+					const rect = card.getBoundingClientRect();
+					return rect.right > bounds.left + 1 && rect.left < bounds.right - 1;
+				}).map(card => {
+					const rect = card.getBoundingClientRect();
+					return {
+						active: card.parentElement!.classList.contains('swiper-slide-active'),
+						centered: Math.abs(rect.left + rect.right - bounds.left - bounds.right) < 2,
+						inset: rect.left >= bounds.left + 11 && rect.right <= bounds.right - 11,
+					};
+				});
+			}), { message: `fully visible centered card at ${width}px` }).toEqual([
+				{ active: true, centered: true, inset: true },
+			]);
+		}
+	}
 });
 
 test.describe('without JavaScript', () => {
