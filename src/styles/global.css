@@ -24,7 +24,7 @@
 	--color-primary-20: #fdf5eb;
 	--color-primary-10: #fefaf5;
 	--color-primary-5: #fefcfa;
-	--font-sans: Syne, sans;
+	--font-sans: Syne, sans-serif;
 	--font-serif: 'Syne Tactile', cursive;
 	--font-prose: 'Inter Variable', sans-serif, sans;
 	--font-mono: 'JetBrains Mono', monospace;
@@ -35,7 +35,11 @@
 	--radius-4xl: 120px;
 }
 
+:where(h1, h2, h3, h4, h5, h6) {
+	font-family: var(--font-sans, Syne, sans-serif);
+}
+
 .prose :where(em):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-	font-family: Syne, sans;
+	font-family: var(--font-sans, Syne, sans-serif);
 	font-style: italic;
 }

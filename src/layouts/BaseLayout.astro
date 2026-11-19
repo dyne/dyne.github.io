@@ -5,6 +5,7 @@ import { SITE } from '~/config.mjs';
 import '@fontsource/syne/400.css';
 import '@fontsource/syne/700.css';
 import '@fontsource/syne/800.css';
+import syneBoldLatin from '@fontsource/syne/files/syne-latin-700-normal.woff2?url';
 import '../styles/global.css';
 
 const { meta = {} } = Astro.props;
@@ -35,6 +36,7 @@ const pageMeta = { ...meta, canonical };
 <html lang="en">
 	<head>
 		<MetaTags {...pageMeta} />
+		<link rel="preload" href={syneBoldLatin} as="font" type="font/woff2" crossorigin="anonymous" />
 	</head>
 
 	<body class="bg-background duration-500">

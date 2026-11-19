@@ -22,6 +22,12 @@ import ButtonsGroup from '../ButtonsGroup.astro';
 </div>
 
 <style>
-	.hero-slogan { font-size: clamp(2rem, calc(1rem + 8vw), 3.75rem); overflow-wrap: anywhere; }
+	.hero-slogan {
+		font-family: var(--font-sans, Syne, sans-serif);
+		font-size: clamp(2rem, calc(1rem + 8vw), 3.75rem);
+		font-weight: 700;
+		line-height: 1.15;
+		overflow-wrap: anywhere;
+	}
 	.hero-actions :global(a) { max-width: 100%; white-space: normal; text-align: center; }
 </style>
